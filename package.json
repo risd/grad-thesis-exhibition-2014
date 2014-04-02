@@ -1,0 +1,35 @@
+{
+  "name": "grad-thesis-exhibition-2014",
+  "version": "0.0.0",
+  "description": "Website for the RISD Grad Thesis Exhibition 2014",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"no tests\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/risd/grad-thesis-exhibition-2014.git"
+  },
+  "author": "Ruben Rodriguez",
+  "license": "BSD-2-Clause",
+  "bugs": {
+    "url": "https://github.com/risd/grad-thesis-exhibition-2014/issues"
+  },
+  "homepage": "https://github.com/risd/grad-thesis-exhibition-2014",
+  "dependencies": {
+    "browserify": "~3.38.0",
+    "d3": "~3.4.4"
+  },
+  "devDependencies": {
+    "watchify": "~0.6.3",
+    "catw": "~0.2.0"
+  },
+  "scripts": {
+    "build-js": "browserify src/index.js -o dist/site.js",
+    "build-js-lib": "cat lib/*.js > dist/lib.js",
+    "watch-js": "watchify src/index.js -o dist/site.js -dv",
+    "watch-js-lib": "catw lib/*.js -o dist/lib.js -v",
+    "watch": "npm run watch-js & npm run watch-css & npm run watch-js-lib",
+    "build": "npm run build-js & npm run build-js-lib"
+  }
+}
