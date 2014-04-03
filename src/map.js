@@ -5,7 +5,7 @@ module.exports = function Map () {
     var paths = [];
 
     self.render = function () {
-        
+        console.log('rendered');
     };
 
     return self;

@@ -29,6 +29,7 @@
   },
   "devDependencies": {
     "watchify": "~0.6.3",
-    "catw": "~0.2.0"
+    "catw": "~0.2.0",
+    "foreman": "~0.2.1"
   }
 }

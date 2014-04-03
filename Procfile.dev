@@ -1,0 +1,4 @@
+web: python -m SimpleHTTPServer 8887
+css: npm run watch-css
+js: npm run watch-js
+js-lib: npm run watch-js-lib

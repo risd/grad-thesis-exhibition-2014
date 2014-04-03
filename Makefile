@@ -1,12 +1,12 @@
-.PHONY: watch build clean
+.PHONY: build install clean
 
 all: build
 
-watch:
-	npm run watch
-
 build:
 	npm run build
+
+install:
+	npm install
 
 clean:
 	rm -f dist/*
