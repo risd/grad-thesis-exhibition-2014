@@ -9,4 +9,4 @@ build:
 	npm run build
 
 clean:
-	rm -f dist/*.js
+	rm -f dist/*
