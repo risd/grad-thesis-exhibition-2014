@@ -1,0 +1,42 @@
+/* Fonts
+-----------------------------------------------*/
+html, body, p, a {
+    font-family: "Theinhardt-Bold";
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    font-size: 13px;
+    line-height: 17px;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 {
+    font-family: "Theinhardt-Medium";
+
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1 {
+    font-size: auto;
+    line-height: auto
+}
+h2 {
+    font-size: auto;
+    line-height: auto
+}
+h3 {
+    font-size: auto;
+    line-height: auto
+}
+h4 {
+    font-size: auto;
+    line-height: auto
+}
+

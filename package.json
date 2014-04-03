@@ -4,10 +4,10 @@
   "description": "Website for the RISD Grad Thesis Exhibition 2014",
   "main": "src/index.js",
   "scripts": {
-    "build-css": "cat styles/mapbox.standalone.css styles/site.css > dist/site.css",
+    "build-css": "cat styles/fonts.css styles/layout.css styles/modules.css styles/theme.css > dist/site.css",
     "build-js": "browserify src/index.js -o dist/site.js",
     "build-js-lib": "cat lib/*.js > dist/lib.js",
-    "watch-css": "catw styles/mapbox.standalone.css styles/site.css -o dist/site.css",
+    "watch-css": "catw styles/fonts.css styles/layout.css styles/modules.css styles/theme.css -o dist/site.css",
     "watch-js": "watchify src/index.js -o dist/site.js -dv",
     "watch-js-lib": "catw lib/*.js -o dist/lib.js -v",
     "watch": "npm run watch-js & npm run watch-css & npm run watch-js-lib",

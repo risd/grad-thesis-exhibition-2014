@@ -1,0 +1,28 @@
+/* Theme
+-----------------------------------------------*/
+
+html, body {
+    background-color: rgb(38, 34, 98);
+    color: rgb(255, 255, 255);
+}
+
+.about .subtitle .heading {
+    text-transform: uppercase;
+}
+
+.map .streets path {
+    fill: none;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 20;
+}
+.map .marker-poi polygon{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(38, 34, 98);
+    stroke-width: 2;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(0.9);
+}
+.map .poi path {
+    marker-end: url(#marker-poi);
+}
+

@@ -1,0 +1,29 @@
+/* Layout
+-----------------------------------------------*/
+
+/* grid */
+*, *:after, *:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.grid {
+    width: 1024px;
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+.grid:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+[class*="col-"] {
+    float: left;
+    padding-right: 20px;
+}
+[class*="col-"]:last-of-type {
+    padding-right: 0;
+}
+/* end grid */
+
