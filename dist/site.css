@@ -16,6 +16,9 @@ html, body, p, a {
 
     font-size: 13px;
     line-height: 17px;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
 }
 h1,h2,h3,h4 {
     font-family: "Theinhardt-Medium";
@@ -64,6 +67,31 @@ h1,h2,h3,h4 {
 
 /* Modules
 -----------------------------------------------*/
+.where {
+
+}
+.where .map {
+
+}
+.where .directions {
+
+}
+
+.map .streets path {
+    fill: none;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 5;
+}
+.map .marker-poi polygon{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(38, 34, 98);
+    stroke-width: 2;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(0.5);
+}
+.map .poi path {
+    marker-end: url(#marker-poi);
+}
 
 /* State
 -----------------------------------------------*/
