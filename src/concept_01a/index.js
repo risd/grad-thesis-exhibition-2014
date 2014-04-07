@@ -1,10 +1,9 @@
 var html = require('./html');
 
-module.exports = function concept_01 () {
+module.exports = function concept_01a () {
     var self = {},
         svg,
         paths,
-        pois,
         named_paths = {},
         window_sel = d3.select(window);
 
@@ -12,26 +11,6 @@ module.exports = function concept_01 () {
         'hidden':  tween_dash_hide,
         'showing': tween_dash_show
     };
-
-    window_sel.on('scroll', function () {
-        var poi_bbox = pois['convention-center-marker']
-                            .node()
-                            .getBoundingClientRect();
-
-        var poi_relationship_to_window =
-            poi_bbox.top - window.innerHeight;
-
-        if ((named_paths['second-section'].state === 'hidden') &
-            (poi_relationship_to_window < 0)) {
-
-            self.dispatch.animateSecond('showing');
-        } else if ((named_paths['second-section']
-                                    .state === 'showing') &
-                   (poi_relationship_to_window > 0)) {
-
-            self.dispatch.animateSecond('hidden');
-        }
-    });
     
     self.dispatch = d3.dispatch('animateFirst', 'animateSecond');
 
@@ -60,6 +39,24 @@ module.exports = function concept_01 () {
         named_paths['second-section'].state = transition_to_state;
     });
 
+    window_sel.on('scroll', function () {
+        var svg_bbox = svg.node().getBoundingClientRect(),
+            path_bbox = named_paths['second-section'].node()
+                            .getBoundingClientRect(),
+            current_length = 0;
+
+        if (svg_bbox.top  < 0) {
+            current_length =
+                named_paths['second-section']
+                    .scale(window.innerHeight - path_bbox.top);
+        }
+
+        named_paths['second-section'].transition()
+            .attr('stroke-dasharray',
+                  current_length + ',' +
+                  named_paths['second-section'].total_length);
+    });
+
     self.render = function () {
         // put the dom in
         d3.select('body').html(html);
@@ -79,17 +76,16 @@ module.exports = function concept_01 () {
                 named_paths[name] = d3.select(this);
                 named_paths[name].state = 'hidden';
 
-                var l = this.getTotalLength();
+                var l = this.getTotalLength(),
+                    h = this.getBoundingClientRect().height;
 
                 // set initial stroke-dasharray to hide
                 named_paths[name].attr('stroke-dasharray', '0,' + l);
-            });
-
-            pois = svg.selectAll('.poi');
-
-            pois.each(function () {
-                var name = d3.select(this).attr('id');
-                pois[name] = d3.select(this);
+                named_paths[name].total_length = l;
+                named_paths[name].scale = d3.scale.linear()
+                    .domain([0, h])
+                    .range([0, l])
+                    .clamp(true);
             });
 
             self.dispatch.animateFirst('showing');
