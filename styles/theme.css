@@ -6,10 +6,20 @@ html, body {
     color: rgb(255, 255, 255);
 }
 
+a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
 .about .subtitle .heading {
     text-transform: uppercase;
 }
 
+
+/* concept 00 */
 .map .streets path {
     fill: none;
     stroke: rgb(255, 255, 255);
@@ -26,3 +36,12 @@ html, body {
     marker-end: url(#marker-poi);
 }
 
+/* end concept 00 */
+
+/* concept 01 */
+.path-to-animate  {
+    fill: none;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 20;
+}
+/* end concept 01 */

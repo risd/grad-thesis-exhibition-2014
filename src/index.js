@@ -1,27 +1,50 @@
-var SVGMap = require('./map')(),
-    Behance = require('./fetch_behance')(),
-    Work = require('./work');
+var prototypes = {
+    concept: {
+        '00': Concept_00,
+        '01': Concept_01,
+        '02': Concept_02
+    },
+    work: {
+        '01': Work_01
+    },
+    index: {
+        '00': function () {}
+    }
+};
 
-exhibition = Exhibition();
+var prototype_to_load = (function () {
+    var hash_vars = ['index', '00'];
+
+    var hash = window.location.hash;
+
+    if (hash) {
+        hash_vars = hash.split('#')[1].split('&')[0].split('=');
+    }
+
+    // return ['work', '01']
+    return hash_vars;
+})();
+
+exhibition = prototypes[prototype_to_load[0]][prototype_to_load[1]]();
 
 window.exhibition = exhibition;
 
-function Exhibition () {
-    var context = {};
-    context.map = SVGMap.paths(d3.selectAll('.streets path'));
-    context.work = Work(context)
-                    .wrapper(d3.select('.work'));
-    context.behance = Behance.source('local');
+function Work_01 () {
+    var work = require('./work_01/index.js')();
+    return work;
+}
 
-    context.behance
-        .dispatch
-        .on('fetched', function (data) {
-            context.work
-                .data(data)
-                .render();
-        });
+function Concept_00 () {
+    var concept = require('./concept_00/index.js')().render();
+    return concept;
+}
 
-    context.behance.fetch();
+function Concept_01 () {
+    var concept = require('./concept_01/index.js')().render();
+    return concept;
+}
 
-    return context;
+function Concept_02 () {
+    var concept = require('./concept_02/index.js')().render();
+    return concept;
 }
