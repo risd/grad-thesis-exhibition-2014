@@ -4,8 +4,9 @@ module.exports = function concept_01 () {
     var self = {},
         svg,
         paths,
-        pois,
+        pois = {},
         named_paths = {},
+        named_text = {},
         window_sel = d3.select(window);
 
     var tween_dashs = {
@@ -45,6 +46,12 @@ module.exports = function concept_01 () {
             .attrTween("stroke-dasharray",
                        tween_dashs[transition_to_state]);
 
+        named_text['first-section']
+            .transition()
+            .duration(800)
+            .delay(2700)
+            .style('opacity', 1);
+
         named_paths['first-section'].state = transition_to_state;
     });
 
@@ -58,13 +65,20 @@ module.exports = function concept_01 () {
                        tween_dashs[transition_to_state]);
 
         named_paths['second-section'].state = transition_to_state;
+
+        named_text['second-section']
+            .transition()
+            .duration(800)
+            .delay(2700)
+            .style('opacity',
+                (transition_to_state === 'hidden') ? 0 : 1);
     });
 
     self.render = function () {
         // put the dom in
         d3.select('body').html(html);
 
-        d3.html('../src/concept_01/gradshow_v1_02.svg',
+        d3.html('../src/concept_01/concept-1.svg',
                 function (results) {
 
             var svg_fragement = d3.select('.grid').node()
@@ -72,25 +86,39 @@ module.exports = function concept_01 () {
 
             svg = d3.select('.grid svg');
 
-            paths = svg.selectAll('.path-to-animate');
+            named_paths['first-section'] =
+                svg.select('#line_1_ path');
+            named_paths['second-section'] =
+                svg.select('#line path');
 
-            paths.each(function () {
-                var name = d3.select(this).attr('id');
-                named_paths[name] = d3.select(this);
-                named_paths[name].state = 'hidden';
+            named_paths['first-section'].state = 'hidden';
+            named_paths['second-section'].state = 'hidden';
 
-                var l = this.getTotalLength();
+            named_paths['first-section'].attr('stroke-dasharray',
+                '0,' +
+                named_paths['first-section'].node()
+                                            .getTotalLength());
+            named_paths['second-section'].attr('stroke-dasharray',
+                '0,' +
+                named_paths['second-section'].node()
+                                            .getTotalLength());
 
-                // set initial stroke-dasharray to hide
-                named_paths[name].attr('stroke-dasharray', '0,' + l);
-            });
 
-            pois = svg.selectAll('.poi');
+            pois['convention-center-marker'] =
+                svg.select('#drop_pin path');
 
-            pois.each(function () {
-                var name = d3.select(this).attr('id');
-                pois[name] = d3.select(this);
-            });
+
+            named_text['first-section'] =
+                svg.selectAll('#home #text_2_');
+            named_text['first-section'].style('opacity', 0);
+
+            named_text['second-section'] =
+                svg.selectAll('#map #text_1_, ' +
+                              '#map #land, ' +
+                              '#map #street, ' +
+                              '#map #drop_pin');
+            named_text['second-section'].style('opacity', 0);
+
 
             self.dispatch.animateFirst('showing');
         });

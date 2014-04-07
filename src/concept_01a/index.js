@@ -5,6 +5,7 @@ module.exports = function concept_01a () {
         svg,
         paths,
         named_paths = {},
+        named_text = {},
         window_sel = d3.select(window);
 
     var tween_dashs = {
@@ -24,19 +25,13 @@ module.exports = function concept_01a () {
             .attrTween("stroke-dasharray",
                        tween_dashs[transition_to_state]);
 
-        named_paths['first-section'].state = transition_to_state;
-    });
-
-    self.dispatch.on('animateSecond',
-                     function (transition_to_state) {
-        named_paths['second-section']
+        named_text['first-section']
             .transition()
-            .duration(3000)
-            .ease('cubic-inout')
-            .attrTween("stroke-dasharray",
-                       tween_dashs[transition_to_state]);
+            .duration(800)
+            .delay(2700)
+            .style('opacity', 1);
 
-        named_paths['second-section'].state = transition_to_state;
+        named_paths['first-section'].state = transition_to_state;
     });
 
     window_sel.on('scroll', function () {
@@ -55,13 +50,19 @@ module.exports = function concept_01a () {
             .attr('stroke-dasharray',
                   current_length + ',' +
                   named_paths['second-section'].total_length);
+
+        named_text['second-section']
+            .transition()
+            .style('opacity', (current_length/
+                                named_paths['second-section']
+                                    .total_length));
     });
 
     self.render = function () {
         // put the dom in
         d3.select('body').html(html);
 
-        d3.html('../src/concept_01/gradshow_v1_02.svg',
+        d3.html('../src/concept_01/concept-1.svg',
                 function (results) {
 
             var svg_fragement = d3.select('.grid').node()
@@ -69,24 +70,39 @@ module.exports = function concept_01a () {
 
             svg = d3.select('.grid svg');
 
-            paths = svg.selectAll('.path-to-animate');
+            named_paths['first-section'] =
+                svg.select('#line_1_ path');
+            named_paths['second-section'] =
+                svg.select('#line path');
 
-            paths.each(function () {
-                var name = d3.select(this).attr('id');
-                named_paths[name] = d3.select(this);
-                named_paths[name].state = 'hidden';
+            for (var path in named_paths) {
+                var l = named_paths[path].node()
+                                .getTotalLength(),
+                    h = named_paths[path].node()
+                                .getBoundingClientRect().height;
 
-                var l = this.getTotalLength(),
-                    h = this.getBoundingClientRect().height;
+                named_paths[path].state = 'hidden';
 
-                // set initial stroke-dasharray to hide
-                named_paths[name].attr('stroke-dasharray', '0,' + l);
-                named_paths[name].total_length = l;
-                named_paths[name].scale = d3.scale.linear()
+                named_paths[path].attr('stroke-dasharray',
+                                        '0,' + l );
+                named_paths[path].total_length = l;
+                named_paths[path].scale = d3.scale.linear()
                     .domain([0, h])
                     .range([0, l])
                     .clamp(true);
-            });
+            }
+
+            named_text['first-section'] =
+                svg.selectAll('#home #text_2_');
+            named_text['second-section'] =
+                svg.selectAll('#map #text_1_, ' +
+                              '#map #land, ' +
+                              '#map #street, ' +
+                              '#map #drop_pin');
+
+            for (var text in named_text) {
+                named_text[text].style('opacity', 0);
+            }
 
             self.dispatch.animateFirst('showing');
         });
