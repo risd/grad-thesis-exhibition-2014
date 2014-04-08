@@ -4,33 +4,22 @@ module.exports = function concept_01 () {
     var self = {},
         svg,
         paths,
-        pois,
         named_paths = {},
+        named_text = {},
+        logos = {},
         window_sel = d3.select(window);
 
     var tween_dashs = {
         'hidden':  tween_dash_hide,
         'showing': tween_dash_show
     };
+    var tween_dash_opposite = {
+        'hidden':  tween_dash_show_reverse,
+        'showing': tween_dash_hide_reverse
+    };
 
     window_sel.on('scroll', function () {
-        var poi_bbox = pois['convention-center-marker']
-                            .node()
-                            .getBoundingClientRect();
-
-        var poi_relationship_to_window =
-            poi_bbox.top - window.innerHeight;
-
-        if ((named_paths['second-section'].state === 'hidden') &
-            (poi_relationship_to_window < 0)) {
-
-            self.dispatch.animateSecond('showing');
-        } else if ((named_paths['second-section']
-                                    .state === 'showing') &
-                   (poi_relationship_to_window > 0)) {
-
-            self.dispatch.animateSecond('hidden');
-        }
+        
     });
     
     self.dispatch = d3.dispatch('animateFirst', 'animateSecond');
@@ -40,21 +29,89 @@ module.exports = function concept_01 () {
         
         named_paths['first-section']
             .transition()
-            .duration(3000)
+            .duration(2000)
             .ease('cubic-inout')
             .attrTween("stroke-dasharray",
                        tween_dashs[transition_to_state]);
 
+        named_text['first-section']
+            .transition()
+            .duration(800)
+            .delay(1700)
+            .style('opacity', 1);
+
+        logos['first-section']
+            .transition()
+            .duration(2000)
+            .delay(function (d, i) {
+                return i * 400;
+            })
+            .style('opacity', 1);
+
+
         named_paths['first-section'].state = transition_to_state;
+
+        setTimeout(function () {
+            self.dispatch.animateSecond('showing');
+        }, 3000);
     });
 
     self.dispatch.on('animateSecond', function (transition_to_state) {
+        console.log('dispatched animateSecond');
+
+        named_paths['first-section']
+            .transition()
+            .duration(2000)
+            .ease('cubic-in')
+            .attrTween('stroke-dasharray',
+                  tween_dash_opposite[transition_to_state]);
+
+        logos['first-section']
+            .transition()
+            .duration(2000)
+            .ease('cubic-out')
+            .delay(function (d, i) {
+                return i * 400;
+            })
+            .style('opacity', 0);
+
+        logos['second-section']
+            .transition()
+            .duration(2000)
+            .ease('cubic-in')
+            .delay(function (d, i) {
+                return i * 400;
+            })
+            .style('opacity', 1);
+
         named_paths['second-section']
             .transition()
-            .duration(3000)
-            .ease('cubic-inout')
+            .duration(2000)
+            .ease('cubic-in')
             .attrTween("stroke-dasharray",
                        tween_dashs[transition_to_state]);
+
+
+        named_text['first-section']
+            .transition()
+            .duration(1800)
+            .delay(function (d, i) {
+                return i * 400;
+            })
+            .ease('cubic-out')
+            .style('opacity', 0);
+
+        named_text['second-section']
+            .transition()
+            .duration(1800)
+            .delay(function (d, i) {
+                return i * 400;
+            })
+            .ease('cubic-in')
+            .style('opacity', 1);
+
+
+
 
         named_paths['second-section'].state = transition_to_state;
     });
@@ -66,7 +123,7 @@ module.exports = function concept_01 () {
         d3.html("http://" +
                 window.location.host +
                 window.location.pathname +
-                '/src/concept_02/gradshow_v2_01.svg',
+                '/src/concept_02/concept-2.svg',
                 function (results) {
 
             var svg_fragement = d3.select('.grid').node()
@@ -74,25 +131,41 @@ module.exports = function concept_01 () {
 
             svg = d3.select('.grid svg');
 
-            paths = svg.selectAll('.path-to-animate');
+            named_paths['first-section'] =
+                            svg.select('#line_1_ path');
+            named_paths['second-section'] =
+                svg.select('#line path');
 
-            paths.each(function () {
-                var name = d3.select(this).attr('id');
-                named_paths[name] = d3.select(this);
-                named_paths[name].state = 'hidden';
+            named_paths['first-section'].state = 'hidden';
+            named_paths['second-section'].state = 'hidden';
 
-                var l = this.getTotalLength();
+            named_paths['first-section'].attr('stroke-dasharray',
+                '0,' +
+                named_paths['first-section'].node()
+                                            .getTotalLength());
+            named_paths['second-section'].attr('stroke-dasharray',
+                '0,' +
+                named_paths['second-section'].node()
+                                            .getTotalLength());
 
-                // set initial stroke-dasharray to hide
-                named_paths[name].attr('stroke-dasharray', '0,' + l);
-            });
+            named_text['first-section'] =
+                svg.selectAll('#home #text_1_');
+            named_text['first-section'].style('opacity', 0);
 
-            pois = svg.selectAll('.poi');
+            named_text['second-section'] =
+                svg.selectAll('#map #text, ' +
+                              '#map #land, ' +
+                              '#map #street, ' +
+                              '#map #drop_pin');
+            named_text['second-section'].style('opacity', 0);
 
-            pois.each(function () {
-                var name = d3.select(this).attr('id');
-                pois[name] = d3.select(this);
-            });
+            logos['first-section'] =
+                svg.selectAll('#logo text');
+            logos['second-section'] =
+                svg.selectAll('#logo_1_ text');
+
+            logos['first-section'].style('opacity', 0);
+            logos['second-section'].style('opacity', 0);
 
             self.dispatch.animateFirst('showing');
         });
@@ -109,6 +182,20 @@ module.exports = function concept_01 () {
     function tween_dash_show() {
         var l = this.getTotalLength(),
             i = d3.interpolateString("0," + l, l + "," + l);
+        return function(t) { return i(t); };
+    }
+
+    function tween_dash_hide_reverse() {
+        var l = this.getTotalLength(),
+            i = d3.interpolateString("0,0," + l + "," + l,
+                                     "0," + l + "0," + l);
+        return function(t) { return i(t); };
+    }
+
+    function tween_dash_show_reverse() {
+        var l = this.getTotalLength(),
+            i = d3.interpolateString("0," + l + "0," + l,
+                                     "0,0," + l + "," + l);
         return function(t) { return i(t); };
     }
 
