@@ -62,7 +62,10 @@ module.exports = function concept_01a () {
         // put the dom in
         d3.select('body').html(html);
 
-        d3.html('../src/concept_01/concept-1.svg',
+        d3.html("http://" +
+                window.location.host +
+                window.location.pathname +
+                '/src/concept_01/concept-1.svg',
                 function (results) {
 
             var svg_fragement = d3.select('.grid').node()
@@ -96,9 +99,11 @@ module.exports = function concept_01a () {
                 svg.selectAll('#home #text_2_');
             named_text['second-section'] =
                 svg.selectAll('#map #text_1_, ' +
-                              '#map #land, ' +
-                              '#map #street, ' +
                               '#map #drop_pin');
+
+            svg.selectAll('#map #land, ' +
+                          '#map #street')
+                .style('opacity', 1);
 
             for (var text in named_text) {
                 named_text[text].style('opacity', 0);
