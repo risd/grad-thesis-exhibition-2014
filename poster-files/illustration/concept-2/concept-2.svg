@@ -14597,6 +14597,20 @@ jODyFTwio7HG+JrNhd854w9/vt1RWLRta8OJRx/61PNvTKubQVYr3n93zZerv3fBxUkn2IHwYH5+
 3l/+5kP33/P/AZCvLsKgD9h0AAAAAElFTkSuQmCC" transform="matrix(1.1035 0 0 1.1035 -175.4475 687.5349)">
 		</image>
 	</g>
+	<g id="drop_pin">
+		<path fill="#E21313" d="M622.635,507.652c0,5.079-3.047,8.931-5.283,13.073c-3.452,6.395-13.535,24.608-13.535,24.608
+			s-10.547-19.328-13.074-24.148c-2.287-4.361-5.743-8.22-5.743-13.533c0-10.393,8.425-18.817,18.817-18.817
+			C614.21,488.835,622.635,497.26,622.635,507.652z"/>
+	</g>
+	<g id="logo_1_">
+		
+			<text transform="matrix(1 0 0 1 99.2151 145.7051)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">RISD</text>
+		
+			<text transform="matrix(1 0 0 1 96.1954 314.6816)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">Grad</text>
+		
+			<text transform="matrix(1 0 0 1 121.5168 776.6814)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">Show</text>
+		<text transform="matrix(1 0 0 1 737.3392 152.921)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="1">2</tspan><tspan x="83.043" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="-8">0</tspan><tspan x="156.276" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="-12">1</tspan><tspan x="224.812" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">4</tspan></text>
+	</g>
 	<g id="line">
 		<path fill="none" stroke="#FFFFFF" stroke-width="18" stroke-miterlimit="10" d="M760,102h457v489c0,0-17,0-101,0
 			s-252.661,90-248.661,50S1086,460,762,584.5C436.68,709.507,454,459,454,459l200,2c0,0,0,68,0,190c0,124-248,96-294,96H61V282h399
@@ -14607,16 +14621,6 @@ jODyFTwio7HG+JrNhd854w9/vt1RWLRta8OJRx/61PNvTKubQVYr3n93zZerv3fBxUkn2IHwYH5+
 		<text transform="matrix(1 0 0 1 502.2261 431.3203)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">W Exchange St</text>
 		<rect x="681.498" y="456" fill="none" width="32.001" height="271"/>
 		<text transform="matrix(0 -1 1 0 697.8179 544.7988)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">Sabin St</text>
-		<path fill="#E21313" d="M622.635,507.652c0,5.079-3.047,8.931-5.283,13.073c-3.452,6.395-13.535,24.608-13.535,24.608
-			s-10.547-19.328-13.074-24.148c-2.287-4.361-5.743-8.22-5.743-13.533c0-10.393,8.425-18.817,18.817-18.817
-			C614.21,488.835,622.635,497.26,622.635,507.652z"/>
-		
-			<text transform="matrix(1 0 0 1 99.2151 145.7051)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">RISD</text>
-		
-			<text transform="matrix(1 0 0 1 96.1954 314.6816)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">Grad</text>
-		
-			<text transform="matrix(1 0 0 1 121.5168 776.6814)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">Show</text>
-		<text transform="matrix(1 0 0 1 737.3392 152.921)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="1">2</tspan><tspan x="83.043" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="-8">0</tspan><tspan x="156.276" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="-12">1</tspan><tspan x="224.812" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="138.1767" letter-spacing="2">4</tspan></text>
 		<rect x="750.241" y="210" fill="none" width="494.13" height="226.446"/>
 		<text transform="matrix(1 0 0 1 750.2408 226.3199)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24" letter-spacing="1">R</tspan><tspan x="16.68" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">I Convention Center </tspan><tspan x="0" y="28.8" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">Exhibition Hall </tspan><tspan x="157.148" y="28.8" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24" letter-spacing="1">A</tspan><tspan x="0" y="57.6" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">One Sabin Street, Providence</tspan><tspan x="0" y="115.199" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">Open 1</tspan><tspan x="77.087" y="115.199" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24" letter-spacing="2">2–</tspan><tspan x="111.599" y="115.199" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">5pm Daily</tspan><tspan x="0" y="144" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">May 17</tspan><tspan x="76.295" y="144" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24" letter-spacing="1">–</tspan><tspan x="93.767" y="144" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">31</tspan></text>
 	</g>
