@@ -65,7 +65,7 @@ module.exports = function concept_01a () {
         d3.html("http://" +
                 window.location.host +
                 window.location.pathname +
-                '/src/concept_01/concept-1.svg',
+                'src/concept_01/concept-1.svg',
                 function (results) {
 
             var svg_fragement = d3.select('.grid').node()
