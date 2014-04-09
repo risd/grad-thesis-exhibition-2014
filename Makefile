@@ -6,7 +6,7 @@ build: data
 	npm run build
 
 install:
-	npm install &
+	npm install
 	pip install -r requirements.txt
 
 data:
