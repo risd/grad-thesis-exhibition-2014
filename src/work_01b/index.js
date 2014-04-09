@@ -10,7 +10,7 @@ module.exports = function work_01 () {
     self.render = function () {
         var body = d3.select('body');
         body.html(html);
-        body.classed('work_01', true);
+        body.classed('work_01b', true);
 
         grid_selection = d3.select('.grid');
         work_container_selection = grid_selection.select('.work');
@@ -59,25 +59,26 @@ module.exports = function work_01 () {
             .data(data)
             .enter()
             .append('div')
-            .attr('class', 'piece')
-            .style('width', function (d) {
-                return d.module.width + 'px';
-            })
-            .style('height', function (d) {
-                return d.module.height + 'px';
-            })
+                .attr('class', 'piece')
+                .style('width', function (d) {
+                    return d.module.width/2 + 'px';
+                })
+                .style('height', function (d) {
+                    return d.module.height/2 + 'px';
+                })
             .append('img')
-            .attr('src', function (d) {
-                
-                return d.module.src;
-            });
+                .attr('src', function (d) {
+                    
+                    return d.module.src;
+                });
 
         var iso = new Isotope(work_container_selection.node(), {
                 itemSelector: '.piece',
                 masonry: {
-                    columnWidth: 100
+                    gutter: 20
                 }
             });
+        window.iso = iso;
     }
 
 

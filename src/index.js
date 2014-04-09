@@ -6,7 +6,10 @@ var prototypes = {
         '02': Concept_02
     },
     work: {
-        '01': Work_01
+        '01': Work_01,
+        '01a': Work_01a,
+        '01b': Work_01b,
+        '02': Work_02
     },
     index: {
         '00': function () {}
@@ -31,7 +34,19 @@ exhibition = prototypes[prototype_to_load[0]][prototype_to_load[1]]();
 window.exhibition = exhibition;
 
 function Work_01 () {
-    var work = require('./work_01/index.js')();
+    var work = require('./work_01/index.js')().render();
+    return work;
+}
+function Work_01a () {
+    var work = require('./work_01a/index.js')().render();
+    return work;
+}
+function Work_01b () {
+    var work = require('./work_01b/index.js')().render();
+    return work;
+}
+function Work_02 () {
+    var work = require('./work_02/index.js')().render();
     return work;
 }
 

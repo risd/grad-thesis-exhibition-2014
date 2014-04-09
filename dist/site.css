@@ -79,7 +79,30 @@ h4 {
 
 }
 
-/* Theme
+.work_01 .piece img {
+    max-width: 100%;
+}
+
+.work_01a .piece img {
+    max-width: 100%;
+}
+
+.work_01b .piece {
+    margin-bottom: 20px;
+}
+.work_01b .piece img {
+    max-width: 100%;
+}
+
+.work_02 .piece {
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}/* Theme
 -----------------------------------------------*/
 
 html, body {

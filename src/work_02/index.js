@@ -10,7 +10,7 @@ module.exports = function work_01 () {
     self.render = function () {
         var body = d3.select('body');
         body.html(html);
-        body.classed('work_01', true);
+        body.classed('work_02', true);
 
         grid_selection = d3.select('.grid');
         work_container_selection = grid_selection.select('.work');
@@ -59,25 +59,33 @@ module.exports = function work_01 () {
             .data(data)
             .enter()
             .append('div')
-            .attr('class', 'piece')
-            .style('width', function (d) {
-                return d.module.width + 'px';
-            })
-            .style('height', function (d) {
-                return d.module.height + 'px';
-            })
-            .append('img')
-            .attr('src', function (d) {
-                
-                return d.module.src;
-            });
-
+                .attr('class', 'piece')
+                .style('width', function (d) {
+                    if (d.module.width > d.module.height) {
+                        return '100px';
+                    } else {
+                        return ((d.module.height/d.module.width) *
+                                 100) + 'px';
+                    }
+                })
+                .style('height', function (d) {
+                    if (d.module.height > d.module.width) {
+                        return '100px';
+                    } else {
+                        return ((d.module.width/d.module.height) *
+                                 100) + 'px';
+                    }
+                })
+                .style('background-image', function (d) {
+                    return 'url(' + d.module.src + ')';
+                });
         var iso = new Isotope(work_container_selection.node(), {
                 itemSelector: '.piece',
                 masonry: {
-                    columnWidth: 100
+                    gutter: 20
                 }
             });
+        window.iso = iso;
     }
 
 

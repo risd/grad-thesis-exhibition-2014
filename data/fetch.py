@@ -38,6 +38,9 @@ class FetchBehance():
 
             except BehanceException as e:
                 print "Problem with Behance API. {0}".format(e)
+                # error code 429 is given when you
+                # have made too many API calls.
+                # so you won't be making more
                 if (e.error_code == 429):
                     return False
 
@@ -56,6 +59,9 @@ class FetchBehance():
                                         project_to_fetch['id'])
             except BehanceException as e:
                 print "Problem with Behance API. {0}".format(e)
+                # error code 429 is given when you
+                # have made too many API calls.
+                # so you won't be making more
                 if (e.error_code == 429):
                     return False
 

@@ -10,7 +10,7 @@ module.exports = function work_01 () {
     self.render = function () {
         var body = d3.select('body');
         body.html(html);
-        body.classed('work_01', true);
+        body.classed('work_01a', true);
 
         grid_selection = d3.select('.grid');
         work_container_selection = grid_selection.select('.work');
@@ -61,10 +61,10 @@ module.exports = function work_01 () {
             .append('div')
             .attr('class', 'piece')
             .style('width', function (d) {
-                return d.module.width + 'px';
+                return d.module.width/2 + 'px';
             })
             .style('height', function (d) {
-                return d.module.height + 'px';
+                return d.module.height/2 + 'px';
             })
             .append('img')
             .attr('src', function (d) {
