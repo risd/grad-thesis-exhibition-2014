@@ -11,7 +11,8 @@ var prototypes = {
         '01a': Work_01a,
         '01b': Work_01b,
         '02': Work_02,
-        '03': Work_03
+        '03': Work_03,
+        '04': Work_04
     },
     index: {
         '00': function () {}
@@ -53,6 +54,10 @@ function Work_02 () {
 }
 function Work_03 () {
     var work = require('./work_03/index.js')().render();
+    return work;
+}
+function Work_04 () {
+    var work = require('./work_04/index.js')().render();
     return work;
 }
 

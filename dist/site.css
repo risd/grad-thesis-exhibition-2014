@@ -125,6 +125,23 @@ h4 {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+}
+
+.work_04 .cover115 {
+    width: 115px;
+    height: 90px;
+}
+.work_04 .cover202 {
+    width: 202px;
+    height: 158px;
+}
+.work_04 .cover230 {
+    width: 230px;
+    height: 180px;
+}
+.work_04 .cover404 {
+    width: 404px;
+    height: 316px;
 }/* Theme
 -----------------------------------------------*/
 
