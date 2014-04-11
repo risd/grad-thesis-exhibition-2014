@@ -79,19 +79,42 @@ h4 {
 
 }
 
-.work_01 .piece img {
-    max-width: 100%;
-}
-
-.work_01a .piece img {
-    max-width: 100%;
-}
-
+.work_01 .piece,
 .work_01b .piece {
     margin-bottom: 20px;
 }
+.work_03 .piece img,
+.work_01 .piece img,
+.work_01a .piece img,
 .work_01b .piece img {
     max-width: 100%;
+}
+.work_03 .filters,
+.work_01 .filters,
+.work_01a .filters,
+.work_01b .filters {
+    position: fixed;
+    top: 0;
+}
+.work_03 .filter,
+.work_01 .filter,
+.work_01a .filter,
+.work_01b .filter {
+    cursor: pointer;
+}
+
+.work_03 .filters,
+.work_01 .filters,
+.work_01a .filters,
+.work_01b .filters {
+    z-index: 10;
+}
+.work_01 .work,
+.work_01a .work,
+.work_01b .work,
+.work_03 .work {
+    z-index: 0;
+    margin-top: 200px;
 }
 
 .work_02 .piece {

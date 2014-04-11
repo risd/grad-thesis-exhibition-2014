@@ -3,13 +3,15 @@ var prototypes = {
         '00': Concept_00,
         '01': Concept_01,
         '01a': Concept_01a,
-        '02': Concept_02
+        '02': Concept_02,
+        '03': Concept_03
     },
     work: {
         '01': Work_01,
         '01a': Work_01a,
         '01b': Work_01b,
-        '02': Work_02
+        '02': Work_02,
+        '03': Work_03
     },
     index: {
         '00': function () {}
@@ -49,6 +51,10 @@ function Work_02 () {
     var work = require('./work_02/index.js')().render();
     return work;
 }
+function Work_03 () {
+    var work = require('./work_03/index.js')().render();
+    return work;
+}
 
 function Concept_00 () {
     var concept = require('./concept_00/index.js')().render();
@@ -67,5 +73,10 @@ function Concept_01a () {
 
 function Concept_02 () {
     var concept = require('./concept_02/index.js')().render();
+    return concept;
+}
+
+function Concept_03 () {
+    var concept = require('./concept_03/index.js')().render();
     return concept;
 }

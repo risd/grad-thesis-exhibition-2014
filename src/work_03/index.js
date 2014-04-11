@@ -14,7 +14,7 @@ module.exports = function work_01 () {
     self.render = function () {
         var body = d3.select('body');
         body.html(html);
-        body.classed('work_01b', true);
+        body.classed('work_03', true);
 
         grid_selection = d3.select('.grid');
         work_container_selection = grid_selection.select('.work');
@@ -76,22 +76,31 @@ module.exports = function work_01 () {
                     return 'piece ' + format_program(d.risd_program);
                 })
                 .style('width', function (d) {
-                    return d.module.width/2 + 'px';
+                    if (d.module.width > d.module.height) {
+                        return '100px';
+                    } else {
+                        return ((d.module.height/d.module.width) *
+                                 100) + 'px';
+                    }
                 })
                 .style('height', function (d) {
-                    return d.module.height/2 + 'px';
+                    if (d.module.height > d.module.width) {
+                        return '100px';
+                    } else {
+                        return ((d.module.width/d.module.height) *
+                                 100) + 'px';
+                    }
+                })
+                .style('background-image', function (d) {
+                    return 'url(' + d.module.src + ')';
                 })
             .append('img')
                 .attr('src', function (d) {
-                    
                     return d.module.src;
                 });
 
         iso = new Isotope(work_container_selection.node(), {
-                itemSelector: '.piece',
-                masonry: {
-                    gutter: 20
-                }
+                itemSelector: '.piece'
             });
         window.iso = iso;
 
