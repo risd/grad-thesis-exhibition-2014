@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 .grid {
-    width: 1280px;
+    width: 80%;
     display: block;
     position: relative;
     margin: 0 auto;
@@ -27,3 +27,25 @@
 }
 /* end grid */
 
+
+@media only screen and (min-width: 768px) {
+    .grid {
+        width: 768px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .grid {
+        width: 1024px;
+    }
+}
+@media only screen and (min-width: 1280px) {
+    .grid {
+        width: 1280px;
+    }
+    .offset-3-10 {
+        margin-left: 384px; /* 1280/10 * 3 = 384 */
+    }
+    .col-4-10 {
+        width: 512px; /* 1280/10 * 4 = 512 */
+    }
+}

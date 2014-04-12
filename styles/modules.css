@@ -72,3 +72,61 @@
     width: 404px;
     height: 316px;
 }
+.work_04 .piece {
+    margin-bottom: 20px;
+}
+
+
+.concept_04 {
+    position: relative;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.concept_04 .logo-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.concept_04 .logo-svg {
+    position: fixed;
+    top: 0;
+    left: 0;
+}
+.concept_04 .logo-component {
+    position: fixed;
+    font-size: 20px;
+}
+.concept_04 .logo-component--risd,
+.concept_04 .logo-component--grad {
+    text-align: left;
+}
+.concept_04 .logo-component--show,
+.concept_04 .logo-component--2014 {
+    text-align: right;
+}
+.concept_04 .logo-component--risd {
+    top: 50px;
+    left: 50px;
+}
+.concept_04 .logo-component--grad {
+    top: 50%;
+    left: 50px;
+}
+.concept_04 .logo-component--show {
+    top: 50%;
+    right: 50px;
+}
+.concept_04 .logo-component--2014 {
+    bottom: 50px;
+    right: 50px;
+}
+.concept_04 .logo-line {
+    stroke: white;
+    stroke-width: 3;
+    fill: transparent;
+}
+.concept_04 .grid {
+    margin-top: 50px;
+    margin-bottom: 150px;
+}

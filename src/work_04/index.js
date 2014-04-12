@@ -122,7 +122,8 @@ module.exports = function work_01 () {
         iso = new Isotope(work_container_selection.node(), {
                 itemSelector: '.piece',
                 masonry: {
-                    columnWidth: 50
+                    columnWidth: 202,
+                    gutter: 20
                 }
             });
         window.iso = iso;
