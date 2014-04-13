@@ -6,8 +6,8 @@ html, body, p, a {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 13px;
-    line-height: 17px;
+    font-size: 14px;
+    line-height: 19px;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -21,6 +21,8 @@ h1,h2,h3,h4 {
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    margin: 0;
 }
 
 h1 {
@@ -74,18 +76,48 @@ h4 {
     .grid {
         width: 768px;
     }
+    .col-1-10 {
+        width: 76px; /* 768/10 * 1 = 76  */
+    }
+    .offset-3-10 {
+        margin-left: 228px; /* 768/10 * 3 = 228 */
+    }
+    .col-1-10 {
+        width: 76px; /* 768/10 * 1 = 76  */
+    }
+    .col-4-10 {
+        width: 304px; /* 768/10 * 4 = 304 */
+    }
 }
 @media only screen and (min-width: 1024px) {
     .grid {
         width: 1024px;
+    }
+    .offset-1-10 {
+        margin-left: 102px; /* 1280/10 * 1 = 384 */
+    }
+    .offset-3-10 {
+        margin-left: 306px; /* 1024/10 * 3 = 306 */
+    }
+    .col-1-10 {
+        width: 102px; /* 1024/10 * 1 = 102  */
+    }
+    .col-4-10 {
+        width: 408px; /* 1024/10 * 4 = 408 */
     }
 }
 @media only screen and (min-width: 1280px) {
     .grid {
         width: 1280px;
     }
+    .offset-1-10 {
+        margin-left: 128px; /* 1280/10 * 1 = 384 */
+    }
     .offset-3-10 {
         margin-left: 384px; /* 1280/10 * 3 = 384 */
+    }
+    .col-1-10 {
+        width: 128px; /* 1280/10 * 1 = 128 */
     }
     .col-4-10 {
         width: 512px; /* 1280/10 * 4 = 512 */
@@ -221,6 +253,17 @@ h4 {
 .concept_04 .grid {
     margin-top: 50px;
     margin-bottom: 150px;
+}
+
+.departments ul {
+    list-style: none;
+}
+.departments li {
+    margin-bottom: 14px;
+}
+.departments p {
+    line-height: 15px;
+    margin: 0;   
 }/* Theme
 -----------------------------------------------*/
 

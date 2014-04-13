@@ -130,3 +130,14 @@
     margin-top: 50px;
     margin-bottom: 150px;
 }
+
+.departments ul {
+    list-style: none;
+}
+.departments li {
+    margin-bottom: 14px;
+}
+.departments p {
+    line-height: 15px;
+    margin: 0;   
+}

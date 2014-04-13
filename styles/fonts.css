@@ -6,8 +6,8 @@ html, body, p, a {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 13px;
-    line-height: 17px;
+    font-size: 14px;
+    line-height: 19px;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -21,6 +21,8 @@ h1,h2,h3,h4 {
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    margin: 0;
 }
 
 h1 {
