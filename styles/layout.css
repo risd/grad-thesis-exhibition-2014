@@ -19,6 +19,7 @@
     clear: both;
 }
 [class*="col-"] {
+    position: relative;
     float: left;
     padding-right: 20px;
 }
@@ -44,6 +45,9 @@
     .col-4-10 {
         width: 304px; /* 768/10 * 4 = 304 */
     }
+    .col-10-10 {
+        width: 768px; /* 768/10 * 10 = 768 */
+    }
 }
 @media only screen and (min-width: 1024px) {
     .grid {
@@ -61,6 +65,9 @@
     .col-4-10 {
         width: 408px; /* 1024/10 * 4 = 408 */
     }
+    .col-10-10 {
+        width: 1024px; /* 1024/10 * 10 = 408 */
+    }
 }
 @media only screen and (min-width: 1280px) {
     .grid {
@@ -77,5 +84,8 @@
     }
     .col-4-10 {
         width: 512px; /* 1280/10 * 4 = 512 */
+    }
+    .col-10-10 {
+        width: 1280px; /* 1280/10 * 10 = 1280 */
     }
 }

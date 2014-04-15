@@ -8,6 +8,10 @@
 
 }
 
+.work {
+
+}
+
 .work_01 .piece,
 .work_01b .piece {
     margin-bottom: 20px;
@@ -140,4 +144,27 @@
 .departments p {
     line-height: 15px;
     margin: 0;   
+}
+
+.masonic .piece {
+    position: absolute;
+}
+
+.concept_04b .piece:nth-child(1n) {
+    -webkit-transform: rotate(-15deg);
+}
+.concept_04b .piece:nth-child(2n) {
+    -webkit-transform: rotate(15deg);
+}
+.concept_04b .piece:nth-child(3n) {
+    -webkit-transform: rotate(25deg);
+}
+.concept_04b .piece:nth-child(4n) {
+    -webkit-transform: rotate(-25deg);
+}
+.concept_04b .piece:nth-child(5n) {
+    -webkit-transform: rotate(30deg);
+}
+.concept_04b .piece:nth-child(6n) {
+    -webkit-transform: rotate(-30deg);
 }

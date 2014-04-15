@@ -63,6 +63,7 @@ h4 {
     clear: both;
 }
 [class*="col-"] {
+    position: relative;
     float: left;
     padding-right: 20px;
 }
@@ -88,6 +89,9 @@ h4 {
     .col-4-10 {
         width: 304px; /* 768/10 * 4 = 304 */
     }
+    .col-10-10 {
+        width: 768px; /* 768/10 * 10 = 768 */
+    }
 }
 @media only screen and (min-width: 1024px) {
     .grid {
@@ -104,6 +108,9 @@ h4 {
     }
     .col-4-10 {
         width: 408px; /* 1024/10 * 4 = 408 */
+    }
+    .col-10-10 {
+        width: 1024px; /* 1024/10 * 10 = 408 */
     }
 }
 @media only screen and (min-width: 1280px) {
@@ -122,6 +129,9 @@ h4 {
     .col-4-10 {
         width: 512px; /* 1280/10 * 4 = 512 */
     }
+    .col-10-10 {
+        width: 1280px; /* 1280/10 * 10 = 1280 */
+    }
 }/* Modules
 -----------------------------------------------*/
 .about {
@@ -129,6 +139,10 @@ h4 {
 }
 
 .where {
+
+}
+
+.work {
 
 }
 
@@ -264,6 +278,29 @@ h4 {
 .departments p {
     line-height: 15px;
     margin: 0;   
+}
+
+.masonic .piece {
+    position: absolute;
+}
+
+.concept_04b .piece:nth-child(1n) {
+    -webkit-transform: rotate(-15deg);
+}
+.concept_04b .piece:nth-child(2n) {
+    -webkit-transform: rotate(15deg);
+}
+.concept_04b .piece:nth-child(3n) {
+    -webkit-transform: rotate(25deg);
+}
+.concept_04b .piece:nth-child(4n) {
+    -webkit-transform: rotate(-25deg);
+}
+.concept_04b .piece:nth-child(5n) {
+    -webkit-transform: rotate(30deg);
+}
+.concept_04b .piece:nth-child(6n) {
+    -webkit-transform: rotate(-30deg);
 }/* Theme
 -----------------------------------------------*/
 

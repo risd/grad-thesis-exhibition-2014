@@ -16,7 +16,7 @@ module.exports = function concept_04 () {
     self.render = function () {
         // put the dom in
         var body = d3.select('body')
-            .classed('concept_04 concept_04a', true)
+            .classed('concept_04 concept_04b', true)
             .html('');
 
         // .logo-container is a neighbor of .grid
@@ -52,6 +52,11 @@ module.exports = function concept_04 () {
     });
 
     self.dispatch.on('htmlLoaded.work', function () {
+        var lightbox_container = d3.select('body')
+            .append('div')
+            .attr('class', 'lightbox');
+        work.lightbox.container(lightbox_container);
+
         work.bottom.additionalMarginBottomSel(d3.select('.grid'));
 
         work.container(d3.select('.work'))
