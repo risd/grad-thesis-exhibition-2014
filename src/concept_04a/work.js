@@ -1,4 +1,5 @@
-var Bottom = require('./bottom');
+var Bottom = require('./bottom'),
+    Lightbox = require('../concept_04b/lightbox');
 
 module.exports = function work () {
     var self = {},
@@ -12,6 +13,7 @@ module.exports = function work () {
 
     // deal with window bottom loading more
     var bottom = self.bottom = Bottom();
+    var lightbox = self.lightbox = Lightbox();
 
     bottom.dispatch.on('bottom', function () {
         get_more_data();
@@ -100,9 +102,6 @@ module.exports = function work () {
                 })
                 .attr('width', function (d) {
                     return d.cover.width;
-                })
-                .attr('height', function (d) {
-                    return d.cover.height;
                 });
 
         work_sel_enter.transition()
@@ -112,7 +111,9 @@ module.exports = function work () {
             .duration(200)
             .style('opacity', 1);
 
-
+        work_sel_enter.on('click.work', function (d, i) {
+            d3.select(this).call(lightbox.show);
+        });
 
         resize_masonic();
     }

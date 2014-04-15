@@ -52,6 +52,13 @@ module.exports = function concept_04 () {
     });
 
     self.dispatch.on('htmlLoaded.work', function () {
+        var lightbox_container = d3.select('body')
+            .append('div')
+            .attr('class', 'lightbox');
+        work.lightbox
+            .container(lightbox_container)
+            .originalContainer(d3.select('.work'));
+
         work.bottom.additionalMarginBottomSel(d3.select('.grid'));
 
         work.container(d3.select('.work'))

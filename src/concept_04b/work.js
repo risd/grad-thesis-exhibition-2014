@@ -104,9 +104,6 @@ module.exports = function work () {
                 })
                 .attr('width', function (d) {
                     return d.cover.width;
-                })
-                .attr('height', function (d) {
-                    return d.cover.height;
                 });
 
         work_sel_enter.transition()
