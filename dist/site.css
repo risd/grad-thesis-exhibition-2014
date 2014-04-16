@@ -227,6 +227,8 @@ h4 {
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 }
 .concept_05 .logo-svg,
 .concept_04 .logo-svg {
@@ -331,6 +333,10 @@ h4 {
 .concept_05 .grid {
     margin-top: 100%;
     margin-bottom: 50px;
+}
+.concept_05 .logo-component {
+    position: fixed;
+    color: white;
 }/* Theme
 -----------------------------------------------*/
 

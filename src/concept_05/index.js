@@ -22,8 +22,7 @@ module.exports = function concept_04 () {
             .append('div')
             .attr('class', 'logo-container');
 
-        logo.container(logo_container_sel)
-            .render();
+        logo.container(logo_container_sel);
 
         grid_sel = body
             .append('div')
@@ -50,7 +49,8 @@ module.exports = function concept_04 () {
     });
 
     self.dispatch.on('htmlLoaded.work', function () {
-
+        logo.scrollOverSel(d3.select('.grid'))
+            .render();
     });
 
     return self;
