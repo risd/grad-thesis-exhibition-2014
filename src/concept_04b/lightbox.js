@@ -4,6 +4,7 @@ module.exports = function lightbox () {
         original_container,
         lightbox_sel,
         lightbox_img_sel,
+        selected_sel,
         to_transition = {
             div: {
                 start: {
@@ -50,6 +51,7 @@ module.exports = function lightbox () {
     // pass in data to make show up
     self.show = function (sel) {
         if (!container) throw "Expected container.";
+        selected_sel = sel;
 
         var original_container_box =
             original_container
@@ -99,6 +101,9 @@ module.exports = function lightbox () {
 
         d3.transition()
             .duration(280)
+            .each('start', function () {
+                selected_sel.style('display', 'none');
+            })
             .each(function () {
                 lightbox_sel
                     .transition()
@@ -124,6 +129,7 @@ module.exports = function lightbox () {
                     .style(to_transition.img.start);
             })
             .each('end', function () {
+                selected_sel.style('display', 'block');
                 container.classed('active', false);
                 container.html('');
             });
