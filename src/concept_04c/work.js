@@ -7,15 +7,14 @@ module.exports = function work () {
         container,
         work_sel,
         risd_programs = ['All'],
-        masonic_gutter = -20;
+        masonic_gutter = 20;
 
     self.dispatch = d3.dispatch('dataLoaded');
 
-    
+    // deal with window bottom loading more
     var bottom = self.bottom = Bottom();
     var lightbox = self.lightbox = Lightbox();
 
-    // deal with window bottom loading more
     bottom.dispatch.on('bottom', function () {
         get_more_data();
     });
@@ -29,15 +28,14 @@ module.exports = function work () {
     }
     // end dealing with window
 
-
     var masonic = d3.masonic()
         .width(function (d) {
-            return d.cover.width + masonic_gutter;
+            return +d.cover.width + masonic_gutter;
         })
         .height(function (d) {
-            return d.cover.height + masonic_gutter;
+            return +d.cover.height + masonic_gutter;
         })
-        .columnWidth(202 + masonic_gutter);
+        .columnWidth(200 + masonic_gutter);
 
     self.data = function (_) {
         if (!arguments.length) return data;
@@ -86,8 +84,7 @@ module.exports = function work () {
             .append('div')
                 .attr('class', function (d) {
                     return 'piece ' +
-                        format_program(d.risd_program) + " " +
-                        d.cover.clss;
+                        format_program(d.risd_program);
                 })
                 .style('width', function (d) {
                     return d.cover.width + 'px';
@@ -169,27 +166,32 @@ module.exports = function work () {
     //     'cover': random_cover
     // }, ]
     function format_data_cover_with_modules (work) {
-        var cover_options = ['202', '404'];
-        var cover_dimensions = {
-            'cover115': {
-                width: 115,
-                height: 90
-            },
-            'cover202': {
-                width: 202,
-                height: 158
-            },
-            'cover230': {
-                width: 230,
-                height: 180
-            },
-            'cover404': {
-                width: (404 + masonic_gutter),
-                height: (316 + masonic_gutter)
-            }
-        };
 
         var formatted_work = [];
+
+        // determine the extent of widths
+        var all_modules = [];
+        work.forEach(function (d, i) {
+            d.details.modules.forEach(function (md, mi) {
+                if (md.type === 'image') {
+                    all_modules.push(md);
+                }
+            });
+        });
+
+        // set a scale for mapping
+        // width the an image to the
+        // width of the masonic version
+        var width_extent = d3.extent(all_modules, function (d) {
+                            return d.width; }
+                        );
+        console.log('width_extent');
+        console.log(width_extent);
+        var widths = d3.scale.ordinal()
+            .domain(width_extent)
+            .range([100, 200, 400]);
+
+        window.widths = widths;
 
         work.forEach(function (d, i) {
             var modules_to_include = [];
@@ -199,18 +201,20 @@ module.exports = function work () {
                 }
             });
 
-            var random_cover_option =
-                cover_options[Math.floor(Math.random() *
-                                   cover_options.length)];
+            // random_cover_option
+            var random_module =
+                modules_to_include[Math.floor(Math.random() *
+                                   modules_to_include.length)];
 
             var random_cover = {
-                width: cover_dimensions[
-                            'cover'+random_cover_option].width,
-                height: cover_dimensions[
-                            'cover'+random_cover_option].height,
-                src: d.covers[random_cover_option],
-                clss: 'cover'+random_cover_option
+                original_width: +random_module.width,
+                original_height: +random_module.height,
+                width: widths(random_module.width),
+                src: random_module.src
             };
+            random_cover.height = (random_cover.width*
+                                   random_module.height)/
+                                  random_module.width;
 
             formatted_work.push({
                 'project_name': d.name,

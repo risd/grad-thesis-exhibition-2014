@@ -1,5 +1,5 @@
 var Bottom = require('./bottom'),
-    Lightbox = require('../concept_04b/lightbox');
+    Lightbox = require('../concept_04b/lightbox_zoom_up');
 
 module.exports = function work () {
     var self = {},

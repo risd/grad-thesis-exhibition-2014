@@ -7,7 +7,11 @@ var prototypes = {
         '03': Concept_03,
         '04': Concept_04,
         '04a': Concept_04a,
-        '04b': Concept_04b
+        '04b': Concept_04b,
+        '04c': Concept_04c,
+        '04d': Concept_04d,
+        '04e': Concept_04e,
+        '05': Concept_05
     },
     work: {
         '01': Work_01,
@@ -101,5 +105,25 @@ function Concept_04a () {
 
 function Concept_04b () {
     var concept = require('./concept_04b/index.js')().render();
+    return concept;
+}
+
+function Concept_04c () {
+    var concept = require('./concept_04c/index.js')().render();
+    return concept;
+}
+
+function Concept_04d () {
+    var concept = require('./concept_04d/index.js')().render();
+    return concept;
+}
+
+function Concept_04e () {
+    var concept = require('./concept_04e/index.js')().render();
+    return concept;
+}
+
+function Concept_05 () {
+    var concept = require('./concept_05/index.js')().render();
     return concept;
 }

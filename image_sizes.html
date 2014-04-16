@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Grad Thesis Exhibition 2014</title>
+        <link href="//fnt.webink.com/wfs/webink.css/?project=0B6D033C-5062-4CCE-8B39-8DB406AC4BD4&fonts=F77BBDE3-5270-5846-90AD-5529C2FFDA57:f=Theinhardt-Medium,82DA4627-8191-9CE4-706C-58F3C2615A95:f=Theinhardt-Bold" rel="stylesheet" type="text/css"/>
+        <link rel='stylesheet' type='text/css' href='dist/site.css' />
+        <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+        <meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0'>
+        <style>
+        body {
+            margin: 0;
+            padding: 0;
+        }
+        .tooltip {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        </style>
+    </head>
+    <body>
+        <div class="tooltip"></div>
+            
+
+        <script src='dist/lib.js'></script>
+        <script>
+        var margin = 20;
+        var svg = d3.select('body')
+            .append('svg')
+                .attr('width', window.innerWidth - (margin*2))
+                .attr('height', window.innerHeight - (margin*2))
+            .append('g')
+                .attr('transform', 'translate(' + margin + ',' + margin +')');
+
+        var tooltip = d3.select('.tooltip');
+
+        d3.json('./data/projects20140408.json', function (data) {
+            var modules = [];
+            data.forEach(function (d, i) {
+                d.details.modules.forEach(function (md, mi) {
+                    if (md.type === 'image') {
+                        modules.push(md);
+                    }
+                });
+            });
+
+            var width_extent = d3.extent(modules, function (d) {
+                    return d.width;
+                }),
+                height_extent = d3.extent(modules, function (d) {
+                    return d.height;
+                });
+
+            console.log(width_extent);
+            console.log(height_extent);
+
+            var y = d3.scale.linear()
+                        .domain(height_extent)
+                        .range([(window.innerHeight- (margin*4)), 0]),
+                x = d3.scale.linear()
+                        .domain(width_extent)
+                        .range([0, (window.innerWidth - (margin*4))]);
+
+            svg.selectAll('circle')
+                .data(modules)
+                .enter()
+                .append('circle')
+                .attr('cx', function (d) {
+                    return x(d.width);
+                })
+                .attr('cy', function (d) {
+                    return y(d.height);
+                })
+                .attr('r', 5)
+                .style('fill', 'white')
+                .style('stroke-width', 0)
+                .on('mouseover', function (d, i) {
+                    tooltip.text(d.width + ' - ' + d.height);
+                });
+
+            var unique = [];
+            var landscape = [];
+            var portrait = [];
+            console.log('unique sizes');
+            modules.forEach(function (d, i) {
+                var dimensions = d.width + ' - ' + d.height;
+                if (unique.indexOf(dimensions) < 0) {
+                    unique.push(dimensions);
+                    console.log(dimensions);
+                }
+
+                if (d.width > d.height) {
+                    landscape.push(dimensions);
+                } else {
+                    portrait.push(dimensions);
+                }
+            });
+            
+            console.log('number of modules');
+            console.log(modules.length);
+            console.log('number of uniques');
+            console.log(unique.length);
+
+            console.log('number of landscape');
+            console.log(landscape.length);
+            console.log('number of portrait');
+            console.log(portrait.length);
+
+        });
+        </script>
+    </body>
+</html>
