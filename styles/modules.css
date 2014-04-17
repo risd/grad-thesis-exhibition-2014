@@ -81,6 +81,7 @@
 }
 
 
+.concept_05a,
 .concept_05,
 .concept_04 {
     position: relative;
@@ -88,6 +89,7 @@
     padding: 0;
     width: 100%;
 }
+.concept_05a .logo-container,
 .concept_05 .logo-container,
 .concept_04 .logo-container {
     position: fixed;
@@ -96,6 +98,7 @@
     top: 0;
     left: 0;
 }
+.concept_05a .logo-svg,
 .concept_05 .logo-svg,
 .concept_04 .logo-svg {
     position: fixed;
@@ -114,6 +117,7 @@
 .concept_04 .logo-component--2014 {
     text-align: right;
 }
+.concept_05a .logo-component--risd,
 .concept_05 .logo-component--risd,
 .concept_04 .logo-component--risd {
     top: 50px;
@@ -127,11 +131,13 @@
     top: 50%;
     right: 50px;
 }
+.concept_05a .logo-component--2014,
 .concept_05 .logo-component--2014,
 .concept_04 .logo-component--2014 {
     bottom: 50px;
     right: 50px;
 }
+.concept_05a .logo-line,
 .concept_05 .logo-line,
 .concept_04 .logo-line {
     stroke: white;
@@ -194,11 +200,12 @@
 
 
 /* sam  */
-.concept_04g{
+.concept_05a,
+.concept_04g {
 	background-color: rgb(239, 65, 54);
 }
 
-
+.concept_05a .intro,
 .concept_04g h3 {
 	font-size: 2.4em;
     line-height: 1.3em;
@@ -206,11 +213,13 @@
 	color: rgba(255, 255, 255, 0.7);
 }
 
+.concept_05a .underline,
 .concept_04g h3 .underline{
 	/*text-decoration:underline;*/
 	color: rgba(104, 12, 6, 1);
 	color: rgba(255, 255, 255, 1);
 }
+.concept_05a .lightbox img,
 .concept_04 .lightbox img {
     position: relative;
 }
@@ -218,10 +227,11 @@
     background-color: rgb(38, 34, 98);
 }
 
+.concept_05a .grid,
 .concept_05 .grid {
-    margin-top: 100%;
     margin-bottom: 50px;
 }
+.concept_05a .logo-component,
 .concept_05 .logo-component {
     position: fixed;
     color: white;

@@ -12,7 +12,8 @@ var prototypes = {
         '04d': Concept_04d,
         '04e': Concept_04e,
 		'04g': Concept_04g,
-        '05': Concept_05
+        '05': Concept_05,
+        '05a': Concept_05a
     },
     work: {
         '01': Work_01,
@@ -131,5 +132,10 @@ function Concept_04g () {
 
 function Concept_05 () {
     var concept = require('./concept_05/index.js')().render();
+    return concept;
+}
+
+function Concept_05a () {
+    var concept = require('./concept_05a/index.js')().render();
     return concept;
 }
