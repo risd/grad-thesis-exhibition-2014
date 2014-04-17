@@ -1,3 +1,5 @@
+var logoComponents = require('./logo_components');
+
 module.exports = function work () {
     var self = {},
         window_sel = d3.select(window),
@@ -5,147 +7,9 @@ module.exports = function work () {
         distance_to_scroll = 0,
         logo_container_sel,
         logo_sel,
-        logo_components = [{
-            text: 'RISD',
-            cls: 'logo-component--risd text-left',
-            start: {
-                top: '30%',
-                bottom: 'auto',
-                left: '30%',
-                right: 'auto',
-                'font-size': '50px'
-            },
-            end: {
-                top: '50px',
-                bottom: 'auto',
-                left: '50px',
-                right: 'auto',
-                'font-size': '20px'
-            },
-            rules: function (width, height) {
-                return {
-                    start: {
-                        top: (height * 0.3) + 'px',
-                        bottom: 'auto',
-                        left: (width * 0.3) + 'px',
-                        right: 'auto',
-                        'font-size': '50px'
-                    },
-                    end: {
-                        top: '50px',
-                        bottom: 'auto',
-                        left: '50px',
-                        right: 'auto',
-                        'font-size': '20px'
-                    }
-                };
-            }
-        }, {
-            text: 'Grad',
-            cls: 'logo-component--grad text-left',
-            start: {
-                top: '40%',
-                bottom: 'auto',
-                left: '30%',
-                'font-size': '50px',
-                right: 'auto'
-            },
-            end: {
-                top: '50%',
-                bottom: 'auto',
-                left: '50px',
-                'font-size': '20px',
-                right: 'auto'
-            },
-            rules: function (width, height) {
-                return {
-                    start: {
-                        top: (height * 0.4) + 'px',
-                        bottom: 'auto',
-                        left: (width * 0.3) + 'px',
-                        right: 'auto',
-                        'font-size': '50px'
-                    },
-                    end: {
-                        top: (height * 0.5) + 'px',
-                        bottom: 'auto',
-                        left: '50px',
-                        right: 'auto',
-                        'font-size': '20px'
-                    }
-                };
-            }
-        }, {
-            text: 'Show',
-            cls: 'logo-component--show text-right',
-            start: {
-                top: 'auto',
-                bottom: '60%',
-                left: 'auto',
-                right: '30%',
-                'font-size': '50px'
-            },
-            end: {
-                top: 'auto',
-                bottom: '50%',
-                left: 'auto',
-                right: '50px',
-                'font-size': '20px'
-            },
-            rules: function (width, height) {
-                return {
-                    start: {
-                        top: 'auto',
-                        bottom: (height * 0.6) + 'px',
-                        left: 'auto',
-                        right: (width * 0.3) + 'px',
-                        'font-size': '50px'
-                    },
-                    end: {
-                        top: 'auto',
-                        bottom: (height * 0.5) + 'px',
-                        left: 'auto',
-                        right: '50px',
-                        'font-size': '20px'
-                    }
-                };
-            }
-        }, {
-            text: '2014',
-            cls: 'logo-component--2014 text-right',
-            start: {
-                top: 'auto',
-                bottom: '40%',
-                left: 'auto',
-                right: '30%',
-                'font-size': '50px'
-            },
-            end: {
-                top: 'auto',
-                bottom: '50px',
-                left: 'auto',
-                right: '50px',
-                'font-size': '20px'
-            },
-            rules: function (width, height) {
-                return {
-                    start: {
-                        top: 'auto',
-                        bottom: (height * 0.4) + 'px',
-                        left: 'auto',
-                        right: (width * 0.3) + 'px',
-                        'font-size': '50px'
-                    },
-                    end: {
-                        top: 'auto',
-                        bottom: '50px',
-                        left: 'auto',
-                        right: '50px',
-                        'font-size': '20px'
-                    }
-                };
-            }
-        }],
+        logo_line_sel,
+        logo_subsidiary_sel,
+        logo_components = logoComponents,
         logo_svg,
         logo_line,
         line = d3.svg.line(),
@@ -256,9 +120,17 @@ module.exports = function work () {
             .style('font-size', function (d) {
                 return d.start['font-size'];
             })
-            .text(function (d) {
-                return d.text;
+            .html(function (d) {
+                return d.html;
             });
+
+        logo_line_sel = logo_sel.filter(function (d, i) {
+            return d.type === 'line';
+        });
+
+        logo_subsidiary_sel = logo_sel.filter(function (d, i) {
+            return d.type === 'subsidiary';
+        });
 
         logo_svg = logo_container_sel
             .append('svg')
@@ -293,6 +165,10 @@ module.exports = function work () {
             .style('font-size', function (d) {
                 return d.interpolator
                         ['font-size'](percent_progress);
+            })
+            .style('line-height', function (d) {
+                return d.interpolator
+                        ['line-height'](percent_progress);
             });
     }
 
@@ -304,7 +180,7 @@ module.exports = function work () {
 
     function logo_verticies () {
         var logo_line_verticies = [];
-        logo_sel.each(function (d, i) {
+        logo_line_sel.each(function (d, i) {
             var bounds = this.getBoundingClientRect();
             if (i === 0) {
                 logo_line_verticies.push(
