@@ -168,6 +168,9 @@
 .concept_04b .work .piece:nth-child(6n) {
     -webkit-transform: rotate(-30deg);
 }
+.concept_04b {
+	background-color:#ff0000;	
+}
 
 .lightbox {
     position: fixed;
