@@ -352,7 +352,6 @@ h4 {
 .lightbox.active {
     top: 0;
 }
-<<<<<<< HEAD
 
 
 
@@ -374,7 +373,6 @@ h4 {
 	color: rgba(104, 12, 6, 1);
 	color: rgba(255, 255, 255, 1);
 }
-=======
 .concept_04 .lightbox img {
     position: relative;
 }
@@ -390,7 +388,6 @@ h4 {
     position: fixed;
     color: white;
 }
->>>>>>> FETCH_HEAD
 /* Theme
 -----------------------------------------------*/
 
