@@ -236,3 +236,12 @@
     position: fixed;
     color: white;
 }
+.full-width-work .work,
+.full-width-work .grid-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.full-width-work .work {
+    background-color: rgba(239, 65, 54, 0.8);
+}

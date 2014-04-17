@@ -12,13 +12,13 @@ module.exports = function work () {
         logo_components = logoComponents,
         logo_svg,
         logo_line,
-        line = d3.svg.line(),
-        transitionable = true;
+        line = d3.svg.line();
 
     var scroll_scale = d3.scale.linear()
         .domain([0, distance_to_scroll])
         .range([0, 1])
-        .clamp(true);
+        .clamp(true),
+        prev_scroll_progress;
 
     window_sel
         .on('resize.logo', function () {
@@ -52,13 +52,12 @@ module.exports = function work () {
             }
         })
         .on('scroll.logo', function () {
-            if (transitionable) {
-                console.log(window.scrollY);
-                update_logo_components(
-                    scroll_scale(
-                        window.scrollY));
+            var scroll_progress = scroll_scale(window.scrollY);
+            if (scroll_progress != prev_scroll_progress) {
+                update_logo_components(scroll_progress);
                 update_logo_line();
             }
+            prev_scroll_progress = scroll_progress;
         });
 
     self.scrollOverSel = function (_) {

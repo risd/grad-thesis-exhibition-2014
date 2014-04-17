@@ -1,6 +1,7 @@
 var Departments = require('../departments'),
     Logo = require('./logo'),
-    Work = require('./work');
+    Work = require('./work'),
+    Translate = require('./translate');
 
 module.exports = function concept_04 () {
     var self = {},
@@ -12,11 +13,13 @@ module.exports = function concept_04 () {
     var departments = Departments();
     var logo = Logo();
     var work = Work(self);
+    var translate = Translate();
 
     self.render = function () {
         // put the dom in
         var body = d3.select('body')
             .classed('concept_05a', true)
+            .classed('full-width-work', true)
             .html('');
 
         // .logo-container is a neighbor of .grid
@@ -28,7 +31,7 @@ module.exports = function concept_04 () {
 
         grid_sel = body
             .append('div')
-            .attr('class', 'grid');
+            .attr('class', 'grid-wrapper');
 
 
 
@@ -57,14 +60,25 @@ module.exports = function concept_04 () {
         var lightbox_container = d3.select('body')
             .append('div')
             .attr('class', 'lightbox');
-        work.lightbox
-            .container(lightbox_container)
-            .originalContainer(d3.select('.work'));
 
         work.bottom.additionalMarginBottomSel(d3.select('.grid'));
 
-        work.container(d3.select('.work'))
+        var work_sel = d3.select('.grid-wrapper')
+            .append('div')
+            .attr('class', 'work');
+        work.container(work_sel)
             .render();
+
+            
+        work.lightbox
+            .container(lightbox_container)
+            .originalContainer(work_sel);
+
+
+        translate
+            .translated(work_sel)
+            .over(d3.select('.grid'))
+            .setup();
     });
 
     return self;

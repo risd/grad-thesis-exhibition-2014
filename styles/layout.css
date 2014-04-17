@@ -117,3 +117,33 @@
         width: 1280px; /* 1280/10 * 10 = 1280 */
     }
 }
+@media only screen and (min-width: 1440px) {
+    .grid {
+        width: 1440px;
+    }
+    .offset-1-10 {
+        margin-left: 144px; /* 1440/10 * 1 = 144 */
+    }
+    .offset-2-10 {
+        margin-left: 288px; /* 1440/10 * 2 = 288 */
+    }
+    
+    .offset-3-10 {
+        margin-left: 432px; /* 1440/10 * 3 = 432 */
+    }
+    .col-1-10 {
+        width: 144px; /* 1440/10 * 1 = 144 */
+    }
+    .col-4-10 {
+        width: 576px; /* 1440/10 * 4 = 576 */
+    }
+    .col-6-10 {
+        width: 864px; /* 1440/10 * 6 = 864 */
+    }
+    .col-8-10 {
+        width: 864px; /* 1440/10 * 6 = 864 */
+    }
+    .col-10-10 {
+        width: 1440px; /* 1440/10 * 10 = 1440 */
+    }
+}

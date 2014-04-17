@@ -19,6 +19,11 @@ module.exports = function work () {
         get_more_data();
     });
 
+    d3.select(window)
+        .on('resize.work', function () {
+            resize_masonic();
+        });
+
     function get_more_data () {
         self.dispatch.on('dataLoaded', function () {
             bottom.dirty(false);
@@ -67,8 +72,8 @@ module.exports = function work () {
         }
 
         container
-            .classed('masonic', true)
-            .classed('col-10-10', true);
+            .classed('masonic', true);
+            // .classed('col-10-10', true);
 
         render_data();
 
@@ -190,6 +195,8 @@ module.exports = function work () {
         var widths = d3.scale.ordinal()
             .domain(width_extent)
             .range([100, 200, 400]);
+        // var widths = d3.scale.identity()
+        //     .domain(width_extent);
 
         window.widths = widths;
 
