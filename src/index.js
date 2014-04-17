@@ -8,7 +8,14 @@ var prototypes = {
         '04': Concept_04,
         '04a': Concept_04a,
         '04b': Concept_04b,
+<<<<<<< HEAD
 		 '04g': Concept_04g
+=======
+        '04c': Concept_04c,
+        '04d': Concept_04d,
+        '04e': Concept_04e,
+        '05': Concept_05
+>>>>>>> FETCH_HEAD
     },
     work: {
         '01': Work_01,
@@ -105,7 +112,27 @@ function Concept_04b () {
     return concept;
 }
 
+<<<<<<< HEAD
 function Concept_04g () {
     var concept = require('./concept_04g/index.js')().render();
+=======
+function Concept_04c () {
+    var concept = require('./concept_04c/index.js')().render();
+    return concept;
+}
+
+function Concept_04d () {
+    var concept = require('./concept_04d/index.js')().render();
+    return concept;
+}
+
+function Concept_04e () {
+    var concept = require('./concept_04e/index.js')().render();
+    return concept;
+}
+
+function Concept_05 () {
+    var concept = require('./concept_05/index.js')().render();
+>>>>>>> FETCH_HEAD
     return concept;
 }

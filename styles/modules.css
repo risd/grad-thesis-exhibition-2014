@@ -81,17 +81,22 @@
 }
 
 
+.concept_05,
 .concept_04 {
     position: relative;
     margin: 0;
     padding: 0;
     width: 100%;
 }
+.concept_05 .logo-container,
 .concept_04 .logo-container {
     position: fixed;
     width: 100%;
     height: 100%;
+    top: 0;
+    left: 0;
 }
+.concept_05 .logo-svg,
 .concept_04 .logo-svg {
     position: fixed;
     top: 0;
@@ -109,6 +114,7 @@
 .concept_04 .logo-component--2014 {
     text-align: right;
 }
+.concept_05 .logo-component--risd,
 .concept_04 .logo-component--risd {
     top: 50px;
     left: 50px;
@@ -121,15 +127,18 @@
     top: 50%;
     right: 50px;
 }
+.concept_05 .logo-component--2014,
 .concept_04 .logo-component--2014 {
     bottom: 50px;
     right: 50px;
 }
+.concept_05 .logo-line,
 .concept_04 .logo-line {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
 }
+
 .concept_04 .grid {
     margin-top: 50px;
     margin-bottom: 150px;
@@ -181,6 +190,7 @@
 .lightbox.active {
     top: 0;
 }
+<<<<<<< HEAD
 
 
 
@@ -202,3 +212,20 @@
 	color: rgba(104, 12, 6, 1);
 	color: rgba(255, 255, 255, 1);
 }
+=======
+.concept_04 .lightbox img {
+    position: relative;
+}
+.concept_04d .lightbox {
+    background-color: rgb(38, 34, 98);
+}
+
+.concept_05 .grid {
+    margin-top: 100%;
+    margin-bottom: 50px;
+}
+.concept_05 .logo-component {
+    position: fixed;
+    color: white;
+}
+>>>>>>> FETCH_HEAD

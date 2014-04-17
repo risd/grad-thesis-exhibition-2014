@@ -18,8 +18,11 @@ class Paginate():
         for page_number in range(0, int(total_pages)):
             cur_page = {
                 'meta': {
+                    # current index, start from 0
                     'page_number': int(page_number),
-                    'total_pages': int(total_pages)-1,
+                    # if pages were an array,
+                    # this would be the length
+                    'total_pages': int(total_pages),
                 },
                 'objects': self.original_data[
                     int(self.per_page * page_number):
