@@ -7,7 +7,7 @@ module.exports = function work () {
         container,
         work_sel,
         risd_programs = ['All'],
-        masonic_gutter = 120;
+        masonic_gutter = 50;
 
     self.dispatch = d3.dispatch('dataLoaded');
 
@@ -108,27 +108,11 @@ module.exports = function work () {
                     return d.cover.width;
                 });
 
-        var work_sel_enter_meta =
-            work_sel_enter
-                .append('div')
-                .attr('class', 'piece-meta-wrapper');
-        work_sel_enter_meta
-            .append('img')
-            .attr('class', 'list-avatar')
-            .attr('src', function (d) {
-                return d.avatar;
-            });
-        work_sel_enter_meta
+        work_sel_enter
             .append('p')
-            .attr('class', 'student_name piece-meta')
+            .attr('class', 'student_name')
             .text(function (d) {
                 return d.student_name;
-            });
-        work_sel_enter_meta
-            .append('p')
-            .attr('class', 'risd_program piece-meta')
-            .text(function (d) {
-                return d.risd_program;
             });
 
         work_sel_enter.transition()
@@ -230,36 +214,13 @@ module.exports = function work () {
             });
 
             // random_cover_option
-            var random_module_index = Math.floor(Math.random() *
-                                   modules_to_include.length),
-                random_module =
-                    modules_to_include[random_module_index],
-                reorder_modules_to_include = [];
+            var random_module =
+                modules_to_include[Math.floor(Math.random() *
+                                   modules_to_include.length)];
 
-            reorder_modules_to_include.push(random_module);
-            modules_to_include
-                .slice(0,random_module_index)
-                .forEach(function (md, mi) {
-                    reorder_modules_to_include
-                        .push(md);
-                });
-
-            modules_to_include.slice(
-                    random_module_index+1,
-                    modules_to_include.length)
-                .forEach(function (md, mi) {
-                    reorder_modules_to_include
-                        .push(md);
-                });
-
-
-
-            var max_1240_height =
-                (random_module.height/random_module.width) *
-                1240;
             var random_cover = {
-                original_width: 1240,
-                original_height: max_1240_height,
+                original_width: +random_module.width,
+                original_height: +random_module.height,
                 width: widths(random_module.width),
                 src: random_module.src
             };
@@ -271,11 +232,8 @@ module.exports = function work () {
                 'project_name': d.name,
                 'student_name': d.owners[0].display_name,
                 'risd_program': d.risd_program,
-                'modules': reorder_modules_to_include,
-                'cover': random_cover,
-                description: d.details.description,
-                avatar: d.owners[0].images['138'],
-                url: d.owners[0].url
+                'modules': modules_to_include,
+                'cover': random_cover
             });
 
             if (risd_programs.indexOf(d.risd_program) < 0) {

@@ -18,8 +18,7 @@ module.exports = function concept_04 () {
     self.render = function () {
         // put the dom in
         var body = d3.select('body')
-            .classed('concept_05a', true)
-            .classed('full-width-work', true)
+            .classed('concept_05b', true)
             .html('');
 
         // .logo-container is a neighbor of .grid
@@ -31,14 +30,14 @@ module.exports = function concept_04 () {
 
         grid_sel = body
             .append('div')
-            .attr('class', 'grid-wrapper');
+            .attr('class', 'grid');
 
 
 
         d3.html("http://" +
                 window.location.host +
                 window.location.pathname +
-                'src/concept_05a/grid.html', function (html) {
+                'src/concept_05b/grid.html', function (html) {
 
             grid_sel.node().appendChild(html.cloneNode(true));
             self.dispatch.htmlLoaded();
@@ -46,12 +45,6 @@ module.exports = function concept_04 () {
 
         return self;
     };
-
-    self.dispatch.on('htmlLoaded.departments', function () {
-        departments
-            .wrapper(d3.select('.departments'))
-            .render();
-    });
 
     self.dispatch.on('htmlLoaded.work', function () {
         logo.scrollOverSel(d3.select('.grid'))
@@ -63,20 +56,35 @@ module.exports = function concept_04 () {
 
         work.bottom.additionalMarginBottomSel(d3.select('.grid'));
 
-        var work_sel = d3.select('.grid-wrapper')
+        
+        var work_wrapper = d3.select('.grid')
             .append('div')
-            .attr('class', 'work');
+            .attr('class', 'work-wrapper row');
+
+
+        var department_sel = work_wrapper
+            .append('div')
+            .attr('class', 'departments col-2-10');
+
+        var work_sel = work_wrapper
+            .append('div')
+            .attr('class', 'work col-8-10');
+
+        departments
+            .wrapper(department_sel)
+            .render();
         work.container(work_sel)
             .render();
 
             
         work.lightbox
-            .container(lightbox_container);
+            .container(lightbox_container)
+            .originalContainer(work_sel);
 
 
         translate
             .translated(work_sel)
-            .over(d3.select('.grid'))
+            .over(d3.select('.about'))
             .setup();
     });
 
