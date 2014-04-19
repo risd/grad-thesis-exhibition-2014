@@ -61,6 +61,8 @@ module.exports = function translate () {
                 }
                 var opacity_val = opacity_scale(pageYOffset-
                                                 over_sel_height);
+                console.log('opacity_val');
+                console.log(opacity_val);
                 background_sel
                     .style('opacity', opacity_val)
                     .classed("active", (opacity_val > 0) ? 1: 0);

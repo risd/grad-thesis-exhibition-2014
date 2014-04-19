@@ -19,6 +19,7 @@ module.exports = function concept_04 () {
         // put the dom in
         var body = d3.select('body')
             .classed('concept_05a', true)
+            .classed('concept_05c', true)
             .classed('full-width-work', true)
             .html('');
 
