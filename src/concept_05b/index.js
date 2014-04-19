@@ -30,7 +30,7 @@ module.exports = function concept_04 () {
 
         grid_sel = body
             .append('div')
-            .attr('class', 'grid');
+            .attr('class', 'grid-wrapper');
 
 
 
@@ -47,32 +47,41 @@ module.exports = function concept_04 () {
     };
 
     self.dispatch.on('htmlLoaded.work', function () {
-        logo.scrollOverSel(d3.select('.grid'))
+        logo.scrollOverSel(d3.select('.grid-about'))
             .render();
 
         var lightbox_container = d3.select('body')
             .append('div')
             .attr('class', 'lightbox');
 
-        work.bottom.additionalMarginBottomSel(d3.select('.grid'));
+        var work_background_sel = d3.select('.grid-wrapper')
+            .append('div')
+            .attr('class', 'work-background');
 
+        var grid_work_sel = d3.select('.grid-wrapper')
+            .append('div')
+            .attr('class', 'grid grid-work');
         
-        var work_wrapper = d3.select('.grid')
+        var work_wrapper = grid_work_sel
             .append('div')
             .attr('class', 'work-wrapper row');
 
+        work.bottom
+            .additionalMarginBottomSel(d3.select('.grid-work'));
 
         var department_sel = work_wrapper
             .append('div')
             .attr('class', 'departments col-2-10');
 
-        var work_sel = work_wrapper
-            .append('div')
-            .attr('class', 'work col-8-10');
-
         departments
             .wrapper(department_sel)
             .render();
+
+
+        var work_sel = work_wrapper
+            .append('div')
+            .attr('class', 'work col-8-10 offset-2-10');
+
         work.container(work_sel)
             .render();
 
@@ -83,8 +92,10 @@ module.exports = function concept_04 () {
 
 
         translate
-            .translated(work_sel)
+            .translate(work_sel)
             .over(d3.select('.about'))
+            .background(work_background_sel)
+            .fixed(department_sel)
             .setup();
     });
 

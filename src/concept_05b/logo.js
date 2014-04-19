@@ -43,8 +43,6 @@ module.exports = function work () {
                     d.interpolator =
                         add_interpolator(updated)
                             .interpolator;
-
-                    console.log(d);
                 });
             }
             update_logo_components(prev_scroll_progress);
@@ -84,8 +82,6 @@ module.exports = function work () {
             d.interpolator =
                 add_interpolator(updated)
                     .interpolator;
-
-            console.log(d);
         });
 
         distance_to_scroll = calc_distance_to_scroll();
@@ -145,7 +141,6 @@ module.exports = function work () {
     };
 
     function update_logo_components (percent_progress) {
-        console.log(percent_progress);
         if (!logo_sel) return;
         logo_sel
             .style('top', function (d) {

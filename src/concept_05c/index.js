@@ -39,7 +39,7 @@ module.exports = function concept_04 () {
         d3.html("http://" +
                 window.location.host +
                 window.location.pathname +
-                'src/concept_05a/grid.html', function (html) {
+                'src/concept_05c/grid.html', function (html) {
 
             grid_sel.node().appendChild(html.cloneNode(true));
             self.dispatch.htmlLoaded();
