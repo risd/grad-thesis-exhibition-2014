@@ -7,7 +7,7 @@ module.exports = function work () {
         container,
         work_sel,
         risd_programs = ['All'],
-        masonic_gutter = 50;
+        masonic_gutter = 80;
 
     self.dispatch = d3.dispatch('dataLoaded');
 
@@ -108,11 +108,21 @@ module.exports = function work () {
                     return d.cover.width;
                 });
 
-        work_sel_enter
+        var work_sel_enter_meta =
+            work_sel_enter
+                .append('div')
+                .attr('class', 'piece-meta-wrapper');
+        work_sel_enter_meta
             .append('p')
-            .attr('class', 'student_name')
+            .attr('class', 'student_name piece-meta')
             .text(function (d) {
                 return d.student_name;
+            });
+        work_sel_enter_meta
+            .append('p')
+            .attr('class', 'risd_program piece-meta')
+            .text(function (d) {
+                return d.risd_program;
             });
 
         work_sel_enter.transition()
@@ -233,7 +243,10 @@ module.exports = function work () {
                 'student_name': d.owners[0].display_name,
                 'risd_program': d.risd_program,
                 'modules': modules_to_include,
-                'cover': random_cover
+                'cover': random_cover,
+                description: d.details.description,
+                avatar: d.owners[0].images['138'],
+                url: d.owners[0].url
             });
 
             if (risd_programs.indexOf(d.risd_program) < 0) {

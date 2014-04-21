@@ -1,64 +1,20 @@
 module.exports = function lightbox () {
     var self = {},
         container,
-        original_container,
-        lightbox_sel,
-        lightbox_img_sel,
         selected_sel,
         to_transition = {
-            div: {
-                start: {
-                    position: 'fixed'
-                },
-                end: {
-                    position: 'fixed',
-                    top: '0px',
-                    left: '0px',
-                    '-webkit-transform': 'matrix(1,0,0,1,0,0)',
-                    width: window.innerWidth + 'px',
-                    height: window.innerHeight + 'px'
-                }
-            },
-            img: {
-                start: {
-                    top: '0px',
-                    left: '0px'
-                },
-                end: {}
-            },
             container: {
                 start: {
-                    'background-color': 'rgba(239, 65, 54, 0)'
+                    'background-color': 'rgba(239, 65, 54, 0)',
+                    opacity: 0
                 },
                 end: {
-                    'background-color': 'rgba(239, 65, 54, 0.8)'
+                    'background-color': 'rgba(239, 65, 54, 0.9)',
+                    opacity: 1
                 }
             }
         },
-        calc_to_transition_img = function (d) {
-            to_transition.img.start.width = d.width + 'px';
-            to_transition.img.start.height = d.height + 'px';
-
-            to_transition.img.end.width = d.original_width + 'px';
-            to_transition.img.end.height = d.original_height + 'px';
-
-
-            if (d.original_height > window.innerHeight) {
-                to_transition.img.end.top = '0px';
-            } else {
-                to_transition.img.end.top =
-                    ((window.innerHeight -
-                      d.original_height) / 2) + 'px';
-            }
-
-            if (d.original_width > window.innerWidth) {
-                to_transition.img.end.left = '0px';
-            } else {
-                to_transition.img.end.left =
-                    ((window.innerWidth -
-                      d.original_width) / 2) + 'px';
-            }
-        };
+        body_sel = d3.select('body');
 
     self.dispatch = d3.dispatch('container');
 
@@ -68,11 +24,6 @@ module.exports = function lightbox () {
         });
     });
 
-    self.originalContainer = function (_) {
-        if (!arguments.length) return original_container;
-        original_container = _;
-        return self;
-    };
     self.container = function (_) {
         if (!arguments.length) return container;
         container = _;
@@ -85,69 +36,77 @@ module.exports = function lightbox () {
         if (!container) throw "Expected container.";
         selected_sel = sel;
 
-        var original_container_box =
-            original_container
-                .node()
-                .getBoundingClientRect();
-
-        var copy = sel.node().cloneNode(true);
-        var copy_sel = d3.select(copy);
-
-        copy_sel.select('p').remove();
-
-        var lightbox_copy = container.node().appendChild(copy);
-        lightbox_sel = container.select('.piece');
-        lightbox_img_sel = lightbox_sel.select('img');
-
-
-        to_transition.div.start.width = sel.style('width');
-
-        to_transition.div.start.height = sel.style('height');
-        to_transition.div.start.top =
-            (+sel
-                .style('top')
-                .split('p')[0] +
-            original_container_box.top) + 'px';
-        to_transition.div.start.left =
-            (+sel
-                .style('left')
-                .split('p')[0] +
-            original_container_box.left) + 'px';
-        to_transition.div.start['-webkit-transform'] =
-            sel.style('-webkit-transform');
-
-
         var data = sel.datum();
+        console.log('data');
+        console.log(data);
+        console.log('data.modules');
+        console.log(data.modules);
 
-        calc_to_transition_img(data.cover);
+        var lightbox_grid_sel = container
+            .append('div')
+            .attr('class', 'grid');
+
+        var lightbox_meta_sel =
+            lightbox_grid_sel
+                .append('div')
+                .attr('class', 'lightbox-meta col-2-10');
+
+        var lightbox_work_sel =
+            lightbox_grid_sel
+                .append('div')
+                .attr('class', 'lightbox-work offset-2-10 col-8-10');
+
+        lightbox_work_sel
+            .append('h2')
+            .attr('class', 'lightbox-title')
+            .text(data.project_name);
+
+        lightbox_work_sel
+            .append('p')
+            .attr('class', 'lightbox-description')
+            .text(data.description);
+
+        lightbox_work_sel.selectAll('.piece')
+            .data(data.modules)
+            .enter()
+            .append('div')
+            .attr('class', 'piece')
+            .append('img')
+            .attr('src', function (d) {
+                return d.sizes.max_1240 ? d.sizes.max_1240 : d.src;
+            });
+
+        var lightbox_meta_info_sel = lightbox_meta_sel
+            .append('div')
+            .attr('class', 'lightbox-meta-info');
+
+        lightbox_meta_info_sel
+            .append('p')
+            .attr('class', 'lightbox-meta-info--student-name')
+            .text(data.student_name);
+
+        lightbox_meta_info_sel
+            .append('p')
+            .attr('class', 'lightbox-meta-info--risd-program')
+            .text(data.risd_program);
+
+        lightbox_meta_info_sel
+            .append('a')
+            .attr('class', 'lightbox-meta-info--personal-link')
+            .attr('href', data.url)
+            .text('Behance');
 
 
-        container.classed('active', true);
-
-        lightbox_img_sel
-            .style(to_transition.img.start);
-        lightbox_sel
-            .style(to_transition.div.start);
         container
             .style(to_transition.container.start);
 
-        console.log(to_transition.div);
+        container.classed('active', true);
+        body_sel.classed('lightbox-open', true);
 
         d3.transition()
             .duration(280)
             .ease('cubic-out')
-            .each('start', function () {
-                selected_sel.style('display', 'none');
-            })
             .each(function () {
-                lightbox_sel
-                    .transition()
-                    .style(to_transition.div.end);
-
-                lightbox_img_sel
-                    .transition()
-                    .style(to_transition.img.end);
-
                 container
                     .transition()
                     .style(to_transition.container.end);
@@ -160,14 +119,6 @@ module.exports = function lightbox () {
             .duration(280)
             .ease('cubic-in')
             .each(function () {
-                lightbox_sel
-                    .transition()
-                    .style(to_transition.div.start);
-
-                lightbox_img_sel
-                    .transition()
-                    .style(to_transition.img.start);
-
                 container
                     .transition()
                     .style(to_transition.container.start);
@@ -176,6 +127,7 @@ module.exports = function lightbox () {
                 selected_sel.style('display', 'block');
                 container.classed('active', false);
                 container.html('');
+                body_sel.classed('lightbox-open', false);
             });
     }
 

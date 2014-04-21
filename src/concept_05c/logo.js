@@ -1,4 +1,5 @@
-var logoComponents = require('./logo_components');
+var logoComponents = require('./logo_components'),
+    logoPaths = require('./logo_static_paths');
 
 module.exports = function work () {
     var self = {},
@@ -10,9 +11,11 @@ module.exports = function work () {
         logo_line_sel,
         logo_subsidiary_sel,
         logo_components = logoComponents,
+        logo_component_paths = logoPaths,
         logo_svg,
         logo_line,
-        line = d3.svg.line();
+        logo_connecting_line,
+        straight_line = d3.svg.line();
 
     var scroll_scale = d3.scale.linear()
         .domain([0, distance_to_scroll])
@@ -118,6 +121,9 @@ module.exports = function work () {
             .style('font-size', function (d) {
                 return d.start['font-size'];
             })
+            .style('line-height', function (d) {
+                return d.start['line-height'];
+            })
             .html(function (d) {
                 return d.html;
             });
@@ -136,12 +142,30 @@ module.exports = function work () {
                 .attr('width', window.innerWidth)
                 .attr('height', window.innerHeight);
 
-        logo_line = logo_svg.selectAll('path')
-            .data([logo_verticies()])
+        var verticies = logo_verticies();
+
+        logo_line = logo_svg.selectAll('.logo-line')
+            .data(verticies.straight)
             .enter()
             .append('path')
                 .attr('class', 'logo-line')
-                .attr('d', line);
+                .attr('d', straight_line);
+
+        logo_connecting_line =
+            logo_svg
+                .selectAll('.logo-connecting')
+                .data(verticies.connecting)
+                .enter()
+                .append('path')
+                    .attr('class', 'logo-connecting')
+                    .attr('d', function (d) {
+                        return d.segment;
+                    })
+                    .attr('transform', function (d) {
+                        return 'translate(' + d.translate.x +
+                            ',' + d.translate.y + ') scale(' +
+                            d.scale.x + ',' + d.scale.y + ')';
+                    });
     };
 
     function update_logo_components (percent_progress) {
@@ -170,31 +194,75 @@ module.exports = function work () {
     }
 
     function update_logo_line () {
-        var verticies = [logo_verticies()];
-        logo_line.data(verticies);
-        logo_line.attr('d', line);
+        var verticies = logo_verticies();
+        logo_line
+            .data(verticies.straight)
+            .attr('d', straight_line);
+
+        logo_connecting_line
+            .data(verticies.connecting)
+            .attr('d', function (d) {
+                return d.segment;
+            })
+            .attr('transform', function (d) {
+                return 'translate(' + d.translate.x +
+                    ',' + d.translate.y + ') scale(' +
+                    d.scale.x + ',' + d.scale.y + ')';
+            });
     }
 
     function logo_verticies () {
         var logo_line_verticies = [];
+        var logo_connecting_line_segments = [];
         logo_line_sel.each(function (d, i) {
             var bounds = this.getBoundingClientRect();
+            var first, second;
             if (i === 0) {
-                logo_line_verticies.push(
-                    [bounds.left + 3,
-                     (bounds.top + (bounds.height*(2/3)))]);
+                first = [bounds.left + 3,
+                     (bounds.top + (bounds.height*(2/3)))];
             } else {
-                logo_line_verticies.push(
-                    [bounds.left - 10,
-                     (bounds.top + (bounds.height*(2/3)))]);
+                first = [bounds.left - 10,
+                     (bounds.top + (bounds.height*(2/3)))];
             }
 
-            logo_line_verticies.push(
-                [bounds.right + 10,
-                 (bounds.top + (bounds.height*(2/3)))]);
+            second = [bounds.right + 10,
+                 (bounds.top + (bounds.height*(2/3)))];
+
+            logo_line_verticies.push([first, second]);
 
         });
-        return logo_line_verticies;
+        for (var i = 0; i < logo_line_verticies.length; i++) {
+            if ((i+1) < logo_line_verticies.length) {
+                var start = logo_line_verticies[i][1],
+                    end = logo_line_verticies[i+1][0];
+
+                var delta_x = start[0] - end[0],
+                    delta_y = end[1] - start[1];
+
+                console.log('delta x, delta y');
+                console.log(delta_x, delta_y);
+                var d = {};
+                d.scale = {
+                    x: delta_x/logo_component_paths[i].width,
+                    y: delta_y/logo_component_paths[i].height
+                };
+                d.translate = {
+                    x: start[0] -
+                        (logo_component_paths[i].width *
+                         d.scale.x),
+                    y: end[1] -
+                        (logo_component_paths[i].height *
+                         d.scale.y)
+                };
+                d.segment = logo_component_paths[i].segment;
+
+                logo_connecting_line_segments.push(d);
+            }
+        }
+        return {
+            straight: logo_line_verticies,
+            connecting: logo_connecting_line_segments
+        };
     }
 
     function calc_distance_to_scroll () {

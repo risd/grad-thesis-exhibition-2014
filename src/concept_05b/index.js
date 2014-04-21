@@ -87,8 +87,7 @@ module.exports = function concept_04 () {
 
             
         work.lightbox
-            .container(lightbox_container)
-            .originalContainer(work_sel);
+            .container(lightbox_container);
 
 
         translate

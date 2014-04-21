@@ -354,6 +354,8 @@ h4 {
     bottom: 50px;
     right: 50px;
 }
+.concept_05c .logo-connecting,
+.concept_05c .logo-line,
 .concept_05b .logo-line,
 .concept_05a .logo-line,
 .concept_05 .logo-line,
@@ -448,6 +450,7 @@ h4 {
     font-size: 25px;
     margin-bottom: 20px;
 }
+.concept_05b .lightbox-meta-info--student-name,
 .concept_05c .lightbox-meta-info--student-name {
     margin-top: 0;
 }

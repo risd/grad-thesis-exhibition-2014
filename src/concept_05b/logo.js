@@ -114,6 +114,9 @@ module.exports = function work () {
             .style('font-size', function (d) {
                 return d.start['font-size'];
             })
+            .style('line-height', function (d) {
+                return d.start['line-height'];
+            })
             .html(function (d) {
                 return d.html;
             });
