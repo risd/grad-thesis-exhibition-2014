@@ -144,6 +144,7 @@
     right: 50px;
 }
 .concept_05c .logo-connecting,
+.concept_05b .logo-connecting,
 .concept_05c .logo-line,
 .concept_05b .logo-line,
 .concept_05a .logo-line,
@@ -161,6 +162,8 @@
 
 .departments ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .departments li {
     margin-bottom: 14px;
@@ -216,13 +219,12 @@
 .lightbox-open {
     overflow: hidden;
 }
-.lightbox-meta {
-    position: fixed;
-}
 .lightbox-work .piece {
     margin-bottom: 30px;
 }
+.lightbox-work .piece,
 .lightbox-work .piece img {
+    width: 100%;
     max-width: 100%;
 }
 .lightbox-title {
@@ -346,6 +348,20 @@
 .concept_05c .work {
     z-index: 10;
 }
+.concept_05b .grid-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.concept_05b .grid-work .work-wrapper {
+    z-index: 15;
+}
+.concept_05b .grid-work .departments {
+    z-index: 25;
+}
+.concept_05b .grid-work .work {
+    z-index: 20;
+}
 .work-background {
     opacity: 0;
     z-index: 0;
@@ -362,8 +378,96 @@
     top: 0;
     z-index: 8;
 }
+
+.concept_05b .department-list ul li p,
+.departments .department-activator {
+    cursor: pointer;
+}
 .concept_05b .departments {
     opacity: 0;
     position: fixed;
-    top: 100px;
+    top: 100%;
+    bottom: auto;
+    height: 100%;
+
+    background-color: rgb(239, 65, 54);
+    background-color: rgba(239, 65, 54, 0.8);
+}
+.concept_05b .departments--active {
+    -webkit-transition: top 0.3 ease-in-out;
+    top: 0;
+}
+.concept_05b .department-blanket {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+.concept_05b .department-list {
+    position: absolute;
+    top: 50px;
+}
+.departments .department-activator {
+    display: block;
+    height: 50px;
+    position: absolute;
+    top: -50px;
+
+    background-color: blue;
+
+}
+.concept_05b .piece img {
+    width: 100%;
+}
+.concept_05b .piece {
+    width: 50%;
+    margin-bottom: 30px;
+}
+.concept_05b .wide-piece {
+    width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+    .concept_05b .departments {
+        background-color: transparent;
+        top: 50px;
+        bottom: auto;
+        height: auto;
+    }
+    .departments .department-activator {
+        display: none;
+    }
+    .lightbox-meta {
+        position: fixed;
+    }
+    .concept_05b .piece {
+        width: 20%;
+    }
+    .concept_05b .wide-piece {
+        width: 40%;
+    }
+    .lightbox .piece {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .lightbox .piece {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+    .lightbox .piece {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    
+    .lightbox .piece {
+        width: 100%;
+    }
 }

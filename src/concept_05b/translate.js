@@ -58,7 +58,6 @@ module.exports = function translate () {
     };
 
     self.setup = function () {
-        var fixed_sel_node = fixed_sel.node();
         d3.select(window)
             .on('scroll.translate', function () {
                 if (pageYOffset > over_sel_height) {

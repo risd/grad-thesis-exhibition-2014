@@ -1,4 +1,4 @@
-var Departments = require('../departments'),
+var Departments = require('./departments'),
     Logo = require('./logo'),
     Work = require('./work'),
     Translate = require('./translate');
@@ -96,6 +96,11 @@ module.exports = function concept_04 () {
             .background(work_background_sel)
             .fixed(department_sel)
             .setup();
+
+        departments.dispatch
+            .on('filter.work', function (d) {
+                work.filter(d);
+            })
     });
 
     return self;

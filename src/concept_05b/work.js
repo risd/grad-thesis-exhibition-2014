@@ -6,8 +6,8 @@ module.exports = function work () {
         data = [],
         container,
         work_sel,
-        risd_programs = ['All'],
-        masonic_gutter = 80;
+        iso,
+        risd_programs = ['All'];
 
     self.dispatch = d3.dispatch('dataLoaded');
 
@@ -21,7 +21,7 @@ module.exports = function work () {
 
     d3.select(window)
         .on('resize.work', function () {
-            resize_masonic();
+            
         });
 
     function get_more_data () {
@@ -32,15 +32,6 @@ module.exports = function work () {
         get_data();
     }
     // end dealing with window
-
-    var masonic = d3.masonic()
-        .width(function (d) {
-            return +d.cover.width + masonic_gutter;
-        })
-        .height(function (d) {
-            return +d.cover.height + masonic_gutter;
-        })
-        .columnWidth(200 + masonic_gutter);
 
     self.data = function (_) {
         if (!arguments.length) return data;
@@ -80,38 +71,55 @@ module.exports = function work () {
         return self;
     };
 
+    self.filter = function (_) {
+        if (arguments.length != 1) throw "filter takes one argument";
+
+        var program = _;
+        if (program === 'All') program = '';
+
+        if (iso) {
+            iso.arrange({
+                filter: function (itemElem) {
+                    return d3.select(itemElem)
+                        .classed(format_program(program));
+                }
+            });
+        }
+    };
+
     function render_data() {
         work_sel = container.selectAll('.piece')
             .data(data);
 
+        var wide_count = 0,
+            wide_frequency = 5;
         work_sel_enter = work_sel
             .enter()
             .append('div')
-                .attr('class', function (d) {
+                .attr('class', function (d, i) {
+                    var extra_class = '';
+                    if (d.cover.width > d.cover.height) {
+                        wide_count += 1;
+                        if ((wide_count/wide_frequency) === 0) {
+                            extra_class = ' wide-piece';
+                        }
+                    }
                     return 'piece ' +
-                        format_program(d.risd_program);
-                })
-                .style('width', function (d) {
-                    return d.cover.width + 'px';
-                })
-                .style('height', function (d) {
-                    return d.cover.height + 'px';
-                })
-                .style('opacity', 0);
+                        format_program(d.risd_program) +
+                        extra_class;
+                });
 
         work_sel_enter
             .append('img')
                 .attr('src', function (d) {
                     return d.cover.src;
-                })
-                .attr('width', function (d) {
-                    return d.cover.width;
                 });
 
         var work_sel_enter_meta =
             work_sel_enter
                 .append('div')
                 .attr('class', 'piece-meta-wrapper');
+
         work_sel_enter_meta
             .append('p')
             .attr('class', 'student_name piece-meta')
@@ -136,31 +144,15 @@ module.exports = function work () {
             d3.select(this).call(lightbox.show);
         });
 
-        resize_masonic();
-    }
+        iso = new Isotope(container.node(), {
+            itemSelector: '.piece',
+            masonry: {
+                columnWidth: '.piece',
+                gutter: 30
+            }
+        });
 
-    function resize_masonic () {
-        var outerWidth = container.property('offsetWidth');
-
-        masonic
-            .outerWidth(outerWidth)
-            .reset();
-
-        work_sel
-            .datum(masonic)
-            .style("width", function (d) {
-                return d.width + 'px';
-            })
-            .style("height", function (d) {
-                return d.height + 'px';
-            })
-            .style("left", function (d) { return d.x + 'px'; })
-            .style("top", function (d) { return d.y + 'px'; })
-            .datum(function (d) {
-                return d.data;
-            });
-
-        container.style('height', masonic.outerHeight() + 'px');
+        window.iso = iso;
     }
 
     function get_data () {
