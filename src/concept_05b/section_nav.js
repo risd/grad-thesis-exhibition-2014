@@ -30,7 +30,8 @@ module.exports = function section_nav () {
             .attr('class', 'nav-section-item')
             .append('a')
             .attr('href', function (d) {
-                return '#' + d.text;
+                // return '#' + d.text.toLowerCase();
+                return;
             })
             .append('p')
             .text(function (d) {

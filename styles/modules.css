@@ -387,6 +387,7 @@
     top: 0;
 }
 
+.visit a:hover,
 .concept_05b .department-list ul li p,
 .departments .department-activator {
     cursor: pointer;
@@ -464,6 +465,24 @@
 .concept_05b .grid-wrapper .z-index-30 {
     z-index: 30;
 }
+.visit svg {
+    margin-bottom: 50px;
+    width: 100%;
+    pointer-events: all;
+}
+.visit svg #bg {
+    display: none;
+}
+.visit a,
+.visit a svg,
+.visit a svg text,
+.visit a svg text tspan,
+.visit a:hover,
+.visit a:hover svg,
+.visit a:hover svg text,
+.visit a:hover svg text tspan {
+    text-decoration: none;
+}
 
 @media only screen and (min-width: 768px) {
     .concept_05b .departments {
@@ -512,5 +531,9 @@
 
     .lightbox .piece {
         width: 100%;
+    }
+
+    .visit svg {
+        margin-bottom: 250px;
     }
 }

@@ -88,6 +88,7 @@ module.exports = function concept_04 () {
 
         var work_sel = work_wrapper
             .append('div')
+            .attr('id', 'work')
             .attr('class', 'work col-8-10 offset-2-10');
 
         work.container(work_sel)
@@ -100,7 +101,7 @@ module.exports = function concept_04 () {
 
         translate
             .translate(work_sel)
-            .over(d3.select('.about'))
+            .over(d3.select('.intro-wrapper'))
             .background(work_background_sel)
             .fixed(department_sel)
             .nav(top_nav_sel)
