@@ -1,7 +1,8 @@
 var Departments = require('./departments'),
     Logo = require('./logo'),
     Work = require('./work'),
-    Translate = require('./translate');
+    Translate = require('./translate'),
+    Nav = require('./section_nav');
 
 module.exports = function concept_04 () {
     var self = {},
@@ -14,6 +15,7 @@ module.exports = function concept_04 () {
     var logo = Logo();
     var work = Work(self);
     var translate = Translate();
+    var nav = Nav();
 
     self.render = function () {
         // put the dom in
@@ -66,6 +68,11 @@ module.exports = function concept_04 () {
             .append('div')
             .attr('class', 'work-wrapper row');
 
+
+        var top_nav_sel = d3.select('.grid-wrapper')
+            .append('nav')
+            .attr('class', 'nav-section');
+
         work.bottom
             .additionalMarginBottomSel(d3.select('.grid-work'));
 
@@ -75,6 +82,7 @@ module.exports = function concept_04 () {
 
         departments
             .wrapper(department_sel)
+            .grid(grid_work_sel)
             .render();
 
 
@@ -95,12 +103,16 @@ module.exports = function concept_04 () {
             .over(d3.select('.about'))
             .background(work_background_sel)
             .fixed(department_sel)
+            .nav(top_nav_sel)
             .setup();
 
         departments.dispatch
             .on('filter.work', function (d) {
                 work.filter(d);
-            })
+            });
+
+        nav.wrapper(top_nav_sel)
+            .render();
     });
 
     return self;

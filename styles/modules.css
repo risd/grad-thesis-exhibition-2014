@@ -206,7 +206,6 @@
     height: 100%;
 
     overflow-y: scroll;
-    z-index: 500;
 }
 
 .lightbox.active {
@@ -216,7 +215,7 @@
     margin-top: 100px;
     margin-bottom: 100px;
 }
-.lightbox-open {
+.no-scroll {
     overflow: hidden;
 }
 .lightbox-work .piece {
@@ -233,7 +232,7 @@
     margin-bottom: 20px;
 }
 .lightbox-description {
-    max-width: 50%;
+    max-width: 100%;
     margin-bottom: 50px;
 }
 .lightbox-meta-info--student-name {
@@ -343,6 +342,9 @@
 .concept_05c .grid-wrapper {
     z-index: 5;
 }
+.work-background.active {
+    z-index: 8;
+}
 .concept_05b .grid-work,
 .concept_05a .work,
 .concept_05c .work {
@@ -362,6 +364,13 @@
 .concept_05b .grid-work .work {
     z-index: 20;
 }
+.nav-section {
+    z-index: 25;
+}
+.lightbox {
+    z-index: 500;
+}
+
 .work-background {
     opacity: 0;
     z-index: 0;
@@ -376,7 +385,6 @@
 }
 .work-background.active {
     top: 0;
-    z-index: 8;
 }
 
 .concept_05b .department-list ul li p,
@@ -424,8 +432,37 @@
     width: 50%;
     margin-bottom: 30px;
 }
+.concept_05b .lightbox .piece{
+    width: 100%;
+}
 .concept_05b .wide-piece {
     width: 100%;
+}
+.nav-section {
+    position: fixed;
+    top: -900%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.nav-section-items {
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+}
+.nav-section-item {
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+}
+.nav-section-item:last-child {
+    margin-right: 0;
+}
+.nav-section--active {
+    top: 50px;
+}
+.concept_05b .grid-wrapper .z-index-30 {
+    z-index: 30;
 }
 
 @media only screen and (min-width: 768px) {
@@ -450,6 +487,12 @@
     .lightbox .piece {
         width: 100%;
     }
+    .lightbox-description {
+        max-width: 50%;
+    }
+    .nav-section-items {
+        width: 15%;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -466,7 +509,7 @@
 }
 
 @media only screen and (min-width: 1440px) {
-    
+
     .lightbox .piece {
         width: 100%;
     }

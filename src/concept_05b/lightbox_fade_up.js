@@ -101,7 +101,7 @@ module.exports = function lightbox () {
             .style(to_transition.container.start);
 
         container.classed('active', true);
-        body_sel.classed('lightbox-open', true);
+        body_sel.classed('no-scroll', true);
 
         d3.transition()
             .duration(280)

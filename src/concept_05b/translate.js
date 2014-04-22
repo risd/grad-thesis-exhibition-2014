@@ -23,7 +23,9 @@ module.exports = function translate () {
             .clamp(true),
         // selection that will fade in
         // typically navigation
-        fixed_sel;
+        fixed_sel,
+        logo_container_offset,
+        top_nav_sel;
 
     var vendor = ["", "-webkit-", "-moz-", "-ms-", "-o-"].reduce(
         function (p, v) {
@@ -33,6 +35,12 @@ module.exports = function translate () {
     self.translate = function (_) {
         if (!arguments.length) return translate_sel;
         translate_sel = _;
+        return self;
+    };
+
+    self.nav = function (_) {
+        if (!arguments.length) return top_nav_sel;
+        top_nav_sel = _;
         return self;
     };
 
@@ -58,6 +66,7 @@ module.exports = function translate () {
     };
 
     self.setup = function () {
+        update_scroll_target_values();
         d3.select(window)
             .on('scroll.translate', function () {
                 if (pageYOffset > over_sel_height) {
@@ -85,17 +94,35 @@ module.exports = function translate () {
                 background_sel
                     .style('opacity', opacity_val)
                     .classed("active", (opacity_val > 0) ? 1: 0);
+
+
+                if (pageYOffset > logo_container_offset) {
+                    top_nav_sel.classed('nav-section--active',
+                                        true);
+                } else {
+                    top_nav_sel.classed('nav-section--active',
+                                        false);
+                }
             })
             .on('resize.translate', function () {
-                over_sel_height = get_over_sel_height();
+                update_scroll_target_values();
             });
     };
+
+    function update_scroll_target_values () {
+        over_sel_height = get_over_sel_height();
+        logo_container_offset = get_logo_container_offset();
+    }
 
     function get_over_sel_height () {
         if (!over_sel) return 0;
         return over_sel.node()
                 .getBoundingClientRect()
                 .height;
+    }
+
+    function get_logo_container_offset () {
+        return window.innerHeight;
     }
 
 

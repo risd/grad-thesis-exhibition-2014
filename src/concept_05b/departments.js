@@ -6,7 +6,9 @@ module.exports = function department () {
         activator,
         activator_text,
         blanket_sel,
-        active_state = false;
+        grid_sel,
+        active_state = false,
+        body_sel = d3.select('body');
 
     var data = [
         'Architecture',
@@ -29,14 +31,20 @@ module.exports = function department () {
 
     self.dispatch = d3.dispatch('filter');
 
-    self.wrapper = function (x) {
+    self.wrapper = function (_) {
         if (!arguments.length) return wrapper;
-        wrapper = x;
+        wrapper = _;
         return self;
     };
     self.departments = function () {
         if (!arguments.length) throw "departments is a getter";
         return departments;
+    };
+
+    self.grid = function (_) {
+        if (!arguments.length) return grid_sel;
+        grid_sel = _;
+        return self;
     };
 
     self.render = function () {
@@ -87,6 +95,8 @@ module.exports = function department () {
         console.log('toggle');
         active_state = active_state ? false : true;
         wrapper.classed('departments--active', active_state);
+        body_sel.classed('no-scroll', active_state);
+        grid_sel.classed('z-index-30', active_state);
     }
 
 
