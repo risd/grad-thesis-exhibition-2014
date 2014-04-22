@@ -21,6 +21,10 @@ module.exports = function translate () {
             .domain([400, 200])
             .range([0, 1])
             .clamp(true),
+        opacity_nav_scale = d3.scale.linear()
+            .domain([-200, 0])
+            .range([0, 1])
+            .clamp(true),
         // selection that will fade in
         // typically navigation
         fixed_sel,
@@ -96,13 +100,16 @@ module.exports = function translate () {
                     .classed("active", (opacity_val > 0) ? 1: 0);
 
 
-                if (pageYOffset > logo_container_offset) {
+                if (pageYOffset > (logo_container_offset -200)) {
                     top_nav_sel.classed('nav-section--active',
                                         true);
                 } else {
                     top_nav_sel.classed('nav-section--active',
                                         false);
                 }
+                top_nav_sel.style('opacity',
+                        opacity_nav_scale(pageYOffset -
+                                          logo_container_offset));
             })
             .on('resize.translate', function () {
                 update_scroll_target_values();
