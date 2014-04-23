@@ -35,6 +35,22 @@
 }
 /* end grid */
 
+.grid {
+    width: 90%;
+}
+.col-1-10,
+.col-2-10,
+.col-3-10,
+.col-4-10,
+.col-5-10,
+.col-6-10,
+.col-7-10,
+.col-8-10,
+.col-9-10,
+.col-10-10 {
+    width: 100%;
+}
+
 
 @media only screen and (min-width: 768px) {
     .grid {

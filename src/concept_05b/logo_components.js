@@ -51,7 +51,7 @@ module.exports = [{
         'line-height': '42px'
     },
     end: {
-        top: '50%',
+        top: '20%',
         bottom: 'auto',
         left: '50px',
         right: 'auto',
@@ -69,7 +69,7 @@ module.exports = [{
                 'line-height': '42px'
             },
             end: {
-                top: (height * 0.5) + 'px',
+                top: (height * 0.2) + 'px',
                 bottom: 'auto',
                 left: '50px',
                 right: 'auto',
@@ -91,7 +91,7 @@ module.exports = [{
         'line-height': '42px'
     },
     end: {
-        top: '50%',
+        top: '85%',
         bottom: 'auto',
         left: 'auto',
         right: '50px',
@@ -109,7 +109,7 @@ module.exports = [{
                 'line-height': '42px'
             },
             end: {
-                top: (height * 0.5) + 'px',
+                top: (height * 0.85) + 'px',
                 bottom: 'auto',
                 left: 'auto',
                 right: '50px',

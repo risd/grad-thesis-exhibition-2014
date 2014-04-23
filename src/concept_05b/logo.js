@@ -1,4 +1,5 @@
-var logoComponents = require('./logo_components');
+var logoComponents = require('./logo_components'),
+    logoConnecting = require('./logo_connecting');
 
 module.exports = function work () {
     var self = {},
@@ -10,9 +11,11 @@ module.exports = function work () {
         logo_line_sel,
         logo_subsidiary_sel,
         logo_components = logoComponents,
+        logo_connecting_paths = logoConnecting,
         logo_svg,
         logo_line,
-        line = d3.svg.line();
+        logo_connecting,
+        straight_line = d3.svg.line();
 
     var scroll_scale = d3.scale.linear()
         .domain([0, distance_to_scroll])
@@ -135,12 +138,25 @@ module.exports = function work () {
                 .attr('width', window.innerWidth)
                 .attr('height', window.innerHeight);
 
+        var verticies = logo_verticies();
+
         logo_line = logo_svg.selectAll('path')
-            .data([logo_verticies()])
+            .data(verticies.straight)
             .enter()
             .append('path')
                 .attr('class', 'logo-line')
-                .attr('d', line);
+                .attr('d', straight_line);
+
+        logo_connecting =
+            logo_svg
+                .selectAll('.logo-connecting')
+                .data(verticies.connecting)
+                .enter()
+                .append('path')
+                    .attr('class', 'logo-connecting')
+                    .attr('d', function (d) {
+                        return d;
+                    });
     };
 
     function update_logo_components (percent_progress) {
@@ -169,31 +185,56 @@ module.exports = function work () {
     }
 
     function update_logo_line () {
-        var verticies = [logo_verticies()];
-        logo_line.data(verticies);
-        logo_line.attr('d', line);
+        var verticies = logo_verticies();
+
+        logo_line
+            .data(verticies.straight)
+            .attr('d', straight_line);
+
+        logo_connecting
+            .data(verticies.connecting)
+            .attr('d', function (d) {
+                    return d;
+                });
     }
 
     function logo_verticies () {
         var logo_line_verticies = [];
+        var logo_connecting_segments = [];
+
         logo_line_sel.each(function (d, i) {
             var bounds = this.getBoundingClientRect();
+            var first, second;
             if (i === 0) {
-                logo_line_verticies.push(
-                    [bounds.left + 3,
-                     (bounds.top + (bounds.height*(2/3)))]);
+                first = [bounds.left + 3,
+                     (bounds.top + (bounds.height*(2/3)))];
             } else {
-                logo_line_verticies.push(
-                    [bounds.left - 10,
-                     (bounds.top + (bounds.height*(2/3)))]);
+                first = [bounds.left - 6,
+                     (bounds.top + (bounds.height*(2/3)))];
             }
 
-            logo_line_verticies.push(
-                [bounds.right + 10,
-                 (bounds.top + (bounds.height*(2/3)))]);
+            second = [bounds.right + 6,
+                 (bounds.top + (bounds.height*(2/3)))];
+
+            logo_line_verticies.push([first, second]);
 
         });
-        return logo_line_verticies;
+
+        for (var i = 0; i < logo_line_verticies.length; i++) {
+            if ((i+1) < logo_line_verticies.length) {
+                var start = logo_line_verticies[i][1],
+                    end = logo_line_verticies[i+1][0];
+
+                logo_connecting_segments
+                    .push(
+                        logo_connecting_paths[i]
+                            .segment(start, end));
+            }
+        }
+        return {
+            straight: logo_line_verticies,
+            connecting: logo_connecting_segments
+        };
     }
 
     function calc_distance_to_scroll () {

@@ -79,6 +79,22 @@ h4 {
 }
 /* end grid */
 
+.grid {
+    width: 90%;
+}
+.col-1-10,
+.col-2-10,
+.col-3-10,
+.col-4-10,
+.col-5-10,
+.col-6-10,
+.col-7-10,
+.col-8-10,
+.col-9-10,
+.col-10-10 {
+    width: 100%;
+}
+
 
 @media only screen and (min-width: 768px) {
     .grid {
@@ -355,6 +371,7 @@ h4 {
     right: 50px;
 }
 .concept_05c .logo-connecting,
+.concept_05b .logo-connecting,
 .concept_05c .logo-line,
 .concept_05b .logo-line,
 .concept_05a .logo-line,
@@ -372,6 +389,8 @@ h4 {
 
 .departments ul {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 .departments li {
     margin-bottom: 14px;
@@ -414,7 +433,6 @@ h4 {
     height: 100%;
 
     overflow-y: scroll;
-    z-index: 500;
 }
 
 .lightbox.active {
@@ -424,16 +442,15 @@ h4 {
     margin-top: 100px;
     margin-bottom: 100px;
 }
-.lightbox-open {
+.no-scroll {
     overflow: hidden;
-}
-.lightbox-meta {
-    position: fixed;
 }
 .lightbox-work .piece {
     margin-bottom: 30px;
 }
+.lightbox-work .piece,
 .lightbox-work .piece img {
+    width: 100%;
     max-width: 100%;
 }
 .lightbox-title {
@@ -442,7 +459,7 @@ h4 {
     margin-bottom: 20px;
 }
 .lightbox-description {
-    max-width: 50%;
+    max-width: 100%;
     margin-bottom: 50px;
 }
 .lightbox-meta-info--student-name {
@@ -552,11 +569,35 @@ h4 {
 .concept_05c .grid-wrapper {
     z-index: 5;
 }
+.work-background.active {
+    z-index: 8;
+}
 .concept_05b .grid-work,
 .concept_05a .work,
 .concept_05c .work {
     z-index: 10;
 }
+.concept_05b .grid-wrapper {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.concept_05b .grid-work .work-wrapper {
+    z-index: 15;
+}
+.concept_05b .grid-work .departments {
+    z-index: 25;
+}
+.concept_05b .grid-work .work {
+    z-index: 20;
+}
+.nav-section {
+    z-index: 25;
+}
+.lightbox {
+    z-index: 500;
+}
+
 .work-background {
     opacity: 0;
     z-index: 0;
@@ -571,12 +612,157 @@ h4 {
 }
 .work-background.active {
     top: 0;
-    z-index: 8;
+}
+
+.visit a:hover,
+.concept_05b .department-list ul li p,
+.departments .department-activator {
+    cursor: pointer;
 }
 .concept_05b .departments {
     opacity: 0;
     position: fixed;
-    top: 100px;
+    top: 100%;
+    bottom: auto;
+    height: 100%;
+
+    background-color: rgb(239, 65, 54);
+    background-color: rgba(239, 65, 54, 0.8);
+}
+.concept_05b .departments--active {
+    -webkit-transition: top 0.3 ease-in-out;
+    top: 0;
+}
+.concept_05b .department-blanket {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+}
+.concept_05b .department-list {
+    position: absolute;
+    top: 50px;
+}
+.departments .department-activator {
+    display: block;
+    height: 50px;
+    position: absolute;
+    top: -50px;
+
+    background-color: blue;
+
+}
+.concept_05b .piece img {
+    width: 100%;
+}
+.concept_05b .piece {
+    width: 50%;
+    margin-bottom: 30px;
+}
+.concept_05b .lightbox .piece{
+    width: 100%;
+}
+.concept_05b .wide-piece {
+    width: 100%;
+}
+.nav-section {
+    position: fixed;
+    top: -900%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+.nav-section-items {
+    position: relative;
+    margin: 0 auto;
+    width: 40%;
+}
+.nav-section-item {
+    text-align: center;
+    display: inline-block;
+    margin-right: 20px;
+}
+.nav-section-item:last-child {
+    margin-right: 0;
+}
+.nav-section--active {
+    top: 50px;
+}
+.concept_05b .grid-wrapper .z-index-30 {
+    z-index: 30;
+}
+.visit svg {
+    margin-bottom: 50px;
+    width: 100%;
+    pointer-events: all;
+}
+.visit svg #bg {
+    display: none;
+}
+.visit a,
+.visit a svg,
+.visit a svg text,
+.visit a svg text tspan,
+.visit a:hover,
+.visit a:hover svg,
+.visit a:hover svg text,
+.visit a:hover svg text tspan {
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+    .concept_05b .departments {
+        background-color: transparent;
+        top: 50px;
+        bottom: auto;
+        height: auto;
+    }
+    .departments .department-activator {
+        display: none;
+    }
+    .lightbox-meta {
+        position: fixed;
+    }
+    .concept_05b .piece {
+        width: 20%;
+    }
+    .concept_05b .wide-piece {
+        width: 40%;
+    }
+    .lightbox .piece {
+        width: 100%;
+    }
+    .lightbox-description {
+        max-width: 50%;
+    }
+    .nav-section-items {
+        width: 15%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .lightbox .piece {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+
+    .lightbox .piece {
+        width: 100%;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+
+    .lightbox .piece {
+        width: 100%;
+    }
+
+    .visit svg {
+        margin-bottom: 250px;
+    }
 }/* Theme
 -----------------------------------------------*/
 
