@@ -58,7 +58,7 @@ module.exports = function department () {
 
         activator_text = activator.append('p')
             .attr('class', 'department-activator-text')
-            .text('Departments');
+            .text('filter by department');
 
         blanket_sel = wrapper.append('div')
             .attr('class', 'department-blanket');
