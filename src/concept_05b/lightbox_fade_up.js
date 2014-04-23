@@ -127,7 +127,7 @@ module.exports = function lightbox () {
                 selected_sel.style('display', 'block');
                 container.classed('active', false);
                 container.html('');
-                body_sel.classed('lightbox-open', false);
+                body_sel.classed('no-scroll', false);
             });
     }
 

@@ -83,7 +83,7 @@ module.exports = [{
     cls: 'logo-component--show text-right logo-component--title',
     type: 'line',
     start: {
-        top: '45%',
+        top: '50%',
         bottom: 'auto',
         left: 'auto',
         right: '30%',
@@ -91,7 +91,7 @@ module.exports = [{
         'line-height': '42px'
     },
     end: {
-        top: '80%',
+        top: '85%',
         bottom: 'auto',
         left: 'auto',
         right: '50px',
@@ -101,7 +101,7 @@ module.exports = [{
     rules: function (width, height) {
         return {
             start: {
-                top: (height * 0.45) + 'px',
+                top: (height * 0.5) + 'px',
                 bottom: 'auto',
                 left: 'auto',
                 right: (width * 0.3) + 'px',
@@ -109,7 +109,7 @@ module.exports = [{
                 'line-height': '42px'
             },
             end: {
-                top: (height * 0.8) + 'px',
+                top: (height * 0.85) + 'px',
                 bottom: 'auto',
                 left: 'auto',
                 right: '50px',
