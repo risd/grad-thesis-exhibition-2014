@@ -450,7 +450,7 @@
 .nav-section-items {
     position: relative;
     margin: 0 auto;
-    width: 40%;
+    width: 100%;
 	text-align:center;
 	margin-top:20px;
 }
@@ -507,38 +507,39 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
     text-decoration: none;
 }
 
+.concept_05b .piece {
+	width: 100%;
+	margin-bottom: 30px;
+}
 
 
-	.concept_05b .piece {
-		width: 100%;
-		margin-bottom: 30px;
-	}
-	
-	
-	.concept_05b .department-list {
-		position: relative;
-		top: 50px;
+.concept_05b .department-list {
+	position: relative;
+	top: 50px;
 
-		width:100%;
-		margin:0 auto;
-		background-color:rgba(239,65,54,1);
-	}
-	.concept_05b .department-list ul li{
-		
-		border-bottom:1px solid #fff;
-	}
-	.concept_05b .department-list ul li p{
-		text-align:center;
-		font-size:43px;
-		border-bottom:1px solid #fff;
-		line-height:52px !important;
-	}
+	width:100%;
+	margin:0 auto;
+	background-color:rgba(239,65,54,1);
+}
+.concept_05b .department-list ul li{
 	
-	.department-activator-text{
-		font-size:19px;
-		text-align:center;
-		padding-top:20px;	
-	}
+	border-bottom:1px solid #fff;
+}
+.concept_05b .department-list ul li p{
+	text-align:center;
+	font-size:43px;
+	border-bottom:1px solid #fff;
+	line-height:52px !important;
+}
+
+.department-activator-text{
+	font-size:19px;
+	text-align:center;
+	padding-top:20px;	
+}
+.concept_05b .intro {
+    font-size: 1.5em;
+}
 
 
 
@@ -592,13 +593,6 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
 		line-height:21px !important;
 	}
 	
-	
-	
-	
-	
-    /*.nav-section-items {
-        width: 15%;
-    }*/
 }
 
 @media only screen and (min-width: 1024px) {
