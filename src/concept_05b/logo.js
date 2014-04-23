@@ -58,6 +58,10 @@ module.exports = function work () {
                 update_logo_line();
             }
             prev_scroll_progress = scroll_progress;
+
+            logo_container_sel
+                .classed('logo-svg--end',
+                         (scroll_progress === 1) ? true : false);
         });
 
     self.scrollOverSel = function (_) {
@@ -76,6 +80,7 @@ module.exports = function work () {
         // update logo components per window
         var window_width = window.innerWidth,
             window_height = window.innerHeight;
+
         logo_components.forEach(function (d, i) {
             var updated = d.rules(window_width,
                                   window_height);
@@ -245,13 +250,14 @@ module.exports = function work () {
     }
 
     function add_interpolator (states) {
+        // sizes
+        // { min1400: {},  min1024: {}, min768: {}, min300: {}}
         states.interpolator = {};
         for (var key in states.start) {
             states.interpolator[key] =
                 d3.interpolateString(
                     states.start[key],
                     states.end[key]);
-                
         }
         return states;
     }

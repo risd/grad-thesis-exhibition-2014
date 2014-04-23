@@ -105,6 +105,7 @@ module.exports = function concept_04 () {
             .background(work_background_sel)
             .fixed(department_sel)
             .nav(top_nav_sel)
+            .scrollLead(d3.select('.scroll-lead'))
             .setup();
 
         departments.dispatch

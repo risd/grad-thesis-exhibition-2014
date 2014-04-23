@@ -25,11 +25,16 @@ module.exports = function translate () {
             .domain([-200, 0])
             .range([0, 1])
             .clamp(true),
+        opacity_scroll_lead_scale = d3.scale.linear()
+            .domain([0, 150])
+            .range([1, 0])
+            .clamp(true),
         // selection that will fade in
         // typically navigation
         fixed_sel,
         logo_container_offset,
-        top_nav_sel;
+        top_nav_sel,
+        scroll_lead_sel;
 
     var vendor = ["", "-webkit-", "-moz-", "-ms-", "-o-"].reduce(
         function (p, v) {
@@ -45,6 +50,12 @@ module.exports = function translate () {
     self.nav = function (_) {
         if (!arguments.length) return top_nav_sel;
         top_nav_sel = _;
+        return self;
+    };
+
+    self.scrollLead = function (_) {
+        if (!arguments.length) return scroll_lead_sel;
+        scroll_lead_sel = _;
         return self;
     };
 
@@ -121,6 +132,8 @@ module.exports = function translate () {
         top_nav_sel.style('opacity',
                 opacity_nav_scale(pageYOffset -
                                   logo_container_offset));
+        scroll_lead_sel.style('opacity',
+                opacity_scroll_lead_scale(pageYOffset));
     }
 
     function update_scroll_target_values () {

@@ -338,6 +338,12 @@ h4 {
     position: fixed;
     top: 0;
     left: 0;
+
+    -webkit-transition: opacity 0.5s ease-in;
+}
+.logo-svg--end {
+    opacity: 0;
+    -webkit-transition: opacity 0.5s ease-out;
 }
 .logo-component--title {
     font-family: "Theinhardt-Medium";
@@ -772,10 +778,22 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
     font-size: 1.5em;
 }
 
+.scroll-lead {
+    position: absolute;
+    top: -120px;
+    text-align: center;
+}
+.scroll-lead svg {
+    -webkit-transform: scale(0.2);
+}
+
 
 
 
 @media only screen and (min-width: 768px) {
+    .logo-svg--end {
+        opacity: 1;
+    }
     .concept_05b .departments {
         background-color: transparent;
         top: 50px;
