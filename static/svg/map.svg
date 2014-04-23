@@ -1,23 +1,85 @@
-<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="500px"
-	 height="407.023px" viewBox="0 0 500 407.023" enable-background="new 0 0 500 407.023" xml:space="preserve">
-<g id="streets">
-	<path fill="none" stroke="#000000" d="M0,81.404c0,0,51.334,2.84,68.372,8.046s62.947,15.146,62.947,15.146
-		s51.115,8.52,79.512-0.947c28.397-9.465,129.68-54.902,129.68-54.902s39.756-8.52,68.626,7.572l53.008,51.115
-		c0,0,16.566,28.87,21.299,42.596c4.732,13.725,11.832,24.389,12.778,41.064s0,51.699,0,51.699S500,274.502,500,282.074
-		s-4.725,36.443-5.198,47.328c-0.474,10.887-1.42,48.275-1.42,48.275s3.313,23.668,3.313,29.346"/>
-	<path fill="none" stroke="#000000" d="M107.182,0L41.869,239.48c0,0-20.352,66.734-5.68,114.535
-		c14.672,47.803,21.771,53.008,21.771,53.008"/>
-	<path fill="none" stroke="#000000" d="M31.072,304.764l59.261-25.336l50.667-28l70.667-84.001c0,0,4.667-10.667,27.333-22
-		s63.333-28,63.333-28l65.333-31.333l34.356-33.182"/>
-	<path fill="none" stroke="#000000" d="M221.667,0c0,0-3.333,41.426-5.119,58.093s3.786,35.333,3.786,35.333s1.333,12.667,18.667,40
-		c17.333,27.334,3.333,37.334,3.333,37.334l-22,22.584L199,223.426c0,0-26.667,39.334-29.333,42.668s-15.333,14-29.333,6.666
-		s-22,0-22,0s-7.333,4-22.667,10.666c-15.333,6.668-39.781,10.729-39.781,10.729"/>
-	<path fill="none" stroke="#000000" d="M67.702,144.758l16.147,6.724c0,0,14.797,4.337,30.87,2.093l76.026-1.582l25.802,1.582
-		l24.712-1.328c0,0,4.454-0.033,8.74-2.758c1.603-1.018,3.761,0.207,7.843,1.738l13.011,2.992l31.381,8.232
-		c0,0,13.266,1.276,20.92,10.971s31.381,32.145,31.381,32.145l38.522,40.564l33.166,33.678l25.257,22.705l25.768,22.961
-		l17.147,15.564"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="1151px" height="780.598px" viewBox="0 0 1151 780.598" enable-background="new 0 0 1151 780.598" xml:space="preserve">
+<rect id="bg" x="-1" y="-1" fill="#FF3F32" width="1152" height="782"/>
+<g id="map">
+	<g opacity="0.2">
+		<g>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1058.389" y1="117.209" x2="587.407" y2="375.436"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1142.217" y1="143" x2="209.393" y2="1032"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1302" y1="218.603" x2="472.398" y2="1011.539"/>
+			<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1737.217" y1="-48" x2="992.217" y2="662"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="999.364" y1="654.602" x2="651.071" y2="1152.727"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" d="M588.113,380.674
+				c0,0-229.964,227.286-284.502,281.541s-491.393,161.382-491.393,161.382"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" d="M586,376c0,0-221.685,0-293.682,0
+				s-91.495-21.928-188.991-48.927C5.833,300.074-222.891,308-222.891,308"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" d="M572.757,414.333"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1163.771" y1="1011.539" x2="560.852" y2="414.333"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1122.771" y1="1051.539" x2="516.529" y2="451.513"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1067.771" y1="1081.539" x2="472.148" y2="491.969"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="999.771" y1="1152.539" x2="400.216" y2="559.078"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="968.681" y1="698.485" x2="770.148" y2="501.969"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1537.771" y1="1039.539" x2="942.148" y2="449.969"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1451.771" y1="707.539" x2="851.005" y2="109.289"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="1679.217" y1="-259" x2="825.217" y2="556.479"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" d="M377.778-176.3
+				c0,0-114.041,660.066-129.043,750.075c-15.001,90.009-5.402,277.463,144.314,465.764"/>
+			
+				<line fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" x1="124.926" y1="333.335" x2="93.22" y2="746.526"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" d="M337.047,629.128
+				c0,0-22.304-60.745-109.313-70.05c-87.009-9.305-315.031-2.599-315.031-2.599"/>
+			<path fill="none" stroke="#FFFFFF" stroke-width="12" stroke-miterlimit="10" d="M-105,149c0,0,192.866,0,254,0
+				s195.682,27.633,323.398,60.631s215.15-30.016,262.929-54.006c47.779-23.99,113.876-57.043,206.821-58.516
+				s234.191,54.025,297.812,105.022"/>
+			<g>
+				<path fill="#FFFFFF" d="M315.109,14c83.592,0,239.203,134.009,403.13,143.081c1.285,0.071,2.613,0.106,3.914,0.106
+					c51.879,0,117.103-55.011,210.587-55.498c0.483-0.003,0.979-0.004,1.464-0.004c119.968,0,295.795,76.543,386.795,164.682V983
+					l-964.058-4l-407.696-0.667l-107.848,0.167l0.819-964.5H315 M315.217,4h-473h-9.991l-0.009,9.991l-0.819,964.5l-0.009,10.024
+					l10.024-0.015l107.848-0.167L356.926,989l964.033,4l10.041,0.042V983V266.368v-4.224l-3.028-2.945
+					c-22.69-22.066-50.767-43.67-83.451-64.213c-31.541-19.824-65.85-37.724-101.975-53.203
+					c-75.396-32.306-149.383-50.097-208.333-50.097c-0.503,0-1.009,0.001-1.509,0.004c-55.368,0.288-101.797,19.291-139.104,34.56
+					c-27.45,11.235-51.156,20.938-71.418,20.938c-1.123,0-2.245-0.031-3.335-0.091c-40.507-2.242-84.15-12.54-133.423-31.484
+					C542.057,98.94,499.917,77.71,462.737,58.98C404.179,29.478,353.606,4,315.217,4L315.217,4z"/>
+			</g>
+		</g>
+	</g>
+	<g id="river">
+	</g>
+	<rect x="-21" y="42" fill="none" width="1152" height="782"/>
 </g>
-<g id="poi">
-	<path fill="none" stroke="#000000" d="M194.96,167.895"/>
+<g id="droppin">
+	<path fill="#FFFFFF" d="M521.665,389.681h-6.226v11.312l-10.611-3.595l-1.929,5.963l10.698,3.42l-6.665,9.032l5.086,3.683
+		l6.489-9.12l6.577,9.12l5.086-3.683l-6.752-9.032l10.786-3.42l-1.929-5.963l-10.698,3.595L521.665,389.681z"/>
+</g>
+<path id="line_1_" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-miterlimit="10" d="M634.766,376.335
+	c-85.691,0-36.427,0.424-68.685,0.424c-57,0-133.781-7.109-163.998,18.815s-33.942,70.483-1.623,88.651
+	c45.121,25.364,128.255-2.176,182.277-137.225c9.373-23.433,5.375-40.769,5.375-40.769"/>
+<rect x="659.694" y="267.451" fill="none" width="504.077" height="226.446"/>
+<text id="address_1_" transform="matrix(1 0 0 1 659.6938 281.7311)"><tspan x="0" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21" letter-spacing="1">R</tspan><tspan x="14.595" y="0" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21">I Convention Center </tspan><tspan x="0" y="25.199" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21">Exhibition Hall </tspan><tspan x="137.504" y="25.199" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21" letter-spacing="1">A</tspan><tspan x="0" y="50.399" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21">One Sabin Street, Providence</tspan><tspan x="0" y="75.6" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21">open 12–5pm daily</tspan><tspan x="0" y="100.8" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="21">May 16–31</tspan></text>
+<g id="street-label_1_">
+	<rect x="216.518" y="326.436" fill="none" width="338.982" height="49"/>
+	<text transform="matrix(1 0 0 1 280.248 350.9157)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="36">W Exchange St</text>
+	
+		<text transform="matrix(0.6405 -0.768 0.768 0.6405 496.7602 557.704)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="36">Sabin St</text>
+</g>
+<g id="_x39_5">
+	
+		<text id="_x39_5-2" transform="matrix(0.9926 0.121 -0.121 0.9926 296.1957 221.8291)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">95</text>
+	
+		<text id="_x39_5-1" transform="matrix(0.9926 0.121 -0.121 0.9926 247.5443 495.0728)" fill="#FFFFFF" font-family="'Theinhardt-Md'" font-size="24">95</text>
 </g>
 </svg>
