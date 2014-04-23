@@ -209,11 +209,11 @@ module.exports = function work () {
                 first = [bounds.left + 3,
                      (bounds.top + (bounds.height*(2/3)))];
             } else {
-                first = [bounds.left - 10,
+                first = [bounds.left - 6,
                      (bounds.top + (bounds.height*(2/3)))];
             }
 
-            second = [bounds.right + 10,
+            second = [bounds.right + 6,
                  (bounds.top + (bounds.height*(2/3)))];
 
             logo_line_verticies.push([first, second]);

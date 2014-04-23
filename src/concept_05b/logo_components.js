@@ -83,7 +83,7 @@ module.exports = [{
     cls: 'logo-component--show text-right logo-component--title',
     type: 'line',
     start: {
-        top: '50%',
+        top: '45%',
         bottom: 'auto',
         left: 'auto',
         right: '30%',
@@ -101,7 +101,7 @@ module.exports = [{
     rules: function (width, height) {
         return {
             start: {
-                top: (height * 0.5) + 'px',
+                top: (height * 0.45) + 'px',
                 bottom: 'auto',
                 left: 'auto',
                 right: (width * 0.3) + 'px',
