@@ -73,48 +73,55 @@ module.exports = function translate () {
         update_scroll_target_values();
         d3.select(window)
             .on('scroll.translate', function () {
-                if (pageYOffset > over_sel_height) {
-                    over_sel
-                        .style(vendor+'transform',
-                               'translate(0px,' +
-                                (-(over_sel_height - pageYOffset)) +
-                                'px)');
-                    translate_sel
-                        .style(vendor+'transform',
-                               'translate(0px,' +
-                               (over_sel_height - pageYOffset) +
-                               'px)');
-
-                    fixed_sel
-                        .style('opacity', opacity_fixed_scale(
-                            translate_sel
-                                .node()
-                                .getBoundingClientRect()
-                                .top));
-                }
-                var opacity_val =
-                    opacity_background_scale(pageYOffset-
-                                             over_sel_height);
-                background_sel
-                    .style('opacity', opacity_val)
-                    .classed("active", (opacity_val > 0) ? 1: 0);
-
-
-                if (pageYOffset > (logo_container_offset -200)) {
-                    top_nav_sel.classed('nav-section--active',
-                                        true);
-                } else {
-                    top_nav_sel.classed('nav-section--active',
-                                        false);
-                }
-                top_nav_sel.style('opacity',
-                        opacity_nav_scale(pageYOffset -
-                                          logo_container_offset));
+                make_moves();
+            })
+            .on('touchmove.translate', function () {
+                make_moves();
             })
             .on('resize.translate', function () {
                 update_scroll_target_values();
             });
     };
+
+    function make_moves () {
+        if (pageYOffset > over_sel_height) {
+            over_sel
+                .style(vendor+'transform',
+                       'translate(0px,' +
+                        (-(over_sel_height - pageYOffset)) +
+                        'px)');
+            translate_sel
+                .style(vendor+'transform',
+                       'translate(0px,' +
+                       (over_sel_height - pageYOffset) +
+                       'px)');
+
+            fixed_sel
+                .style('opacity', opacity_fixed_scale(
+                    translate_sel
+                        .node()
+                        .getBoundingClientRect()
+                        .top));
+        }
+        var opacity_val =
+            opacity_background_scale(pageYOffset-
+                                     over_sel_height);
+        background_sel
+            .style('opacity', opacity_val)
+            .classed("active", (opacity_val > 0) ? 1: 0);
+
+
+        if (pageYOffset > (logo_container_offset -200)) {
+            top_nav_sel.classed('nav-section--active',
+                                true);
+        } else {
+            top_nav_sel.classed('nav-section--active',
+                                false);
+        }
+        top_nav_sel.style('opacity',
+                opacity_nav_scale(pageYOffset -
+                                  logo_container_offset));
+    }
 
     function update_scroll_target_values () {
         over_sel_height = get_over_sel_height();

@@ -176,7 +176,7 @@ module.exports = [{
         bottom: 'auto',
         left: '50px',
         right: 'auto',
-        'font-size': '14px',
+        'font-size': '13px',
         'line-height': '17px'
     },
     rules: function (width, height) {
@@ -194,7 +194,7 @@ module.exports = [{
                 bottom: 'auto',
                 left: '50px',
                 right: 'auto',
-                'font-size': '14px',
+                'font-size': '13px',
                 'line-height': '17px'
             }
         };
@@ -220,7 +220,7 @@ module.exports = [{
         bottom: 'auto',
         left: 'auto',
         right: '50px',
-        'font-size': '14px',
+        'font-size': '13px',
         'line-height': '17px'
     },
     rules: function (width, height) {
@@ -238,7 +238,7 @@ module.exports = [{
                 bottom: 'auto',
                 left: 'auto',
                 right: '50px',
-                'font-size': '14px',
+                'font-size': '13px',
                 'line-height': '17px'
             }
         };
