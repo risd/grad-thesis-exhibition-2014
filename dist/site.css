@@ -82,10 +82,6 @@ h4 {
 
     text-rendering: optimizeLegibility;
 }
-
-.about-overlay p a {
-    text-decoration: underline;
-}
 .kern-date {
     letter-spacing: -0.07em;
 }
@@ -1112,29 +1108,63 @@ html, body {
 }/* Theme
 -----------------------------------------------*/
 
-body,
-body.pink {
-    background-color: rgb(38, 34, 98);
-    color: rgb(255, 255, 255);
-}
+/*colors
+purple    rgb(38, 34, 98);
+orange    rgb(255, 61, 56);
+lt-purple rgb(146, 53, 125)
+green     rgb(144, 218, 73)
+blue      rgb(43, 89, 184)
+*/
 
-body.purple {
-    background-color: rgb(38, 34, 98);
-    color: rgb(255, 255, 255);
-}
-
-body.pink .overlay {
-    background-color: rgb(38, 34, 98);
-    background-color: rgba(38, 34, 98, 0.8);
-}
-body.purple .overlay {
-    background-color: rgb(38, 34, 98);
-    background-color: rgba(38, 34, 98, 0.8);
-}
-body.purple .overlay-background-image-screen,
-body.pink .overlay-background-image-screen {
+/* default colors overwritten by js */
+body {
+    color: white;
     background-color: rgb(38, 34, 98);
     background-color: rgba(38, 34, 98, 0.6);
+}
+.overlay-background-image-screen {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.6);
+}
+.body-purple {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.6);
+}
+.body-alt-purple .overlay-background-image-screen {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.6);
+}
+.body-orange {
+    background-color: rgb(255, 61, 56);
+    background-color: rgba(255, 61, 56, 0.6);
+}
+.body-alt-orange .overlay-background-image-screen {
+    background-color: rgb(255, 61, 56);
+    background-color: rgba(255, 61, 56, 0.6);
+}
+.body-lt-purple {
+    background-color: rgb(146, 53, 125);
+    background-color: rgba(146, 53, 125, 0.6);
+}
+.body-alt-lt-purple .overlay-background-image-screen {
+    background-color: rgb(146, 53, 125);
+    background-color: rgba(146, 53, 125, 0.6);
+}
+.body-green {
+    background-color: rgb(144, 218, 73);
+    background-color: rgba(144, 218, 73, 0.6);
+}
+.body-alt-green .overlay-background-image-screen {
+    background-color: rgb(144, 218, 73);
+    background-color: rgba(144, 218, 73, 0.6);
+}
+.body-blue {
+    background-color: rgb(43, 89, 184);
+    background-color: rgba(43, 89, 184, 0.6);
+}
+.body-alt-blue .overlay-background-image-screen {
+    background-color: rgb(43, 89, 184);
+    background-color: rgba(43, 89, 184, 0.6);
 }
 
 a,

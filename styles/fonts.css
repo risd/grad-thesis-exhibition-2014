@@ -82,10 +82,6 @@ h4 {
 
     text-rendering: optimizeLegibility;
 }
-
-.about-overlay p a {
-    text-decoration: underline;
-}
 .kern-date {
     letter-spacing: -0.07em;
 }
