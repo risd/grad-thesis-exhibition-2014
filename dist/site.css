@@ -78,6 +78,14 @@ h4 {
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+}
+.kern-date {
+    letter-spacing: -0.07em;
+}
+.kern-all-caps {
+    letter-spacing: 0.05em;
 }
 
 
