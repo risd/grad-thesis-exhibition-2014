@@ -1,12 +1,28 @@
 /* Theme
 -----------------------------------------------*/
 
-body {
+body,
+body.pink {
     background-color: rgb(38, 34, 98);
     color: rgb(255, 255, 255);
 }
 
-a {
+body.purple {
+    background-color: rgb(38, 34, 98);
+    color: rgb(255, 255, 255);
+}
+
+body.pink .overlay {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.8);
+}
+body.purple .overlay {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.8);
+}
+
+a,
+.color-background a {
     color: rgb(255, 255, 255);
 }
 

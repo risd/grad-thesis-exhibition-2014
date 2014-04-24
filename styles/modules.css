@@ -471,18 +471,6 @@
 .nav-section--active {
     top: 0;
 	background-color:rgba(239, 65, 54, 0.5);
-	
-	
-background: -moz-linear-gradient(top,  rgba(239,65,54,1) 50%, rgba(239,65,54,0) 100%); /* FF3.6+ */
-
-background: -webkit-gradient(linear, left top, left bottom, color-stop(50%,rgba(239,65,54,1)), color-stop(100%,rgba(239,65,54,0))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(239,65,54,1) 50%,rgba(239,65,54,0) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(239,65,54,1) 50%,rgba(239,65,54,0) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(239,65,54,1) 50%,rgba(239,65,54,0) 100%); /* IE10+ */
-background: linear-gradient(to bottom,  rgba(239,65,54,1) 50%,rgba(239,65,54,0) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', endColorstr='#00ef4136',GradientType=0 ); /* IE6-9 */
-
-	
 }
 .concept_05b .grid-wrapper .z-index-30 {
     z-index: 30;
@@ -499,8 +487,15 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
     width: 100%;
     pointer-events: all;
 }
-.visit svg #bg {
+.visit svg #bg,
+.visit svg #address_1_ {
     display: none;
+}
+.visit-text {
+    top: 28%;
+    left: 28%;
+    position: absolute;
+    text-align: left;
 }
 .visit a,
 .visit a svg,
@@ -529,13 +524,13 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
 }
 .concept_05b .department-list ul li{
 	
+    margin-bottom: 5px;
 	border-bottom:1px solid #fff;
 }
 .concept_05b .department-list ul li p{
 	text-align:center;
-	font-size:43px;
-	border-bottom:1px solid #fff;
-	line-height:52px !important;
+	font-size:30px;
+	line-height:40px;
 }
 
 .department-activator-text{
@@ -557,7 +552,54 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
 }
 
 
+/* concept 06 */
+.overlay-nav-item {
+    cursor: pointer;
+}
+.logo-text-component {
+    position: absolute;
+}
+.logo-text-component--risd {
+    top: 20px;
+    left: 20px;
+}
+.logo-text-component--grad {
+    top: 50%;
+    left: 20px;
+}
+.logo-text-component--show {
+    top: 50%;
+    right: 20px;
+}
+.logo-text-component--2014 {
+    bottom: 20px;
+    right: 20px;
+}
+.overlay-nav-item {
+    text-align: center;
+}
+.overlay {
+    -webkit-transition: opacity 1s 0s ease-in, top 0s 1s ease-in;
+    top: -900%;
+    opacity: 0;
+}
+.overlaid {
+    -webkit-transition: opacity 1s 0s ease-out, top 0s 0s ease-out;
+    top: 0;
+    opacity: 1;
+}
+.concept_06 .intro {
+    margin-top: 120px;
+}
+/* end concept 06 */
 
+
+@media only screen and (min-width: 500px) {
+    .visit-text {
+        top: 33%;
+        left: 30%;
+    }
+}
 
 @media only screen and (min-width: 768px) {
     .logo-svg--end {
@@ -610,6 +652,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
 		border-bottom:none;
 		line-height:21px !important;
 	}
+    .visit-text {
+        top: 35%;
+        left: 30%;
+    }
 	
 }
 
@@ -617,12 +663,23 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ef4136', end
     .lightbox .piece {
         width: 100%;
     }
+    .visit-text p {
+        font-size: 16px;
+    }
+    .visit-text {
+        top: 20%;
+        left: 60%;
+    }
 }
 
 @media only screen and (min-width: 1280px) {
 
     .lightbox .piece {
         width: 100%;
+    }
+    .visit-text p {
+        font-size: 1.5em;
+        line-height: 1.5em;
     }
 }
 
