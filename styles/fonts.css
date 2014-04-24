@@ -73,7 +73,7 @@ h4 {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 50px;
+    font-size: 18px;
     line-height: 1.0em;
 
     -moz-osx-font-smoothing: grayscale;
@@ -98,7 +98,7 @@ h4 {
         line-height: 1.0em;
     }
     .about-overlay p {
-        font-size: 47px;
+        font-size: 30px;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -108,6 +108,9 @@ h4 {
     .intro h3 {
         font-size: 45px;
         line-height: 1.0em;
+    }
+    .about-overlay p {
+        font-size: 28px;
     }
 }
 @media only screen and (min-width: 1200px) {
