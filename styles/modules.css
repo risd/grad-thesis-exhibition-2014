@@ -591,6 +591,19 @@
 .concept_06 .intro {
     margin-top: 120px;
 }
+.concept_06 .intro {
+    width: 75%;
+}
+.about-background-images {
+    overflow: hidden;
+}
+.rotating-background-image {
+    height: 100%;
+    width: auto;
+}
+.rotating-background-image:not(:first-child) {
+    opacity: 0;   
+}
 /* end concept 06 */
 
 
@@ -691,5 +704,8 @@
 
     .visit svg {
         margin-bottom: 250px;
+    }
+    .concept_06 .intro {
+        width: 65%;
     }
 }

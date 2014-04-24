@@ -20,6 +20,11 @@ body.purple .overlay {
     background-color: rgb(38, 34, 98);
     background-color: rgba(38, 34, 98, 0.8);
 }
+body.purple .overlay-background-image-screen,
+body.pink .overlay-background-image-screen {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.8);
+}
 
 a,
 .color-background a {

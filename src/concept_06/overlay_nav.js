@@ -1,10 +1,17 @@
 module.exports = function nav () {
     var self = {},
-        target_activate_pairs = [];
+        target_activate_pairs = [],
+        rotate_background_sel;
 
     self.targetActivatePairs = function (_) {
         if (!arguments.length) return target_activate_pairs;
         target_activate_pairs = _;
+        return self;
+    };
+
+    self.rotateBackground = function (_) {
+        if (!arguments.length) return rotate_background_sel;
+        rotate_background_sel = _;
         return self;
     };
 

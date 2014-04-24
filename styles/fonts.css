@@ -62,17 +62,61 @@ h4 {
 
     font-size: 72px;
     line-height: 1.0em;
-    
+
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+}
+
+.about-overlay p {
+    font-family: "Times New Roman";
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    font-size: 50px;
+    line-height: 1.0em;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+
+@media only screen and (min-width: 768px) {
+    .logo-text h1 {
+        font-size: 30px;
+    }
+    .intro h3 {
+        font-size: 40px;
+        line-height: 1.0em;
+    }
+    .about-overlay p {
+        font-size: 47px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .logo-text h1 {
+        font-size: 30px;
+    }
+    .intro h3 {
+        font-size: 45px;
+        line-height: 1.0em;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .logo-text h1 {
+        font-size: 45px;
+    }
+    .intro h3 {
+        font-size: 60px;
+        line-height: 1.0em;
+    }
 }
 @media only screen and (min-width: 1400px) {
     .logo-text h1 {
         font-size: 50px;
-        line-height: 50px;
     }
     .intro h3 {
-        font-size: 72px;
+        font-size: 65px;
         line-height: 1.0em;       
     }
 }
