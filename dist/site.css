@@ -67,7 +67,8 @@ h4 {
     -webkit-font-smoothing: antialiased;
 }
 
-.about-overlay p {
+.about-overlay p,
+.about-overlay p a {
     font-family: "Times New Roman";
     font-weight: normal;
     font-variant: normal;
@@ -80,6 +81,10 @@ h4 {
     -webkit-font-smoothing: antialiased;
 
     text-rendering: optimizeLegibility;
+}
+
+.about-overlay p a {
+    text-decoration: underline;
 }
 .kern-date {
     letter-spacing: -0.07em;
@@ -97,7 +102,8 @@ h4 {
         font-size: 40px;
         line-height: 1.0em;
     }
-    .about-overlay p {
+    .about-overlay p,
+    .about-overlay p a {
         font-size: 30px;
     }
 }
@@ -109,7 +115,8 @@ h4 {
         font-size: 45px;
         line-height: 1.0em;
     }
-    .about-overlay p {
+    .about-overlay p,
+    .about-overlay p a {
         font-size: 28px;
     }
 }
@@ -120,6 +127,10 @@ h4 {
     .intro h3 {
         font-size: 60px;
         line-height: 1.0em;
+    }
+    .about-overlay p,
+    .about-overlay p a {
+        font-size: 38px;
     }
 }
 @media only screen and (min-width: 1400px) {
@@ -1123,7 +1134,7 @@ body.purple .overlay {
 body.purple .overlay-background-image-screen,
 body.pink .overlay-background-image-screen {
     background-color: rgb(38, 34, 98);
-    background-color: rgba(38, 34, 98, 0.8);
+    background-color: rgba(38, 34, 98, 0.6);
 }
 
 a,

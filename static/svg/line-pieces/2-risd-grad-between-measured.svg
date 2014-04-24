@@ -118,4 +118,10 @@
 <g>
 	<text transform="matrix(1 0 0 1 10.625 139.5)" fill="#0C75F2" font-family="'MyriadPro-Regular'" font-size="3">0.036551724</text>
 </g>
+<path fill="none" stroke="#0C75F2" stroke-miterlimit="10" d="M137.125,0"/>
+<line fill="none" stroke="#0C75F2" stroke-miterlimit="10" x1="183.761" y1="64.485" x2="183.761" y2="0"/>
+<text transform="matrix(1 0 0 1 197 37.2339)" fill="#0C75F2" font-family="'MyriadPro-Regular'" font-size="6">64.25</text>
+<g>
+	<text transform="matrix(1 0 0 1 197 45.5483)" fill="#0C75F2" font-family="'MyriadPro-Regular'" font-size="6">0.490458015</text>
+</g>
 </svg>
