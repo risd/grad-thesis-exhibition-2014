@@ -9,7 +9,9 @@ module.exports = function site () {
             green: 'rgb(144, 218, 73)',
             blue: 'rgb(43, 89, 184)'
         },
-        use_images_as_overlay_background = false;
+        use_images_as_overlay_background = true,
+        background_image_rotation_method = 'block',
+        background_image_rotation_methods = ['fade', 'block'];
 
     var colors = Object.keys(color_values);
 
@@ -52,9 +54,12 @@ module.exports = function site () {
 
             if (use_images_as_overlay_background) {
                 nav.rotateBackground(
-                        d3.selectAll('.rotating-background-image'));
+                        d3.selectAll('.rotating-background-image'))
+                    .rotateMethod(background_image_rotation_method);
             } else {
                 d3.selectAll('.rotating-background-image').remove();
+                d3.select('.overlay-background-image-screen')
+                    .classed('no-images', true);
             }
             nav.targetActivatePairs(pairs)
                 .setup();

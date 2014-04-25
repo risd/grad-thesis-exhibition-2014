@@ -141,12 +141,9 @@ html, body {
 .overlaid .about-foreground-text {
     z-index: 300;
 }
-/*.no-scroll .logo-line {
-    z-index: 250;
+.overlay-background-image-screen {
+    z-index: 5;
 }
-.no-scroll .logo-text {
-    z-index: 251;
-}*/
 .no-scroll {
     overflow: hidden;
 }

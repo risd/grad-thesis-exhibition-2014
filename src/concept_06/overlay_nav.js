@@ -10,11 +10,17 @@ module.exports = function nav () {
             fade: rotate_fade,
             block: rotate_block
         },
-        rotate_method = 'block';
+        rotate_method = 'fade';
 
     self.targetActivatePairs = function (_) {
         if (!arguments.length) return target_activate_pairs;
         target_activate_pairs = _;
+        return self;
+    };
+
+    self.rotateMethod = function (_) {
+        if (!arguments.length) return rotate_method;
+        rotate_method = _;
         return self;
     };
 
