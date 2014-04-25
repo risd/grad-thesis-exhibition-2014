@@ -552,7 +552,7 @@
 /* concept 06 */
 .overlay-nav-item {
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .logo-text-component {
     position: absolute;
@@ -572,11 +572,6 @@
 .logo-text-component--2014 {
     bottom: 10px;
     right: 10px;
-}
-.overlay-nav-item {
-    /*text-align: center;*/
-
-    margin-top: 30px;
 }
 .about-overlay-grid {
     margin-top: 40px;
@@ -602,6 +597,7 @@
 
 .intro-quote {
     margin-top: 60px;
+    margin-bottom: 100px;
     width: 90%;
 }
 .about-background-images {
@@ -623,8 +619,8 @@
         margin-top: 100px;
         width: 60%;
     }
-    .overlay-nav-item p {
-        margin-top: 20px;
+    .overlay-nav-item {
+        margin-top: 30px;
     }
 }
 
@@ -705,7 +701,9 @@
         margin-top: 120px;
         width: 70%;
     }
-	
+    .overlay-nav-item {
+        margin-top: 35px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {

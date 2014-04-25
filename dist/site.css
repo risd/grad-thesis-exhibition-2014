@@ -87,6 +87,12 @@ h4 {
 
     text-rendering: optimizeLegibility;
 }
+.about-overlay .underline {
+    text-decoration: underline;
+}
+.about-overlay p a {
+    text-decoration: none;
+}
 .kern-date {
     letter-spacing: -0.07em;
 }
@@ -994,7 +1000,7 @@ html, body {
 /* concept 06 */
 .overlay-nav-item {
     cursor: pointer;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .logo-text-component {
     position: absolute;
@@ -1014,11 +1020,6 @@ html, body {
 .logo-text-component--2014 {
     bottom: 10px;
     right: 10px;
-}
-.overlay-nav-item {
-    /*text-align: center;*/
-
-    margin-top: 30px;
 }
 .about-overlay-grid {
     margin-top: 40px;
@@ -1044,6 +1045,7 @@ html, body {
 
 .intro-quote {
     margin-top: 60px;
+    margin-bottom: 100px;
     width: 90%;
 }
 .about-background-images {
@@ -1065,8 +1067,8 @@ html, body {
         margin-top: 100px;
         width: 60%;
     }
-    .overlay-nav-item p {
-        margin-top: 20px;
+    .overlay-nav-item {
+        margin-top: 30px;
     }
 }
 
@@ -1147,7 +1149,9 @@ html, body {
         margin-top: 120px;
         width: 70%;
     }
-	
+    .overlay-nav-item {
+        margin-top: 35px;
+    }
 }
 
 @media only screen and (min-width: 1024px) {
@@ -1203,6 +1207,7 @@ blue      rgb(43, 89, 184)
 /* default colors overwritten by js */
 body {
     color: white;
+
     background-color: rgb(38, 34, 98);
     background-color: rgba(38, 34, 98, 0.6);
 }

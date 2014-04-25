@@ -8,7 +8,8 @@ module.exports = function site () {
             'lt-purple': 'rgb(146, 53, 125)',
             green: 'rgb(144, 218, 73)',
             blue: 'rgb(43, 89, 184)'
-        };
+        },
+        use_images_as_overlay_background = false;
 
     var colors = Object.keys(color_values);
 
@@ -48,9 +49,14 @@ module.exports = function site () {
             var pairs = d3.selectAll('.overlay-nav-item')
                 .datum(function () { return this.dataset; });
 
+
+            if (use_images_as_overlay_background) {
+                nav.rotateBackground(
+                        d3.selectAll('.rotating-background-image'));
+            } else {
+                d3.selectAll('.rotating-background-image').remove();
+            }
             nav.targetActivatePairs(pairs)
-                .rotateBackground(
-                        d3.selectAll('.rotating-background-image'))
                 .setup();
         });
         return self;
