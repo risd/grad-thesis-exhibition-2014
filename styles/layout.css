@@ -71,8 +71,6 @@ html, body {
     width: 100%;
     left: 0;
     right: 0;
-
-    overflow-y: scroll;
 }
 .fixed-fullscreen {
     position: fixed;

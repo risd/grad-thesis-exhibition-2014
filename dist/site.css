@@ -65,6 +65,11 @@ h4 {
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    text-decoration: underline;
+}
+.intro-quote .overlay-nav-item h3 {
+    text-decoration: none;
 }
 
 .about-overlay p,
@@ -223,8 +228,6 @@ html, body {
     width: 100%;
     left: 0;
     right: 0;
-
-    overflow-y: scroll;
 }
 .fixed-fullscreen {
     position: fixed;
@@ -1013,7 +1016,13 @@ html, body {
     right: 10px;
 }
 .overlay-nav-item {
-    text-align: center;
+    /*text-align: center;*/
+
+    margin-top: 30px;
+}
+.about-overlay-grid {
+    margin-top: 40px;
+    margin-bottom: 80px;
 }
 .overlay {
     -webkit-transition: opacity 1s 0s ease-in, top 0s 1s ease-in;
@@ -1028,6 +1037,9 @@ html, body {
 .overlaid .about-background-images,
 .overlaid .about-foreground-text {
     top: 0;
+}
+.overlaid .about-foreground-text {
+    overflow-y: scroll;
 }
 
 .intro-quote {

@@ -574,7 +574,13 @@
     right: 10px;
 }
 .overlay-nav-item {
-    text-align: center;
+    /*text-align: center;*/
+
+    margin-top: 30px;
+}
+.about-overlay-grid {
+    margin-top: 40px;
+    margin-bottom: 80px;
 }
 .overlay {
     -webkit-transition: opacity 1s 0s ease-in, top 0s 1s ease-in;
@@ -589,6 +595,9 @@
 .overlaid .about-background-images,
 .overlaid .about-foreground-text {
     top: 0;
+}
+.overlaid .about-foreground-text {
+    overflow-y: scroll;
 }
 
 .intro-quote {

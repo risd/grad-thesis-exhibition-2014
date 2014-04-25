@@ -65,6 +65,11 @@ h4 {
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
+
+    text-decoration: underline;
+}
+.intro-quote .overlay-nav-item h3 {
+    text-decoration: none;
 }
 
 .about-overlay p,
