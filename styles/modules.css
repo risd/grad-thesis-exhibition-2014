@@ -551,6 +551,7 @@
 
 /* concept 06 */
 .overlay-nav-item {
+    text-align: left;
     cursor: pointer;
     margin-top: 20px;
 }
@@ -573,10 +574,6 @@
     bottom: 10px;
     right: 10px;
 }
-.about-overlay-grid {
-    margin-top: 40px;
-    margin-bottom: 80px;
-}
 .overlay {
     -webkit-transition: opacity 1s 0s ease-in, top 0s 1s ease-in;
     top: -900%;
@@ -594,11 +591,14 @@
 .overlaid .about-foreground-text {
     overflow-y: scroll;
 }
-
-.intro-quote {
-    margin-top: 60px;
-    margin-bottom: 100px;
-    width: 90%;
+.intro-quote .quote:before {
+    content: "“";
+    position: absolute;
+    top: 0;
+    left: -30px;
+}
+.attribution {
+    margin-top: 20px;
 }
 .about-background-images {
     overflow: hidden;
@@ -614,10 +614,6 @@
     .visit-text {
         top: 33%;
         left: 30%;
-    }
-    .intro-quote {
-        margin-top: 100px;
-        width: 60%;
     }
     .overlay-nav-item {
         margin-top: 30px;
@@ -697,10 +693,6 @@
         top: 35%;
         left: 30%;
     }
-    .intro-quote {
-        margin-top: 120px;
-        width: 70%;
-    }
     .overlay-nav-item {
         margin-top: 35px;
     }
@@ -717,8 +709,8 @@
         top: 20%;
         left: 60%;
     }
-    .intro-quote {
-        width: 75%;
+    .intro-quote .quote:before {
+        left: -30px;
     }
 }
 
@@ -731,6 +723,9 @@
         font-size: 1.5em;
         line-height: 1.5em;
     }
+    .intro-quote .quote:before {
+        left: -35px;
+    }
 }
 
 @media only screen and (min-width: 1440px) {
@@ -742,7 +737,7 @@
     .visit svg {
         margin-bottom: 250px;
     }
-    .intro-quote {
-        width: 65%;
+    .intro-quote .quote:before {
+        left: -35px;
     }
 }

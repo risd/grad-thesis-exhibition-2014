@@ -20,7 +20,9 @@
     clear: both;
 }
 .grid {
-    width: 80%;
+    width: 90%;
+    margin-top: 60px;
+    margin-bottom: 100px;
 }
 .row {
     width: 100%;
@@ -89,6 +91,11 @@ html, body {
     width: 100%;
     height: auto;
 }
+.fixed-bottom-left {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
 .within-logo-margin {
     position: absolute;
     top: 0;
@@ -147,10 +154,16 @@ html, body {
 .no-scroll {
     overflow: hidden;
 }
-
+@media only screen and (min-width: 500px) {
+    .grid {
+        margin-top: 100px;
+        width: 60%;
+    }
+}
 @media only screen and (min-width: 768px) {
     .grid {
-        width: 768px;
+        margin-top: 120px;
+        width: 70%;
     }
     .col-1-10 {
         width: 76px; /* 768/10 * 1 = 76  */
@@ -185,7 +198,7 @@ html, body {
 }
 @media only screen and (min-width: 1024px) {
     .grid {
-        width: 1024px;
+        width: 75%;
     }
     .offset-1-10 {
         margin-left: 102px; /* 1280/10 * 1 = 384 */
@@ -216,9 +229,6 @@ html, body {
     }
 }
 @media only screen and (min-width: 1280px) {
-    .grid {
-        width: 1280px;
-    }
     .offset-1-10 {
         margin-left: 128px; /* 1280/10 * 1 = 384 */
     }
@@ -250,7 +260,7 @@ html, body {
 }
 @media only screen and (min-width: 1440px) {
     .grid {
-        width: 1440px;
+        width: 65%;
     }
     .offset-1-10 {
         margin-left: 144px; /* 1440/10 * 1 = 144 */

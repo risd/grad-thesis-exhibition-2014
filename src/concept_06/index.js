@@ -1,4 +1,5 @@
-var Nav = require('./overlay_nav');
+var Nav = require('./overlay_nav'),
+    Logo = require('./logo');
 
 module.exports = function site () {
     var self = {},
@@ -16,6 +17,7 @@ module.exports = function site () {
     var colors = Object.keys(color_values);
 
     var nav = Nav();
+    // var logo = Logo();
 
     self.dispatch = d3.dispatch('htmlLoaded');
 
@@ -63,6 +65,9 @@ module.exports = function site () {
             }
             nav.targetActivatePairs(pairs)
                 .setup();
+
+            // logo.container(d3.select('.logo-line'))
+            //     .render();
         });
         return self;
     };

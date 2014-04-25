@@ -71,8 +71,8 @@ module.exports = function nav () {
     }
 
     function rotate_block () {
-        var speed = 150,
-            pause = 6000;
+        var speed = 800,
+            pause = 8000;
 
         rotate_background_sel
             .transition()

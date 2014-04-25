@@ -54,7 +54,9 @@ h4 {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
-.intro-quote h3 {
+
+.within-logo-margin p,
+.within-logo-margin p a {
     font-family: "Times New Roman";
     font-weight: normal;
     font-variant: normal;
@@ -66,32 +68,10 @@ h4 {
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 
-    text-decoration: underline;
-}
-.intro-quote .overlay-nav-item h3 {
-    text-decoration: none;
-}
-
-.about-overlay p,
-.about-overlay p a {
-    font-family: "Times New Roman";
-    font-weight: normal;
-    font-variant: normal;
-    font-style: normal;
-
-    font-size: 18px;
-    line-height: 1.0em;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
-
     text-rendering: optimizeLegibility;
 }
-.about-overlay .underline {
+.within-logo-margin p a {
     text-decoration: underline;
-}
-.about-overlay p a {
-    text-decoration: none;
 }
 .kern-date {
     letter-spacing: -0.07em;
@@ -105,7 +85,7 @@ h4 {
         font-size: 25px;
         line-height: 25px;
     }
-    .intro-quote h3 {
+    .within-logo-margin p {
         font-size: 25px;
         line-height: 1.0em;
     }
@@ -115,12 +95,8 @@ h4 {
         font-size: 30px;
         line-height: 30px;
     }
-    .intro-quote h3 {
-        font-size: 40px;
-        line-height: 1.0em;
-    }
-    .about-overlay p,
-    .about-overlay p a {
+    .within-logo-margin p,
+    .within-logo-margin p a {
         font-size: 30px;
     }
 }
@@ -129,12 +105,8 @@ h4 {
         font-size: 30px;
         line-height: 30px;
     }
-    .intro-quote h3 {
-        font-size: 45px;
-        line-height: 1.0em;
-    }
-    .about-overlay p,
-    .about-overlay p a {
+    .within-logo-margin p,
+    .within-logo-margin p a {
         font-size: 28px;
     }
 }
@@ -143,12 +115,8 @@ h4 {
         font-size: 45px;
         line-height: 45px;
     }
-    .intro-quote h3 {
-        font-size: 60px;
-        line-height: 1.0em;
-    }
-    .about-overlay p,
-    .about-overlay p a {
+    .within-logo-margin p,
+    .within-logo-margin p a {
         font-size: 38px;
     }
 }
