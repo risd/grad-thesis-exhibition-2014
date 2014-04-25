@@ -221,9 +221,6 @@
     margin-top: 100px;
     margin-bottom: 100px;
 }
-.no-scroll {
-    overflow: hidden;
-}
 .lightbox-work .piece {
     margin-bottom: 30px;
 }
@@ -555,25 +552,26 @@
 /* concept 06 */
 .overlay-nav-item {
     cursor: pointer;
+    margin-top: 10px;
 }
 .logo-text-component {
     position: absolute;
 }
 .logo-text-component--risd {
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
 }
 .logo-text-component--grad {
-    top: 50%;
-    left: 20px;
+    bottom: 40px;
+    left: 10px;
 }
 .logo-text-component--show {
-    top: 50%;
-    right: 20px;
+    bottom: 40px;
+    right: 10px;
 }
 .logo-text-component--2014 {
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
 }
 .overlay-nav-item {
     text-align: center;
@@ -588,11 +586,12 @@
     top: 0;
     opacity: 1;
 }
-.concept_06 .intro {
-    margin-top: 120px;
+.overlaid .about-background-images {
+    top: 0;
 }
-.concept_06 .intro {
-    width: 75%;
+.intro-quote {
+    margin-top: 60px;
+    width: 90%;
 }
 .about-background-images {
     overflow: hidden;
@@ -600,9 +599,6 @@
 .rotating-background-image {
     height: 100%;
     width: auto;
-}
-.rotating-background-image:not(:first-child) {
-    opacity: 0;   
 }
 /* end concept 06 */
 
@@ -612,12 +608,37 @@
         top: 33%;
         left: 30%;
     }
+    .intro-quote {
+        margin-top: 100px;
+        width: 60%;
+    }
+    .overlay-nav-item p {
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .logo-svg--end {
         opacity: 1;
     }
+
+    .logo-text-component--risd {
+        top: 20px;
+        left: 20px;
+    }
+    .logo-text-component--grad {
+        top: 50%;
+        left: 20px;
+    }
+    .logo-text-component--show {
+        top: 50%;
+        right: 20px;
+    }
+    .logo-text-component--2014 {
+        bottom: 20px;
+        right: 20px;
+    }
+
     .concept_05b .departments {
         background-color: transparent;
         top: 50px;
@@ -669,6 +690,10 @@
         top: 35%;
         left: 30%;
     }
+    .intro-quote {
+        margin-top: 120px;
+        width: 70%;
+    }
 	
 }
 
@@ -682,6 +707,9 @@
     .visit-text {
         top: 20%;
         left: 60%;
+    }
+    .intro-quote {
+        width: 75%;
     }
 }
 
@@ -705,7 +733,7 @@
     .visit svg {
         margin-bottom: 250px;
     }
-    .concept_06 .intro {
+    .intro-quote {
         width: 65%;
     }
 }

@@ -48,19 +48,19 @@ h4 {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 50px;
-    line-height: 50px;
+    font-size: 20px;
+    line-height: 20px;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
 }
-.intro h3 {
+.intro-quote h3 {
     font-family: "Times New Roman";
     font-weight: normal;
     font-variant: normal;
     font-style: normal;
 
-    font-size: 72px;
+    font-size: 21px;
     line-height: 1.0em;
 
     -moz-osx-font-smoothing: grayscale;
@@ -89,12 +89,22 @@ h4 {
     letter-spacing: 0.05em;
 }
 
-
+@media only screen and (min-width: 500px) {
+    .logo-text h1 {
+        font-size: 25px;
+        line-height: 25px;
+    }
+    .intro-quote h3 {
+        font-size: 25px;
+        line-height: 1.0em;
+    }
+}
 @media only screen and (min-width: 768px) {
     .logo-text h1 {
         font-size: 30px;
+        line-height: 30px;
     }
-    .intro h3 {
+    .intro-quote h3 {
         font-size: 40px;
         line-height: 1.0em;
     }
@@ -106,8 +116,9 @@ h4 {
 @media only screen and (min-width: 1024px) {
     .logo-text h1 {
         font-size: 30px;
+        line-height: 30px;
     }
-    .intro h3 {
+    .intro-quote h3 {
         font-size: 45px;
         line-height: 1.0em;
     }
@@ -119,8 +130,9 @@ h4 {
 @media only screen and (min-width: 1200px) {
     .logo-text h1 {
         font-size: 45px;
+        line-height: 45px;
     }
-    .intro h3 {
+    .intro-quote h3 {
         font-size: 60px;
         line-height: 1.0em;
     }
@@ -132,8 +144,9 @@ h4 {
 @media only screen and (min-width: 1400px) {
     .logo-text h1 {
         font-size: 50px;
+        line-height: 50px;
     }
-    .intro h3 {
+    .intro-quote h3 {
         font-size: 65px;
         line-height: 1.0em;       
     }
@@ -204,12 +217,14 @@ html, body {
     padding: 0;
 }
 .overlay {
-    position: absolute;
+    position: fixed;
 
     height: 100%;
     width: 100%;
     left: 0;
     right: 0;
+
+    overflow-y: scroll;
 }
 .fixed-fullscreen {
     position: fixed;
@@ -232,14 +247,13 @@ html, body {
     position: absolute;
     top: 0;
 }
-.about-background-images,
-.rotating-background-image {
-    position: absolute;
-    top: 0;
+.about-background-images {
+    position: fixed;
     left: 0;
     width: 100%;
     height: 100%;
 }
+.rotating-background-image,
 .overlay-background-image-screen {
     position: absolute;
     top: 0;
@@ -261,6 +275,15 @@ html, body {
 }
 .z-200 {
     z-index: 200;
+}
+.about-overlay-grid {
+    z-index: 10;
+}
+.overlay-background-image-screen {
+    z-index: 9;
+}
+.no-scroll {
+    overflow: hidden;
 }
 
 @media only screen and (min-width: 768px) {
@@ -618,9 +641,6 @@ html, body {
     margin-top: 100px;
     margin-bottom: 100px;
 }
-.no-scroll {
-    overflow: hidden;
-}
 .lightbox-work .piece {
     margin-bottom: 30px;
 }
@@ -952,25 +972,26 @@ html, body {
 /* concept 06 */
 .overlay-nav-item {
     cursor: pointer;
+    margin-top: 10px;
 }
 .logo-text-component {
     position: absolute;
 }
 .logo-text-component--risd {
-    top: 20px;
-    left: 20px;
+    top: 10px;
+    left: 10px;
 }
 .logo-text-component--grad {
-    top: 50%;
-    left: 20px;
+    bottom: 40px;
+    left: 10px;
 }
 .logo-text-component--show {
-    top: 50%;
-    right: 20px;
+    bottom: 40px;
+    right: 10px;
 }
 .logo-text-component--2014 {
-    bottom: 20px;
-    right: 20px;
+    bottom: 10px;
+    right: 10px;
 }
 .overlay-nav-item {
     text-align: center;
@@ -985,11 +1006,12 @@ html, body {
     top: 0;
     opacity: 1;
 }
-.concept_06 .intro {
-    margin-top: 120px;
+.overlaid .about-background-images {
+    top: 0;
 }
-.concept_06 .intro {
-    width: 75%;
+.intro-quote {
+    margin-top: 60px;
+    width: 90%;
 }
 .about-background-images {
     overflow: hidden;
@@ -997,9 +1019,6 @@ html, body {
 .rotating-background-image {
     height: 100%;
     width: auto;
-}
-.rotating-background-image:not(:first-child) {
-    opacity: 0;   
 }
 /* end concept 06 */
 
@@ -1009,12 +1028,37 @@ html, body {
         top: 33%;
         left: 30%;
     }
+    .intro-quote {
+        margin-top: 100px;
+        width: 60%;
+    }
+    .overlay-nav-item p {
+        margin-top: 20px;
+    }
 }
 
 @media only screen and (min-width: 768px) {
     .logo-svg--end {
         opacity: 1;
     }
+
+    .logo-text-component--risd {
+        top: 20px;
+        left: 20px;
+    }
+    .logo-text-component--grad {
+        top: 50%;
+        left: 20px;
+    }
+    .logo-text-component--show {
+        top: 50%;
+        right: 20px;
+    }
+    .logo-text-component--2014 {
+        bottom: 20px;
+        right: 20px;
+    }
+
     .concept_05b .departments {
         background-color: transparent;
         top: 50px;
@@ -1066,6 +1110,10 @@ html, body {
         top: 35%;
         left: 30%;
     }
+    .intro-quote {
+        margin-top: 120px;
+        width: 70%;
+    }
 	
 }
 
@@ -1079,6 +1127,9 @@ html, body {
     .visit-text {
         top: 20%;
         left: 60%;
+    }
+    .intro-quote {
+        width: 75%;
     }
 }
 
@@ -1102,7 +1153,7 @@ html, body {
     .visit svg {
         margin-bottom: 250px;
     }
-    .concept_06 .intro {
+    .intro-quote {
         width: 65%;
     }
 }/* Theme
