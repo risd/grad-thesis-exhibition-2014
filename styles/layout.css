@@ -95,7 +95,8 @@ html, body {
     position: absolute;
     top: 0;
 }
-.about-background-images {
+.about-background-images,
+.about-foreground-text {
     position: fixed;
     left: 0;
     width: 100%;
@@ -124,12 +125,30 @@ html, body {
 .z-200 {
     z-index: 200;
 }
-.about-overlay-grid {
-    z-index: 10;
+.z-250 {
+    z-index: 250;
 }
-.overlay-background-image-screen {
-    z-index: 9;
+.z-251 {
+    z-index: 251;
 }
+.z-300 {
+    z-index: 300;
+}
+.overlaid {
+    z-index: 200;
+}
+.overlaid .about-background-images {
+    z-index: 200;
+}
+.overlaid .about-foreground-text {
+    z-index: 300;
+}
+/*.no-scroll .logo-line {
+    z-index: 250;
+}
+.no-scroll .logo-text {
+    z-index: 251;
+}*/
 .no-scroll {
     overflow: hidden;
 }

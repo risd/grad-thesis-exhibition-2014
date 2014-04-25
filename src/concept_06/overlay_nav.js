@@ -50,10 +50,12 @@ module.exports = function nav () {
         target_activate_pairs.each(function (d, i) {
             var to_activate = d3.select(d.activate);
 
-            to_activate.on('click.closeNav', function () {
-                overlaid = false;
-                d3.select(this).classed('overlaid', overlaid);
-                body_sel.classed('no-scroll', overlaid);
+            to_activate
+                .on('click.closeNav', function () {
+                    console.log('close');
+                    overlaid = false;
+                    d3.select(this).classed('overlaid', overlaid);
+                    body_sel.classed('no-scroll', overlaid);
             });
         });
     };

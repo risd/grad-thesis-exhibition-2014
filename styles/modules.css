@@ -586,9 +586,11 @@
     top: 0;
     opacity: 1;
 }
-.overlaid .about-background-images {
+.overlaid .about-background-images,
+.overlaid .about-foreground-text {
     top: 0;
 }
+
 .intro-quote {
     margin-top: 60px;
     width: 90%;
