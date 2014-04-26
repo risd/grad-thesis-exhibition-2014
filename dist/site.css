@@ -222,11 +222,6 @@ html, body {
     width: 100%;
     height: auto;
 }
-.fixed-bottom-left {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
 .within-logo-margin {
     position: absolute;
     top: 0;
@@ -973,13 +968,12 @@ html, body {
 
 
 /* concept 06 */
-.overlay-nav-item {
-    text-align: left;
-    cursor: pointer;
-    margin-top: 20px;
-}
 .logo-text-component {
     position: absolute;
+}
+.overlay-nav-item-image svg {
+    width: 30px;
+    height: 30px;
 }
 .logo-text-component--risd {
     top: 10px;
@@ -997,15 +991,33 @@ html, body {
     bottom: 10px;
     right: 10px;
 }
+.overlay-nav-item {
+    position: fixed;
+    text-align: left;
+    cursor: pointer;
+    left: 46%;
+    bottom: 10px;
+    -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s 0s ease-in;
+}
+.overlay-nav-item-component {
+    display: inline-block;
+    vertical-align: middle
+}
+.about-overlaid .overlay-nav-item {
+    -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s 0s ease-in;
+    bottom: 90%;
+    left: 80%;
+    z-index: 350;
+}
 .overlay {
-    -webkit-transition: opacity 1s 0s ease-in, top 0s 1s ease-in;
+    -webkit-transition: top 0s 0.5s ease-in, -webkit-transform 0.5s 0s ease-in;
+    -webkit-transform: translate(-100%,90%) rotate(-30deg);
     top: -900%;
-    opacity: 0;
 }
 .overlaid {
-    -webkit-transition: opacity 1s 0s ease-out, top 0s 0s ease-out;
+    -webkit-transition: top 0s 0s ease-in, -webkit-transform 0.5s 0s ease-in;
+    -webkit-transform: translate(0,0) rotate(0deg);
     top: 0;
-    opacity: 1;
 }
 .overlaid .about-background-images,
 .overlaid .about-foreground-text {
@@ -1063,9 +1075,6 @@ html, body {
         top: 33%;
         left: 30%;
     }
-    .overlay-nav-item {
-        margin-top: 30px;
-    }
 }
 
 @media only screen and (min-width: 768px) {
@@ -1090,6 +1099,19 @@ html, body {
     .logo-text-component--2014 {
         bottom: 20px;
         right: 20px;
+    }
+    .overlay-nav-item {
+        bottom: 20px;
+        left: 20px;
+        width: auto;
+    }
+    .overlay-nav-item-image svg {
+        width: 50px;
+        height: 50px;
+    }
+    .about-overlaid .overlay-nav-item {
+        bottom: 90%;
+        left: 87%;
     }
 
     .concept_05b .departments {
@@ -1142,9 +1164,6 @@ html, body {
     .visit-text {
         top: 35%;
         left: 30%;
-    }
-    .overlay-nav-item {
-        margin-top: 35px;
     }
 }
 

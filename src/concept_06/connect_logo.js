@@ -32,6 +32,10 @@ module.exports = [{
              'c0,18.013,0,24.347,0,' +
              (24.347+((current_delta.y-drawn_delta.y)/2));
 
+        if (current_delta.x > drawn_delta.x) {
+            d += 'l' + (current_delta.x - drawn_delta.x)  + ',0';
+        }
+
         return d;
     }
 }, {

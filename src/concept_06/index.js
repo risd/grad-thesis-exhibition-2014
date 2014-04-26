@@ -63,7 +63,7 @@ module.exports = function site () {
                 d3.select('.overlay-background-image-screen')
                     .classed('no-images', true);
             }
-            nav.targetActivatePairs(pairs)
+            nav.selection(pairs)
                 .setup();
 
             logo.container(d3.select('.logo-line'))

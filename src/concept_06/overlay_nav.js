@@ -1,6 +1,8 @@
+var fullscreenImg = require('./fullscreen_img');
+
 module.exports = function nav () {
     var self = {},
-        target_activate_pairs = [],
+        target_sel = [],
         rotate_background_sel,
         rotate_background_length = 0,
         rotate_direction_ascending = true,
@@ -12,9 +14,11 @@ module.exports = function nav () {
         },
         rotate_method = 'fade';
 
-    self.targetActivatePairs = function (_) {
-        if (!arguments.length) return target_activate_pairs;
-        target_activate_pairs = _;
+    var full_screen = fullscreenImg().setup();
+
+    self.selection = function (_) {
+        if (!arguments.length) return target_sel;
+        target_sel = _;
         return self;
     };
 
@@ -39,32 +43,34 @@ module.exports = function nav () {
                 return d;
             });
 
+        full_screen.selection(rotate_background_sel)
+            .resize();
+
         return self;
     };
 
     self.setup = function () {
-        if (!target_activate_pairs) throw "requires elements to pair";
-        target_activate_pairs
-            .on('click.openNav', function (d, di) {
-                overlaid = true;
-                var to_activate = d3.select(d.activate);
-                
-                to_activate.classed('overlaid', overlaid);
-                body_sel.classed('no-scroll', overlaid);
-                if (rotate_background_sel) rotate();
+        if (!target_sel) throw "requires elements to pair";
+        target_sel
+            .on('click.nav', function (d, di) {
+                overlaid = overlaid ? false : true;
+                if (overlaid) rotate();
+                activate_deactivate(d);
             });
-        target_activate_pairs.each(function (d, i) {
-            var to_activate = d3.select(d.activate);
-
-            to_activate
-                .on('click.closeNav', function () {
-                    console.log('close');
-                    overlaid = false;
-                    d3.select(this).classed('overlaid', overlaid);
-                    body_sel.classed('no-scroll', overlaid);
-            });
-        });
     };
+
+    function position_button () {
+        if (overlaid) {
+            target_sel.
+        }
+    }
+
+    function activate_deactivate (d) {
+        var overlay = d3.select(d.activate);
+        overlay.classed('overlaid', overlaid);
+        body_sel.classed('no-scroll', overlaid);
+        body_sel.classed(d.body, overlaid);
+    }
 
     function rotate () {
         rotate_methods[rotate_method]();
@@ -86,6 +92,7 @@ module.exports = function nav () {
             .style('display', 'block')
             .each('end', function () {
                 setTimeout(function () {
+                    rotate_background_sel.style('display', 'none');
                     if (overlaid) rotate();
                 }, pause);
             });
