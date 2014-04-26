@@ -10,88 +10,27 @@ module.exports = [{
     from: 'RISD',
     to: 'Grad',
     segment: function (start, end) {
-        var delta_x = start[0] - end[0],
-            delta_y = end[1] - start[1];
+        var current_delta = {
+                x: start[0] - end[0],
+                y: end[1] - start[1]
+            },
+            drawn_delta = {
+                x: 115.253,
+                y: 189.185
+            };
 
         var d = 'M' + start[0] + ',' + start[1];
 
-        d += ' c '+
-             //cp1
-             '0,0 ' +
-             //cp2
-             (delta_x * 0.08) + ',0 ' +
-             //x,y
-             (delta_x * 0.1) + ',' +
-             (0);
-
-             // total progress
-             // x: 0.1
-             // y: 0
-
-        d += ' c ' +
-             //cp1
-             (delta_x * 0.18) + ',0 '+
-             //cp2
-             (delta_x * 0.18) + ',' + (delta_y * 0.4) + ' ' +
-             //x,y
-             (0) + ',' +
-             ((delta_y * 0.4));
-             
-             // total progress
-             // x: 0.1
-             // y: 0.4
-
-        d += ' c ' +
-             //cp1
-             (-(delta_x * 0.4137)) + ',0 '+
-             //cp2
-             (-(delta_x * 1)) + ',' + (-(delta_y * 0.128)) + ' ' +
-             //x,y
-             (-(delta_x * 1.206)) + ',' +
-             ((delta_y * 0.03));
-             
-             // total progress
-             // x: -1.106
-             // y: 0.43
-
-        d += ' c ' +
-             //cp1
-             (-(delta_x * 0.148)) + ',' + (delta_y * 0.13244) + ' ' +
-             //cp2
-             (-(delta_x * 0.15)) + ',' + (delta_y * 0.3908) + ' ' +
-             //x,y
-             (0) + ',' +
-             ((delta_y * 0.549));
-
-             // total progress
-             // x: -1.106
-             // y: 0.9727
-
-        d += ' c ' +
-             //cp1
-             ((delta_x * 0.03310)) + ',' + (delta_y * 0.01145) + ' ' +
-             //cp2
-             ((delta_x * 0.0675)) + ',' + (delta_y * 0.01870) + ' ' +
-             //x,y
-             ((delta_x * 0.0915)) + ',' +
-             ((delta_y * 0.0188));
-
-             // total progress
-             // x: -1.106 + 0.0915 = -1.0145
-             // y: 0.9727 + 0.0273 = 1.0
-
-        d += ' c ' +
-             //cp1
-             ((delta_x * 0.024)) + ',' + (delta_y * 0) + ' ' +
-             //cp2
-             ((delta_x * 0.024)) + ',' + (delta_y * 0) + ' ' +
-             //x,y
-             ((delta_x * 0.0365)) + ',' +
-             (0);
-
-             // total progress
-             // x: -1
-             // y: 1
+        d += 'c0,0 0.936,8.851 0.936,' +
+             (16.81+((current_delta.y-drawn_delta.y)/2)) +
+             'c0,28.042-15.901,67.37-61.185,67.37' +
+             'c-53.297,0 -79.807,0 -79.807,0'+
+             'l0-52 ' +
+             'c0,0,35.921-4.393,48.649,3.758' +
+             'c37.861,24.242,29.645,46.777-3.8,80.242' +
+             'c-17.027,17.038-44.629,17-44.629,48.653 '+
+             'c0,18.013,0,24.347,0,' +
+             (24.347+((current_delta.y-drawn_delta.y)/2));
 
         return d;
     }

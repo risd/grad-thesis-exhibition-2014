@@ -74,6 +74,11 @@ body {
     background-color: rgb(43, 89, 184);
     background-color: rgba(43, 89, 184, 0.85);
 }
+.logo-svg path{
+    stroke: white;
+    stroke-width: 3;
+    fill: transparent;
+}
 
 a,
 .color-background a {

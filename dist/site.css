@@ -1080,10 +1080,12 @@ html, body {
     .logo-text-component--grad {
         top: 50%;
         left: 20px;
+        bottom: auto;
     }
     .logo-text-component--show {
         top: 50%;
         right: 20px;
+        bottom: auto;
     }
     .logo-text-component--2014 {
         bottom: 20px;
@@ -1263,6 +1265,11 @@ body {
 .body-alt-blue .overlay-background-image-screen.no-images {
     background-color: rgb(43, 89, 184);
     background-color: rgba(43, 89, 184, 0.85);
+}
+.logo-svg path{
+    stroke: white;
+    stroke-width: 3;
+    fill: transparent;
 }
 
 a,

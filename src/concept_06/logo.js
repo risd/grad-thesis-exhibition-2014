@@ -28,14 +28,6 @@ module.exports = function logo () {
                     .attr('height', window_height);
 
                 if (logo_line_connecting_sel) {
-                    logo_line_connecting_sel.each(function (d) {
-                        var updated = d.rules(window_width,
-                                              window_height);
-
-                        d.start = updated.start;
-                        d.end = updated.end;
-                    });
-
                     update_logo_line();
                 }
 
@@ -55,10 +47,11 @@ module.exports = function logo () {
                 .attr('height', window.innerHeight);
 
         // selection of the text that will define the line
-        logo_text_sel = d3.selectAll('.logo-text-component');
+        logo_text_sel = d3.select('header')
+                          .selectAll('.logo-text-component');
 
         // verticies for 
-        var text_verticies = logo_verticies(logo_text_sel);
+        var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
                 logo_line_connecting_segments(text_verticies);
 
@@ -80,7 +73,7 @@ module.exports = function logo () {
     };
 
     function update_logo_line () {
-        var text_verticies = logo_verticies(logo_text_sel);
+        var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
                 logo_line_connecting_segments(text_verticies);
 
@@ -113,6 +106,8 @@ module.exports = function logo () {
             text_verticies.push([first, second]);
 
         });
+
+        console.log(text_verticies);
 
         return text_verticies;
     }

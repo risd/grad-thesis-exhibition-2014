@@ -17,7 +17,7 @@ module.exports = function site () {
     var colors = Object.keys(color_values);
 
     var nav = Nav();
-    // var logo = Logo();
+    var logo = Logo();
 
     self.dispatch = d3.dispatch('htmlLoaded');
 
@@ -66,8 +66,9 @@ module.exports = function site () {
             nav.targetActivatePairs(pairs)
                 .setup();
 
-            // logo.container(d3.select('.logo-line'))
-            //     .render();
+            logo.container(d3.select('.logo-line'))
+                .attachResize()
+                .render();
         });
         return self;
     };
