@@ -89,6 +89,10 @@ h4 {
         font-size: 25px;
         line-height: 1.0em;
     }
+	
+	.show-selected-work p, .show-selected-work p a{
+		font-size: 25px;
+	}
 }
 @media only screen and (min-width: 768px) {
     .logo-text h1 {
@@ -99,6 +103,10 @@ h4 {
     .within-logo-margin p a {
         font-size: 30px;
     }
+	
+	.show-selected-work p, .show-selected-work p a{
+		font-size: 30px;
+	}
 }
 @media only screen and (min-width: 1024px) {
     .logo-text h1 {
@@ -119,6 +127,10 @@ h4 {
     .within-logo-margin p a {
         font-size: 38px;
     }
+	
+	.show-selected-work p, .show-selected-work p a{
+	font-size: 30px;
+	}
 }
 @media only screen and (min-width: 1400px) {
     .logo-text h1 {
@@ -1034,7 +1046,7 @@ html, body {
 }
 .attribution {
     margin-top: 20px;
-	margin-left: 2em;
+	margin-left: 7%;
 }
 .about-background-images {
     overflow: hidden;
@@ -1045,28 +1057,45 @@ html, body {
 }
 .show-reception{
 	float:left;
-	margin-left:5%;
+	margin-left:7%;
 	width:40%;
 }
 .show-time{
 	float:left;
 	
 }
+.show-reception p{
+-webkit-margin-before: 0em;
+}
 .show-location{
-	float:right;
-	width:45%;
+	float:left;
+	width:40%;
+	margin-left:3%;
+}
+.show-location p{
+-webkit-margin-before: 0em;
 }
 .show-selected-work{
 	clear:both;	
-}
-.show-selected-work p{
-	font-size: 30px;
-}
-.show-selected-work p a{
-	font-size: 30px;
+	width:80%;
+	margin-left:7%
 }
 
+.disclaimer{
+	/*
+	width:87%;*/
+	padding-top:20px;
+	
+}
+.disclaimer p{
+	
+		font-size: 18px;
+		
+}
 
+.show-press-release{
+	margin-left:7%;	
+}
 /* end concept 06 */
 
 
