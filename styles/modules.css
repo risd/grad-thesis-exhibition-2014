@@ -599,6 +599,7 @@
 }
 .attribution {
     margin-top: 20px;
+	margin-left: 2em;
 }
 .about-background-images {
     overflow: hidden;
@@ -607,6 +608,30 @@
     height: 100%;
     width: auto;
 }
+.show-reception{
+	float:left;
+	margin-left:5%;
+	width:40%;
+}
+.show-time{
+	float:left;
+	
+}
+.show-location{
+	float:right;
+	width:45%;
+}
+.show-selected-work{
+	clear:both;	
+}
+.show-selected-work p{
+	font-size: 30px;
+}
+.show-selected-work p a{
+	font-size: 30px;
+}
+
+
 /* end concept 06 */
 
 
