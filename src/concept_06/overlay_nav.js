@@ -1,8 +1,9 @@
-var fullscreenImg = require('./fullscreen_img');
+var fullscreenImg = require('./fullscreen_img'),
+    Button = require('./overlay_button');
 
 module.exports = function nav () {
     var self = {},
-        target_sel = [],
+        target_sel,
         rotate_background_sel,
         rotate_background_length = 0,
         rotate_direction_ascending = true,
@@ -15,10 +16,16 @@ module.exports = function nav () {
         rotate_method = 'fade';
 
     var full_screen = fullscreenImg().setup();
+    var button = Button();
 
     self.selection = function (_) {
         if (!arguments.length) return target_sel;
         target_sel = _;
+
+        button
+            .selection(target_sel)
+            .start();
+
         return self;
     };
 
@@ -53,17 +60,14 @@ module.exports = function nav () {
         if (!target_sel) throw "requires elements to pair";
         target_sel
             .on('click.nav', function (d, di) {
+                target_sel
+                    .select('#flower')
+                    .style('webkitAnimationDuration', '2s');
                 overlaid = overlaid ? false : true;
                 if (overlaid) rotate();
                 activate_deactivate(d);
             });
     };
-
-    function position_button () {
-        if (overlaid) {
-            target_sel.
-        }
-    }
 
     function activate_deactivate (d) {
         var overlay = d3.select(d.activate);
