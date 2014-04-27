@@ -91,11 +91,6 @@ html, body {
     width: 100%;
     height: auto;
 }
-.fixed-bottom-left {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-}
 .within-logo-margin {
     position: absolute;
     top: 0;
