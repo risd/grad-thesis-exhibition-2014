@@ -79,6 +79,9 @@ h4 {
 .kern-all-caps {
     letter-spacing: 0.05em;
 }
+.overlay-nav-item-text p {
+    font-size: 20px;
+}
 
 @media only screen and (min-width: 500px) {
     .logo-text h1 {
@@ -107,6 +110,9 @@ h4 {
 	.show-selected-work p, .show-selected-work p a{
 		font-size: 30px;
 	}
+    .overlay-nav-item-text p {
+        font-size: 30px;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .logo-text h1 {

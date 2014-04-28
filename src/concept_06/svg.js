@@ -147,7 +147,7 @@ module.exports = function svg () {
         }
 
         return function (start, end) {
-            console.log('scaleProportional');
+            // console.log('scaleProportional');
             delta.current = {
                 x: end[0] - start[0],
                 y: end[1] - start[1]
@@ -177,15 +177,13 @@ module.exports = function svg () {
                 var seg = segments.getItem(i),
                     c = seg.pathSegTypeAsLetter;
 
-                console.log('seg.x, seg.y');
-                console.log(seg.x + ',' + seg.y);
                 if ('x1' in seg) x1 = seg.x1 * ratio.x;
                 if ('x2' in seg) x2 = seg.x2 * ratio.x;
                 if ('y1' in seg) y1 = seg.y1 * ratio.y;
                 if ('y2' in seg) y2 = seg.y2 * ratio.y;
                 if ('x'  in seg) dx = seg.x  * ratio.x;
                 if ('y'  in seg) dy = seg.y  * ratio.y;
-                // console.log(dx, dy);
+
                 switch (c) {
                     case 'm':
                         replace(segments, i, 'Moveto', dx, dy);
@@ -216,10 +214,14 @@ module.exports = function svg () {
     };
 
     self.scaleProportionalY = function (path) {
+
+        // scale y, fit x
+
         var delta = {
                 drawn: self.pathDelta(path)
             },
-            original_d = path.getAttribute('d');
+            original_d = path.getAttribute('d'),
+            fit_x = false;
 
         function replace(all_segments, segment_to_replace, type) {
             var args = [].slice.call(arguments, 3),
@@ -228,12 +230,25 @@ module.exports = function svg () {
             all_segments.replaceItem(rseg, segment_to_replace);
         }
 
+        console.log(delta.drawn.x);
+        if (Math.abs(delta.drawn.x) > 0.1) {
+            fit_x = true;
+        }
+
         return function (start, end) {
-            console.log('scaleProportional');
+            // console.log('scaleProportional');
             delta.current = {
                 x: end[0] - start[0],
                 y: end[1] - start[1]
             };
+
+            delta.diff = {
+                x: delta.current.x - delta.drawn.x,
+                y: delta.current.y - delta.drawn.y
+            };
+
+            console.log(delta.diff.x);
+
             var ratio = {
                 x: delta.current.x/delta.drawn.x,
                 y: delta.current.y/delta.drawn.y
@@ -254,20 +269,24 @@ module.exports = function svg () {
 
             var dx, dy, x1, y1, x2, y2,
                 x = start[0],
-                y = start[1];
-            for (var i = 1; i < segments.numberOfItems; i++) {
+                y = start[1],
+                segment_count = segments.numberOfItems;
+            for (var i = 1; i < segment_count; i++) {
                 var seg = segments.getItem(i),
                     c = seg.pathSegTypeAsLetter;
 
-                console.log('seg.x, seg.y');
-                console.log(seg.x + ',' + seg.y);
                 if ('x1' in seg) x1 = seg.x1;
                 if ('x2' in seg) x2 = seg.x2;
                 if ('y1' in seg) y1 = seg.y1 * ratio.y;
                 if ('y2' in seg) y2 = seg.y2 * ratio.y;
-                if ('x'  in seg) dx = seg.x;
+                if (fit_x) {
+                    if ('x' in seg) dx = seg.x +
+                                    (delta.diff.x / segment_count);
+                } else {
+                    if ('x' in seg) dx = seg.x;
+                }
                 if ('y'  in seg) dy = seg.y  * ratio.y;
-                // console.log(dx, dy);
+
                 switch (c) {
                     case 'm':
                         replace(segments, i, 'Moveto', dx, dy);
@@ -311,7 +330,7 @@ module.exports = function svg () {
         }
 
         return function (start, end) {
-            console.log('scaleProportional');
+            // console.log('scaleProportionalX');
             delta.current = {
                 x: end[0] - start[0],
                 y: end[1] - start[1]
@@ -341,15 +360,13 @@ module.exports = function svg () {
                 var seg = segments.getItem(i),
                     c = seg.pathSegTypeAsLetter;
 
-                console.log('seg.x, seg.y');
-                console.log(seg.x + ',' + seg.y);
                 if ('x1' in seg) x1 = seg.x1 * ratio.x;
                 if ('x2' in seg) x2 = seg.x2 * ratio.x;
                 if ('y1' in seg) y1 = seg.y1;
                 if ('y2' in seg) y2 = seg.y2;
                 if ('x'  in seg) dx = seg.x  * ratio.x;
                 if ('y'  in seg) dy = seg.y;
-                // console.log(dx, dy);
+
                 switch (c) {
                     case 'm':
                         replace(segments, i, 'Moveto', dx, dy);

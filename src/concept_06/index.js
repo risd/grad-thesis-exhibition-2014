@@ -68,6 +68,7 @@ module.exports = function site () {
 
             logo.container(d3.select('.logo-line'))
                 .attachResize()
+                .dupeContainer(d3.select('.overlay .logo-line'))
                 .render();
         });
         return self;

@@ -595,14 +595,20 @@
     -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s 0s ease-in;
 }
 .overlay-nav-item-component {
+    -webkit-transition: opacity 1.0s 0s ease-in;
     display: inline-block;
-    vertical-align: middle
+    vertical-align: middle;
+    opacity: 1;
 }
 .about-overlaid .overlay-nav-item {
     -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s 0s ease-in;
     bottom: 90%;
     left: 80%;
     z-index: 350;
+}
+.about-overlaid .overlay-nav-item-text {
+    -webkit-transition: opacity 0.5s 0s ease-in;
+    opacity: 0;
 }
 .overlay {
     -webkit-transition: top 0s 0.5s ease-in, -webkit-transform 0.5s 0s ease-in;

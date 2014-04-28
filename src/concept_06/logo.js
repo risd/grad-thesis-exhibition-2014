@@ -1,21 +1,26 @@
 var connectLogoScale = require('./connect_logo_scale');
-var connectLogo = require('./connect_logo');
 
 module.exports = function logo () {
     var self = {},
         window_sel = d3.select(window),
         logo_container_sel,
+        dupe_logo_container_sel,
         logo_svg,
         logo_text_sel,
         logo_line_text_sel,
         logo_line_connecting_sel,
         straight_line = d3.svg.line(),
-        connect_logo = connectLogo,
         connect_logo_scale = connectLogoScale();
 
     self.container = function (_) {
         if (!arguments.length) return logo_container_sel;
         logo_container_sel = _;
+        return self;
+    };
+
+    self.dupeContainer = function (_) {
+        if (!arguments.length) return dupe_logo_container_sel;
+        dupe_logo_container_sel = _;
         return self;
     };
 
@@ -33,6 +38,10 @@ module.exports = function logo () {
                     update_logo_line();
                 }
 
+                if (dupe_logo_container_sel) {
+                    dupe_logo_container_sel
+                        .html(logo_container_sel.html());
+                }
             });
         return self;
     };
@@ -72,6 +81,11 @@ module.exports = function logo () {
                 .append('path')
                     .attr('class', 'logo-line-connecting')
                     .attr('d', function (d) { return d; });
+
+        if (dupe_logo_container_sel) {
+            dupe_logo_container_sel
+                .html(logo_container_sel.html());
+        }
     };
 
     function update_logo_line () {
