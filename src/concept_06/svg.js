@@ -281,7 +281,7 @@ module.exports = function svg () {
                 if ('y2' in seg) y2 = seg.y2 * ratio.y;
                 if (fit_x) {
                     if ('x' in seg) dx = seg.x +
-                                    (delta.diff.x / segment_count);
+                                    (delta.diff.x/(segment_count-1));
                 } else {
                     if ('x' in seg) dx = seg.x;
                 }
