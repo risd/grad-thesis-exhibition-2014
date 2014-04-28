@@ -74,10 +74,11 @@ body {
     background-color: rgb(43, 89, 184);
     background-color: rgba(43, 89, 184, 0.85);
 }
-.logo-svg path{
+.logo-svg path {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
+    /*opacity: 0.5;*/
 }
 
 a,
@@ -120,3 +121,33 @@ a:hover {
     stroke-width: 20;
 }
 /* end concept 01 */
+
+@media only screen and (min-width: 500px) {
+    .logo-svg path {
+        stroke-width: 4px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .logo-svg path {
+        stroke-width: 5px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .logo-svg path {
+        stroke-width: 6px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .logo-svg path {
+        stroke-width: 7px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .logo-svg path {
+        stroke-width: 8px;
+    }
+}

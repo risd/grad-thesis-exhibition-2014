@@ -11,9 +11,10 @@ module.exports = function nav () {
         body_sel = d3.select('body'),
         rotate_methods = {
             fade: rotate_fade,
-            block: rotate_block
+            block: rotate_block,
+            none: function () {}
         },
-        rotate_method = 'fade';
+        rotate_method = 'none';
 
     var full_screen = fullscreenImg().setup();
     var button = Button();

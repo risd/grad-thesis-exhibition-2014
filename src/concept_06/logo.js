@@ -9,6 +9,7 @@ module.exports = function logo () {
         logo_text_sel,
         logo_line_text_sel,
         logo_line_connecting_sel,
+        logo_line_merged_sel,
         straight_line = d3.svg.line(),
         connect_logo_scale = connectLogoScale();
 
@@ -68,6 +69,17 @@ module.exports = function logo () {
                                               window_width,
                                               window_height);
 
+        var merged_d = merge_lines(text_verticies,
+                                   connecting_segments);
+
+        // logo_line_merged_sel = logo_svg.selectAll('.logo-line-merged')
+        //     .data([merged_d])
+        //     .enter()
+        //     .append('path')
+        //         .attr('class', 'logo-line-merged')
+        //         .attr('d', function (d) { return d; });
+
+
         logo_line_text_sel = logo_svg.selectAll('.logo-line-text')
             .data(text_verticies)
             .enter()
@@ -96,6 +108,8 @@ module.exports = function logo () {
                 logo_line_connecting_segments(text_verticies,
                                               wwidth,
                                               wheight);
+
+        merge_lines(text_verticies, connecting_segments);
 
         logo_line_text_sel
             .data(text_verticies)
@@ -127,8 +141,6 @@ module.exports = function logo () {
 
         });
 
-        console.log(text_verticies);
-
         return text_verticies;
     }
 
@@ -153,6 +165,36 @@ module.exports = function logo () {
             }
         }
         return connecting_segments;
+    }
+
+    function merge_lines(text_verticies, connecting_segments) {
+        // takes array of vertex pairs, and path
+        // elements of connecting segments.
+        // returns on path d attribute
+        var d = '';
+
+        var temp_path = d3.select('body')
+            .append('svg')
+            .selectAll('temp-path')
+            .data(text_verticies)
+            .enter()
+            .append('path')
+            .attr('d', straight_line)
+            .attr('class', 'temp-path')
+            .style('display', 'none');
+
+        temp_path.each(function (td, ti) {
+            console.log(td);
+            d += d3.select(this).attr('d');
+            if (connecting_segments[ti]) d += connecting_segments[ti];
+        });
+
+        console.log('d');
+        console.log(d);
+
+        temp_path.remove();
+
+        return d;
     }
 
     return self;

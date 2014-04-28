@@ -227,8 +227,6 @@ module.exports = function svg () {
                 rseg = path[rcmd].apply(path, args);
             all_segments.replaceItem(rseg, segment_to_replace);
         }
-
-        console.log(delta.drawn.x);
         if (Math.abs(delta.drawn.x) > 0.1) {
             fit_x = true;
         }
@@ -244,8 +242,6 @@ module.exports = function svg () {
                 x: delta.current.x - delta.drawn.x,
                 y: delta.current.y - delta.drawn.y
             };
-
-            console.log(delta.diff.x);
 
             var ratio = {
                 x: delta.current.x/delta.drawn.x,

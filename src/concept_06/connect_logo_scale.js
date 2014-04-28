@@ -97,6 +97,8 @@ module.exports = function logo_scale () {
         }
     });
 
+    temp_path.remove();
+
     var sizes = Object.keys(segments[0].paths);
     segments.choose_size = function (window_width, window_height) {
         var chosen = 0;
