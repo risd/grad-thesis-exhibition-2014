@@ -664,23 +664,38 @@
 .show-location p{
 -webkit-margin-before: 0em;
 }
+
+
 .show-selected-work{
-	clear:both;	
-	width:80%;
-	margin-left:7%
+	float:left;
+	width:45%;
+	padding-top:20px;
+	
 }
 
 .disclaimer{
-	/*
-	width:87%;*/
+	float:left;
+	width:47%;
 	padding-top:20px;
+	clear:left;
 	
 }
 .disclaimer p{
 	
-		font-size: 18px;
+		font-size: 21px;
 		
 }
+.show-selected-work p{
+	
+		font-size: 21px;
+		
+}
+.show-selected-work p a{
+	
+		font-size: 21px;
+		
+}
+
 
 .show-press-release{
 	margin-left:7%;	
