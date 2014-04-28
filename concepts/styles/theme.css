@@ -1,0 +1,153 @@
+/* Theme
+-----------------------------------------------*/
+
+/*colors
+purple    rgb(38, 34, 98);
+orange    rgb(255, 61, 56);
+lt-purple rgb(146, 53, 125)
+green     rgb(144, 218, 73)
+blue      rgb(43, 89, 184)
+*/
+
+/* default colors overwritten by js */
+body {
+    color: white;
+
+    background-color: rgb(38, 34, 98);
+}
+.overlay-background-image-screen {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.6);
+}
+.body-purple {
+    background-color: rgb(38, 34, 98);
+}
+.body-alt-purple .overlay-background-image-screen {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.6);
+}
+.body-alt-purple .overlay-background-image-screen.no-images {
+    background-color: rgb(38, 34, 98);
+    background-color: rgba(38, 34, 98, 0.85);
+}
+.body-orange {
+    background-color: rgb(255, 61, 56);
+}
+.body-alt-orange .overlay-background-image-screen {
+    background-color: rgb(255, 61, 56);
+    background-color: rgba(255, 61, 56, 0.6);
+}
+.body-alt-orange .overlay-background-image-screen.no-images {
+    background-color: rgb(255, 61, 56);
+    background-color: rgba(255, 61, 56, 0.85);
+}
+.body-lt-purple {
+    background-color: rgb(146, 53, 125);
+}
+.body-alt-lt-purple .overlay-background-image-screen {
+    background-color: rgb(146, 53, 125);
+    background-color: rgba(146, 53, 125, 0.6);
+}
+.body-alt-lt-purple .overlay-background-image-screen.no-images {
+    background-color: rgb(146, 53, 125);
+    background-color: rgba(146, 53, 125, 0.85);
+}
+.body-green {
+    background-color: rgb(144, 218, 73);
+}
+.body-alt-green .overlay-background-image-screen {
+    background-color: rgb(144, 218, 73);
+    background-color: rgba(144, 218, 73, 0.6);
+}
+.body-alt-green .overlay-background-image-screen.no-images {
+    background-color: rgb(144, 218, 73);
+    background-color: rgba(144, 218, 73, 0.85);
+}
+.body-blue {
+    background-color: rgb(43, 89, 184);
+}
+.body-alt-blue .overlay-background-image-screen {
+    background-color: rgb(43, 89, 184);
+    background-color: rgba(43, 89, 184, 0.6);
+}
+.body-alt-blue .overlay-background-image-screen.no-images {
+    background-color: rgb(43, 89, 184);
+    background-color: rgba(43, 89, 184, 0.85);
+}
+.logo-svg path {
+    stroke: white;
+    stroke-width: 3;
+    fill: transparent;
+    opacity: 0.5;
+}
+
+a,
+.color-background a {
+    color: rgb(255, 255, 255);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.about .subtitle .heading {
+    text-transform: uppercase;
+}
+
+
+/* concept 00 */
+.map .streets path {
+    fill: none;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 20;
+}
+.map .marker-poi polygon{
+    fill: rgb(255, 255, 255);
+    stroke: rgb(38, 34, 98);
+    stroke-width: 2;
+    -webkit-transform-origin: 50% 50%;
+    -webkit-transform: scale(0.9);
+}
+.map .poi path {
+    marker-end: url(#marker-poi);
+}
+
+/* end concept 00 */
+
+/* concept 01 */
+.path-to-animate  {
+    fill: none;
+    stroke: rgb(255, 255, 255);
+    stroke-width: 20;
+}
+/* end concept 01 */
+
+@media only screen and (min-width: 500px) {
+    .logo-svg path {
+        stroke-width: 4px;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .logo-svg path {
+        stroke-width: 5px;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .logo-svg path {
+        stroke-width: 6px;
+    }
+}
+
+@media only screen and (min-width: 1280px) {
+    .logo-svg path {
+        stroke-width: 7px;
+    }
+}
+
+@media only screen and (min-width: 1440px) {
+    .logo-svg path {
+        stroke-width: 8px;
+    }
+}
