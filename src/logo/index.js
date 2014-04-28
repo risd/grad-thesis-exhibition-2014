@@ -173,8 +173,9 @@ module.exports = function logo () {
         // returns on path d attribute
         var d = '';
 
-        var temp_path = d3.select('body')
-            .append('svg')
+        var temp_svg = d3.select('body')
+            .append('svg');
+        var temp_path = temp_svg
             .selectAll('temp-path')
             .data(text_verticies)
             .enter()
@@ -192,6 +193,7 @@ module.exports = function logo () {
         // console.log('d');
         // console.log(d);
 
+        temp_svg.remove();
         temp_path.remove();
 
         return d;

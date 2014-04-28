@@ -316,6 +316,9 @@ module.exports = function svg () {
             },
             original_d = path.getAttribute('d');
 
+        console.log('drawn delta');
+        console.log(delta.drawn);
+
         function replace(all_segments, segment_to_replace, type) {
             var args = [].slice.call(arguments, 3),
                 rcmd = 'createSVGPathSeg'+ type +'Rel',
