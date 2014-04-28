@@ -467,556 +467,12 @@ html, body {
     }
 }/* Modules
 -----------------------------------------------*/
-.about {
 
-}
-
-.where {
-
-}
-
-.work {
-
-}
-
-.work_01 .piece,
-.work_01b .piece {
-    margin-bottom: 20px;
-}
-.work_03 .piece img,
-.work_01 .piece img,
-.work_01a .piece img,
-.work_01b .piece img {
-    max-width: 100%;
-}
-.work_03 .filters,
-.work_01 .filters,
-.work_01a .filters,
-.work_01b .filters {
-    position: fixed;
-    top: 0;
-}
-.work_03 .filter,
-.work_01 .filter,
-.work_01a .filter,
-.work_01b .filter {
-    cursor: pointer;
-}
-
-.work_03 .filters,
-.work_01 .filters,
-.work_01a .filters,
-.work_01b .filters {
-    z-index: 10;
-}
-.work_01 .work,
-.work_01a .work,
-.work_01b .work,
-.work_03 .work {
-    z-index: 0;
-    margin-top: 200px;
-}
-
-.work_02 .piece {
-    background-attachment: fixed;
-    background-position: center center;
-    background-repeat: no-repeat;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-}
-
-.work_04 .cover115 {
-    width: 115px;
-    height: 90px;
-}
-.work_04 .cover202 {
-    width: 202px;
-    height: 158px;
-}
-.work_04 .cover230 {
-    width: 230px;
-    height: 180px;
-}
-.work_04 .cover404 {
-    width: 404px;
-    height: 316px;
-}
-.work_04 .piece {
-    margin-bottom: 20px;
-}
-
-
-.concept_05b,
-.concept_05a,
-.concept_05,
-.concept_04 {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    width: 100%;
-}
-.concept_05b .logo-container,
-.concept_05a .logo-container,
-.concept_05 .logo-container,
-.concept_04 .logo-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 20px;
-    left: 0;
-}
-.concept_05b .logo-svg,
-.concept_05a .logo-svg,
-.concept_05 .logo-svg,
-.concept_04 .logo-svg {
-    position: fixed;
-    top: 0;
-    left: 0;
-
-    -webkit-transition: opacity 0.5s ease-in;
-}
 .logo-svg--end {
     opacity: 0;
     -webkit-transition: opacity 0.5s ease-out;
 }
-.logo-component--title {
-    font-family: "Theinhardt-Medium";
-}
-.concept_04 .logo-component {
-    position: fixed;
-    font-size: 20px;
-}
-.concept_04 .logo-component--risd,
-.concept_04 .logo-component--grad {
-    text-align: left;
-}
-.concept_04 .logo-component--show,
-.concept_04 .logo-component--2014 {
-    text-align: right;
-}
-.concept_05a .logo-component--risd,
-.concept_05 .logo-component--risd,
-.concept_04 .logo-component--risd {
-    top: 50px;
-    left: 50px;
-}
-.concept_04 .logo-component--grad {
-    top: 50%;
-    left: 50px;
-}
-.concept_04 .logo-component--show {
-    top: 50%;
-    right: 50px;
-}
-.concept_05a .logo-component--2014,
-.concept_05 .logo-component--2014,
-.concept_04 .logo-component--2014 {
-    bottom: 50px;
-    right: 50px;
-}
-.concept_05c .logo-connecting,
-.concept_05b .logo-connecting,
-.concept_05c .logo-line,
-.concept_05b .logo-line,
-.concept_05a .logo-line,
-.concept_05 .logo-line,
-.concept_04 .logo-line {
-    stroke: white;
-    stroke-width: 3;
-    fill: transparent;
-}
 
-.concept_04 .grid {
-    margin-top: 50px;
-    margin-bottom: 150px;
-}
-
-.departments ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.departments li {
-    margin-bottom: 14px;
-}
-.departments p {
-    line-height: 15px;
-    margin: 0;   
-}
-
-.masonic .piece {
-    position: absolute;
-    cursor: pointer;
-}
-
-.concept_04b .work .piece:nth-child(1n) {
-    -webkit-transform: rotate(-15deg);
-}
-.concept_04b .work .piece:nth-child(2n) {
-    -webkit-transform: rotate(15deg);
-}
-.concept_04b .work .piece:nth-child(3n) {
-    -webkit-transform: rotate(25deg);
-}
-.concept_04b .work .piece:nth-child(4n) {
-    -webkit-transform: rotate(-25deg);
-}
-.concept_04b .work .piece:nth-child(5n) {
-    -webkit-transform: rotate(30deg);
-}
-.concept_04b .work .piece:nth-child(6n) {
-    -webkit-transform: rotate(-30deg);
-}
-
-
-.lightbox {
-    position: fixed;
-    top: -900%;
-
-    width: 100%;
-    height: 100%;
-
-    overflow-y: scroll;
-}
-
-.lightbox.active {
-    top: 0;
-}
-.lightbox .grid {
-    margin-top: 100px;
-    margin-bottom: 100px;
-}
-.lightbox-work .piece {
-    margin-bottom: 30px;
-}
-.lightbox-work .piece,
-.lightbox-work .piece img {
-    width: 100%;
-    max-width: 100%;
-}
-.lightbox-title {
-    font-family: "Theinhardt-Medium";
-    font-size: 19px;
-    margin-bottom: 20px;
-}
-.lightbox-description {
-    max-width: 100%;
-    margin-bottom: 50px;
-}
-.lightbox-meta-info--student-name {
-    font-family: "Theinhardt-Medium";
-    font-size: 25px;
-    margin-bottom: 20px;
-}
-.concept_05b .lightbox-meta-info--student-name,
-.concept_05c .lightbox-meta-info--student-name {
-    margin-top: 0;
-}
-
-
-
-/* sam  */
-.concept_05b,
-.concept_05a,
-.concept_04g {
-	background-color: rgb(239, 65, 54);
-}
-
-.concept_05b .intro,
-.concept_05a .intro,
-.concept_04g h3 {
-	font-size: 2.1em;
-    line-height: 1.3em;
-	padding:4em 0 8em;
-	color: rgba(255, 255, 255, 0.7);
-}
-
-.concept_05b .underline,
-.concept_05a .underline,
-.concept_04g h3 .underline{
-	/*text-decoration:underline;*/
-	color: rgba(104, 12, 6, 1);
-	color: rgba(255, 255, 255, 1);
-}
-.concept_05b .lightbox img,
-.concept_05a .lightbox img,
-.concept_04 .lightbox img {
-    position: relative;
-}
-.concept_04d .lightbox {
-    background-color: rgb(38, 34, 98);
-}
-
-.concept_05b .grid,
-.concept_05a .grid,
-.concept_05 .grid {
-    margin-bottom: 50px;
-}
-.concept_05b .logo-component,
-.concept_05a .logo-component,
-.concept_05 .logo-component {
-    position: fixed;
-    color: white;
-}
-.full-width-work .work,
-.full-width-work .grid-wrapper {
-    position: relative;
-    margin: 0 auto;
-}
-.full-width-work .grid-wrapper {
-    width: 100%;
-}
-.full-width-work .work {
-    width: 95%;
-}
-
-/*.full-width-work .work {
-    background-color: rgba(239, 65, 54, 0.8);
-}*/
-
-.concept_05b .piece-meta,
-.concept_05a .piece-meta {
-    margin: 0;
-    font-size: 12px;
-}
-.piece-meta.student_name {
-    font-size: 16px;
-}
-.piece-meta.risd_program {
-    font-size: 12px;
-}
-.piece-meta-wrapper {
-    margin-top: 2px;
-    position: relative;
-    display: block;
-}
-.list-avatar {
-    float: left;
-    max-width: 25px;
-    margin-top: 3px;
-    margin-right: 5px;
-}
-.concept_05b .logo-container,
-.concept_05a .logo-container,
-.concept_05c .logo-container {
-    z-index: 0;
-}
-.concept_05b .grid .about,
-.concept_05b .grid,
-.concept_05a .grid,
-.concept_05c .grid,
-.concept_05b .grid-wrapper,
-.concept_05a .grid-wrapper,
-.concept_05c .grid-wrapper {
-    z-index: 5;
-}
-.work-background.active {
-    z-index: 8;
-}
-.concept_05b .grid-work,
-.concept_05a .work,
-.concept_05c .work {
-    z-index: 10;
-}
-.concept_05b .grid-wrapper {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.concept_05b .grid-work .work-wrapper {
-    z-index: 15;
-}
-.concept_05b .grid-work .departments {
-    z-index: 25;
-}
-.concept_05b .grid-work .work {
-    z-index: 20;
-}
-.nav-section {
-    z-index: 25;
-}
-.lightbox {
-    z-index: 500;
-}
-
-.work-background {
-    opacity: 0;
-    z-index: 0;
-    position: absolute;
-    top: -900%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-
-    background-color: rgb(239, 65, 54);
-    background-color: rgba(239, 65, 54, 0.8);
-}
-.work-background.active {
-    top: 0;
-}
-
-.visit a:hover,
-.concept_05b .department-list ul li p,
-.departments .department-activator {
-    cursor: pointer;
-}
-.concept_05b .departments {
-    opacity: 0;
-    position: fixed;
-    top: 100%;
-    bottom: auto;
-    height: 100%;
-
-    background-color: rgb(239, 65, 54);
-    background-color: rgba(239, 65, 54, 0.8);
-}
-.concept_05b .departments--active {
-    -webkit-transition: top 0.3 ease-in-out;
-    top: 0;
-}
-.concept_05b .department-blanket {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-}
-.concept_05b .department-list {
-    position: absolute;
-    top: 50px;
-}
-.departments .department-activator {
-    display: block;
-    height: 50px;
-    position: absolute;
-    top: -50px;
-
-
-	 background-color:#993836;
-
-}
-.concept_05b .piece img {
-    width: 100%;
-}
-.concept_05b .piece {
-    width: 50%;
-    margin-bottom: 30px;
-}
-.concept_05b .lightbox .piece{
-    width: 100%;
-}
-.concept_05b .wide-piece {
-    width: 100%;
-}
-.nav-section {
-    position: fixed;
-    top: -900%;
-    width: 100%;
-    margin: 0;
-    padding: 0;
-}
-.nav-section-items {
-    position: relative;
-    margin: 0 auto;
-    width: 100%;
-	text-align:center;
-	margin-top:20px;
-}
-.nav-section-item {
-    text-align: center;
-    display: inline-block;
-    margin-right: 40px;
-}
-.nav-section-item:last-child {
-    margin-right: 0;
-}
-.nav-section--active {
-    top: 0;
-	background-color:rgba(239, 65, 54, 0.5);
-}
-.concept_05b .grid-wrapper .z-index-30 {
-    z-index: 30;
-}
-
-.nav-section .grid{
-	margin-bottom: 20px !important;	
-}
-
-
-
-.visit svg {
-    margin-bottom: 50px;
-    width: 100%;
-    pointer-events: all;
-}
-.visit svg #bg,
-.visit svg #address_1_ {
-    display: none;
-}
-.visit-text {
-    top: 28%;
-    left: 28%;
-    position: absolute;
-    text-align: left;
-}
-.visit a,
-.visit a svg,
-.visit a svg text,
-.visit a svg text tspan,
-.visit a:hover,
-.visit a:hover svg,
-.visit a:hover svg text,
-.visit a:hover svg text tspan {
-    text-decoration: none;
-}
-
-.concept_05b .piece {
-	width: 100%;
-	margin-bottom: 30px;
-}
-
-
-.concept_05b .department-list {
-	position: relative;
-	top: 50px;
-
-	width:100%;
-	margin:0 auto;
-	background-color:rgba(239,65,54,1);
-}
-.concept_05b .department-list ul li{
-	
-    margin-bottom: 5px;
-	border-bottom:1px solid #fff;
-}
-.concept_05b .department-list ul li p{
-	text-align:center;
-	font-size:30px;
-	line-height:40px;
-}
-
-.department-activator-text{
-	font-size:19px;
-	text-align:center;
-	padding-top:20px;	
-}
-.concept_05b .intro {
-    font-size: 1.5em;
-}
-
-.scroll-lead {
-    position: absolute;
-    top: -120px;
-    text-align: center;
-}
-.scroll-lead svg {
-    -webkit-transform: scale(0.2);
-}
-
-
-/* concept 06 */
 .logo-text-component {
     position: absolute;
 }
@@ -1140,8 +596,6 @@ html, body {
 .show-selected-work{
 	float:left;
 	width:100%;
-	
-	
 }
 
 .disclaimer{
@@ -1149,29 +603,19 @@ html, body {
 	width:100%;
 
 	clear:left;
-	
 }
-.disclaimer p{
-	
-		font-size: 21px;
-		
+.disclaimer p {
+	font-size: 21px;
 }
-.show-selected-work p{
-	
-		font-size: 21px;
-		
+.show-selected-work p {
+	font-size: 21px;
 }
-.show-selected-work p a{
-	
-		font-size: 21px;
-		
+.show-selected-work p a {
+    font-size: 21px;
 }
-
-
 .show-press-release{
 	margin-left:7%;	
 }
-/* end concept 06 */
 
 
 @media only screen and (min-width: 500px) {
@@ -1217,64 +661,11 @@ html, body {
         bottom: 88%;
         left: 87%;
     }
-
-    .concept_05b .departments {
-        background-color: transparent;
-        top: 50px;
-        bottom: auto;
-        height: auto;
-    }
-    .departments .department-activator {
-        display: none;
-    }
-    .lightbox-meta {
-        position: fixed;
-    }
-    .concept_05b .piece {
-        width: 20%;
-    }
-    .concept_05b .wide-piece {
-        width: 40%;
-    }
-    .lightbox .piece {
-        width: 100%;
-    }
-    .lightbox-description {
-        max-width: 50%;
-    }
-	
-	
-	.concept_05b .piece {
-		width: 20%;
-	}
-	
-	
-	
-	.concept_05b .department-list {
-		position: absolute;
-		top: 50px;
-		background-color:transparent;
-	}
-	.concept_05b .department-list ul li{
-		
-		border-bottom:none;
-	}
-	.concept_05b .department-list ul li p{
-		text-align:left;
-		font-size: 14px;
-		border-bottom:none;
-		line-height:21px !important;
-	}
-    .visit-text {
-        top: 35%;
-        left: 30%;
-    }
-	
-	
 	
 	.disclaimer{
 		width:47%;
 		clear:left;
+        padding-top:20px;
 		
 	}
 	
@@ -1293,56 +684,22 @@ html, body {
 		width:40%;
 		margin-left:3%;
 		padding-top:20px;
-		
 	}
-	
-	.disclaimer{
-		width:47%;
-		padding-top:20px;
-		clear:left;
-		padding-top:20px;
-	}
-	
-	
-	
 }
 
 @media only screen and (min-width: 1024px) {
-    .lightbox .piece {
-        width: 100%;
-    }
-    .visit-text p {
-        font-size: 16px;
-    }
-    .visit-text {
-        top: 20%;
-        left: 60%;
-    }
     .intro-quote .quote:before {
         left: -30px;
     }
 }
 
 @media only screen and (min-width: 1280px) {
-
-    .lightbox .piece {
-        width: 100%;
-    }
-    .visit-text p {
-        font-size: 1.5em;
-        line-height: 1.5em;
-    }
     .intro-quote .quote:before {
         left: -35px;
     }
 }
 
 @media only screen and (min-width: 1440px) {
-
-    .lightbox .piece {
-        width: 100%;
-    }
-
     .visit svg {
         margin-bottom: 250px;
     }
@@ -1441,37 +798,6 @@ a:hover {
     text-decoration: underline;
 }
 
-.about .subtitle .heading {
-    text-transform: uppercase;
-}
-
-
-/* concept 00 */
-.map .streets path {
-    fill: none;
-    stroke: rgb(255, 255, 255);
-    stroke-width: 20;
-}
-.map .marker-poi polygon{
-    fill: rgb(255, 255, 255);
-    stroke: rgb(38, 34, 98);
-    stroke-width: 2;
-    -webkit-transform-origin: 50% 50%;
-    -webkit-transform: scale(0.9);
-}
-.map .poi path {
-    marker-end: url(#marker-poi);
-}
-
-/* end concept 00 */
-
-/* concept 01 */
-.path-to-animate  {
-    fill: none;
-    stroke: rgb(255, 255, 255);
-    stroke-width: 20;
-}
-/* end concept 01 */
 
 @media only screen and (min-width: 500px) {
     .logo-svg path {

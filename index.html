@@ -8,26 +8,103 @@
         <meta name='viewport' content='initial-scale=1.0 maximum-scale=1.0'>
     </head>
     <body>
-        <div class="grid">
-            <div class="col-4-10">
-                <p><a href="./#concept=00">Concept 00</a><br>Initial sketching.</p>
-                <p><a href="./#concept=01">Concept 01</a><br>Linear layout. Transitions triggered by points in DOM.</p>
-                <p><a href="./#concept=01a">Concept 01a</a><br>Linear layout. Transitions mapped to scrolling.</p>
-                <p><a href="./#concept=02">Concept 02</a><br>All information in one window, transitions between states. In this case, automatically instead of because of some input.</p>
-                <p><a href="./#concept=03">Concept 03</a><br>All information in one window, transitions between states. Tween position of all elements. Currently not functioning.</p>
-                <p><a href="./#concept=04">Concept 04</a><br>Fixed RISD Grad Show 2014 elements. Line drawn between them all. Line redraws on window resize.</p>
-                <p><a href="./#concept=04a">Concept 04a</a><br>Fixed RISD Grad Show 2014 elements. Line drawn between them all. Line redraws on window resize. Images in a grid.</p>
-                <p><a href="./#concept=04b">Concept 04b</a><br>Fixed RISD Grad Show 2014 elements. Line drawn between them all. Line redraws on window resize. Images in a pile.</p>
-                <p><a href="./#concept=04c">Concept 04c</a><br>Fixed RISD Grad Show 2014 elements. Line drawn between them all. Line redraws on window resize. Images in a grid. Using a random image to represent the projects. Only can see one at time.</p>
-                <p><a href="./#concept=04d">Concept 04d</a><br>Same as 4c, with the addition of a opacity transition on the lightbox.</p>
-                <p><a href="./#concept=04g">Concept 04g S</a><br>Fixed RISD Grad Show 2014 elements. Line drawn between them all. Line redraws on window resize. Images in a pile.</p>
-                <p><a href="./#concept=05">Concept 05</a><br>Working out initial logo transition.</p>
-                <p><a href="./#concept=05a">Concept 05a</a><br>Same as 05, with different background color, and full screen work.</p>
-                <p><a href="./#concept=05b">Concept 05b</a><br>Same as 050a, with non-fullscreen work.</p>
+        <section class="logo-line fixed-fullscreen z-0"></section>
+        <header class="logo-text fixed-fullscreen z-5">
+            <hgroup class="fixed-fullscreen">
+                <div class="logo-text-component logo-text-component--risd">
+                    <h1>RISD</h1>
+                </div>
+                <div class="logo-text-component logo-text-component--grad">
+                    <h1>Grad</h1>
+                </div>
+                <div class="logo-text-component logo-text-component--show">
+                    <h1>Show</h1>
+                </div>
+                <div class="logo-text-component logo-text-component--2014">
+                    <h1>2014</h1>
+                </div>
+            </hgroup>
+        </header>
+        <section class="within-logo-margin z-50">
+            <article class="intro-quote grid">
+                <p>The annual Graduate Thesis Exhibition is an anticipated opportunity to experience and witness an expansive range of inquiries and commitments animated by a deep attention to making. Significantly, this culmination of a graduate education at RISD offers evidence of the vibrant ideas of engaged individuals, artists and designers who will shape&#8202;–&#8202;and guide us into&#8202;–&#8202;the future.<!--&#8221;--></p>
+
+                <div class="attribution-wrapper">
+                    <p class="attribution">Patricia C. Phillips<br>Dean of Graduate Studies + Research</p>
+                </div>
+            </article>
+            <!-- <article class="work row"></article> -->
+        </section>
+        <div class="overlay-nav-item z-300" data-activate=".about-overlay" data-body="about-overlaid">
+            <div class="overlay-nav-item-image overlay-nav-item-component">
+                <svg id="flower" x="0px" y="0px"
+                     width="50px" height="50px" viewBox="0 0 213 215.351">
+                    <path fill="#FFFFFF" d="M49.804,10.242L18.451,38.466l51.281,56.965L0,125.427l17.317,38.774l69.379-31.276l7.385,75.696
+                    l42.308-4.511l-8.665-75.342l74.462,16.11l8.916-41.603l-74.948-14.874l38.812-66.118L138.218,1l-37.576,66.604L49.804,10.242z"/>
+                </svg>
+            </div>
+            <div class="overlay-nav-item-text overlay-nav-item-component">
+                <p>Go!</p>
             </div>
         </div>
+        <section class="overlay about-overlay">
+            <div class="about-background-images">
+                <img class="middle rotating-background-image"
+                     src="./static/img/conventioncenter2.gif">
+                <div class="overlay-background-image-screen"></div>
+            </div>
+            <section class="logo-line fixed-fullscreen z-250"></section>
+            <header class="logo-text fixed-fullscreen z-251">
+                <hgroup class="fixed-fullscreen">
+                    <div class="logo-text-component logo-text-component--risd">
+                        <h1>RISD</h1>
+                    </div>
+                    <div class="logo-text-component logo-text-component--grad">
+                        <h1>Grad</h1>
+                    </div>
+                    <div class="logo-text-component logo-text-component--show">
+                        <h1>Show</h1>
+                    </div>
+                    <div class="logo-text-component logo-text-component--2014">
+                        <h1>2014</h1>
+                    </div>
+                </hgroup>
+            </header>
+            <div class="about-foreground-text">
+                <article class="within-logo-margin">
+                    <div class="about-overlay-grid grid">
+                        <div class="show-about about-overlay-info">
+                            <p><span class="kern-all-caps">RIS</span>D&#8217;s annual Graduate Thesis Exhibition features work in a wide range of media created by the 173 master&#8217;s degree candidates graduating on May <span class="kern-date">31</span>. Opening May <span class="kern-date">15</span>, 6&#8202;–&#8202;8pm. <a href="http://www.risd.edu/press-releases/2014/Rhode-Island-School-of-Design’s-2014-Annual-Graduate-Thesis-Exhibition--to-Open-at-the-Rhode-Island-Convention-Center-on-May-16/" target="_blank">Press release.</a></p>
+                        </div>
+                        <div class="show-reception about-overlay-info">
+                           
+                            <p>Open 12&#8202;–&#8202;5pm Daily<br>May <span class="kern-date">16</span>&#8202;–&#8202;<span class="kern-date">31</span><br/>Free / Open to the public</p>
+                        </div>
+                        <!--<div class="show-time about-overlay-info">
+                            
+                        </div>-->
+                        <div class="show-location about-overlay-info">
+                            <p><span class="kern-all-caps">RI</span> Convention Center<br>Exhibition Hall A<br><a href="https://www.google.com/maps/place/1+Sabin+St/@41.8240232,-71.4168984,17z/data=!3m1!4b1!4m2!3m1!1s0x89e445126aef908b:0x8b35f94cbb540676" target="_blank">One Sabin Street, Providence</a></p>
+                        </div>
+                        
+                        
+                        <div class="disclaimer about-overlay-info"><p>
+                        With custom&#8202;–&#8202;constructed galleries within the large exhibition hall, students are given the opportunity to showcase multiple pieces or large installations from their thesis work&#8202;–&#8202;the manifestation of two or three years of research, experimentation, critical thinking and honing of their craftsmanship and expressive capabilities.</p>
+                        </div>
+                        
+                        
+                        <div class="show-selected-work about-overlay-info">
+                            <p>A selection of additional graduate student work is on view from May 30&#8202;–&#8202;June 1 at Sol Koffler Graduate Student Gallery, <a href="https://www.google.com/maps/place/Sol+Koffler+Graduate+Gallery/@41.822439,-71.411759,17z/data=!3m1!4b1!4m2!3m1!1s0x0:0x7ede426b301b7887" target="_blank">169 Weybosset Street.</a></p>
+                        </div>
+                        <!--<div class="show-press-release about-overlay-info">
+                            <p><a href="http://www.risd.edu/press-releases/2014/Rhode-Island-School-of-Design’s-2014-Annual-Graduate-Thesis-Exhibition--to-Open-at-the-Rhode-Island-Convention-Center-on-May-16/" target="_blank">Press release.</a></p>
+                        </div> -->
+                        
+                    </div>
+                </article>
+            </div>
+        </section>
 
-        <script src='dist/lib.js'></script>
-        <script src='dist/site.js'></script>
+        <script src='dist/bundle.js'></script>
     </body>
 </html>

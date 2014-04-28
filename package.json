@@ -7,11 +7,13 @@
     "build-css": "cat styles/fonts.css styles/layout.css styles/modules.css styles/theme.css > dist/site.css",
     "build-js": "browserify src/index.js -o dist/site.js",
     "build-js-lib": "cat lib/*.js > dist/lib.js",
+    "build-js-bundle": "cat dist/lib.js dist/site.js > dist/bundle.js",
     "watch-css": "catw styles/fonts.css styles/layout.css styles/modules.css styles/theme.css -o dist/site.css",
     "watch-js": "watchify src/index.js -o dist/site.js -dv",
     "watch-js-lib": "catw lib/*.js -o dist/lib.js -v",
-    "watch": "npm run watch-js & npm run watch-css & npm run watch-js-lib",
-    "build": "npm run build-js & npm run build-js-lib & npm run build-css"
+    "watch-js-bundle": "catw dist/lib.js dist/site.js -o dist/bundle.js -dv",
+    "watch": "npm run watch-js & npm run watch-css & npm run watch-js-lib & npm run watch-js-bundle",
+    "build": "npm run build-js & npm run build-js-lib & npm run build-css & npm run build-js-bundle"
   },
   "repository": {
     "type": "git",
