@@ -139,14 +139,43 @@ h4 {
 	}
 }
 @media only screen and (min-width: 1400px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 54px;
+    }
     .logo-text h1 {
         font-size: 50px;
         line-height: 50px;
     }
     .intro-quote h3 {
-        font-size: 65px;
+        font-size: 72px;
         line-height: 1.0em;       
     }
+}
+@media only screen and (min-width: 1600px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 58px;
+    }
+
+}
+@media only screen and (min-width: 1900px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 64px;
+    }
+
+}
+@media only screen and (min-width: 2100px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 72px;
+    }
+
 }/* Layout
 -----------------------------------------------*/
 
@@ -1087,7 +1116,7 @@ html, body {
 .show-reception{
 	float:left;
 	margin-left:7%;
-	width:40%;
+	width:90%;
 }
 .show-time{
 	float:left;
@@ -1098,8 +1127,8 @@ html, body {
 }
 .show-location{
 	float:left;
-	width:40%;
-	margin-left:3%;
+	width:90%;
+	margin-left:7%;
 }
 .show-location p{
 -webkit-margin-before: 0em;
@@ -1108,15 +1137,15 @@ html, body {
 
 .show-selected-work{
 	float:left;
-	width:45%;
-	padding-top:20px;
+	width:100%;
+	
 	
 }
 
 .disclaimer{
 	float:left;
-	width:47%;
-	padding-top:20px;
+	width:100%;
+
 	clear:left;
 	
 }
@@ -1238,6 +1267,42 @@ html, body {
         top: 35%;
         left: 30%;
     }
+	
+	
+	
+	.disclaimer{
+		width:47%;
+		clear:left;
+		
+	}
+	
+	.show-reception{
+		margin-left:7%;
+		width:40%;
+	}
+	
+	.show-location{
+		width:40%;
+		margin-left:3%;
+	}
+	
+	.show-selected-work{
+		float:left;
+		width:40%;
+		margin-left:3%;
+		padding-top:20px;
+		
+	}
+	
+	.disclaimer{
+		width:47%;
+		padding-top:20px;
+		clear:left;
+		padding-top:20px;
+	}
+	
+	
+	
 }
 
 @media only screen and (min-width: 1024px) {
