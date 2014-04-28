@@ -1,7 +1,7 @@
 module.exports = function svg () {
     var self = {};
 
-    function convertToRelative(path) {
+    self.convertToRelative = function (path) {
         function set(type) {
             var args = [].slice.call(arguments, 1),
                 rcmd = 'createSVGPathSeg'+ type +'Rel',
@@ -68,6 +68,316 @@ module.exports = function svg () {
         path.setAttribute('d',
                           path.getAttribute('d')
                               .replace(/Z/g, 'z'));
-    }
+    };
+
+    self.pathDelta = function (path) {
+        var delta = {
+            x: 0,
+            y: 0
+        };
+
+        var start = path.getPointAtLength(0),
+            end = path.getPointAtLength(path.getTotalLength());
+
+        delta.x = end.x - start.x;
+        delta.y = end.y - start.y;
+
+        return delta;
+    };
+
+    // pass in a path element
+    // and the path segement indicies
+    // that will be scaled
+    self.scaleAnchorY = function (path, anchors) {
+        // console.log('scaleAnchorY');
+        var delta = {
+                drawn: self.pathDelta(path)
+            },
+            original_d = path.getAttribute('d');
+
+        return function (start, end) {
+            // current delta
+            delta.current = {
+                x: end[0] - start[0],
+                y: end[1] - start[1]
+            };
+            path.setAttribute('d', original_d);
+
+            var segments = path.pathSegList;
+            var first_segment = segments.getItem(0);
+            if (first_segment
+                    .pathSegTypeAsLetter
+                    .toLowerCase() === 'm') {
+
+                var replacement_seg =
+                    path.createSVGPathSegMovetoAbs(
+                            start[0], start[1]);
+                segments.replaceItem(replacement_seg, 0);
+            }
+
+            for (var name in anchors) {
+                var to_replace = segments.getItem(anchors[name]);
+                var replace_with =
+                    path.createSVGPathSegCurvetoCubicRel(
+                        to_replace.x,
+                        to_replace.y + ((delta.current.y-
+                                         delta.drawn.y)/2),
+                        to_replace.x1,
+                        to_replace.y1,
+                        to_replace.x2,
+                        to_replace.y2);
+                segments.replaceItem(replace_with, anchors[name]);
+            }
+
+            return path.getAttribute('d');
+        };
+    };
+
+    self.scaleProportional = function (path) {
+        var delta = {
+                drawn: self.pathDelta(path)
+            },
+            original_d = path.getAttribute('d');
+
+        function replace(all_segments, segment_to_replace, type) {
+            var args = [].slice.call(arguments, 3),
+                rcmd = 'createSVGPathSeg'+ type +'Rel',
+                rseg = path[rcmd].apply(path, args);
+            all_segments.replaceItem(rseg, segment_to_replace);
+        }
+
+        return function (start, end) {
+            console.log('scaleProportional');
+            delta.current = {
+                x: end[0] - start[0],
+                y: end[1] - start[1]
+            };
+            var ratio = {
+                x: delta.current.x/delta.drawn.x,
+                y: delta.current.y/delta.drawn.y
+            };
+            path.setAttribute('d', original_d);
+
+            var segments = path.pathSegList;
+            var first_segment = segments.getItem(0);
+            if (first_segment
+                    .pathSegTypeAsLetter
+                    .toLowerCase() === 'm') {
+
+                var replacement_seg =
+                    path.createSVGPathSegMovetoAbs(
+                            start[0], start[1]);
+                segments.replaceItem(replacement_seg, 0);
+            }
+
+            var dx, dy, x1, y1, x2, y2,
+                x = start[0],
+                y = start[1];
+            for (var i = 1; i < segments.numberOfItems; i++) {
+                var seg = segments.getItem(i),
+                    c = seg.pathSegTypeAsLetter;
+
+                console.log('seg.x, seg.y');
+                console.log(seg.x + ',' + seg.y);
+                if ('x1' in seg) x1 = seg.x1 * ratio.x;
+                if ('x2' in seg) x2 = seg.x2 * ratio.x;
+                if ('y1' in seg) y1 = seg.y1 * ratio.y;
+                if ('y2' in seg) y2 = seg.y2 * ratio.y;
+                if ('x'  in seg) dx = seg.x  * ratio.x;
+                if ('y'  in seg) dy = seg.y  * ratio.y;
+                // console.log(dx, dy);
+                switch (c) {
+                    case 'm':
+                        replace(segments, i, 'Moveto', dx, dy);
+                        break;
+                    case 'l':
+                        replace(segments, i, 'Lineto', dx, dy);
+                        break;
+                    case 'h':
+                        replace(segments, i, 'LinetoHorizontal', dx);
+                        break;
+                    case 'v':
+                        replace(segments, i, 'LinetoVertical', dy);
+                        break;
+                    case 'c':
+                        replace(segments, i, 'CurvetoCubic',
+                                dx,dy,x1,y1,x2,y2);
+                        break;
+                    case 's':
+                        replace(segments, i, 'CurvetoCubicSmooth',
+                                dx,dy,x2,y2);
+                        break;
+                }
+
+            }
+
+            return path.getAttribute('d');
+        };
+    };
+
+    self.scaleProportionalY = function (path) {
+        var delta = {
+                drawn: self.pathDelta(path)
+            },
+            original_d = path.getAttribute('d');
+
+        function replace(all_segments, segment_to_replace, type) {
+            var args = [].slice.call(arguments, 3),
+                rcmd = 'createSVGPathSeg'+ type +'Rel',
+                rseg = path[rcmd].apply(path, args);
+            all_segments.replaceItem(rseg, segment_to_replace);
+        }
+
+        return function (start, end) {
+            console.log('scaleProportional');
+            delta.current = {
+                x: end[0] - start[0],
+                y: end[1] - start[1]
+            };
+            var ratio = {
+                x: delta.current.x/delta.drawn.x,
+                y: delta.current.y/delta.drawn.y
+            };
+            path.setAttribute('d', original_d);
+
+            var segments = path.pathSegList;
+            var first_segment = segments.getItem(0);
+            if (first_segment
+                    .pathSegTypeAsLetter
+                    .toLowerCase() === 'm') {
+
+                var replacement_seg =
+                    path.createSVGPathSegMovetoAbs(
+                            start[0], start[1]);
+                segments.replaceItem(replacement_seg, 0);
+            }
+
+            var dx, dy, x1, y1, x2, y2,
+                x = start[0],
+                y = start[1];
+            for (var i = 1; i < segments.numberOfItems; i++) {
+                var seg = segments.getItem(i),
+                    c = seg.pathSegTypeAsLetter;
+
+                console.log('seg.x, seg.y');
+                console.log(seg.x + ',' + seg.y);
+                if ('x1' in seg) x1 = seg.x1;
+                if ('x2' in seg) x2 = seg.x2;
+                if ('y1' in seg) y1 = seg.y1 * ratio.y;
+                if ('y2' in seg) y2 = seg.y2 * ratio.y;
+                if ('x'  in seg) dx = seg.x;
+                if ('y'  in seg) dy = seg.y  * ratio.y;
+                // console.log(dx, dy);
+                switch (c) {
+                    case 'm':
+                        replace(segments, i, 'Moveto', dx, dy);
+                        break;
+                    case 'l':
+                        replace(segments, i, 'Lineto', dx, dy);
+                        break;
+                    case 'h':
+                        replace(segments, i, 'LinetoHorizontal', dx);
+                        break;
+                    case 'v':
+                        replace(segments, i, 'LinetoVertical', dy);
+                        break;
+                    case 'c':
+                        replace(segments, i, 'CurvetoCubic',
+                                dx,dy,x1,y1,x2,y2);
+                        break;
+                    case 's':
+                        replace(segments, i, 'CurvetoCubicSmooth',
+                                dx,dy,x2,y2);
+                        break;
+                }
+
+            }
+
+            return path.getAttribute('d');
+        };
+    };
+
+    self.scaleProportionalX = function (path) {
+        var delta = {
+                drawn: self.pathDelta(path)
+            },
+            original_d = path.getAttribute('d');
+
+        function replace(all_segments, segment_to_replace, type) {
+            var args = [].slice.call(arguments, 3),
+                rcmd = 'createSVGPathSeg'+ type +'Rel',
+                rseg = path[rcmd].apply(path, args);
+            all_segments.replaceItem(rseg, segment_to_replace);
+        }
+
+        return function (start, end) {
+            console.log('scaleProportional');
+            delta.current = {
+                x: end[0] - start[0],
+                y: end[1] - start[1]
+            };
+            var ratio = {
+                x: delta.current.x/delta.drawn.x,
+                y: delta.current.y/delta.drawn.y
+            };
+            path.setAttribute('d', original_d);
+
+            var segments = path.pathSegList;
+            var first_segment = segments.getItem(0);
+            if (first_segment
+                    .pathSegTypeAsLetter
+                    .toLowerCase() === 'm') {
+
+                var replacement_seg =
+                    path.createSVGPathSegMovetoAbs(
+                            start[0], start[1]);
+                segments.replaceItem(replacement_seg, 0);
+            }
+
+            var dx, dy, x1, y1, x2, y2,
+                x = start[0],
+                y = start[1];
+            for (var i = 1; i < segments.numberOfItems; i++) {
+                var seg = segments.getItem(i),
+                    c = seg.pathSegTypeAsLetter;
+
+                console.log('seg.x, seg.y');
+                console.log(seg.x + ',' + seg.y);
+                if ('x1' in seg) x1 = seg.x1 * ratio.x;
+                if ('x2' in seg) x2 = seg.x2 * ratio.x;
+                if ('y1' in seg) y1 = seg.y1;
+                if ('y2' in seg) y2 = seg.y2;
+                if ('x'  in seg) dx = seg.x  * ratio.x;
+                if ('y'  in seg) dy = seg.y;
+                // console.log(dx, dy);
+                switch (c) {
+                    case 'm':
+                        replace(segments, i, 'Moveto', dx, dy);
+                        break;
+                    case 'l':
+                        replace(segments, i, 'Lineto', dx, dy);
+                        break;
+                    case 'h':
+                        replace(segments, i, 'LinetoHorizontal', dx);
+                        break;
+                    case 'v':
+                        replace(segments, i, 'LinetoVertical', dy);
+                        break;
+                    case 'c':
+                        replace(segments, i, 'CurvetoCubic',
+                                dx,dy,x1,y1,x2,y2);
+                        break;
+                    case 's':
+                        replace(segments, i, 'CurvetoCubicSmooth',
+                                dx,dy,x2,y2);
+                        break;
+                }
+
+            }
+
+            return path.getAttribute('d');
+        };
+    };
+
     return self;
 };
