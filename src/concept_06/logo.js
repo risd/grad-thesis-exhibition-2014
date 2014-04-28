@@ -1,3 +1,4 @@
+var connectLogoScale = require('./connect_logo_scale');
 var connectLogo = require('./connect_logo');
 
 module.exports = function logo () {
@@ -9,7 +10,8 @@ module.exports = function logo () {
         logo_line_text_sel,
         logo_line_connecting_sel,
         straight_line = d3.svg.line(),
-        connect_logo = connectLogo;
+        connect_logo = connectLogo,
+        connect_logo_scale = connectLogoScale();
 
     self.container = function (_) {
         if (!arguments.length) return logo_container_sel;
@@ -94,14 +96,14 @@ module.exports = function logo () {
             var first, second;
             if (i === 0) {
                 first = [bounds.left + 3,
-                     (bounds.top + (bounds.height*(2/3)))];
+                     (bounds.top + (bounds.height*(0.55)))];
             } else {
                 first = [bounds.left - 6,
-                     (bounds.top + (bounds.height*(2/3)))];
+                     (bounds.top + (bounds.height*(0.55)))];
             }
 
             second = [bounds.right + 6,
-                 (bounds.top + (bounds.height*(2/3)))];
+                 (bounds.top + (bounds.height*(0.55)))];
 
             text_verticies.push([first, second]);
 
@@ -121,8 +123,8 @@ module.exports = function logo () {
 
                 connecting_segments
                     .push(
-                        connect_logo[i]
-                            .segment(start, end));
+                        connect_logo_scale[i]
+                            .scale(start, end));
             }
         }
         return connecting_segments;
