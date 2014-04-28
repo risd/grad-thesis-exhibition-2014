@@ -7,7 +7,6 @@ module.exports = function site () {
             purple: 'rgb(38, 34, 98);',
             orange: 'rgb(255, 61, 56);',
             'lt-purple': 'rgb(146, 53, 125)',
-            green: 'rgb(144, 218, 73)',
             blue: 'rgb(43, 89, 184)'
         },
         use_images_as_overlay_background = true,

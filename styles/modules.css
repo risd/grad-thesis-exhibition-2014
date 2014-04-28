@@ -557,19 +557,23 @@
     width: 30px;
     height: 30px;
 
-    /*-webkit-animation-name: rotate;
-    -webkit-animation-duration: 8s;
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration: 10s;
     -webkit-animation-iteration-count: infinite;
-    -webkit-animation-timing-function: linear;*/
+    -webkit-animation-timing-function: linear;
 }
-/*@-webkit-keyframes rotate {
+@-webkit-keyframes rotate {
     from {
         -webkit-transform: rotate(0deg);
     }
     to {
-        -webkit-transform: rotate(60deg);
+        -webkit-transform: rotate(360deg);
     }
-}*/
+}
+.overlay-nav-item:hover svg {
+    
+    -webkit-animation-duration: 4s;
+}
 .logo-text-component--risd {
     top: 10px;
     left: 10px;

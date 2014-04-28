@@ -19,7 +19,7 @@ module.exports = function button () {
     };
 
     self.start = function () {
-        rotate_svg.start();
+        // rotate_svg.start();
         return self;
     };
 

@@ -35,7 +35,7 @@ module.exports = function logo () {
                     .attr('height', window_height);
 
                 if (logo_line_connecting_sel) {
-                    update_logo_line();
+                    update_logo_line(window_width, window_height);
                 }
 
                 if (dupe_logo_container_sel) {
@@ -64,7 +64,9 @@ module.exports = function logo () {
         // verticies for 
         var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
-                logo_line_connecting_segments(text_verticies);
+                logo_line_connecting_segments(text_verticies,
+                                              window_width,
+                                              window_height);
 
         logo_line_text_sel = logo_svg.selectAll('.logo-line-text')
             .data(text_verticies)
@@ -88,10 +90,12 @@ module.exports = function logo () {
         }
     };
 
-    function update_logo_line () {
+    function update_logo_line (wwidth, wheight) {
         var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
-                logo_line_connecting_segments(text_verticies);
+                logo_line_connecting_segments(text_verticies,
+                                              wwidth,
+                                              wheight);
 
         logo_line_text_sel
             .data(text_verticies)
@@ -128,7 +132,12 @@ module.exports = function logo () {
         return text_verticies;
     }
 
-    function logo_line_connecting_segments(start_end_points) {
+    function logo_line_connecting_segments(start_end_points,
+                                           wwidth,
+                                           wheight) {
+        var line_size_to_draw =
+                connect_logo_scale.choose_size(wwidth, wheight);
+
         var connecting_segments = [];
         for (var i = 0; i < start_end_points.length; i++) {
             if ((i+1) < start_end_points.length) {
@@ -137,8 +146,10 @@ module.exports = function logo () {
 
                 connecting_segments
                     .push(
-                        connect_logo_scale[i]
-                            .scale(start, end));
+                        connect_logo_scale
+                            [i]
+                            .scale
+                            [line_size_to_draw](start, end));
             }
         }
         return connecting_segments;

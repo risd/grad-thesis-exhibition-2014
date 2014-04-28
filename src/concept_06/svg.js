@@ -214,9 +214,7 @@ module.exports = function svg () {
     };
 
     self.scaleProportionalY = function (path) {
-
         // scale y, fit x
-
         var delta = {
                 drawn: self.pathDelta(path)
             },
