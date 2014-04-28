@@ -61,8 +61,7 @@ module.exports = function nav () {
         target_sel
             .on('click.nav', function (d, di) {
                 target_sel
-                    .select('#flower')
-                    .style('webkitAnimationDuration', '2s');
+                    .select('#flower');
                 overlaid = overlaid ? false : true;
                 if (overlaid) rotate();
                 activate_deactivate(d);
