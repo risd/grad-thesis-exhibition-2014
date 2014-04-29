@@ -5,7 +5,10 @@ module.exports = function nav () {
         target_sel,
         overlaid = false,
         body_sel = d3.select('body'),
-        window_sel = d3.select(window);
+        window_sel = d3.select(window),
+        removable_text = [{
+            text: 'Go!'
+        }];
 
     var button = Button();
 
@@ -60,14 +63,22 @@ module.exports = function nav () {
         var wwidth = window.innerWidth;
         var wheight = window.innerHeight;
 
-        var bbox = target_sel.node().getBoundingClientRect();
         var matching_sel;
+        var bbox;
 
         if (overlaid) {
+            bbox = target_sel.node().getBoundingClientRect();
+            var p_bbox = target_sel
+                                .select('p')
+                                .node()
+                                .getBoundingClientRect();
+            
             var target_height = bbox.height;
             matching_sel =
                 d3.select('.logo-text-component--risd');
-            target_sel.style('left', (wwidth -
+            
+            target_sel.style('left', (wwidth +
+                                      p_bbox.width -
                                       bbox.width -
                                       (+matching_sel
                                         .style('left')
@@ -81,11 +92,13 @@ module.exports = function nav () {
                                        'px');
         } else {
             if (wwidth < 768) {
+                bbox = target_sel.node().getBoundingClientRect();
                 matching_sel =
                     d3.select('.logo-text-component--show');
                 var matching_box = matching_sel
                                         .node()
                                         .getBoundingClientRect();
+                
                 target_sel
                     .style('left', ((wwidth - bbox.width)/2) +
                                            'px')
