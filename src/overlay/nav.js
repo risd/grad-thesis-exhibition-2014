@@ -52,7 +52,7 @@ module.exports = function nav () {
     };
 
     function activate_deactivate (d) {
-        var overlay = d3.select(d.activate);
+        var overlay = d3.selectAll(d.activate);
         overlay.classed('overlaid', overlaid);
         body_sel.classed('no-scroll', overlaid);
         body_sel.classed(d.body, overlaid);

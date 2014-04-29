@@ -161,6 +161,27 @@
     opacity: 0;
     width: 0;
 }
+.move-on-overlaid {
+    -webkit-transition: top 0s ease-in 0s, -webkit-transform 0.5s ease-in 0s;
+    -moz-transition: top 0s ease-in 0s, -moz-transform 0.5s ease-in 0s;
+    -ms-transition: top 0s ease-in 0s, -ms-transform 0.5s ease-in 0s;
+    transition: top 0s ease-in 0s, transform 0.5s ease-in 0s;
+    
+    -webkit-transform: translate(0,0) rotate(0deg);
+    -moz-transform: translate(0,0) rotate(0deg);
+    -ms-transform: translate(0,0) rotate(0deg);
+    transform: translate(0,0) rotate(0deg);
+}
+.about-overlaid .move-on-overlaid {
+    -webkit-transition: top 0s ease-in  0.5s, -webkit-transform 0.5s ease-in 0s;
+    -moz-transition: top 0s ease-in 0.5s, -moz-transform 0.5s ease-in 0s;
+    -ms-transition: top 0s ease-in 0.5s, -ms-transform 0.5s ease-in 0s;
+    transition: top 0s ease-in 0.5s, transform 0.5s ease-in 0s;
+    
+    -webkit-transform: translate(100%,-90%) rotate(30deg);
+    -moz-transform: translate(100%,-90%) rotate(30deg);
+    transform: translate(100%,-90%) rotate(30deg);
+}
 .overlay {
     -webkit-transition: top 0s ease-in  0.5s, -webkit-transform 0.5s ease-in 0s;
     -moz-transition: top 0s ease-in 0.5s, -moz-transform 0.5s ease-in 0s;
