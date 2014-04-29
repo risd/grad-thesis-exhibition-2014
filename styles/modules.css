@@ -122,7 +122,7 @@
     text-align: left;
     cursor: pointer;
     left: 46%;
-    bottom: 10px;
+    bottom: 19px;
     -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s 0s ease-in;
     -moz-transition: bottom 0.5s ease-in 0s, left 0.5s ease-in 0s;
     transition: bottom 0.5s ease-in 0s, left 0.5s ease-in 0s;

@@ -81,7 +81,8 @@ h4 {
 }
 .overlay-nav-item-text p {
     font-size: 20px;
-    margin-left: 5px;
+    margin: 0 0 0 5px;
+    line-height: 20px;
 }
 .attribution:before {
     content: "—";

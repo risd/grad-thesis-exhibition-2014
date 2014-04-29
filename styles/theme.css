@@ -12,8 +12,6 @@ blue      rgb(43, 89, 184)
 /* default colors overwritten by js */
 body {
     color: white;
-
-    background-color: rgb(38, 34, 98);
 }
 .overlay-background-image-screen {
     background-color: rgb(38, 34, 98);

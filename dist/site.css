@@ -81,7 +81,8 @@ h4 {
 }
 .overlay-nav-item-text p {
     font-size: 20px;
-    margin-left: 5px;
+    margin: 0 0 0 5px;
+    line-height: 20px;
 }
 .attribution:before {
     content: "—";
@@ -598,7 +599,7 @@ html, body {
     text-align: left;
     cursor: pointer;
     left: 46%;
-    bottom: 10px;
+    bottom: 19px;
     -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s 0s ease-in;
     -moz-transition: bottom 0.5s ease-in 0s, left 0.5s ease-in 0s;
     transition: bottom 0.5s ease-in 0s, left 0.5s ease-in 0s;
@@ -842,8 +843,6 @@ blue      rgb(43, 89, 184)
 /* default colors overwritten by js */
 body {
     color: white;
-
-    background-color: rgb(38, 34, 98);
 }
 .overlay-background-image-screen {
     background-color: rgb(38, 34, 98);

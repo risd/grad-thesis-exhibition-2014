@@ -8,8 +8,6 @@ module.exports = function logo () {
         dupe_logo_container_sel,
         logo_svg,
         logo_text_sel,
-        logo_line_text_sel,
-        logo_line_connecting_sel,
         logo_line_merged_sel,
         straight_line = d3.svg.line(),
         connect_logo_scale = connectLogoScale();
@@ -31,22 +29,10 @@ module.exports = function logo () {
     self.attachResize = function () {
         window_sel
             .on('resize.logo', function () {
-                var window_width = window.innerWidth,
-                    window_height = window.innerHeight;
-
-                logo_svg
-                    .attr('width', window_width)
-                    .attr('height', window_height);
-
-                // if (logo_line_connecting_sel) {
-                if (logo_line_merged_sel) {
-                    update_logo_line(window_width, window_height);
-                }
-
-                if (dupe_logo_container_sel) {
-                    dupe_logo_container_sel
-                        .html(logo_container_sel.html());
-                }
+                recalulate_logo_line();
+            })
+            .on('scroll.logo', function () {
+                recalulate_logo_line();
             });
         return self;
     };
@@ -87,31 +73,31 @@ module.exports = function logo () {
 
         logo_line_merged_sel.call(tween_in);
 
-
-        // logo_line_text_sel = logo_svg.selectAll('.logo-line-text')
-        //     .data(text_verticies)
-        //     .enter()
-        //     .append('path')
-        //         .attr('class', 'logo-line-text')
-        //         .attr('d', straight_line);
-
-        // logo_line_connecting_sel =
-        //     logo_svg
-        //         .selectAll('.logo-line-connecting')
-        //         .data(connecting_segments)
-        //         .enter()
-        //         .append('path')
-        //             .attr('class', 'logo-line-connecting')
-        //             .attr('d', function (d) { return d; });
-
         if (dupe_logo_container_sel) {
             dupe_logo_container_sel
                 .html(logo_container_sel.html());
         }
     };
 
+    function recalulate_logo_line () {
+        var window_width = window.innerWidth,
+            window_height = window.innerHeight;
+
+        logo_svg
+            .attr('width', window_width)
+            .attr('height', window_height);
+
+        if (logo_line_merged_sel) {
+            update_logo_line(window_width, window_height);
+        }
+
+        if (dupe_logo_container_sel) {
+            dupe_logo_container_sel
+                .html(logo_container_sel.html());
+        }
+    }
+
     function update_logo_line (wwidth, wheight) {
-        console.log('update_logo_line');
         var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
                 logo_line_connecting_segments(text_verticies,
@@ -124,14 +110,6 @@ module.exports = function logo () {
         logo_line_merged_sel
             .data([merged_d])
             .attr('d', function (d) { return d; });
-
-        // logo_line_text_sel
-        //     .data(text_verticies)
-        //     .attr('d', straight_line);
-
-        // logo_line_connecting_sel
-        //     .data(connecting_segments)
-        //     .attr('d', function (d) { return d; });
     }
 
     function logo_line_text_verticies (sel) {
@@ -222,7 +200,14 @@ module.exports = function logo () {
     function tween_in(path) {
         path.transition()
             .duration(8000)
-            .attrTween('stroke-dasharray', tweenDash);
+            .attrTween('stroke-dasharray', tweenDash)
+            .each('end', function () {
+                // remove dash array, as resizing
+                // the browser will change the length
+                // and there is no need to re-compute
+                // the dash array to fit it.
+                d3.select(this).attr('stroke-dasharray', 'none');
+            });
     }
 
     function tweenDash() {

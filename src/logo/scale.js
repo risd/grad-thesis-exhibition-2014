@@ -6,13 +6,6 @@ module.exports = function logo_scale () {
     var segments = [{
             from: 'RISD',
             to: 'Grad',
-            // scaleUsing: {
-            //     func: utility.scaleAnchorY,
-            //     args: {
-            //         start: 2,
-            //         end: 9
-            //     }
-            // },
             scaleUsing: utility.scaleProportionalY,
             paths: {
                 '300': 'M3.564,0' +
@@ -117,7 +110,7 @@ module.exports = function logo_scale () {
     segments.choose_size = function (window_width, window_height) {
         var chosen = 0;
         sizes.forEach(function (d, i) {
-            if (d < window_width) {
+            if (d <= window_width) {
                 chosen = d;
             }
         });
