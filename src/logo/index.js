@@ -66,6 +66,8 @@ module.exports = function logo () {
         logo_text_sel = d3.select('header')
                           .selectAll('.logo-text-component');
 
+        d3.select('body').classed('to-reveal', false);
+
         // verticies for 
         var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
@@ -82,6 +84,8 @@ module.exports = function logo () {
             .append('path')
                 .attr('class', 'logo-line-merged')
                 .attr('d', function (d) { return d; });
+
+        logo_line_merged_sel.call(tween_in);
 
 
         // logo_line_text_sel = logo_svg.selectAll('.logo-line-text')
@@ -213,6 +217,18 @@ module.exports = function logo () {
         temp_path.remove();
 
         return d;
+    }
+
+    function tween_in(path) {
+        path.transition()
+            .duration(7000)
+            .attrTween('stroke-dasharray', tweenDash);
+    }
+
+    function tweenDash() {
+        var l = this.getTotalLength(),
+            i = d3.interpolateString('0,' + l, l + "," + l);
+        return function (t) { return i(t); };
     }
 
     return self;
