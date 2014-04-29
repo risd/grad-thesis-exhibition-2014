@@ -5,12 +5,12 @@ module.exports = function logo () {
     var self = {},
         window_sel = d3.select(window),
         logo_container_sel,
-        dupe_logo_container_sel,
         logo_svg,
         logo_text_sel,
         logo_line_merged_sel,
         straight_line = d3.svg.line(),
-        connect_logo_scale = connectLogoScale();
+        connect_logo_scale = connectLogoScale(),
+        delay_past_reveal_sel;
 
     var utility = Utility();
 
@@ -20,9 +20,9 @@ module.exports = function logo () {
         return self;
     };
 
-    self.dupeContainer = function (_) {
-        if (!arguments.length) return dupe_logo_container_sel;
-        dupe_logo_container_sel = _;
+    self.delayPastReveal = function (_) {
+        if (!arguments.length) return delay_past_reveal_sel;
+        delay_past_reveal_sel = _;
         return self;
     };
 
@@ -72,38 +72,34 @@ module.exports = function logo () {
                 .attr('d', function (d) { return d; });
 
         logo_line_merged_sel.call(tween_in);
-
-        if (dupe_logo_container_sel) {
-            dupe_logo_container_sel
-                .html(logo_container_sel.html());
-        }
     };
 
     function setup_reveal () {
         d3.select('body').classed('to-reveal', false);
 
-        var delayed = d3.selectAll('.delay-class-post-transition')
+        delay_past_reveal_sel
             .datum(function () { return this.dataset; });
-        delayed
+
+        delay_past_reveal_sel
             .on('transitionend', function (d) {
-                console.log('transitionend');
+                // console.log('transitionend');
                 console.log(d);
                 d3.select(this).classed(d.delayedclass, true);
             })
             .on('webkitTransitionEnd', function (d) {
-                console.log('webkitTransitionEnd');
+                // console.log('webkitTransitionEnd');
                 d3.select(this).classed(d.delayedclass, true);
             })
             .on('oTransitionEnd', function (d) {
-                console.log('oTransitionEnd');
+                // console.log('oTransitionEnd');
                 d3.select(this).classed(d.delayedclass, true);
             })
             .on('otransitionend', function (d) {
-                console.log('otransitionend');
+                // console.log('otransitionend');
                 d3.select(this).classed(d.delayedclass, true);
             })
             .on('MSTransitionEnd', function (d) {
-                console.log('MSTransitionEnd');
+                // console.log('MSTransitionEnd');
                 d3.select(this).classed(d.delayedclass, true);
             });
     }
@@ -118,11 +114,6 @@ module.exports = function logo () {
 
         if (logo_line_merged_sel) {
             update_logo_line(window_width, window_height);
-        }
-
-        if (dupe_logo_container_sel) {
-            dupe_logo_container_sel
-                .html(logo_container_sel.html());
         }
     }
 

@@ -80,6 +80,8 @@ function site () {
     self.logo = function () {
         logo.container(d3.select('.logo-line'))
             .attachResize()
+            .delayPastReveal(
+                    d3.selectAll('.delay-class-post-transition'))
             .render();
 
         return self;
