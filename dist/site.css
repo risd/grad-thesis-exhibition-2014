@@ -130,6 +130,8 @@ h4 {
     .within-logo-margin p,
     .within-logo-margin p a {
         font-size: 28px;
+    }
+    .within-logo-margin p {
         margin-left: 10px;
     }
 }
@@ -144,7 +146,7 @@ h4 {
     }
 	
 	.show-selected-work p, .show-selected-work p a{
-	font-size: 30px;
+    	font-size: 30px;
 	}
 }
 @media only screen and (min-width: 1400px) {
@@ -642,6 +644,11 @@ html, body {
 }
 .about-background-images {
     overflow: hidden;
+    background: url(../static/img/conventioncenter2.gif) no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 .rotating-background-image {
     height: 100%;

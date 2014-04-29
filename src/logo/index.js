@@ -1,4 +1,5 @@
 var connectLogoScale = require('./scale');
+var Utility = require('./svg');
 
 module.exports = function logo () {
     var self = {},
@@ -12,6 +13,8 @@ module.exports = function logo () {
         logo_line_merged_sel,
         straight_line = d3.svg.line(),
         connect_logo_scale = connectLogoScale();
+
+    var utility = Utility();
 
     self.container = function (_) {
         if (!arguments.length) return logo_container_sel;
@@ -35,7 +38,8 @@ module.exports = function logo () {
                     .attr('width', window_width)
                     .attr('height', window_height);
 
-                if (logo_line_connecting_sel) {
+                // if (logo_line_connecting_sel) {
+                if (logo_line_merged_sel) {
                     update_logo_line(window_width, window_height);
                 }
 
@@ -72,29 +76,29 @@ module.exports = function logo () {
         var merged_d = merge_lines(text_verticies,
                                    connecting_segments);
 
-        // logo_line_merged_sel = logo_svg.selectAll('.logo-line-merged')
-        //     .data([merged_d])
-        //     .enter()
-        //     .append('path')
-        //         .attr('class', 'logo-line-merged')
-        //         .attr('d', function (d) { return d; });
-
-
-        logo_line_text_sel = logo_svg.selectAll('.logo-line-text')
-            .data(text_verticies)
+        logo_line_merged_sel = logo_svg.selectAll('.logo-line-merged')
+            .data([merged_d])
             .enter()
             .append('path')
-                .attr('class', 'logo-line-text')
-                .attr('d', straight_line);
+                .attr('class', 'logo-line-merged')
+                .attr('d', function (d) { return d; });
 
-        logo_line_connecting_sel =
-            logo_svg
-                .selectAll('.logo-line-connecting')
-                .data(connecting_segments)
-                .enter()
-                .append('path')
-                    .attr('class', 'logo-line-connecting')
-                    .attr('d', function (d) { return d; });
+
+        // logo_line_text_sel = logo_svg.selectAll('.logo-line-text')
+        //     .data(text_verticies)
+        //     .enter()
+        //     .append('path')
+        //         .attr('class', 'logo-line-text')
+        //         .attr('d', straight_line);
+
+        // logo_line_connecting_sel =
+        //     logo_svg
+        //         .selectAll('.logo-line-connecting')
+        //         .data(connecting_segments)
+        //         .enter()
+        //         .append('path')
+        //             .attr('class', 'logo-line-connecting')
+        //             .attr('d', function (d) { return d; });
 
         if (dupe_logo_container_sel) {
             dupe_logo_container_sel
@@ -103,21 +107,27 @@ module.exports = function logo () {
     };
 
     function update_logo_line (wwidth, wheight) {
+        console.log('update_logo_line');
         var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
                 logo_line_connecting_segments(text_verticies,
                                               wwidth,
                                               wheight);
 
-        merge_lines(text_verticies, connecting_segments);
+        var merged_d = merge_lines(text_verticies,
+                                   connecting_segments);
 
-        logo_line_text_sel
-            .data(text_verticies)
-            .attr('d', straight_line);
-
-        logo_line_connecting_sel
-            .data(connecting_segments)
+        logo_line_merged_sel
+            .data([merged_d])
             .attr('d', function (d) { return d; });
+
+        // logo_line_text_sel
+        //     .data(text_verticies)
+        //     .attr('d', straight_line);
+
+        // logo_line_connecting_sel
+        //     .data(connecting_segments)
+        //     .attr('d', function (d) { return d; });
     }
 
     function logo_line_text_verticies (sel) {
@@ -186,12 +196,18 @@ module.exports = function logo () {
 
         temp_path.each(function (td, ti) {
             // console.log(td);
-            d += d3.select(this).attr('d');
-            if (connecting_segments[ti]) d += connecting_segments[ti];
+            var text_d = d3.select(this).attr('d');
+            d += text_d;
+            if (connecting_segments[ti]) {
+                var connecting_d = connecting_segments[ti];
+                d += connecting_d;
+            }
         });
 
-        // console.log('d');
-        // console.log(d);
+        utility.convertToRelative(temp_path.attr('d', d).node());
+        // replace all `m` instructions with `l`, except
+        // for the first one. this is a reverse regex
+        d = temp_path.attr('d').replace(/(?!^)m/g, 'l');
 
         temp_svg.remove();
         temp_path.remove();

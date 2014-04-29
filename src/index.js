@@ -49,7 +49,6 @@ function site () {
             .datum(function () { return this.dataset; });
 
         nav.selection(pairs)
-            .rotateBackground(d3.select('.rotating-background-image'))
             .setup();
 
         return self;
