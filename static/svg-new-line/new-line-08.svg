@@ -4,5 +4,6 @@
 <svg version="1.1" baseProfile="tiny" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
 	 x="0px" y="0px" width="1599px" height="1280px" viewBox="0 0 1599 1280" xml:space="preserve">
 <rect fill="#F6492E" width="1599" height="1136"/>
-<line id="line_2_" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" x1="1409.063" y1="0" x2="0" y2="0"/>
+<polyline id="line_3_" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-miterlimit="10" points="15.333,0 28.051,0 28.051,50 
+	-1523.814,50 "/>
 </svg>
