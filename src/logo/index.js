@@ -52,7 +52,7 @@ module.exports = function logo () {
         logo_text_sel = d3.select('header')
                           .selectAll('.logo-text-component');
 
-        d3.select('body').classed('to-reveal', false);
+        setup_reveal();
 
         // verticies for 
         var text_verticies = logo_line_text_verticies(logo_text_sel);
@@ -78,6 +78,35 @@ module.exports = function logo () {
                 .html(logo_container_sel.html());
         }
     };
+
+    function setup_reveal () {
+        d3.select('body').classed('to-reveal', false);
+
+        var delayed = d3.selectAll('.delay-class-post-transition')
+            .datum(function () { return this.dataset; });
+        delayed
+            .on('transitionend', function (d) {
+                console.log('transitionend');
+                console.log(d);
+                d3.select(this).classed(d.delayedclass, true);
+            })
+            .on('webkitTransitionEnd', function (d) {
+                console.log('webkitTransitionEnd');
+                d3.select(this).classed(d.delayedclass, true);
+            })
+            .on('oTransitionEnd', function (d) {
+                console.log('oTransitionEnd');
+                d3.select(this).classed(d.delayedclass, true);
+            })
+            .on('otransitionend', function (d) {
+                console.log('otransitionend');
+                d3.select(this).classed(d.delayedclass, true);
+            })
+            .on('MSTransitionEnd', function (d) {
+                console.log('MSTransitionEnd');
+                d3.select(this).classed(d.delayedclass, true);
+            });
+    }
 
     function recalulate_logo_line () {
         var window_width = window.innerWidth,

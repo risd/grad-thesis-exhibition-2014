@@ -604,8 +604,8 @@ html, body {
     position: fixed;
     text-align: left;
     cursor: pointer;
-    left: 46%;
-    bottom: 19px;
+    /*left: 46%;
+    bottom: 19px;*/
     -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s ease-in 0s;
     -moz-transition: bottom 0.5s ease-in 0s, left 0.5s ease-in 0s;
     transition: bottom 0.5s ease-in 0s, left 0.5s ease-in 0s;
@@ -805,8 +805,8 @@ html, body {
         right: 20px;
     }
     .overlay-nav-item {
-        bottom: 20px;
-        left: 20px;
+        /*bottom: 20px;
+        left: 20px;*/
         width: auto;
     }
     .overlay-nav-item-image svg {
@@ -814,8 +814,8 @@ html, body {
         height: 50px;
     }
     .about-overlaid .overlay-nav-item {
-        bottom: 88%;
-        left: 87%;
+        /*bottom: 88%;
+        left: 87%;*/
     }
 	
 	.disclaimer{
