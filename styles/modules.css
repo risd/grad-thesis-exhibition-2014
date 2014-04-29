@@ -8,10 +8,10 @@
     position: absolute;
     opacity: 1;
 
-    -webkit-transition: opacity 2s ease-in;
-    -moz-transition: opacity 2s ease-in;
-    -ms-transition: opacity 2s ease-in;
-    transition: opacity 2s ease-in;
+    -webkit-transition: opacity 1s ease-in;
+    -moz-transition: opacity 1s ease-in;
+    -ms-transition: opacity 1s ease-in;
+    transition: opacity 1s ease-in;
 }
 .to-reveal .within-logo-margin {
     opacity: 0;
@@ -33,10 +33,10 @@
     -moz-transition: opacity 2s ease-in, -moz-transition 2s ease-in;
     -ms-transition: opacity 2s ease-in, -ms-transition 2s ease-in;
     transition: opacity 2s ease-in, transition 2s ease-in;*/
-    -webkit-transition: opacity 2s ease-in, -webkit-transform 1s ease-in;
-    -moz-transition: opacity 2s ease-in, -moz-transform 1s ease-in;
-    -ms-transition: opacity 2s ease-in, -ms-transform 1s ease-in;
-    transition: opacity 2s ease-in, transform 1s ease-in;
+    -webkit-transition: opacity 1s ease-in 1.5s, -webkit-transform 1s ease-in 1.5s;
+    -moz-transition: opacity 1s ease-in 1.5s, -moz-transform 1s ease-in 1.5s;
+    -ms-transition: opacity 1s ease-in 1.5s, -ms-transform 1s ease-in 1.5s;
+    transition: opacity 1s ease-in 1.5s, transform 1s ease-in 1.5s;
 }
 .overlay-nav-item-image svg {
     width: 30px;

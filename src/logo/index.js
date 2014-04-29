@@ -221,7 +221,7 @@ module.exports = function logo () {
 
     function tween_in(path) {
         path.transition()
-            .duration(7000)
+            .duration(8000)
             .attrTween('stroke-dasharray', tweenDash);
     }
 

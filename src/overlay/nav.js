@@ -8,6 +8,8 @@ module.exports = function nav () {
 
     var button = Button();
 
+    self.dispatch = d3.dispatch('asteriskClick');
+
     self.selection = function (_) {
         if (!arguments.length) return target_sel;
         target_sel = _;
@@ -27,6 +29,7 @@ module.exports = function nav () {
                     .select('#flower');
                 overlaid = overlaid ? false : true;
                 activate_deactivate(d);
+                self.dispatch.asteriskClick(overlaid);
             });
     };
 

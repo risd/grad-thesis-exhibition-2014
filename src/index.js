@@ -51,6 +51,29 @@ function site () {
         nav.selection(pairs)
             .setup();
 
+        // setup click tracking with google analytics
+        nav.dispatch
+            .on('asteriskClick', function (overlaid_boolean) {
+                if (!_gaq) return;
+                if (overlaid_boolean) {
+                    // opening
+                    _gaq.push(['_trackEvent',
+                               'GoButton',
+                               'Asterisk Click - Open',
+                               'Home',
+                               1,
+                               true]);
+                } else {
+                    // closing
+                    _gaq.push(['_trackEvent',
+                               'GoButton',
+                               'Asterisk Click - Close',
+                               'About',
+                               2,
+                               true]);
+                }
+            });
+
         return self;
     };
 
@@ -64,4 +87,4 @@ function site () {
     };
 
     return self;
-};
+}
