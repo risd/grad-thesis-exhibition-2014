@@ -1,0 +1,181 @@
+/* Fonts
+-----------------------------------------------*/
+html, body, p, a {
+    font-family: "Theinhardt-Bold";
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    font-size: 14px;
+    line-height: 19px;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+h1,h2,h3,h4 {
+    font-family: "Theinhardt-Medium";
+
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    margin: 0;
+}
+
+h1 {
+    font-size: auto;
+    line-height: auto;
+}
+h2 {
+    font-size: auto;
+    line-height: auto;
+}
+h3 {
+    font-size: 3em;
+    line-height: 1.4em;
+}
+h4 {
+    font-size: auto;
+    line-height: auto;
+}
+
+.logo-text h1 {
+    font-family: "Theinhardt-Bold";
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    font-size: 20px;
+    line-height: 20px;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+.within-logo-margin p,
+.within-logo-margin p a {
+    font-family: "Times New Roman";
+    font-weight: normal;
+    font-variant: normal;
+    font-style: normal;
+
+    font-size: 21px;
+    line-height: 1.0em;
+
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+
+    text-rendering: optimizeLegibility;
+}
+.within-logo-margin p a {
+    text-decoration: underline;
+}
+.kern-date {
+    letter-spacing: -0.07em;
+}
+.kern-all-caps {
+    letter-spacing: 0.05em;
+}
+.overlay-nav-item-text p {
+    font-size: 20px;
+    margin-left: 5px;
+}
+
+@media only screen and (min-width: 500px) {
+    .logo-text h1 {
+        font-size: 25px;
+        line-height: 25px;
+    }
+    .within-logo-margin p {
+        font-size: 25px;
+        line-height: 1.0em;
+    }
+	
+	.show-selected-work p, .show-selected-work p a{
+		font-size: 25px;
+	}
+}
+@media only screen and (min-width: 768px) {
+    .logo-text h1 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 30px;
+    }
+	
+	.show-selected-work p, .show-selected-work p a{
+		font-size: 30px;
+	}
+    .overlay-nav-item-text p {
+        font-size: 25px;
+    }
+}
+@media only screen and (min-width: 1024px) {
+    .logo-text h1 {
+        font-size: 30px;
+        line-height: 30px;
+    }
+    .within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 28px;
+        margin-left: 10px;
+    }
+}
+@media only screen and (min-width: 1200px) {
+    .logo-text h1 {
+        font-size: 45px;
+        line-height: 45px;
+    }
+    .within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 38px;
+    }
+	
+	.show-selected-work p, .show-selected-work p a{
+	font-size: 30px;
+	}
+}
+@media only screen and (min-width: 1400px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 54px;
+    }
+    .logo-text h1 {
+        font-size: 50px;
+        line-height: 50px;
+    }
+    .intro-quote h3 {
+        font-size: 72px;
+        line-height: 1.0em;       
+    }
+}
+@media only screen and (min-width: 1600px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 58px;
+    }
+
+}
+@media only screen and (min-width: 1900px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 64px;
+    }
+
+}
+@media only screen and (min-width: 2100px) {
+	
+	.within-logo-margin p,
+    .within-logo-margin p a {
+        font-size: 72px;
+    }
+
+}

@@ -1,159 +1,90 @@
-var prototypes = {
-    concept: {
-        '00': Concept_00,
-        '01': Concept_01,
-        '01a': Concept_01a,
-        '02': Concept_02,
-        '03': Concept_03,
-        '04': Concept_04,
-        '04a': Concept_04a,
-        '04b': Concept_04b,
-        '04c': Concept_04c,
-        '04d': Concept_04d,
-        '04e': Concept_04e,
-		'04g': Concept_04g,
-        '05': Concept_05,
-        '05a': Concept_05a,
-        '05b': Concept_05b,
-        '05c': Concept_05c,
-        '06': Concept_06
-    },
-    work: {
-        '01': Work_01,
-        '01a': Work_01a,
-        '01b': Work_01b,
-        '02': Work_02,
-        '03': Work_03,
-        '04': Work_04
-    },
-    index: {
-        '00': function () {}
-    }
-};
+var Nav = require('./overlay/nav'),
+    Logo = require('./logo/index');
 
-var prototype_to_load = (function () {
-    var hash_vars = ['index', '00'];
+site()
+    .colors()
+    .overlay()
+    .logo();
 
-    var hash = window.location.hash;
+function site () {
+    var self = {},
+        color_values = {
+            purple: 'rgb(38, 34, 98);',
+            orange: 'rgb(255, 61, 56);',
+            'lt-purple': 'rgb(146, 53, 125)',
+            blue: 'rgb(43, 89, 184)'
+        },
+        use_images_as_overlay_background = true,
+        background_image_rotation_method = 'block',
+        background_image_rotation_methods = ['fade', 'block'],
+        body = d3.select('body');
 
-    if (hash) {
-        hash_vars = hash.split('#')[1].split('&')[0].split('=');
-    }
+    var colors = Object.keys(color_values);
 
-    // return ['work', '01']
-    return hash_vars;
-})();
+    var nav = Nav();
+    var logo = Logo();
 
-exhibition = prototypes[prototype_to_load[0]][prototype_to_load[1]]();
+    self.colors = function () {
+        var random_index = Math.floor(Math.random() * colors.length);
 
-window.exhibition = exhibition;
+        var color = colors[random_index];
+        var alt_colors = colors.slice(0,random_index)
+                               .concat(colors.slice(
+                                                random_index + 1,
+                                                colors.length));
 
-function Work_01 () {
-    var work = require('./work_01/index.js')().render();
-    return work;
-}
-function Work_01a () {
-    var work = require('./work_01a/index.js')().render();
-    return work;
-}
-function Work_01b () {
-    var work = require('./work_01b/index.js')().render();
-    return work;
-}
-function Work_02 () {
-    var work = require('./work_02/index.js')().render();
-    return work;
-}
-function Work_03 () {
-    var work = require('./work_03/index.js')().render();
-    return work;
-}
-function Work_04 () {
-    var work = require('./work_04/index.js')().render();
-    return work;
-}
+        var alt_color = alt_colors[
+                            Math.floor(
+                                Math.random() *
+                                alt_colors.length)];
 
-function Concept_00 () {
-    var concept = require('./concept_00/index.js')().render();
-    return concept;
-}
+        body.classed('body-' + color, true);
+        body.classed('body-alt-' + alt_color, true);
 
-function Concept_01 () {
-    var concept = require('./concept_01/index.js')().render();
-    return concept;
-}
+        return self;
+    };
 
-function Concept_01a () {
-    var concept = require('./concept_01a/index.js')().render();
-    return concept;
-}
+    self.overlay = function () {
+        var pairs = d3.selectAll('.overlay-nav-item')
+            .datum(function () { return this.dataset; });
 
-function Concept_02 () {
-    var concept = require('./concept_02/index.js')().render();
-    return concept;
-}
+        nav.selection(pairs)
+            .setup();
 
-function Concept_03 () {
-    var concept = require('./concept_03/index.js')().render();
-    return concept;
-}
+        // setup click tracking with google analytics
+        nav.dispatch
+            .on('asteriskClick', function (overlaid_boolean) {
+                if (!_gaq) return;
+                if (overlaid_boolean) {
+                    // opening
+                    _gaq.push(['_trackEvent',
+                               'GoButton',
+                               'Asterisk Click - Open',
+                               'Home',
+                               1,
+                               true]);
+                } else {
+                    // closing
+                    _gaq.push(['_trackEvent',
+                               'GoButton',
+                               'Asterisk Click - Close',
+                               'About',
+                               2,
+                               true]);
+                }
+            });
 
-function Concept_04 () {
-    var concept = require('./concept_04/index.js')().render();
-    return concept;
-}
+        return self;
+    };
 
-function Concept_04a () {
-    var concept = require('./concept_04a/index.js')().render();
-    return concept;
-}
+    self.logo = function () {
+        logo.container(d3.select('.logo-line'))
+            .attachResize()
+            .dupeContainer(d3.select('.overlay .logo-line'))
+            .render();
 
-function Concept_04b () {
-    var concept = require('./concept_04b/index.js')().render();
-    return concept;
-}
+        return self;
+    };
 
-function Concept_04c () {
-    var concept = require('./concept_04c/index.js')().render();
-    return concept;
-}
-
-function Concept_04d () {
-    var concept = require('./concept_04d/index.js')().render();
-    return concept;
-}
-
-function Concept_04e () {
-    var concept = require('./concept_04e/index.js')().render();
-    return concept;
-}
-
-function Concept_04g () {
-    var concept = require('./concept_04g/index.js')().render();
-    return concept;
-}
-
-function Concept_05 () {
-    var concept = require('./concept_05/index.js')().render();
-    return concept;
-}
-
-function Concept_05a () {
-    var concept = require('./concept_05a/index.js')().render();
-    return concept;
-}
-
-function Concept_05b () {
-    var concept = require('./concept_05b/index.js')().render();
-    return concept;
-}
-
-function Concept_05c () {
-    var concept = require('./concept_05c/index.js')().render();
-    return concept;
-}
-
-function Concept_06 () {
-    var concept = require('./concept_06/index.js')().render();
-    return concept;
+    return self;
 }

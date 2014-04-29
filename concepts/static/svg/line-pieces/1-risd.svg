@@ -1,0 +1,14 @@
+<svg version="1.1" id="splash" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="4868.816px" height="4701.118px" viewBox="0 0 4868.816 4701.118" enable-background="new 0 0 4868.816 4701.118"
+	 xml:space="preserve">
+<linearGradient id="_x31_-risd_1_" gradientUnits="userSpaceOnUse" x1="-8.832676e-07" y1="24.2377" x2="155.8438" y2="24.2377">
+	<stop  offset="0" style="stop-color:#FFFFFF"/>
+	<stop  offset="0.25" style="stop-color:#FFFFFF;stop-opacity:0.5"/>
+	<stop  offset="0.2866" style="stop-color:#FFFFFF;stop-opacity:0.5"/>
+	<stop  offset="0.5" style="stop-color:#FFFFFF;stop-opacity:0.5"/>
+	<stop  offset="0.75" style="stop-color:#FFFFFF;stop-opacity:0.5"/>
+	<stop  offset="1" style="stop-color:#FFFFFF"/>
+</linearGradient>
+<path id="_x31_-risd" fill="none" stroke="url(#_x31_-risd_1_)" stroke-width="10" stroke-miterlimit="10" d="M0,24.238
+	c0,0,103.726,0,155.844,0"/>
+</svg>
