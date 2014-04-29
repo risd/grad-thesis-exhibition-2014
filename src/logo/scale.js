@@ -6,7 +6,11 @@ module.exports = function logo_scale () {
     var segments = [{
             from: 'RISD',
             to: 'Grad',
-            scaleUsing: utility.scaleProportionalY,
+            scaleUsing: {
+                '300': utility.scaleProportionalY,
+                '768': utility.scaleProportionalY,
+                '1024': utility.scaleProportionalX
+            },
             paths: {
                 '300': 'M3.564,0' +
                     'c0,0,0,8.851,0,16.81' +
@@ -45,7 +49,11 @@ module.exports = function logo_scale () {
         }, {
             from: 'Grad',
             to: 'Show',
-            scaleUsing: utility.scaleProportionalX,
+            scaleUsing: {
+                '300': utility.scaleProportionalX,
+                '768': utility.scaleProportionalX,
+                '1024': utility.scaleProportionalX
+            }
             paths: {
                 '300': 'M0-0.138' +
                        'c83.627,0.62,238.755,0,344.14,0',
@@ -82,7 +90,11 @@ module.exports = function logo_scale () {
         }, {
             from: 'Show',
             to: '2014',
-            scaleUsing: utility.scaleProportionalY,
+            scaleUsing: {
+                '300': utility.scaleProportionalY,
+                '768': utility.scaleProportionalY,
+                '1024': utility.scaleProportionalX
+            }
             paths: {
                 '300': 'M73.606-48.689 ' +
                     'c3.037-0.032,5.74-0.052,8.089-0.052 ' +
@@ -131,7 +143,8 @@ module.exports = function logo_scale () {
             utility.convertToRelative(temp_path.node());
             d.relative_paths_d[path_size] = temp_path.attr('d');
             d.relative_paths = temp_path.node();
-            d.scale[path_size] = d.scaleUsing(d.relative_paths);
+            d.scale[path_size] =
+                d.scaleUsing[path_size](d.relative_paths);
         }
     });
 
