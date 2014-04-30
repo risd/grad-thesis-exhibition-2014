@@ -82,25 +82,33 @@ module.exports = function logo () {
 
         delay_past_reveal_sel
             .on('transitionend', function (d) {
-                // console.log('transitionend');
-                console.log(d);
                 d3.select(this).classed(d.delayedclass, true);
+                delay_past_reveal_sel
+                    .on('transitionend', null);
             })
             .on('webkitTransitionEnd', function (d) {
                 // console.log('webkitTransitionEnd');
                 d3.select(this).classed(d.delayedclass, true);
+                delay_past_reveal_sel
+                    .on('webkitTransitionEnd', null);
             })
             .on('oTransitionEnd', function (d) {
                 // console.log('oTransitionEnd');
                 d3.select(this).classed(d.delayedclass, true);
+                delay_past_reveal_sel
+                    .on('oTransitionEnd', null);
             })
             .on('otransitionend', function (d) {
                 // console.log('otransitionend');
                 d3.select(this).classed(d.delayedclass, true);
+                delay_past_reveal_sel
+                    .on('otransitionend', null);
             })
             .on('MSTransitionEnd', function (d) {
                 // console.log('MSTransitionEnd');
                 d3.select(this).classed(d.delayedclass, true);
+                delay_past_reveal_sel
+                    .on('MSTransitionEnd', null);
             });
     }
 
@@ -172,8 +180,7 @@ module.exports = function logo () {
                     .push(
                         connect_logo_scale
                             [i]
-                            .scale
-                            [line_size_to_draw](start, end));
+                            .scale[line_size_to_draw](start, end));
             }
         }
         return connecting_segments;

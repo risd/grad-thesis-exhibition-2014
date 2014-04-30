@@ -51,8 +51,8 @@ module.exports = function logo_scale () {
             to: 'Show',
             scaleUsing: {
                 '300': utility.scaleProportionalX,
-                '768': utility.scaleProportionalX,
-                '1024': utility.scaleProportionalX
+                '768': utility.scaleProportionalX
+                // '1024': utility.scaleProportionalX
             },
             paths: {
                 '300': 'M0-0.138' +
@@ -85,8 +85,8 @@ module.exports = function logo_scale () {
             to: '2014',
             scaleUsing: {
                 '300': utility.scaleProportionalY,
-                '768': utility.scaleProportionalY,
-                '1024': utility.scaleProportional
+                '768': utility.scaleProportionalY
+                // '1024': utility.scaleProportional
             },
             paths: {
                 '300': 'M73.606-48.689 ' +
