@@ -122,8 +122,17 @@ html, body {
 .z-50 {
     z-index: 50;
 }
+.z-55 {
+    z-index: 55;
+}
 .z-60 {
     z-index: 60;
+}
+.z-61 {
+    z-index: 61;
+}
+.z-62 {
+    z-index: 62;
 }
 .z-100 {
     z-index: 100;
@@ -140,20 +149,17 @@ html, body {
 .z-300 {
     z-index: 300;
 }
-.overlaid {
-    z-index: 200;
-}
-.overlaid .about-background-images {
-    z-index: 200;
-}
-.overlaid .about-foreground-text {
-    z-index: 300;
-}
-.overlay-background-image-screen {
-    z-index: 5;
-}
 .no-scroll {
     overflow: hidden;
+}
+.about-background-images-wrapper,
+.logo-text,
+.logo-text .fixed-fullscreen,
+.logo-line,
+.logo-line svg,
+.logo-svg,
+.logo-svg path {
+    pointer-events: none;
 }
 @media only screen and (min-width: 500px) {
     .grid {

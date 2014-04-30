@@ -312,8 +312,17 @@ html, body {
 .z-50 {
     z-index: 50;
 }
+.z-55 {
+    z-index: 55;
+}
 .z-60 {
     z-index: 60;
+}
+.z-61 {
+    z-index: 61;
+}
+.z-62 {
+    z-index: 62;
 }
 .z-100 {
     z-index: 100;
@@ -330,20 +339,17 @@ html, body {
 .z-300 {
     z-index: 300;
 }
-.overlaid {
-    z-index: 200;
-}
-.overlaid .about-background-images {
-    z-index: 200;
-}
-.overlaid .about-foreground-text {
-    z-index: 300;
-}
-.overlay-background-image-screen {
-    z-index: 5;
-}
 .no-scroll {
     overflow: hidden;
+}
+.about-background-images-wrapper,
+.logo-text,
+.logo-text .fixed-fullscreen,
+.logo-line,
+.logo-line svg,
+.logo-svg,
+.logo-svg path {
+    pointer-events: none;
 }
 @media only screen and (min-width: 500px) {
     .grid {
@@ -644,26 +650,21 @@ html, body {
     opacity: 0;
     width: 0;
 }
-.move-on-overlaid {
-    -webkit-transition: top 0s ease-in 0s, -webkit-transform 0.5s ease-in 0s;
-    -moz-transition: top 0s ease-in 0s, -moz-transform 0.5s ease-in 0s;
-    -ms-transition: top 0s ease-in 0s, -ms-transform 0.5s ease-in 0s;
-    transition: top 0s ease-in 0s, transform 0.5s ease-in 0s;
-    
-    -webkit-transform: translate(0,0) rotate(0deg);
-    -moz-transform: translate(0,0) rotate(0deg);
-    -ms-transform: translate(0,0) rotate(0deg);
-    transform: translate(0,0) rotate(0deg);
+.logo-svg path {
+    opacity: 0.27;
+
+    -webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -ms-transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
 }
-.about-overlaid .move-on-overlaid {
-    -webkit-transition: top 0s ease-in  0.5s, -webkit-transform 0.5s ease-in 0s;
-    -moz-transition: top 0s ease-in 0.5s, -moz-transform 0.5s ease-in 0s;
-    -ms-transition: top 0s ease-in 0.5s, -ms-transform 0.5s ease-in 0s;
-    transition: top 0s ease-in 0.5s, transform 0.5s ease-in 0s;
-    
-    -webkit-transform: translate(100%,-90%) rotate(30deg);
-    -moz-transform: translate(100%,-90%) rotate(30deg);
-    transform: translate(100%,-90%) rotate(30deg);
+.about-overlaid .logo-svg path {
+    opacity: 0.15;
+
+    -webkit-transition: opacity 0.5s ease-in;
+    -moz-transition: opacity 0.5s ease-in;
+    -ms-transition: opacity 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
 }
 .overlay {
     -webkit-transition: top 0s ease-in  0.5s, -webkit-transform 0.5s ease-in 0s;
@@ -791,12 +792,12 @@ html, body {
         left: 20px;
     }
     .logo-text-component--grad {
-        top: 50%;
+        top: 47%;
         left: 20px;
         bottom: auto;
     }
     .logo-text-component--show {
-        top: 50%;
+        top: 47%;
         right: 20px;
         bottom: auto;
     }
@@ -943,7 +944,6 @@ body {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
-    opacity: 0.5;
 }
 
 a,
@@ -982,6 +982,6 @@ a:hover {
 
 @media only screen and (min-width: 1440px) {
     .logo-svg path {
-        stroke-width: 8px;
+        stroke-width: 7 px;
     }
 }

@@ -76,7 +76,6 @@ body {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
-    opacity: 0.5;
 }
 
 a,
@@ -115,6 +114,6 @@ a:hover {
 
 @media only screen and (min-width: 1440px) {
     .logo-svg path {
-        stroke-width: 8px;
+        stroke-width: 7 px;
     }
 }

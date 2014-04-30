@@ -77,39 +77,41 @@ module.exports = function logo () {
     function setup_reveal () {
         d3.select('body').classed('to-reveal', false);
 
-        delay_past_reveal_sel
-            .datum(function () { return this.dataset; });
+        if (delay_past_reveal_sel) {
+            delay_past_reveal_sel
+                .datum(function () { return this.dataset; });
 
-        delay_past_reveal_sel
-            .on('transitionend', function (d) {
-                d3.select(this).classed(d.delayedclass, true);
-                delay_past_reveal_sel
-                    .on('transitionend', null);
-            })
-            .on('webkitTransitionEnd', function (d) {
-                // console.log('webkitTransitionEnd');
-                d3.select(this).classed(d.delayedclass, true);
-                delay_past_reveal_sel
-                    .on('webkitTransitionEnd', null);
-            })
-            .on('oTransitionEnd', function (d) {
-                // console.log('oTransitionEnd');
-                d3.select(this).classed(d.delayedclass, true);
-                delay_past_reveal_sel
-                    .on('oTransitionEnd', null);
-            })
-            .on('otransitionend', function (d) {
-                // console.log('otransitionend');
-                d3.select(this).classed(d.delayedclass, true);
-                delay_past_reveal_sel
-                    .on('otransitionend', null);
-            })
-            .on('MSTransitionEnd', function (d) {
-                // console.log('MSTransitionEnd');
-                d3.select(this).classed(d.delayedclass, true);
-                delay_past_reveal_sel
-                    .on('MSTransitionEnd', null);
-            });
+            delay_past_reveal_sel
+                .on('transitionend', function (d) {
+                    d3.select(this).classed(d.delayedclass, true);
+                    delay_past_reveal_sel
+                        .on('transitionend', null);
+                })
+                .on('webkitTransitionEnd', function (d) {
+                    // console.log('webkitTransitionEnd');
+                    d3.select(this).classed(d.delayedclass, true);
+                    delay_past_reveal_sel
+                        .on('webkitTransitionEnd', null);
+                })
+                .on('oTransitionEnd', function (d) {
+                    // console.log('oTransitionEnd');
+                    d3.select(this).classed(d.delayedclass, true);
+                    delay_past_reveal_sel
+                        .on('oTransitionEnd', null);
+                })
+                .on('otransitionend', function (d) {
+                    // console.log('otransitionend');
+                    d3.select(this).classed(d.delayedclass, true);
+                    delay_past_reveal_sel
+                        .on('otransitionend', null);
+                })
+                .on('MSTransitionEnd', function (d) {
+                    // console.log('MSTransitionEnd');
+                    d3.select(this).classed(d.delayedclass, true);
+                    delay_past_reveal_sel
+                        .on('MSTransitionEnd', null);
+                });
+        }
     }
 
     function recalulate_logo_line () {
@@ -148,14 +150,20 @@ module.exports = function logo () {
             var first, second;
             if (i === 0) {
                 first = [bounds.left + 3,
-                     (bounds.top + (bounds.height*(0.55)))];
-            } else {
+                     (bounds.top + (bounds.height*(0.45)))];
+                second = [bounds.right + 6,
+                     (bounds.top + (bounds.height*(0.45)))];
+            } else if ((i === 1) | (i === 2)) {
+                first = [bounds.left - 6,
+                     (bounds.top + (bounds.height*(0.45)))];
+                second = [bounds.right + 6,
+                     (bounds.top + (bounds.height*(0.45)))];
+            } else if (i === 3) {
                 first = [bounds.left - 6,
                      (bounds.top + (bounds.height*(0.55)))];
+                second = [bounds.right + 6,
+                     (bounds.top + (bounds.height*(0.55)))];
             }
-
-            second = [bounds.right + 6,
-                 (bounds.top + (bounds.height*(0.55)))];
 
             text_verticies.push([first, second]);
 
