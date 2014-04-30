@@ -1,10 +1,12 @@
 var Nav = require('./overlay/nav'),
-    Logo = require('./logo/index');
+    Logo = require('./logo/index'),
+    Work = require('./work/index');
 
 site()
     .colors()
     .overlay()
-    .logo();
+    .logo()
+    .work({live: false});
 
 function site () {
     var self = {},
@@ -23,6 +25,7 @@ function site () {
 
     var nav = Nav();
     var logo = Logo();
+    var work = Work();
 
     self.colors = function () {
         var random_index = Math.floor(Math.random() * colors.length);
@@ -84,6 +87,17 @@ function site () {
                     d3.selectAll('.delay-class-post-transition'))
             .render();
 
+        return self;
+    };
+
+    self.work = function (args) {
+        if (args.live) {
+            // set up
+            work.container(d3.select('.work'))
+                .initliaze();
+        } else {
+            d3.select('.work').remove();
+        }
         return self;
     };
 

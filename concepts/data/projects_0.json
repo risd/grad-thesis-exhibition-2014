@@ -1,0 +1,1224 @@
+{
+    "meta": {
+        "total_pages": 3,
+        "page_number": 0
+    },
+    "objects": [{
+        "published_on": 1394480593,
+        "stats": {
+            "appreciations": 10,
+            "comments": 0,
+            "views": 80
+        },
+        "name": "RISD Museum: Room Alteration",
+        "privacy": "public",
+        "url": "http://www.behance.net/gallery/RISD-Museum-Room-Alteration/15144195",
+        "fields": ["Architecture", "Interior Design"],
+        "risd_program": "Interior Studies",
+        "mature_access": "allowed",
+        "owners": [{
+            "username": "katherineporter",
+            "city": "Providence",
+            "first_name": "Katherine",
+            "last_name": "Porter",
+            "display_name": "Katherine Porter",
+            "url": "http://www.behance.net/katherineporter",
+            "country": "United States",
+            "company": "",
+            "state": "Rhode Island",
+            "created_on": 1375908483,
+            "location": "Providence, RI, USA",
+            "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+            "images": {
+                "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+            },
+            "id": 3274657,
+            "occupation": "Student"
+        }],
+        "covers": {
+            "202": "http://m1.behance.net/rendition/projects/15144195/orig/dedf14870446b1805c59a690b5ea2f3c.jpeg",
+            "115": "http://m1.behance.net/rendition/projects/15144195/115/dedf14870446b1805c59a690b5ea2f3c.jpeg",
+            "404": "http://m1.behance.net/rendition/projects/15144195/404/dedf14870446b1805c59a690b5ea2f3c.jpeg",
+            "230": "http://m1.behance.net/rendition/projects/15144195/230/dedf14870446b1805c59a690b5ea2f3c.jpeg"
+        },
+        "mature_content": 0,
+        "for_sale": 0,
+        "created_on": 1394343228,
+        "details": {
+            "short_url": "http://bit.ly/NSUFsE",
+            "mature_access": "allowed",
+            "covers": {
+                "202": "http://m1.behance.net/rendition/projects/15144195/orig/dedf14870446b1805c59a690b5ea2f3c.jpeg",
+                "115": "http://m1.behance.net/rendition/projects/15144195/115/dedf14870446b1805c59a690b5ea2f3c.jpeg",
+                "404": "http://m1.behance.net/rendition/projects/15144195/404/dedf14870446b1805c59a690b5ea2f3c.jpeg",
+                "230": "http://m1.behance.net/rendition/projects/15144195/230/dedf14870446b1805c59a690b5ea2f3c.jpeg"
+            },
+            "mature_content": 0,
+            "created_on": 1394343228,
+            "id": 15144195,
+            "published_on": 1394480593,
+            "stats": {
+                "appreciations": 10,
+                "comments": 0,
+                "views": 80
+            },
+            "copyright": {
+                "license_id": 3,
+                "description": "Attribution-NonCommercial",
+                "license": "cc by-nc"
+            },
+            "privacy": "public",
+            "base_url": "http://www.behance.net/v2/projects",
+            "project_id": 15144195,
+            "styles": {
+                "text": {
+                    "caption": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "italic",
+                        "font_size": "11px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "block",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "paragraph": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "link": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#1769FF",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "subtitle": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "14px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "title": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "16px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "bold",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    }
+                },
+                "dividers": {
+                    "display": "none"
+                },
+                "spacing": {
+                    "project": {
+                        "top_margin": 50
+                    },
+                    "modules": {
+                        "bottom_margin": 20
+                    }
+                },
+                "background": {
+                    "color": "FFFFFF"
+                }
+            },
+            "description": "For this assignment we were asked to abstract the condition of an existing space through the application of a series of operations and unconventional measuring techniques.  \n",
+            "tags": ["Advanced Computer Drawing"],
+            "modified_on": 1394480593,
+            "owners": [{
+                "username": "katherineporter",
+                "city": "Providence",
+                "first_name": "Katherine",
+                "last_name": "Porter",
+                "display_name": "Katherine Porter",
+                "url": "http://www.behance.net/katherineporter",
+                "country": "United States",
+                "company": "",
+                "state": "Rhode Island",
+                "created_on": 1375908483,
+                "location": "Providence, RI, USA",
+                "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+                "images": {
+                    "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                    "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                    "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+                },
+                "id": 3274657,
+                "occupation": "Student"
+            }],
+            "name": "RISD Museum: Room Alteration",
+            "auth_key": "sGRp891umgwx4IT318rFcueQcjmr9bt3",
+            "url": "http://www.behance.net/gallery/RISD-Museum-Room-Alteration/15144195",
+            "fields": ["Architecture", "Interior Design"],
+            "modules": [{
+                "src": "http://m1.behance.net/rendition/modules/104287445/disp/e262f0e03ea4975b1ebe63ade95b0893.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287445/hd/e262f0e03ea4975b1ebe63ade95b0893.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287445/orig/e262f0e03ea4975b1ebe63ade95b0893.jpg"
+                },
+                "height": 626,
+                "width": 600,
+                "type": "image",
+                "id": 104287445
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287447/disp/22f15aa810ab1e5dd0227a6d65a253eb.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287447/hd/22f15aa810ab1e5dd0227a6d65a253eb.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287447/orig/22f15aa810ab1e5dd0227a6d65a253eb.jpg"
+                },
+                "height": 607,
+                "width": 600,
+                "type": "image",
+                "id": 104287447
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287449/disp/ad82e3099181f3070946d71ccd0499de.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287449/hd/ad82e3099181f3070946d71ccd0499de.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287449/orig/ad82e3099181f3070946d71ccd0499de.jpg"
+                },
+                "height": 517,
+                "width": 600,
+                "type": "image",
+                "id": 104287449
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287443/disp/47ef2c19151919dcf474f70335029c75.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287443/hd/47ef2c19151919dcf474f70335029c75.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287443/orig/47ef2c19151919dcf474f70335029c75.jpg"
+                },
+                "height": 611,
+                "width": 600,
+                "type": "image",
+                "id": 104287443
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287453/disp/81d622442b1825ba751da8b57b3325ed.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287453/hd/81d622442b1825ba751da8b57b3325ed.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287453/orig/81d622442b1825ba751da8b57b3325ed.jpg"
+                },
+                "height": 482,
+                "width": 600,
+                "type": "image",
+                "id": 104287453
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287451/disp/c1a5be56782178259b7ba0efe339e303.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287451/hd/c1a5be56782178259b7ba0efe339e303.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287451/orig/c1a5be56782178259b7ba0efe339e303.jpg"
+                },
+                "height": 622,
+                "width": 600,
+                "type": "image",
+                "id": 104287451
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287455/disp/4a82d4b43afdf182385cd344bc6f92e8.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287455/hd/4a82d4b43afdf182385cd344bc6f92e8.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287455/orig/4a82d4b43afdf182385cd344bc6f92e8.jpg"
+                },
+                "height": 611,
+                "width": 600,
+                "type": "image",
+                "id": 104287455
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287459/disp/f45b75c2842833cdbaefad4da41fb313.jpg",
+                "sizes": {
+                    "original": "http://m1.behance.net/rendition/modules/104287459/orig/f45b75c2842833cdbaefad4da41fb313.jpg"
+                },
+                "height": 782,
+                "width": 477,
+                "type": "image",
+                "id": 104287459
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287457/disp/381283895422c3032edd96d7c020f0e1.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287457/hd/381283895422c3032edd96d7c020f0e1.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287457/orig/381283895422c3032edd96d7c020f0e1.jpg"
+                },
+                "height": 421,
+                "width": 600,
+                "type": "image",
+                "id": 104287457
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287461/disp/7d8632066432f440298186ad7ba70ba3.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104287461/hd/7d8632066432f440298186ad7ba70ba3.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104287461/orig/7d8632066432f440298186ad7ba70ba3.jpg"
+                },
+                "height": 408,
+                "width": 600,
+                "type": "image",
+                "id": 104287461
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104287579/disp/b75e1ddf843d43fd48232f9990e27df3.jpg",
+                "sizes": {
+                    "original": "http://m1.behance.net/rendition/modules/104287579/orig/b75e1ddf843d43fd48232f9990e27df3.jpg"
+                },
+                "height": 699,
+                "width": 558,
+                "type": "image",
+                "id": 104287579
+            }],
+            "for_sale": 0
+        },
+        "modified_on": 1394480593,
+        "id": 15144195
+    }, {
+        "published_on": 1394341102,
+        "stats": {
+            "appreciations": 2,
+            "comments": 0,
+            "views": 51
+        },
+        "name": "Chess Study",
+        "privacy": "public",
+        "url": "http://www.behance.net/gallery/Chess-Study/15143849",
+        "fields": ["Architecture", "Interior Design"],
+        "risd_program": "Interior Studies",
+        "mature_access": "allowed",
+        "owners": [{
+            "username": "katherineporter",
+            "city": "Providence",
+            "first_name": "Katherine",
+            "last_name": "Porter",
+            "display_name": "Katherine Porter",
+            "url": "http://www.behance.net/katherineporter",
+            "country": "United States",
+            "company": "",
+            "state": "Rhode Island",
+            "created_on": 1375908483,
+            "location": "Providence, RI, USA",
+            "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+            "images": {
+                "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+            },
+            "id": 3274657,
+            "occupation": "Student"
+        }],
+        "covers": {
+            "202": "http://m1.behance.net/rendition/projects/15143849/orig/d279787f907d85deabe4a12433d4865e.jpeg",
+            "115": "http://m1.behance.net/rendition/projects/15143849/115/d279787f907d85deabe4a12433d4865e.jpeg",
+            "404": "http://m1.behance.net/rendition/projects/15143849/404/d279787f907d85deabe4a12433d4865e.jpeg",
+            "230": "http://m1.behance.net/rendition/projects/15143849/230/d279787f907d85deabe4a12433d4865e.jpeg"
+        },
+        "mature_content": 0,
+        "for_sale": 0,
+        "created_on": 1394340600,
+        "details": {
+            "short_url": "http://bit.ly/1fgNSPo",
+            "mature_access": "allowed",
+            "covers": {
+                "202": "http://m1.behance.net/rendition/projects/15143849/orig/d279787f907d85deabe4a12433d4865e.jpeg",
+                "115": "http://m1.behance.net/rendition/projects/15143849/115/d279787f907d85deabe4a12433d4865e.jpeg",
+                "404": "http://m1.behance.net/rendition/projects/15143849/404/d279787f907d85deabe4a12433d4865e.jpeg",
+                "230": "http://m1.behance.net/rendition/projects/15143849/230/d279787f907d85deabe4a12433d4865e.jpeg"
+            },
+            "mature_content": 0,
+            "created_on": 1394340600,
+            "id": 15143849,
+            "published_on": 1394341102,
+            "stats": {
+                "appreciations": 2,
+                "comments": 0,
+                "views": 51
+            },
+            "copyright": {
+                "license_id": 3,
+                "description": "Attribution-NonCommercial",
+                "license": "cc by-nc"
+            },
+            "privacy": "public",
+            "base_url": "http://www.behance.net/v2/projects",
+            "project_id": 15143849,
+            "styles": {
+                "text": {
+                    "caption": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "italic",
+                        "font_size": "11px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "block",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "paragraph": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "link": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#1769FF",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "subtitle": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "14px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "title": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "16px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "bold",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    }
+                },
+                "dividers": {
+                    "display": "none"
+                },
+                "spacing": {
+                    "project": {
+                        "top_margin": 50
+                    },
+                    "modules": {
+                        "bottom_margin": 20
+                    }
+                },
+                "background": {
+                    "color": "FFFFFF"
+                }
+            },
+            "description": "For our Fall 'Intro to Design' studio we were asked to produce a concept, based on an analysis of the game chess, that could begin to be developed into architecture. This study model took my findings on the multiple forms of 'convergence' present in the game of chess, and used them to create a spatial intervention on an existing space. ",
+            "tags": ["study model"],
+            "modified_on": 1394417758,
+            "owners": [{
+                "username": "katherineporter",
+                "city": "Providence",
+                "first_name": "Katherine",
+                "last_name": "Porter",
+                "display_name": "Katherine Porter",
+                "url": "http://www.behance.net/katherineporter",
+                "country": "United States",
+                "company": "",
+                "state": "Rhode Island",
+                "created_on": 1375908483,
+                "location": "Providence, RI, USA",
+                "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+                "images": {
+                    "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                    "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                    "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+                },
+                "id": 3274657,
+                "occupation": "Student"
+            }],
+            "name": "Chess Study",
+            "auth_key": "sGRp891umgwx4IT318rFcueQcjmr9bt3",
+            "url": "http://www.behance.net/gallery/Chess-Study/15143849",
+            "fields": ["Architecture", "Interior Design"],
+            "modules": [{
+                "src": "http://m1.behance.net/rendition/modules/104040227/disp/9edab8ea34944f3727d23195fc367bf9.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104040227/hd/9edab8ea34944f3727d23195fc367bf9.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104040227/orig/9edab8ea34944f3727d23195fc367bf9.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/104040227/fs/9edab8ea34944f3727d23195fc367bf9.jpg"
+                },
+                "height": 399,
+                "width": 600,
+                "type": "image",
+                "id": 104040227
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104040231/disp/78d9ea19f0ec00a8fa5d33654ffdb50b.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104040231/hd/78d9ea19f0ec00a8fa5d33654ffdb50b.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104040231/orig/78d9ea19f0ec00a8fa5d33654ffdb50b.jpg"
+                },
+                "height": 399,
+                "width": 600,
+                "type": "image",
+                "id": 104040231
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104040223/disp/15b2b8fdb9bf366526061c3522e18d76.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104040223/hd/15b2b8fdb9bf366526061c3522e18d76.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104040223/orig/15b2b8fdb9bf366526061c3522e18d76.jpg"
+                },
+                "height": 452,
+                "width": 600,
+                "type": "image",
+                "id": 104040223
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104040225/disp/9f37d5c79bfca4ba8695448fcbbc39c8.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104040225/hd/9f37d5c79bfca4ba8695448fcbbc39c8.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104040225/orig/9f37d5c79bfca4ba8695448fcbbc39c8.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/104040225/fs/9f37d5c79bfca4ba8695448fcbbc39c8.jpg"
+                },
+                "height": 381,
+                "width": 600,
+                "type": "image",
+                "id": 104040225
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104040229/disp/f8b389c11e5e79a4cdc3d2605325acee.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/104040229/hd/f8b389c11e5e79a4cdc3d2605325acee.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/104040229/orig/f8b389c11e5e79a4cdc3d2605325acee.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/104040229/fs/f8b389c11e5e79a4cdc3d2605325acee.jpg"
+                },
+                "height": 438,
+                "width": 600,
+                "type": "image",
+                "id": 104040229
+            }],
+            "for_sale": 0
+        },
+        "modified_on": 1394417758,
+        "id": 15143849
+    }, {
+        "published_on": 1393876853,
+        "stats": {
+            "appreciations": 8,
+            "comments": 0,
+            "views": 110
+        },
+        "name": "Of Tension",
+        "privacy": "public",
+        "url": "http://www.behance.net/gallery/Of-Tension/15005079",
+        "fields": ["Architecture", "Fine Arts", "Interior Design"],
+        "risd_program": "Interior Studies",
+        "mature_access": "allowed",
+        "owners": [{
+            "username": "katherineporter",
+            "city": "Providence",
+            "first_name": "Katherine",
+            "last_name": "Porter",
+            "display_name": "Katherine Porter",
+            "url": "http://www.behance.net/katherineporter",
+            "country": "United States",
+            "company": "",
+            "state": "Rhode Island",
+            "created_on": 1375908483,
+            "location": "Providence, RI, USA",
+            "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+            "images": {
+                "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+            },
+            "id": 3274657,
+            "occupation": "Student"
+        }],
+        "covers": {
+            "202": "http://m1.behance.net/rendition/projects/15005079/orig/fac77d4b46727be81708348312e037ec.jpeg",
+            "115": "http://m1.behance.net/rendition/projects/15005079/115/fac77d4b46727be81708348312e037ec.jpeg",
+            "404": "http://m1.behance.net/rendition/projects/15005079/404/fac77d4b46727be81708348312e037ec.jpeg",
+            "230": "http://m1.behance.net/rendition/projects/15005079/230/fac77d4b46727be81708348312e037ec.jpeg"
+        },
+        "mature_content": 0,
+        "for_sale": 0,
+        "created_on": 1393876656,
+        "details": {
+            "short_url": "http://bit.ly/1hCw325",
+            "mature_access": "allowed",
+            "covers": {
+                "202": "http://m1.behance.net/rendition/projects/15005079/orig/fac77d4b46727be81708348312e037ec.jpeg",
+                "115": "http://m1.behance.net/rendition/projects/15005079/115/fac77d4b46727be81708348312e037ec.jpeg",
+                "404": "http://m1.behance.net/rendition/projects/15005079/404/fac77d4b46727be81708348312e037ec.jpeg",
+                "230": "http://m1.behance.net/rendition/projects/15005079/230/fac77d4b46727be81708348312e037ec.jpeg"
+            },
+            "mature_content": 0,
+            "created_on": 1393876656,
+            "id": 15005079,
+            "published_on": 1393876853,
+            "stats": {
+                "appreciations": 8,
+                "comments": 0,
+                "views": 110
+            },
+            "copyright": {
+                "license_id": 3,
+                "description": "Attribution-NonCommercial",
+                "license": "cc by-nc"
+            },
+            "privacy": "public",
+            "base_url": "http://www.behance.net/v2/projects",
+            "project_id": 15005079,
+            "styles": {
+                "text": {
+                    "caption": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "italic",
+                        "font_size": "11px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "block",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "paragraph": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "link": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#1769FF",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "subtitle": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "14px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "title": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "16px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "bold",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    }
+                },
+                "dividers": {
+                    "display": "none"
+                },
+                "spacing": {
+                    "project": {
+                        "top_margin": 50
+                    },
+                    "modules": {
+                        "bottom_margin": 20
+                    }
+                },
+                "background": {
+                    "color": "FFFFFF"
+                }
+            },
+            "description": "Our first summer studio assignment asked us to alter the interior space of a shoebox, based on a series of prompts. My prompt was to create a space \u2018of tension\u2019 that could produce a sense of \u2018awe\u2019.  ",
+            "tags": ["Installation Sculpture", "Architecture Intervention"],
+            "modified_on": 1393877971,
+            "owners": [{
+                "username": "katherineporter",
+                "city": "Providence",
+                "first_name": "Katherine",
+                "last_name": "Porter",
+                "display_name": "Katherine Porter",
+                "url": "http://www.behance.net/katherineporter",
+                "country": "United States",
+                "company": "",
+                "state": "Rhode Island",
+                "created_on": 1375908483,
+                "location": "Providence, RI, USA",
+                "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+                "images": {
+                    "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                    "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                    "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+                },
+                "id": 3274657,
+                "occupation": "Student"
+            }],
+            "name": "Of Tension",
+            "auth_key": "sGRp891umgwx4IT318rFcueQcjmr9bt3",
+            "url": "http://www.behance.net/gallery/Of-Tension/15005079",
+            "fields": ["Architecture", "Fine Arts", "Interior Design"],
+            "modules": [{
+                "src": "http://m1.behance.net/rendition/modules/103166021/disp/bc802950ab67a31392f68375bc99f42c.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103166021/hd/bc802950ab67a31392f68375bc99f42c.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103166021/orig/bc802950ab67a31392f68375bc99f42c.jpg"
+                },
+                "height": 450,
+                "width": 600,
+                "type": "image",
+                "id": 103166021
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103169097/disp/6b6bd7f74ac81537e50181cd3b218f9f.jpg",
+                "sizes": [],
+                "height": 368,
+                "width": 600,
+                "type": "image",
+                "id": 103169097
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103169095/disp/c048da26bcfeb350c268cef15fe353f2.jpg",
+                "sizes": [],
+                "height": 302,
+                "width": 600,
+                "type": "image",
+                "id": 103169095
+            }],
+            "for_sale": 0
+        },
+        "modified_on": 1393877971,
+        "id": 15005079
+    }, {
+        "published_on": 1394031673,
+        "stats": {
+            "appreciations": 3,
+            "comments": 0,
+            "views": 49
+        },
+        "name": "Uffie Inspired Fireside Sitting Stool",
+        "privacy": "public",
+        "url": "http://www.behance.net/gallery/Uffie-Inspired-Fireside-Sitting-Stool/15055297",
+        "fields": ["Furniture Design", "Interior Design"],
+        "risd_program": "Interior Studies",
+        "mature_access": "allowed",
+        "owners": [{
+            "username": "katherineporter",
+            "city": "Providence",
+            "first_name": "Katherine",
+            "last_name": "Porter",
+            "display_name": "Katherine Porter",
+            "url": "http://www.behance.net/katherineporter",
+            "country": "United States",
+            "company": "",
+            "state": "Rhode Island",
+            "created_on": 1375908483,
+            "location": "Providence, RI, USA",
+            "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+            "images": {
+                "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+            },
+            "id": 3274657,
+            "occupation": "Student"
+        }],
+        "covers": {
+            "202": "http://m1.behance.net/rendition/projects/15055297/orig/4fb1efbb4438e6d6e469dbb374551de8.jpeg",
+            "115": "http://m1.behance.net/rendition/projects/15055297/115/4fb1efbb4438e6d6e469dbb374551de8.jpeg",
+            "404": "http://m1.behance.net/rendition/projects/15055297/404/4fb1efbb4438e6d6e469dbb374551de8.jpeg",
+            "230": "http://m1.behance.net/rendition/projects/15055297/230/4fb1efbb4438e6d6e469dbb374551de8.jpeg"
+        },
+        "mature_content": 0,
+        "for_sale": 0,
+        "created_on": 1394030891,
+        "details": {
+            "short_url": "http://bit.ly/1jRrjFW",
+            "mature_access": "allowed",
+            "covers": {
+                "202": "http://m1.behance.net/rendition/projects/15055297/orig/4fb1efbb4438e6d6e469dbb374551de8.jpeg",
+                "115": "http://m1.behance.net/rendition/projects/15055297/115/4fb1efbb4438e6d6e469dbb374551de8.jpeg",
+                "404": "http://m1.behance.net/rendition/projects/15055297/404/4fb1efbb4438e6d6e469dbb374551de8.jpeg",
+                "230": "http://m1.behance.net/rendition/projects/15055297/230/4fb1efbb4438e6d6e469dbb374551de8.jpeg"
+            },
+            "mature_content": 0,
+            "created_on": 1394030891,
+            "id": 15055297,
+            "published_on": 1394031673,
+            "stats": {
+                "appreciations": 3,
+                "comments": 0,
+                "views": 49
+            },
+            "copyright": {
+                "license_id": 3,
+                "description": "Attribution-NonCommercial",
+                "license": "cc by-nc"
+            },
+            "privacy": "public",
+            "base_url": "http://www.behance.net/v2/projects",
+            "project_id": 15055297,
+            "styles": {
+                "text": {
+                    "caption": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "italic",
+                        "font_size": "11px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "block",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "paragraph": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "link": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#1769FF",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "subtitle": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "14px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "title": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "16px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "bold",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    }
+                },
+                "dividers": {
+                    "display": "none"
+                },
+                "spacing": {
+                    "project": {
+                        "top_margin": 50
+                    },
+                    "modules": {
+                        "bottom_margin": 20
+                    }
+                },
+                "background": {
+                    "color": "FFFFFF"
+                }
+            },
+            "description": "This project was created during RISD Wintersession for a site specific furniture course. Using a cottage in Northern Ontario as inspiration, I prioritized the japanese minimalism and material contrast of the site to create this fireside sitting stool. \n\nOriginal Design: Uufie ",
+            "tags": ["site specific furniture"],
+            "modified_on": 1394323043,
+            "owners": [{
+                "username": "katherineporter",
+                "city": "Providence",
+                "first_name": "Katherine",
+                "last_name": "Porter",
+                "display_name": "Katherine Porter",
+                "url": "http://www.behance.net/katherineporter",
+                "country": "United States",
+                "company": "",
+                "state": "Rhode Island",
+                "created_on": 1375908483,
+                "location": "Providence, RI, USA",
+                "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+                "images": {
+                    "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                    "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                    "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+                },
+                "id": 3274657,
+                "occupation": "Student"
+            }],
+            "name": "Uffie Inspired Fireside Sitting Stool",
+            "auth_key": "sGRp891umgwx4IT318rFcueQcjmr9bt3",
+            "url": "http://www.behance.net/gallery/Uffie-Inspired-Fireside-Sitting-Stool/15055297",
+            "fields": ["Furniture Design", "Interior Design"],
+            "modules": [{
+                "src": "http://m1.behance.net/rendition/modules/103479923/disp/05a69b7310cfeab4f390b6727d611bec.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103479923/hd/05a69b7310cfeab4f390b6727d611bec.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103479923/orig/05a69b7310cfeab4f390b6727d611bec.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/103479923/fs/05a69b7310cfeab4f390b6727d611bec.jpg"
+                },
+                "height": 528,
+                "width": 600,
+                "type": "image",
+                "id": 103479923
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103479921/disp/d61e52d84a1505c2857e3c36034a9568.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103479921/hd/d61e52d84a1505c2857e3c36034a9568.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103479921/orig/d61e52d84a1505c2857e3c36034a9568.jpg"
+                },
+                "height": 809,
+                "width": 600,
+                "type": "image",
+                "id": 103479921
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103479917/disp/1618910620385ffd4b6a395cac2eb9d9.jpg",
+                "sizes": {
+                    "original": "http://m1.behance.net/rendition/modules/103479917/orig/1618910620385ffd4b6a395cac2eb9d9.jpg"
+                },
+                "height": 720,
+                "width": 540,
+                "type": "image",
+                "id": 103479917
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103479919/disp/1619b6a4977b45c6e431bdf013de9de9.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103479919/hd/1619b6a4977b45c6e431bdf013de9de9.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103479919/orig/1619b6a4977b45c6e431bdf013de9de9.jpg"
+                },
+                "height": 679,
+                "width": 600,
+                "type": "image",
+                "id": 103479919
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103479925/disp/89a9d5b3603c78cae5e29d8fc8ed4717.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103479925/hd/89a9d5b3603c78cae5e29d8fc8ed4717.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103479925/orig/89a9d5b3603c78cae5e29d8fc8ed4717.jpg"
+                },
+                "height": 343,
+                "width": 600,
+                "type": "image",
+                "id": 103479925
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103479927/disp/2cc178ca288df902f73e8b6726f7b560.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103479927/hd/2cc178ca288df902f73e8b6726f7b560.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103479927/orig/2cc178ca288df902f73e8b6726f7b560.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/103479927/fs/2cc178ca288df902f73e8b6726f7b560.jpg"
+                },
+                "height": 157,
+                "width": 600,
+                "type": "image",
+                "id": 103479927
+            }],
+            "for_sale": 0
+        },
+        "modified_on": 1394323043,
+        "id": 15055297
+    }, {
+        "published_on": 1394004776,
+        "stats": {
+            "appreciations": 2,
+            "comments": 0,
+            "views": 60
+        },
+        "name": "Chess : Process / Study Models",
+        "privacy": "public",
+        "url": "http://www.behance.net/gallery/Chess-Process-Study-Models/15047179",
+        "fields": ["Architecture", "Interior Design"],
+        "risd_program": "Interior Studies",
+        "mature_access": "allowed",
+        "owners": [{
+            "username": "katherineporter",
+            "city": "Providence",
+            "first_name": "Katherine",
+            "last_name": "Porter",
+            "display_name": "Katherine Porter",
+            "url": "http://www.behance.net/katherineporter",
+            "country": "United States",
+            "company": "",
+            "state": "Rhode Island",
+            "created_on": 1375908483,
+            "location": "Providence, RI, USA",
+            "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+            "images": {
+                "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+            },
+            "id": 3274657,
+            "occupation": "Student"
+        }],
+        "covers": {
+            "202": "http://m1.behance.net/rendition/projects/15047179/orig/f17bf573924df9ac6c319432e6d736d5.jpeg",
+            "115": "http://m1.behance.net/rendition/projects/15047179/115/f17bf573924df9ac6c319432e6d736d5.jpeg",
+            "404": "http://m1.behance.net/rendition/projects/15047179/404/f17bf573924df9ac6c319432e6d736d5.jpeg",
+            "230": "http://m1.behance.net/rendition/projects/15047179/230/f17bf573924df9ac6c319432e6d736d5.jpeg"
+        },
+        "mature_content": 0,
+        "for_sale": 0,
+        "created_on": 1394004593,
+        "details": {
+            "short_url": "http://bit.ly/1eUR47P",
+            "mature_access": "allowed",
+            "covers": {
+                "202": "http://m1.behance.net/rendition/projects/15047179/orig/f17bf573924df9ac6c319432e6d736d5.jpeg",
+                "115": "http://m1.behance.net/rendition/projects/15047179/115/f17bf573924df9ac6c319432e6d736d5.jpeg",
+                "404": "http://m1.behance.net/rendition/projects/15047179/404/f17bf573924df9ac6c319432e6d736d5.jpeg",
+                "230": "http://m1.behance.net/rendition/projects/15047179/230/f17bf573924df9ac6c319432e6d736d5.jpeg"
+            },
+            "mature_content": 0,
+            "created_on": 1394004593,
+            "id": 15047179,
+            "published_on": 1394004776,
+            "stats": {
+                "appreciations": 2,
+                "comments": 0,
+                "views": 60
+            },
+            "copyright": {
+                "license_id": 3,
+                "description": "Attribution-NonCommercial",
+                "license": "cc by-nc"
+            },
+            "privacy": "public",
+            "base_url": "http://www.behance.net/v2/projects",
+            "project_id": 15047179,
+            "styles": {
+                "text": {
+                    "caption": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "italic",
+                        "font_size": "11px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "block",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "paragraph": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "link": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "12px",
+                        "color": "#1769FF",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "subtitle": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "14px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "normal",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    },
+                    "title": {
+                        "font_family": "arial,helvetica,sans-serif",
+                        "font_style": "normal",
+                        "font_size": "16px",
+                        "color": "#3B3B3B",
+                        "text_align": "left",
+                        "display": "inline",
+                        "font_weight": "bold",
+                        "line_height": "1.4em",
+                        "text_decoration": "none"
+                    }
+                },
+                "dividers": {
+                    "display": "none"
+                },
+                "spacing": {
+                    "project": {
+                        "top_margin": 50
+                    },
+                    "modules": {
+                        "bottom_margin": 20
+                    }
+                },
+                "background": {
+                    "color": "FFFFFF"
+                }
+            },
+            "description": "For our Fall \u2018Intro to Design\u2019 studio we were asked to produce a concept, based on an analysis of the game chess, that could be developed into architecture. This study model is a 3D diagram that measures the real, potential and transitional power of a pawn structure used in Bobby Fischer\u2019s 1956 Game against Donald Byrne. ",
+            "tags": ["Diagrammatic Model"],
+            "modified_on": 1394339702,
+            "owners": [{
+                "username": "katherineporter",
+                "city": "Providence",
+                "first_name": "Katherine",
+                "last_name": "Porter",
+                "display_name": "Katherine Porter",
+                "url": "http://www.behance.net/katherineporter",
+                "country": "United States",
+                "company": "",
+                "state": "Rhode Island",
+                "created_on": 1375908483,
+                "location": "Providence, RI, USA",
+                "fields": ["Fine Arts", "Sculpting", "Interior Design"],
+                "images": {
+                    "138": "http://m1.behance.net/profiles11/3274657/cfac476d1c9cc6561b0213397917a34a.jpg",
+                    "115": "http://m1.behance.net/profiles11/3274657/115xcfac476d1c9cc6561b0213397917a34a.jpg",
+                    "50": "http://m1.behance.net/profiles11/3274657/50xcfac476d1c9cc6561b0213397917a34a.jpg"
+                },
+                "id": 3274657,
+                "occupation": "Student"
+            }],
+            "name": "Chess : Process / Study Models",
+            "auth_key": "sGRp891umgwx4IT318rFcueQcjmr9bt3",
+            "url": "http://www.behance.net/gallery/Chess-Process-Study-Models/15047179",
+            "fields": ["Architecture", "Interior Design"],
+            "modules": [{
+                "src": "http://m1.behance.net/rendition/modules/104037919/disp/37bfcdc70f80b79b344bc7da2831b161.jpg",
+                "caption_plain": "For our Fall 'Intro to Design' studio we were asked to produce a concept, based on an analysis of the game chess, that could begin to be developed into architecture. When asked to describe the game, Grand Master Mikhail Tal said that chess was a game where you took \"your opponent into a deep dark forest where 2+2=5, and the path leading out is only wide enough for one\". This first study model conceived of chess as an abstract space, with enough room for two to enter, and only one to leave.\u00a0",
+                "width": 600,
+                "sizes": [],
+                "height": 430,
+                "caption": "<div class=\"sub-title\"><span style=\"font-family:century schoolbook,georgia,sans-serif;\"><span style=\"font-size:12px;\">For our Fall 'Intro to Design' studio we were asked to produce a concept, based on an analysis of the game chess, that could begin to be developed into architecture. When asked to describe the game, Grand Master Mikhail Tal said that chess was a game where you took \"your opponent into a deep dark forest where 2+2=5, and the path leading out is only wide enough for one\". This first study model conceived of chess as an abstract space, with enough room for two to enter, and only one to leave.\u00a0</span></span></div>",
+                "type": "image",
+                "id": 104037919
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037921/disp/4464a01f1df597f785768fdefbb03307.jpg",
+                "sizes": [],
+                "height": 399,
+                "width": 600,
+                "type": "image",
+                "id": 104037921
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037923/disp/fad21cf0e88d72b8f7faf6105922b294.jpg",
+                "sizes": [],
+                "height": 392,
+                "width": 600,
+                "type": "image",
+                "id": 104037923
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103427459/disp/b088b3d392cf648d74ed96511154a0f7.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103427459/hd/b088b3d392cf648d74ed96511154a0f7.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103427459/orig/b088b3d392cf648d74ed96511154a0f7.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/103427459/fs/b088b3d392cf648d74ed96511154a0f7.jpg"
+                },
+                "height": 399,
+                "width": 600,
+                "type": "image",
+                "id": 103427459
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103427461/disp/c4b5baf69eba168a44a749a353d2e615.jpg",
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103427461/hd/c4b5baf69eba168a44a749a353d2e615.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103427461/orig/c4b5baf69eba168a44a749a353d2e615.jpg"
+                },
+                "height": 439,
+                "width": 600,
+                "type": "image",
+                "id": 103427461
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/103427463/disp/2d63987a66c2ee1d618902588ed69ee5.jpg",
+                "caption_plain": "As our analyses of chess developed, we were asked to spatialize our findings in 3D diagrams.\u00a0This study model measures the positional power of a pawn structure used in Bobby Fischer's 1956 Game against Donald Byrne. It spatializes the offensive and defensive potential of the pawn, highlighting the sometimes invisible binary potential of the pieces in the game.",
+                "width": 600,
+                "sizes": {
+                    "max_1240": "http://m1.behance.net/rendition/modules/103427463/hd/2d63987a66c2ee1d618902588ed69ee5.jpg",
+                    "original": "http://m1.behance.net/rendition/modules/103427463/orig/2d63987a66c2ee1d618902588ed69ee5.jpg",
+                    "max_1920": "http://m1.behance.net/rendition/modules/103427463/fs/2d63987a66c2ee1d618902588ed69ee5.jpg"
+                },
+                "height": 428,
+                "caption": "<div class=\"sub-title\"><span style=\"font-size:11px;\"><span style=\"font-family:century schoolbook,georgia,sans-serif;\">As our analyses of chess developed, we were asked to spatialize our findings in 3D diagrams.\u00a0This study model measures the positional power of a pawn structure used in Bobby Fischer's 1956 Game against Donald Byrne. It spatializes the offensive and defensive potential of the pawn, highlighting the sometimes invisible binary potential of the pieces in the game.</span></span></div>",
+                "type": "image",
+                "id": 103427463
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037929/disp/c5e2824f182a40088d46e38aaa367fad.jpg",
+                "sizes": [],
+                "height": 375,
+                "width": 600,
+                "type": "image",
+                "id": 104037929
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037931/disp/4ae0ea57c3ec8d00b9776e654c348318.jpg",
+                "sizes": [],
+                "height": 399,
+                "width": 600,
+                "type": "image",
+                "id": 104037931
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037933/disp/91a646e7820b2d4d5a230e0f573a02cd.jpg",
+                "caption_plain": "This model is a 3D study of 'convergence' in chess' game structure. By analyzing game structure in terms of available space\u00a0and rate of capture, it became clear that in chess,\u00a0both players are fundamentally working towards a moment of convergence,\u00a0the final capture, at\u00a0which point one player inevitably achieves dominance over the other.\u00a0",
+                "width": 600,
+                "sizes": [],
+                "height": 399,
+                "caption": "<div class=\"sub-title\"><span style=\"font-size:11px;\"><span style=\"font-family:century schoolbook,georgia,sans-serif;\">This model is a 3D study of 'convergence' in chess' game structure. By analyzing game structure in terms of available space\u00a0and rate of capture, it became clear that in chess,\u00a0both players are fundamentally working towards a moment of convergence,\u00a0the final capture, at\u00a0which point one player inevitably achieves dominance over the other.</span></span></div><div class=\"sub-title\">\u00a0</div>",
+                "type": "image",
+                "id": 104037933
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037935/disp/8a0656f1409a10ac204e2718a072c6f9.jpg",
+                "sizes": [],
+                "height": 399,
+                "width": 600,
+                "type": "image",
+                "id": 104037935
+            }, {
+                "src": "http://m1.behance.net/rendition/modules/104037937/disp/3f9361960e64b9b8798c1b3ec315f09c.jpg",
+                "caption_plain": "As my research developed, I was able to specify the different types of 'convergence' that occured in chess. This study model\u00a0spatializes\u00a0'Reciprocal Convergence' in chess, which occures\u00a0when\u00a0individual pieces work together, through positional tactics and strategy,\u00a0to create new opportunities on the board.",
+                "width": 600,
+                "sizes": [],
+                "height": 399,
+                "caption": "<div class=\"sub-title\"><span style=\"font-family:garamond,serif;\">As my research developed, I was able to specify the different types of 'convergence' that occured in chess. This study model\u00a0spatializes\u00a0'Reciprocal Convergence' in chess, which occures\u00a0when\u00a0individual pieces work together, through positional tactics and strategy,\u00a0to create new opportunities on the board.</span></div>",
+                "type": "image",
+                "id": 104037937
+            }],
+            "for_sale": 0
+        },
+        "modified_on": 1394339702,
+        "id": 15047179
+    }]
+}
