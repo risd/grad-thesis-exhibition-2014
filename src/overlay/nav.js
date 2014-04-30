@@ -91,30 +91,11 @@ module.exports = function nav () {
                                            .split('p')[0])) +
                                        'px');
         } else {
-            if (wwidth < 768) {
-                bbox = target_sel.node().getBoundingClientRect();
-                matching_sel =
-                    d3.select('.logo-text-component--show');
-                var matching_box = matching_sel
-                                        .node()
-                                        .getBoundingClientRect();
-                
-                target_sel
-                    .style('left', ((wwidth - bbox.width)/2) +
-                                           'px')
-                    .style('bottom', ((+matching_sel
-                                        .style('bottom')
-                                        .split('p')[0]) -
-                                      (bbox.height-
-                                       matching_box.height)/2) +
-                                     'px');
-            } else {
-                matching_sel =
-                    d3.select('.logo-text-component--2014');
-                target_sel
-                    .style('left', matching_sel.style('right'))
-                    .style('bottom', matching_sel.style('bottom'));
-            }
+            matching_sel =
+                d3.select('.logo-text-component--2014');
+            target_sel
+                .style('left', matching_sel.style('right'))
+                .style('bottom', matching_sel.style('bottom'));
         }
     }
 

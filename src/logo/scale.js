@@ -7,7 +7,7 @@ module.exports = function logo_scale () {
             from: 'RISD',
             to: 'Grad',
             scaleUsing: {
-                '300': utility.scaleProportional,
+                '300': utility.scaleProportionalY,
                 '768': utility.scaleProportionalY,
                 // '768': utility.scaleProportional,
                 '1024': utility.scaleProportional
@@ -20,8 +20,6 @@ module.exports = function logo_scale () {
                 '768': {
                     x: -110.04000854492188,
                     y: 389.18499755859375
-                    // x: -110.04000854492188,
-                    // y: 189.18499755859375
                 },
                 '1024': {
                     x: -117.3299635052681,
