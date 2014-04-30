@@ -316,10 +316,6 @@ module.exports = function svg () {
             },
             original_d = path.getAttribute('d');
 
-        console.log('drawn delta');
-        console.log(delta.drawn);
-        console.log(path);
-
         function replace(all_segments, segment_to_replace, type) {
             var args = [].slice.call(arguments, 3),
                 rcmd = 'createSVGPathSeg'+ type +'Rel',
@@ -333,8 +329,7 @@ module.exports = function svg () {
                 x: end[0] - start[0],
                 y: end[1] - start[1]
             };
-            console.log('current delta');
-            console.log(delta.current);
+
             var ratio = {
                 x: delta.current.x/delta.drawn.x,
                 y: delta.current.y/delta.drawn.y

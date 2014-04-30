@@ -1,27 +1,17 @@
-var Button = require('./button');
-
 module.exports = function nav () {
     var self = {},
         target_sel,
         overlaid = false,
         body_sel = d3.select('body'),
-        window_sel = d3.select(window),
         removable_text = [{
             text: 'Go!'
         }];
-
-    var button = Button();
 
     self.dispatch = d3.dispatch('asteriskClick');
 
     self.selection = function (_) {
         if (!arguments.length) return target_sel;
         target_sel = _;
-
-        button
-            .selection(target_sel)
-            .start();
-
         return self;
     };
 
@@ -42,13 +32,7 @@ module.exports = function nav () {
                 self.dispatch.asteriskClick(overlaid);
             });
 
-        
         place_button();
-
-        window_sel
-            .on('resize.nav', function () {
-                place_button();
-            });
     };
 
     function activate_deactivate (d) {

@@ -182,7 +182,7 @@ module.exports = function logo_scale () {
     var temp_path = temp_svg
         .append('path');
 
-    var measure_for_ff = true;
+    var measure_for_ff = false;
 
     segments.forEach(function (d, i) {
         d.relative_paths_d = {};
