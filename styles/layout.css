@@ -113,41 +113,23 @@ html, body {
 .z-0 {
     z-index: 0;
 }
-.z-5 {
-    z-index: 5;
-}
 .z-10 {
     z-index: 10;
+}
+.z-20 {
+    z-index: 20;
+}
+.z-30 {
+    z-index: 30;
+}
+.z-40 {
+    z-index: 40;
 }
 .z-50 {
     z-index: 50;
 }
-.z-55 {
-    z-index: 55;
-}
-.z-60 {
-    z-index: 60;
-}
-.z-61 {
-    z-index: 61;
-}
-.z-62 {
-    z-index: 62;
-}
-.z-100 {
-    z-index: 100;
-}
-.z-200 {
-    z-index: 200;
-}
-.z-250 {
-    z-index: 250;
-}
-.z-251 {
-    z-index: 251;
-}
-.z-300 {
-    z-index: 300;
+.z-500 {
+    z-index: 500;
 }
 .no-scroll {
     overflow: hidden;
