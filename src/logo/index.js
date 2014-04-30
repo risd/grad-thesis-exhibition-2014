@@ -172,6 +172,7 @@ module.exports = function logo () {
 
         var connecting_segments = [];
         for (var i = 0; i < start_end_points.length; i++) {
+
             if ((i+1) < start_end_points.length) {
                 var start = start_end_points[i][1],
                     end = start_end_points[i+1][0];

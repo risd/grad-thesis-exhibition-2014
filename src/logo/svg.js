@@ -133,9 +133,9 @@ module.exports = function svg () {
         };
     };
 
-    self.scaleProportional = function (path) {
+    self.scaleProportional = function (path, drawn_delta) {
         var delta = {
-                drawn: self.pathDelta(path)
+                drawn: drawn_delta
             },
             original_d = path.getAttribute('d');
 
@@ -213,10 +213,10 @@ module.exports = function svg () {
         };
     };
 
-    self.scaleProportionalY = function (path) {
+    self.scaleProportionalY = function (path, drawn_delta) {
         // scale y, fit x
         var delta = {
-                drawn: self.pathDelta(path)
+                drawn: drawn_delta
             },
             original_d = path.getAttribute('d'),
             fit_x = false;
@@ -310,9 +310,9 @@ module.exports = function svg () {
         };
     };
 
-    self.scaleProportionalX = function (path) {
+    self.scaleProportionalX = function (path, drawn_delta) {
         var delta = {
-                drawn: self.pathDelta(path)
+                drawn: drawn_delta
             },
             original_d = path.getAttribute('d');
 
