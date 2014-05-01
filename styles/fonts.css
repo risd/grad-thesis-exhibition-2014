@@ -48,8 +48,8 @@ h4 {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 20px;
-    line-height: 20px;
+    font-size: 23px;
+    line-height: 23px;
 
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
@@ -62,7 +62,7 @@ h4 {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 27px;
+    font-size: 23px;
     line-height: 1.0em;
 
     -moz-osx-font-smoothing: grayscale;
@@ -91,7 +91,12 @@ h4 {
     top: 0;
     left: -1.3em;
 }
-
+@media only screen and (min-width: 400px) {
+    .within-logo-margin p {
+        font-size: 26px;
+        line-height: 1.0em;
+    }
+}
 @media only screen and (min-width: 500px) {
     .logo-text h1 {
         font-size: 32px;
@@ -136,7 +141,7 @@ h4 {
         margin-left: 10px;
     }
 }
-@media only screen and (min-width: 1200px) {
+@media only screen and (min-width: 1280px) {
     .logo-text h1 {
         font-size: 48px;
         line-height: 48px;
@@ -150,7 +155,7 @@ h4 {
     	font-size: 30px;
 	}
 }
-@media only screen and (min-width: 1400px) {
+@media only screen and (min-width: 1440px) {
 	
 	.within-logo-margin p,
     .within-logo-margin p a {
