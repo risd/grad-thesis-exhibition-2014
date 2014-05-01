@@ -62,7 +62,7 @@ h4 {
     font-variant: normal;
     font-style: normal;
 
-    font-size: 21px;
+    font-size: 27px;
     line-height: 1.0em;
 
     -moz-osx-font-smoothing: grayscale;
@@ -94,11 +94,11 @@ h4 {
 
 @media only screen and (min-width: 500px) {
     .logo-text h1 {
-        font-size: 25px;
-        line-height: 25px;
+        font-size: 32px;
+        line-height: 32px;
     }
     .within-logo-margin p {
-        font-size: 25px;
+        font-size: 32px;
         line-height: 1.0em;
     }
 	
@@ -108,12 +108,12 @@ h4 {
 }
 @media only screen and (min-width: 768px) {
     .logo-text h1 {
-        font-size: 30px;
-        line-height: 30px;
+        font-size: 38px;
+        line-height: 38px;
     }
     .within-logo-margin p,
     .within-logo-margin p a {
-        font-size: 30px;
+        font-size: 38px;
     }
 	
 	.show-selected-work p, .show-selected-work p a{
@@ -125,12 +125,12 @@ h4 {
 }
 @media only screen and (min-width: 1024px) {
     .logo-text h1 {
-        font-size: 30px;
-        line-height: 30px;
+        font-size: 44px;
+        line-height: 44px;
     }
     .within-logo-margin p,
     .within-logo-margin p a {
-        font-size: 28px;
+        font-size: 44px;
     }
     .within-logo-margin p {
         margin-left: 10px;
@@ -138,12 +138,12 @@ h4 {
 }
 @media only screen and (min-width: 1200px) {
     .logo-text h1 {
-        font-size: 45px;
-        line-height: 45px;
+        font-size: 48px;
+        line-height: 48px;
     }
     .within-logo-margin p,
     .within-logo-margin p a {
-        font-size: 38px;
+        font-size: 48px;
     }
 	
 	.show-selected-work p, .show-selected-work p a{

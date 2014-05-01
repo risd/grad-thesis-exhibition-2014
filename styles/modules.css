@@ -333,7 +333,7 @@
 	.disclaimer{
 		width:47%;
 		clear:left;
-        padding-top:20px;
+        /*padding-top:20px;*/
 		
 	}
 	
@@ -351,7 +351,7 @@
 		float:left;
 		width:40%;
 		margin-left:3%;
-		padding-top:20px;
+		/*padding-top:20px;*/
 	}
     .attribution-wrapper .attribution {
         margin-left: 14%;
