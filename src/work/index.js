@@ -11,10 +11,21 @@ module.exports = function work () {
     var bottom = Bottom();
     var behance = Behance();
 
-    behance.dispatch.on('data', function (behance_data) {
-        data.concat(behance_data);
-        render();
-    });
+    behance.dispatch
+        .on('data', function (requested) {
+            bottom.dirty(false);
+
+            if (!requested) throw 'Work. Got no data.';
+            
+            console.log('received data');
+            console.log(requested);
+
+            data.concat(requested);
+            render();
+        })
+        .on('endOfData', function () {
+            bottom.dispatch.on('bottom.work', null);
+        });
 
     self.container = function (_) {
         if (!arguments.length) return container_sel;
@@ -32,7 +43,9 @@ module.exports = function work () {
                 .attachWindowEvents();
 
             bottom.dispatch
-                .on('bottom', function () {
+                .on('bottom.work', function () {
+                    console.log('reached bottom');
+                    bottom.dirty(true);
                     behance.fetch_data();
                 });
         }
@@ -42,6 +55,7 @@ module.exports = function work () {
 
     self.initialize = function (_) {
         if (!container_sel) throw "Work requires a container";
+        bottom.initialize();
         behance.fetch_data();
         return self;
     };

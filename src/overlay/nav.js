@@ -58,7 +58,6 @@ module.exports = function nav () {
     }
 
     function place_button () {
-        console.log('place button');
 
         var wwidth = window.innerWidth;
         var wheight = window.innerHeight;

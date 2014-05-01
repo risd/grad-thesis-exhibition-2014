@@ -93,8 +93,8 @@ function site () {
         if (args.live) {
             // set up
             work.container(d3.select('.work'))
-                .inifiteScroll(true)
-                .initliaze();
+                .infiniteScroll(true)
+                .initialize();
         } else {
             d3.select('.work').remove();
         }
