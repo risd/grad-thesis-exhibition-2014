@@ -252,5 +252,16 @@ module.exports = function logo () {
         return function (t) { return i(t); };
     }
 
+    function add_color_stops (sel){
+        sel.append('stop')
+            .attr('offset', '0%')
+            .attr('stop-color', 'white')
+            .attr('stop-opacity', 0);
+        sel.append('stop')
+            .attr('offset', '100%')
+            .attr('stop-color', 'white')
+            .attr('stop-opacity', 1);
+    }
+
     return self;
 };

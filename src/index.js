@@ -6,7 +6,7 @@ site()
     .colors()
     .overlay()
     .logo()
-    .work({live: false});
+    .work({live: true});
 
 function site () {
     var self = {},
