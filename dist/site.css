@@ -683,7 +683,7 @@ html, body {
 .overlaid .about-foreground-text {
     top: 0;
 }
-.about-overlaid .about-overlay {
+.overlaid.scrollable {
     overflow-y: scroll;
 }
 .intro-quote .quote:before {

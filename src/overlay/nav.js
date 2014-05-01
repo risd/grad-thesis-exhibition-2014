@@ -33,6 +33,20 @@ module.exports = function nav () {
             });
 
         place_button();
+
+        return self;
+    };
+
+    self.attachResize = function () {
+        d3.select(window)
+            .on('resize.nav', function () {
+                place_button();
+            })
+            .on('scroll.nav', function () {
+                place_button();
+            });
+
+        return self;
     };
 
     function activate_deactivate (d) {
@@ -44,6 +58,8 @@ module.exports = function nav () {
     }
 
     function place_button () {
+        console.log('place button');
+
         var wwidth = window.innerWidth;
         var wheight = window.innerHeight;
 

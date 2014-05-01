@@ -52,7 +52,8 @@ function site () {
             .datum(function () { return this.dataset; });
 
         nav.selection(pairs)
-            .setup();
+            .setup()
+            .attachResize();
 
         // setup click tracking with google analytics
         nav.dispatch
