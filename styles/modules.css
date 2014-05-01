@@ -331,9 +331,10 @@
     }
 	
 	.disclaimer{
-		width:47%;
+		width:40%;
 		clear:left;
         /*padding-top:20px;*/
+		margin-left:7%;
 		
 	}
 	
