@@ -323,6 +323,9 @@ html, body {
 .z-500 {
     z-index: 500;
 }
+.z-600 {
+    z-index: 600;
+}
 .no-scroll {
     overflow: hidden;
 }

@@ -6,7 +6,9 @@ site()
     .colors()
     .overlay()
     .logo()
-    .work({live: false});
+    .work({
+        live: (window.location.hostname === 'localhost') ?
+                  true : false});
 
 function site () {
     var self = {},
@@ -94,9 +96,11 @@ function site () {
             // set up
             work.container(d3.select('.work'))
                 .infiniteScroll(true)
+                .lightboxContainer(d3.select('.lightbox'))
                 .initialize();
         } else {
             d3.select('.work').remove();
+            d3.select('.lightbox').remove();
         }
         return self;
     };
