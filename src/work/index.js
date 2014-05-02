@@ -94,6 +94,8 @@ module.exports = function work () {
     };
 
     function render ()  {
+        var masonry = masonry_settings();
+
         work_sel = work_container_sel.selectAll('.piece')
             .data(data);
 
@@ -101,8 +103,15 @@ module.exports = function work () {
             .enter()
             .append('div')
                 .attr('class', function (d, i) {
-                    console.log(d.risd_program);
-                    return 'piece ' + d.risd_program;
+                    return 'piece ' + d.risd_program_class;
+                })
+                .style('width', function (d, i) {
+                    return masonry.columnWidth + 'px';
+                })
+                .style('height', function (d, i) {
+                    return ((masonry.columnWidth *
+                             d.cover.original_height)/
+                             d.cover.original_width)+ 'px';
                 });
 
         work_sel_enter
@@ -126,20 +135,10 @@ module.exports = function work () {
             d3.select(this).call(lightbox.show);
         });
 
-        var gutter = 10;
-        var column_width = (work_container_sel
-                                .node()
-                                .getBoundingClientRect()
-                                .width / 4) -
-                            (gutter * 3);
-
         if (!iso) {
             iso = new Isotope(work_container_sel.node(), {
                 itemSelector: '.piece',
-                masonry: {
-                    columnWidth: column_width,
-                    gutter: gutter
-                }
+                masonry: masonry
             });
         } else {
             work_sel_enter.each(function () {
@@ -151,10 +150,10 @@ module.exports = function work () {
 
     function add_structure (sel)  {
         var dept_container_sel = sel.append('div')
-            .attr('class', 'col-2-10 department-container');
+            .attr('class', 'col-percent-2-10 departments');
 
         work_container_sel = sel.append('div')
-            .attr('class', 'col-8-10 work-container');
+            .attr('class', 'col-percent-8-10 work-container omega');
 
         departments
             .container(dept_container_sel)
@@ -169,9 +168,9 @@ module.exports = function work () {
             });
 
         sel.append('p')
-            .attr('class', 'student-name piece-meta')
+            .attr('class', 'risd-program piece-meta')
             .text(function (d) {
-                return d.student_name;
+                return d.risd_program;
             });
     }
 
@@ -180,6 +179,19 @@ module.exports = function work () {
             .attr('src', function (d) {
                 return d.cover.src;
             });
+    }
+
+    function masonry_settings () {
+        var gutter = 10;
+        var column_width = (work_container_sel
+                                    .node()
+                                    .getBoundingClientRect()
+                                    .width / 4) -
+                                (gutter * 3);
+        return {
+            gutter: gutter,
+            columnWidth: column_width
+        };
     }
 
     return self;

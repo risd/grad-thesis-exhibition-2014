@@ -50,9 +50,6 @@ h4 {
 
     font-size: 23px;
     line-height: 23px;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 
 .within-logo-margin p,
@@ -64,9 +61,6 @@ h4 {
 
     font-size: 23px;
     line-height: 1.0em;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 
     text-rendering: optimizeLegibility;
 }
@@ -83,6 +77,18 @@ h4 {
     font-size: 20px;
     margin: 0 0 0 5px;
     line-height: 20px;
+}
+.disclaimer p {
+    font-size: 21px;
+}
+.show-selected-work p {
+    font-size: 21px;
+}
+.show-selected-work p a {
+    font-size: 21px;
+}
+.departments ul li p {
+    font-size: 21px;
 }
 .attribution:before {
     content: "—";
@@ -241,7 +247,9 @@ h4 {
 .col-7-10,
 .col-8-10,
 .col-9-10,
-.col-10-10 {
+.col-10-10,
+.col-percent-2-10,
+.col-percent-8-10 {
     width: 100%;
 }
 
@@ -339,6 +347,13 @@ html, body {
     pointer-events: none;
 }
 
+.piece-wrapper {
+    width: 100%;
+}
+.piece-wrapper img {
+    width: 100%;
+}
+
 @media only screen and (min-width: 500px) {
     .grid {
         margin-top: 50px;
@@ -379,6 +394,12 @@ html, body {
     }
     .col-10-10 {
         width: 768px; /* 768/10 * 10 = 768 */
+    }
+    .col-percent-2-10 {
+        width: 20%;
+    }
+    .col-percent-8-10 {
+        width: 80%;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -602,7 +623,6 @@ html, body {
 .overlay-nav-item {
     position: fixed;
     text-align: left;
-    cursor: pointer;
     /*left: 46%;
     bottom: 19px;*/
     -webkit-transition: bottom 0.5s 0s ease-in, left 0.5s ease-in 0s;
@@ -751,20 +771,24 @@ html, body {
 
 	clear:left;
 }
-.disclaimer p {
-	font-size: 21px;
-}
-.show-selected-work p {
-	font-size: 21px;
-}
-.show-selected-work p a {
-    font-size: 21px;
-}
 .show-press-release{
 	margin-left:7%;	
 }
 .within-logo-margin p{
 	margin-top:0;	
+}
+.departments ul {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+}
+.departments ul li p {
+    margin-left: 0;
+}
+.overlay-nav-item,
+.piece,
+.departments li {
+    cursor: pointer;
 }
 
 

@@ -63,7 +63,8 @@ function format_data_cover_with_modules (data) {
         formatted_data.push({
             'project_name': d.name,
             'student_name': d.owners[0].display_name,
-            'risd_program': escape_department(d.risd_program),
+            'risd_program': d.risd_program,
+            'risd_program_class': escape_department(d.risd_program),
             'modules': modules_to_include,
             'cover': random_cover,
             description: d.details.description,

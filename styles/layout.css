@@ -46,7 +46,9 @@
 .col-7-10,
 .col-8-10,
 .col-9-10,
-.col-10-10 {
+.col-10-10,
+.col-percent-2-10,
+.col-percent-8-10 {
     width: 100%;
 }
 
@@ -144,6 +146,13 @@ html, body {
     pointer-events: none;
 }
 
+.piece-wrapper {
+    width: 100%;
+}
+.piece-wrapper img {
+    width: 100%;
+}
+
 @media only screen and (min-width: 500px) {
     .grid {
         margin-top: 50px;
@@ -184,6 +193,12 @@ html, body {
     }
     .col-10-10 {
         width: 768px; /* 768/10 * 10 = 768 */
+    }
+    .col-percent-2-10 {
+        width: 20%;
+    }
+    .col-percent-8-10 {
+        width: 80%;
     }
 }
 @media only screen and (min-width: 1024px) {

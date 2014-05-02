@@ -50,9 +50,6 @@ h4 {
 
     font-size: 23px;
     line-height: 23px;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 }
 
 .within-logo-margin p,
@@ -64,9 +61,6 @@ h4 {
 
     font-size: 23px;
     line-height: 1.0em;
-
-    -moz-osx-font-smoothing: grayscale;
-    -webkit-font-smoothing: antialiased;
 
     text-rendering: optimizeLegibility;
 }
@@ -83,6 +77,18 @@ h4 {
     font-size: 20px;
     margin: 0 0 0 5px;
     line-height: 20px;
+}
+.disclaimer p {
+    font-size: 21px;
+}
+.show-selected-work p {
+    font-size: 21px;
+}
+.show-selected-work p a {
+    font-size: 21px;
+}
+.departments ul li p {
+    font-size: 21px;
 }
 .attribution:before {
     content: "—";
