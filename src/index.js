@@ -2,13 +2,30 @@ var Nav = require('./overlay/nav'),
     Logo = require('./logo/index'),
     Work = require('./work/index');
 
+var work_args = parse_url_for_work(window.location.hash);
+
 site()
     .colors()
     .overlay()
     .logo()
-    .work({
-        live: (window.location.hostname === 'localhost') ?
-                  true : false});
+    .work(work_args);
+
+
+function parse_url_for_work (path) {
+    console.log(path);
+    var is_it_live = false;
+    var which_layout = 'image';
+    if (path.indexOf('work') > -1) {
+        is_it_live = true;
+    }
+    if (path.indexOf('fixed') > -1) {
+        which_layout = 'fixed';
+    }
+    return {
+        live: is_it_live,
+        layout: which_layout
+    };
+}
 
 function site () {
     var self = {},
@@ -96,6 +113,7 @@ function site () {
             // set up
             work.container(d3.select('.work'))
                 .infiniteScroll(true)
+                .layout(args.layout)
                 .lightboxContainer(d3.select('.lightbox'))
                 .initialize();
         } else {

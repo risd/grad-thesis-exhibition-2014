@@ -4,8 +4,7 @@ module.exports = transform;
 function transform () {
     return function (input) {
         var formatted = format_data_cover_with_modules(input);
-        // return suffle(formatted);
-        return formatted;
+        return shuffle(formatted);
     };
 }
 

@@ -97,6 +97,17 @@ h4 {
     top: 0;
     left: -1.3em;
 }
+.piece-meta-wrapper .piece-meta {
+    line-height: 1em;
+    margin: 0;
+}
+.piece-meta-wrapper .student-name {
+    font-family: "Theinhardt-Bold";
+    font-size: 18px;
+}
+.piece-meta-wrapper .risd-program {
+    font-size: 18px;
+}
 @media only screen and (min-width: 400px) {
     .within-logo-margin p {
         font-size: 26px;
@@ -225,6 +236,9 @@ h4 {
     margin-top: 40px;
     margin-bottom: 100px;
 }
+.grid.work {
+    width: 80%;
+}
 .row {
     width: 100%;
 }
@@ -346,12 +360,22 @@ html, body {
 .logo-svg path {
     pointer-events: none;
 }
-
 .piece-wrapper {
     width: 100%;
 }
 .piece-wrapper img {
     width: 100%;
+}
+.piece-wrapper,
+.piece-meta-wrapper {
+    position: relative;
+}
+.work-layout-image .piece {
+    margin-bottom: 10px;
+}
+.fixed {
+    position: fixed;
+    top: 100px;
 }
 
 @media only screen and (min-width: 500px) {
@@ -359,11 +383,17 @@ html, body {
         margin-top: 50px;
         width: 70%;
     }
+    .grid.work {
+        width: 80%;
+    }
 }
 @media only screen and (min-width: 768px) {
     .grid {
         margin-top: 70px;
         width: 70%;
+    }
+    .grid.work {
+        width: 84%;
     }
     .col-1-10 {
         width: 76px; /* 768/10 * 1 = 76  */
@@ -401,11 +431,20 @@ html, body {
     .col-percent-8-10 {
         width: 80%;
     }
+    .offset-percent-2-10 {
+        margin-left: 20%;
+    }
+    .work-layout-image .piece-wrapper {
+        padding-right: 20px;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .grid {
         width: 75%;
         margin-top: 70px;
+    }
+    .grid.work {
+        width: 88%;
     }
     .offset-1-10 {
         margin-left: 102px; /* 1280/10 * 1 = 384 */
@@ -438,6 +477,9 @@ html, body {
 @media only screen and (min-width: 1280px) {
     .grid {
         margin-top: 75px;
+    }
+    .grid.work {
+        width: 90%;
     }
     .offset-1-10 {
         margin-left: 128px; /* 1280/10 * 1 = 384 */
@@ -472,6 +514,9 @@ html, body {
     .grid {
         width: 65%;
         margin-top: 80px;
+    }
+    .grid.work {
+        width: 84%;
     }
     .offset-1-10 {
         margin-left: 144px; /* 1440/10 * 1 = 144 */

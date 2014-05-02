@@ -97,6 +97,17 @@ h4 {
     top: 0;
     left: -1.3em;
 }
+.piece-meta-wrapper .piece-meta {
+    line-height: 1em;
+    margin: 0;
+}
+.piece-meta-wrapper .student-name {
+    font-family: "Theinhardt-Bold";
+    font-size: 18px;
+}
+.piece-meta-wrapper .risd-program {
+    font-size: 18px;
+}
 @media only screen and (min-width: 400px) {
     .within-logo-margin p {
         font-size: 26px;
