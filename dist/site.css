@@ -763,6 +763,9 @@ html, body {
 .show-press-release{
 	margin-left:7%;	
 }
+.within-logo-margin p{
+	margin-top:0;	
+}
 
 
 @media only screen and (min-width: 500px) {
@@ -812,7 +815,14 @@ html, body {
         left: 87%;*/
     }
 	
-	.disclaimer{
+	
+    .attribution-wrapper .attribution {
+        margin-left: 14%;
+    }
+}
+
+@media only screen and (min-width: 900px) {
+    .disclaimer{
 		width:40%;
 		clear:left;
         /*padding-top:20px;*/
@@ -826,7 +836,7 @@ html, body {
 	}
 	
 	.show-location{
-		width:40%;
+		width:45%;
 		margin-left:3%;
 	}
 	
@@ -836,10 +846,8 @@ html, body {
 		margin-left:3%;
 		/*padding-top:20px;*/
 	}
-    .attribution-wrapper .attribution {
-        margin-left: 14%;
-    }
 }
+
 
 @media only screen and (min-width: 1024px) {
     .intro-quote .quote:before {
