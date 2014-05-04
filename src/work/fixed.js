@@ -7,6 +7,13 @@ module.exports = function fixed () {
         translate_sel,
         no_translate_distance = 0;
 
+    var vendor = ["", "-webkit-", "-moz-", "-ms-", "-o-"].reduce(
+        function (p, v) {
+            return v + "transform" in document.body.style ? v : p;
+        });
+
+    var transform_attr = vendor + 'transform';
+
     self.noTranslate = function (_) {
         if (!arguments.length) return no_translate_sel;
         no_translate_sel = _;
@@ -17,6 +24,10 @@ module.exports = function fixed () {
         if (!arguments.length) return translate_sel;
         translate_sel = _;
         return self;
+    };
+
+    self.top = function () {
+        return no_translate_distance;
     };
 
     self.initialize = function () {
@@ -32,7 +43,7 @@ module.exports = function fixed () {
 
                 translate_sel
                     .style(
-                        '-webkit-transform',
+                        transform_attr,
                         'translate(0,' + translate_y + 'px');
             })
             .on('resize.fixed', function () {

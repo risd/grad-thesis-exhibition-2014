@@ -92,7 +92,7 @@ module.exports = function work () {
         departments.dispatch
             .on('click', function (department) {
 
-            scrollto(d3.select('.intro-quote'));
+            scrollto(fixed.top());
 
             if (department === 'all') department = '';
 

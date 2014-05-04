@@ -14,11 +14,9 @@ module.exports = function scrollto (args) {
         };
     }
 
-    return function (sel) {
-        var height = sel.node().getBoundingClientRect().height;
-
+    return function (offset) {
         d3.transition()
             .duration(options.duration)
-            .tween('scroll', scroll_tween(height));
+            .tween('scroll', scroll_tween(offset));
     };
 };
