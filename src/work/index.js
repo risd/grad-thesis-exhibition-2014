@@ -26,10 +26,13 @@ module.exports = function work () {
             bottom.dirty(false);
 
             if (!requested) throw 'Work. Got no data.';
-            
-            console.log('received data');
-            data = data.concat(transform(requested));
+            var transformed = transform(requested);
+
+            data = data.concat(transformed);
             render();
+
+            // update the filterable list
+            departments.isFilterable(transformed);
         })
         .on('endOfData', function () {
             bottom.dispatch.on('bottom.work', null);
@@ -90,7 +93,7 @@ module.exports = function work () {
 
         // filtering
         departments.dispatch
-            .on('click', function (department) {
+            .on('click.work', function (department) {
 
             scrollto(fixed.top());
 
