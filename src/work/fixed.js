@@ -3,57 +3,56 @@ module.exports = function fixed () {
     // plus the additional padding
 
     var self = {},
-        container_sel,
-        neighbor_sel,
-        padding = 0,
-        fixed_class = 'fixed',
-        offset_class = 'fixed-neighbor';
+        no_translate_sel,
+        translate_sel,
+        no_translate_distance = 0;
 
-    self.container = function (_) {
-        if (!arguments.length) return container_sel;
-        container_sel = _;
+    self.noTranslate = function (_) {
+        if (!arguments.length) return no_translate_sel;
+        no_translate_sel = _;
         return self;
     };
 
-    self.neighbor = function (_) {
-        if (!arguments.length) return neighbor_sel;
-        neighbor_sel = _;
-        return self;
-    };
-
-    self.offsetClass = function (_) {
-        if (!arguments.length) return offset_class;
-        offset_class = _;
-        return self;
-    };
-
-    self.padding = function (_) {
-        if (!arguments.length) return padding;
-        padding = _;
-        return self;
-    };
-
-    self.fixedClass = function (_) {
-        if (!arguments.length) return fixed_class;
-        fixed_class = _;
+    self.translate = function (_) {
+        if (!arguments.length) return translate_sel;
+        translate_sel = _;
         return self;
     };
 
     self.initialize = function () {
+        calc_contraints();
+
         d3.select(window)
             .on('scroll.fixed', function () {
-                var top = container_sel
-                            .node()
-                            .getBoundingClientRect().top;
+                var translate_y = 0;
 
-                var fixed = ((top - padding) < 0) ? true : false;
+                if ((no_translate_distance - pageYOffset) < 0) {
+                    translate_y = pageYOffset - no_translate_distance;
+                }
 
-                container_sel
-                    .classed(fixed_class, fixed);
-                neighbor_sel
-                    .classed(offset_class, fixed);
+                translate_sel
+                    .style(
+                        '-webkit-transform',
+                        'translate(0,' + translate_y + 'px');
+            })
+            .on('resize.fixed', function () {
+                calc_contraints();
             });
     };
+
+    function calc_contraints () {
+        var no_translate_margin =
+                +no_translate_sel
+                    .style('margin-top')
+                    .split('p')[0];
+        var no_translate_height =
+                no_translate_sel
+                    .node()
+                    .getBoundingClientRect()
+                    .height;
+        no_translate_distance = no_translate_height +
+                                no_translate_margin;
+    }
 
     return self;
 };

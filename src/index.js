@@ -115,6 +115,7 @@ function site () {
                 .infiniteScroll(true)
                 .layout(args.layout)
                 .lightboxContainer(d3.select('.lightbox'))
+                .fixFiltersAfter(d3.select('.intro-quote'))
                 .initialize();
         } else {
             d3.select('.work').remove();

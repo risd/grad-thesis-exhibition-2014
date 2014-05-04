@@ -1,10 +1,10 @@
-var Bottom = require('./bottom');
-var Behance = require('./data');
-var Departments = require('../departments');
-var Transform = require('./transform');
-var Lightbox = require('./lightbox');
-var Scrollto = require('./scrollto');
-var Fixed = require('./fixed');
+var bottom = require('./bottom')();
+var behance = require('./data')();
+var departments = require('../departments')();
+var transform = require('./transform')();
+var lightbox = require('./lightbox')();
+var scrollto = require('./scrollto')({ duration: 1000 });
+var fixed = require('./fixed')();
 
 module.exports = function work () {
     var self = {},
@@ -18,18 +18,8 @@ module.exports = function work () {
         render_layout = {
             image: render_image,
             fixed: render_fixed
-        };
-
-    var bottom = Bottom();
-    var behance = Behance();
-    var departments = Departments();
-    var transform = Transform();
-    var lightbox = Lightbox();
-    var scrollto = Scrollto({
-        duration: 1000
-    });
-    var fixed = Fixed()
-        .padding(100);
+        },
+        fix_filters_after_sel;
 
     behance.dispatch
         .on('data', function (requested) {
@@ -48,6 +38,12 @@ module.exports = function work () {
     self.container = function (_) {
         if (!arguments.length) return container_sel;
         container_sel = _;
+        return self;
+    };
+
+    self.fixFiltersAfter = function (_) {
+        if (!arguments.length) return fix_filters_after_sel;
+        fix_filters_after_sel = _;
         return self;
     };
 
@@ -110,7 +106,7 @@ module.exports = function work () {
             }
         });
 
-        // fixed.initialize();
+        fixed.initialize();
 
         return self;
     };
@@ -276,9 +272,8 @@ module.exports = function work () {
             .render();
 
         fixed
-            .container(dept_container_sel)
-            .offsetClass('offset-percent-2-10')
-            .neighbor(work_container_sel);
+            .noTranslate(fix_filters_after_sel)
+            .translate(dept_container_sel);
     }
 
     function add_meta (sel) {
