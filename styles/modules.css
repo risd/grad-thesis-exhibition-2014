@@ -283,8 +283,7 @@
     margin-left: 0;
 }
 .overlay-nav-item,
-.piece,
-.departments li {
+.piece {
     cursor: pointer;
 }
 

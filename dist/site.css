@@ -831,8 +831,7 @@ html, body {
     margin-left: 0;
 }
 .overlay-nav-item,
-.piece,
-.departments li {
+.piece {
     cursor: pointer;
 }
 
@@ -1023,6 +1022,17 @@ a,
 }
 
 a:hover {
+    text-decoration: underline;
+}
+
+.departments p {
+    opacity: 0.5;
+}
+.departments .filterable {
+    opacity: 1.0;
+    cursor: pointer;
+}
+.departments .selected {
     text-decoration: underline;
 }
 

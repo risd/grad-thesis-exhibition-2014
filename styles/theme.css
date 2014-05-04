@@ -87,6 +87,17 @@ a:hover {
     text-decoration: underline;
 }
 
+.departments p {
+    opacity: 0.5;
+}
+.departments .filterable {
+    opacity: 1.0;
+    cursor: pointer;
+}
+.departments .selected {
+    text-decoration: underline;
+}
+
 
 @media only screen and (min-width: 500px) {
     .logo-svg path {
