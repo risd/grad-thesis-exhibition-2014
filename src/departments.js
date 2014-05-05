@@ -44,6 +44,11 @@ module.exports = function () {
         return self;
     };
 
+    self.activatorVisible = function (_) {
+        if (!mobile_activator_sel) return;
+        mobile_activator_sel.classed('visible', _);
+    };
+
     self.selection = function () {
         if (!arguments.length) return deptartment_sel;
         deptartment_sel = _;

@@ -38,6 +38,11 @@ module.exports = function work () {
             bottom.dispatch.on('bottom.work', null);
         });
 
+    fixed.dispatch
+        .on('activatorVisible', function (d) {
+            departments.activatorVisible(d);
+        });
+
     self.container = function (_) {
         if (!arguments.length) return container_sel;
         container_sel = _;
@@ -95,7 +100,7 @@ module.exports = function work () {
         departments.dispatch
             .on('click.work', function (department) {
 
-            scrollto(fixed.top());
+            scrollto(fixed.top() + 10);
 
             if (department === 'all') department = '';
 

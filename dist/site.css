@@ -237,9 +237,9 @@ h4 {
     margin-top: 40px;
     margin-bottom: 100px;
 }
-.grid.work {
+/*.grid.work {
     width: 80%;
-}
+}*/
 .row {
     width: 100%;
 }
@@ -697,6 +697,23 @@ html, body {
     top: 10px;
     right: 10px;
     text-align: right;
+    opacity: 0;
+
+    -webkit-transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+    -moz-transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+    -ms-transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+    transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+}
+.department-activator.visible {
+    opacity: 1;
+
+    -webkit-transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+    -moz-transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+    -ms-transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+    transition: opacity 0.5s ease-in 0s, top 0.5s ease-in 0s;
+}
+.about-overlaid .department-activator {
+    top: -100px;
 }
 .logo-text-component--grad {
     bottom: 55px;

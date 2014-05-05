@@ -7,6 +7,8 @@ module.exports = function fixed () {
         translate_sel,
         no_translate_distance = 0;
 
+    self.dispatch = d3.dispatch('activatorVisible');
+
     var vendor = ["", "-webkit-", "-moz-", "-ms-", "-o-"].reduce(
         function (p, v) {
             return v + "transform" in document.body.style ? v : p;
@@ -35,14 +37,18 @@ module.exports = function fixed () {
 
         d3.select(window)
             .on('scroll.fixed', function () {
-                if (window.innerWidth < 768) return;
-
                 var translate_y = 0;
 
                 if ((no_translate_distance - pageYOffset) < 0) {
                     translate_y = pageYOffset - no_translate_distance;
                 }
 
+                if (window.innerWidth < 768) {
+                    self.dispatch
+                        .activatorVisible((translate_y === 0) ?
+                                           false : true);
+                    return;
+                }
                 translate_sel
                     .style(
                         transform_attr,
