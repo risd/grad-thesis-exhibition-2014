@@ -243,7 +243,11 @@
 }
 .about-background-images {
     overflow: hidden;
-    background: url(../static/img/conventioncenter2.gif) no-repeat center center fixed; 
+    background-image: url(../static/img/conventioncenter2.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    /*background-attachment: fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
