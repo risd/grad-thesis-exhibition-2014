@@ -1,8 +1,15 @@
 module.exports = function () {
     var self = {},
         container_sel,
+        mobile_container_sel,
         deptartment_sel,
-        cls = 'department';
+        mobile_department_sel,
+        mobile_activator_sel,
+        mobile_blanket_sel,
+        mobile_active = false,
+        selected = 'All',
+        cls = 'department',
+        body_sel = d3.select('body');
 
     self.dispatch = d3.dispatch('click');
 
@@ -31,6 +38,12 @@ module.exports = function () {
         return self;
     };
 
+    self.mobile = function (_) {
+        if (!arguments.length) return mobile_container_sel;
+        mobile_container_sel = _;
+        return self;
+    };
+
     self.selection = function () {
         if (!arguments.length) return deptartment_sel;
         deptartment_sel = _;
@@ -52,17 +65,78 @@ module.exports = function () {
         if (!container_sel) throw "requires a wrapper";
 
         var data = departments.map(function (d, i) {
-            return {
+            var v = {
                 name: d,
                 escaped: escape_department(d),
                 filterable: false,
                 selected: false
-            };
+            }
+
+            if (d === selected) {
+                v.selected = true;
+                v.filterable = true;
+            }
+
+            return v;
         });
 
-        // All is the default value
-        data[0].filterable = true;
-        data[0].selected = true;
+
+        // setup structure
+        mobile_activator_sel = mobile_container_sel.append('div')
+            .attr('class', cls + '-activator')
+            .text(selected)
+            .on('click.navActivator', function () {
+                mobile_active = true;
+                update_nav();
+            });
+
+        mobile_blanket_sel = mobile_container_sel.append('div')
+            .attr('class', cls + '-blanket')
+            .on('click.navBlanket', function () {
+                mobile_active = false;
+                update_nav();
+            });
+
+        mobile_department_sel = mobile_container_sel
+            .append('div')
+            .attr('class', cls + '-elements departments')
+            .append('ul')
+            .selectAll(cls)
+            .data(data)
+            .enter()
+            .append('li')
+            .append('p')
+            .attr('class', function (d) {
+                var kls = '';
+                if (d.filterable) kls += ' filterable';
+                if (d.selected) kls += ' selected';
+            })
+            .text(function (d) {
+                return d.name;
+            })
+            .on('click.departments', function (d, i) {
+                // only responds to filterable items
+                if (!d.filterable) return;
+
+                department_sel
+                    .each(function (dd, di) {
+                        dd.selected = false;
+                    });
+
+                d.selected = true;
+
+                self.dispatch.click(d.escaped);
+
+                update_department_sel();
+
+                mobile_active = false;
+                selected = d.name;
+                update_nav();
+
+                department_sel.data(mobile_department_sel.data());
+            });
+
+        // the business
 
         department_sel = container_sel
             .append('ul')
@@ -93,11 +167,30 @@ module.exports = function () {
                 self.dispatch.click(d.escaped);
 
                 update_department_sel();
+
+                mobile_active = false;
+                selected = d.name;
+                update_nav();
+
+                mobile_department_sel.data(department_sel.data());
             });
     };
 
+    function update_nav () {
+        mobile_container_sel.classed('active', mobile_active);
+        body_sel.classed('no-scroll', mobile_active);
+        mobile_activator_sel.text(selected);
+    }
+
     function update_department_sel () {
         department_sel
+            .classed('filterable', function (d) {
+                return d.filterable;
+            })
+            .classed('selected', function (d) {
+                return d.selected;
+            });
+        mobile_department_sel
             .classed('filterable', function (d) {
                 return d.filterable;
             })
@@ -116,7 +209,13 @@ module.exports = function () {
                     if (d.risd_program === dd.name) {
                         dd.filterable = true;
                     }
-                })
+                });
+            mobile_department_sel
+                .each(function (dd, di) {
+                    if (d.risd_program === dd.name) {
+                        dd.filterable = true;
+                    }
+                });
         });
     }
 

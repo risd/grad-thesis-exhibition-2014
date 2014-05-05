@@ -35,6 +35,8 @@ module.exports = function fixed () {
 
         d3.select(window)
             .on('scroll.fixed', function () {
+                if (window.innerWidth < 768) return;
+
                 var translate_y = 0;
 
                 if ((no_translate_distance - pageYOffset) < 0) {
@@ -44,9 +46,15 @@ module.exports = function fixed () {
                 translate_sel
                     .style(
                         transform_attr,
-                        'translate(0,' + translate_y + 'px');
+                        'translate(0,' + translate_y + 'px)');
             })
             .on('resize.fixed', function () {
+                if (window.innerWidth < 768) {
+                    translate_sel
+                        .style(
+                            transform_attr,
+                            'translate(0,0)');
+                }
                 calc_contraints();
             });
     };

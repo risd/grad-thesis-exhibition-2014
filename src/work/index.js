@@ -272,6 +272,7 @@ module.exports = function work () {
 
         departments
             .container(dept_container_sel)
+            .mobile(d3.select('.nav-mobile'))
             .render();
 
         fixed

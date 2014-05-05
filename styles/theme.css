@@ -17,7 +17,8 @@ body {
     background-color: rgb(38, 34, 98);
     background-color: rgba(38, 34, 98, 0.6);
 }
-.body-purple {
+.body-purple,
+.body-purple .nav-mobile .department-blanket {
     background-color: rgb(38, 34, 98);
 }
 .body-alt-purple .overlay-background-image-screen {
@@ -28,7 +29,8 @@ body {
     background-color: rgb(38, 34, 98);
     background-color: rgba(38, 34, 98, 0.85);
 }
-.body-orange {
+.body-orange,
+.body-orange .nav-mobile .department-blanket {
     background-color: rgb(255, 61, 56);
 }
 .body-alt-orange .overlay-background-image-screen {
@@ -39,7 +41,8 @@ body {
     background-color: rgb(255, 61, 56);
     background-color: rgba(255, 61, 56, 0.85);
 }
-.body-lt-purple {
+.body-lt-purple,
+.body-lt-purple .nav-mobile .department-blanket {
     background-color: rgb(146, 53, 125);
 }
 .body-alt-lt-purple .overlay-background-image-screen {
@@ -50,7 +53,8 @@ body {
     background-color: rgb(146, 53, 125);
     background-color: rgba(146, 53, 125, 0.85);
 }
-.body-green {
+.body-green,
+.body-green .nav-mobile .department-blanket {
     background-color: rgb(144, 218, 73);
 }
 .body-alt-green .overlay-background-image-screen {
@@ -61,7 +65,8 @@ body {
     background-color: rgb(144, 218, 73);
     background-color: rgba(144, 218, 73, 0.85);
 }
-.body-blue {
+.body-blue,
+.body-blue .nav-mobile .department-blanket {
     background-color: rgb(43, 89, 184);
 }
 .body-alt-blue .overlay-background-image-screen {
@@ -71,6 +76,9 @@ body {
 .body-alt-blue .overlay-background-image-screen.no-images {
     background-color: rgb(43, 89, 184);
     background-color: rgba(43, 89, 184, 0.85);
+}
+.nav-mobile.active .department-blanket {
+    opacity: 0.9;
 }
 .logo-svg path {
     stroke: white;

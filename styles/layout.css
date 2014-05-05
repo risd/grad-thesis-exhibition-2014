@@ -161,9 +161,42 @@ html, body {
 .work-layout-image .piece {
     margin-bottom: 10px;
 }
-.fixed {
+.nav-mobile {
+    display: block;
+
     position: fixed;
-    top: 100px;
+    top: 100%;
+    left: 0;
+    bottom: auto;
+    width: 100%;
+    height: 100%;
+}
+.nav-mobile.active {
+    top: 0;
+    overflow-y: scroll;
+}
+.nav-mobile .department-blanket {
+    display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+.nav-mobile.active .department-blanket {
+    display: block;
+}
+.nav-mobile .department-activator {
+    position: fixed;
+    display: block;
+}
+.nav-mobile .department-elements {
+    position: relative;
+    width: 70%;
+    margin: 50px auto 100px auto;
+}
+.work .departments {
+    display: none;
 }
 
 @media only screen and (min-width: 500px) {
@@ -224,6 +257,12 @@ html, body {
     }
     .work-layout-image .piece-wrapper {
         padding-right: 20px;
+    }
+    .nav-mobile {
+        display: none;
+    }
+    .work .departments {
+        display: block;
     }
 }
 @media only screen and (min-width: 1024px) {
