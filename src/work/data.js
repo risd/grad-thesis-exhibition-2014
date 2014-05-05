@@ -3,12 +3,15 @@ module.exports = function Data () {
         requested = [],
         available;
 
+    var url = window.location.origin +
+              window.location.pathname;;
+
     self.dispatch = d3.dispatch('data','endOfData');
 
     self.fetch_data = function () {
         console.log('fetching data');
         if (!available) {
-            d3.json('/data/metadata.json', process_metadata);
+            d3.json(url + 'data/metadata.json', process_metadata);
         } else {
             process_request();
         }
@@ -25,7 +28,7 @@ module.exports = function Data () {
         var next_to_load = choose_and_remove_from_available();
         console.log(next_to_load);
         if (next_to_load) {
-            d3.json(next_to_load, function (data) {
+            d3.json(url + next_to_load, function (data) {
                 self.dispatch.data(data);
             });
         } else {
