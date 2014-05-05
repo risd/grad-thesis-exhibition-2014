@@ -8,7 +8,7 @@ module.exports = function Data () {
     self.fetch_data = function () {
         console.log('fetching data');
         if (!available) {
-            d3.json('../data/metadata.json', process_metadata);
+            d3.json('/data/metadata.json', process_metadata);
         } else {
             process_request();
         }
