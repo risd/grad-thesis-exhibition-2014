@@ -113,10 +113,10 @@ h4 {
 }
 .piece-meta-wrapper .student-name {
     font-family: "Theinhardt-Bold";
-    font-size: 18px;
+    font-size: 14px;
 }
 .piece-meta-wrapper .risd-program {
-    font-size: 18px;
+    font-size: 12px;
 }
 @media only screen and (min-width: 400px) {
     .within-logo-margin p {

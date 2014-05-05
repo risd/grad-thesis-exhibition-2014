@@ -125,6 +125,16 @@ module.exports = function work () {
 
     function render_fixed () {
         var masonry = masonry_settings();
+        var counter = {
+            tall: 0,
+            wide: 0
+        };
+        var frequency = {
+            large: 15,
+            tall: 8,
+            wide: 6
+        };
+        var meta_space = 50;
 
         work_sel = work_container_sel.selectAll('.piece')
             .data(data);
@@ -132,21 +142,91 @@ module.exports = function work () {
         var work_sel_enter = work_sel
             .enter()
             .append('div')
-                .attr('class', function (d, i) {
-                    return 'piece ' + d.risd_program_class;
-                })
                 .style('width', function (d, i) {
-                    return masonry.columnWidth + 'px';
+                    var multiplier = 1;
+
+                    if (i % frequency.large === 0) {
+
+                        // large
+                        multiplier = 2;
+
+                        if ((d.cover.original_width/
+                             d.cover.original_height) > 1) {
+                            d.orientation = 'landscape';
+                        } else {
+                            d.orientation = 'portrait';
+                        }
+
+                        d.masonry_width =
+                            (masonry.columnWidth *
+                             multiplier) +
+                            ((multiplier === 1) ?
+                              0 : masonry.gutter);
+
+                        d.masonry_height = d.masonry_width;
+
+                    } else if ((d.cover.original_width/
+                                d.cover.original_height) > 1) {
+
+                        // landscape
+                        counter.wide += 1;
+                        if (counter.wide % frequency.wide === 0) {
+                            multiplier = 2;
+                        }
+
+                        d.masonry_width =
+                            (masonry.columnWidth *
+                             multiplier) +
+                            ((multiplier === 1) ?
+                              0 : masonry.gutter);
+
+                        d.masonry_height = d.masonry_width;
+                        d.orientation = 'landscape';
+                    } else {
+                        // portrait
+                        counter.tall += 1;
+                        if (counter.tall % frequency.tall === 0) {
+                            multiplier = 2;
+                        }
+
+                        d.masonry_height =
+                            (masonry.columnWidth *
+                             multiplier) +
+                            ((multiplier === 1) ?
+                              0 : masonry.gutter);
+
+                        d.masonry_width = masonry.columnWidth;
+                        d.orientation = 'portrait';
+                    }
+
+
+                    return d.masonry_width + 'px';
                 })
                 .style('height', function (d, i) {
-                    return ((masonry.columnWidth *
-                             d.cover.original_height)/
-                             d.cover.original_width)+ 'px';
+                    return d.masonry_height + 'px';
+                })
+                .attr('class', function (d, i) {
+                    return 'fixed-piece piece ' +
+                            d.risd_program_class +
+                            ' orientation-' + d.orientation;
                 });
 
         work_sel_enter
             .append('div')
                 .attr('class', 'piece-wrapper')
+                .style('height', function (d) {
+                    return (d.masonry_height -
+                            meta_space) + 'px';
+                })
+            .append('div')
+                .attr('class', 'piece-img-wrapper')
+                .style('width', function (d) {
+                    return d.masonry_width;
+                })
+                .style('height', function (d) {
+                    return (d.masonry_height -
+                            meta_space) + 'px';
+                })
                 .call(add_image);
         
         work_sel_enter
@@ -190,7 +270,8 @@ module.exports = function work () {
             .enter()
             .append('div')
                 .attr('class', function (d, i) {
-                    return 'piece ' + d.risd_program_class;
+                    return 'image-piece piece ' +
+                           d.risd_program_class;
                 })
                 .style('width', function (d, i) {
                     // figure out height and width

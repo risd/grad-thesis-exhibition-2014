@@ -154,10 +154,43 @@ html, body {
 .piece-wrapper img {
     width: 100%;
 }
-.piece-wrapper,
-.piece-meta-wrapper {
+.piece-wrapper {
     position: relative;
 }
+.image-piece .piece-meta-wrapper {
+    position: relative;
+}
+.fixed-piece .piece-meta-wrapper {
+    position: absolute;
+    bottom: 20px;
+}
+
+.fixed-piece {
+    padding-right: 20px;
+}
+.fixed-piece .piece-wrapper {
+    position: relative;
+    display: table;
+    width: 100%;
+}
+.fixed-piece .piece-img-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+.orientation-portrait .piece-img-wrapper img {
+    width: auto;
+    height: 98%;
+}
+.orientation-landscape .piece-img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+.fixed-piece .piece-meta-wrapper {
+    height: 26px;
+}
+
 .work-layout-image .piece {
     margin-bottom: 10px;
 }
