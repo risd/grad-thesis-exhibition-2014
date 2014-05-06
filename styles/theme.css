@@ -12,6 +12,11 @@ blue      rgb(43, 89, 184)
 /* default colors overwritten by js */
 body {
     color: white;
+
+    -webkit-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    -moz-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    -ms-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    transition: background-color 0.5s ease-in, color 0.5s ease-in;
 }
 .overlay-background-image-screen {
     background-color: rgb(38, 34, 98);
@@ -84,6 +89,81 @@ body {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
+
+    -webkit-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    -moz-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    -ms-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+}
+.in-work .logo-svg path {
+    opacity: 0.1;
+}
+.in-work.body-orange {
+    background-color: white;
+    color: rgb(255, 61, 56);
+}
+.in-work.body-purple {
+    background-color: white;
+    color: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple {
+    background-color: white;
+    color: rgb(146, 53, 125);
+}
+.in-work.body-green {
+    background-color: white;
+    color: rgb(144, 218, 73);
+}
+.in-work.body-blue {
+    background-color: white;
+    color: rgb(43, 89, 184);
+}
+.in-work.body-orange .logo-svg path {
+    stroke: rgb(255, 61, 56);
+}
+.in-work.body-purple .logo-svg path {
+    stroke: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple .logo-svg path {
+    stroke: rgb(146, 53, 125);
+}
+.in-work.body-green .logo-svg path {
+    stroke: rgb(144, 218, 73);
+}
+.in-work.body-blue .logo-svg path {
+    stroke: rgb(43, 89, 184);
+}
+#flower path {
+    fill: white;
+    -webkit-transition: fill 0.5s ease-in;
+    -moz-transition: fill 0.5s ease-in;
+    -ms-transition: fill 0.5s ease-in;
+    transition: fill 0.5s ease-in;
+}
+.in-work.body-orange #flower path {
+    fill: rgb(255, 61, 56);
+}
+.in-work.body-purple #flower path {
+    fill: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple #flower path {
+    fill: rgb(146, 53, 125);
+}
+.in-work.body-green #flower path {
+    fill: rgb(144, 218, 73);
+}
+.in-work.body-blue #flower path {
+    fill: rgb(43, 89, 184);
+}
+
+.in-work.about-overlaid {
+    color: white;
+}
+.in-work.about-overlaid #flower path {
+    fill: white;
+}
+.in-work.about-overlaid .logo-svg path {
+    stroke: white;
 }
 
 a,

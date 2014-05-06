@@ -27,7 +27,8 @@ module.exports = function work () {
                 resize: resize_fixed
             }
         },
-        fix_filters_after_sel;
+        intro_sel,
+        body_sel = d3.select('body');
 
     behance.dispatch
         .on('data', function (requested) {
@@ -49,6 +50,7 @@ module.exports = function work () {
     fixed.dispatch
         .on('activatorVisible', function (d) {
             departments.activatorVisible(d);
+            body_sel.classed('in-work', d);
         });
 
     self.container = function (_) {
@@ -57,9 +59,9 @@ module.exports = function work () {
         return self;
     };
 
-    self.fixFiltersAfter = function (_) {
-        if (!arguments.length) return fix_filters_after_sel;
-        fix_filters_after_sel = _;
+    self.intro = function (_) {
+        if (!arguments.length) return intro_sel;
+        intro_sel = _;
         return self;
     };
 
@@ -96,6 +98,8 @@ module.exports = function work () {
     };
 
     self.initialize = function (_) {
+        set_intro_height();
+
         if (!container_sel) throw "Work requires a container";
         container_sel.call(add_structure);
         layout_fixed.container(work_container_sel);
@@ -129,6 +133,7 @@ module.exports = function work () {
         d3.select(window)
             .on('resize.work', function () {
                 resize();
+                set_intro_height();
             });
 
         return self;
@@ -355,7 +360,7 @@ module.exports = function work () {
             .render();
 
         fixed
-            .noTranslate(fix_filters_after_sel)
+            .noTranslate(intro_sel)
             .translate(dept_container_sel);
     }
 
@@ -378,6 +383,20 @@ module.exports = function work () {
             .attr('src', function (d) {
                 return d.cover.src;
             });
+    }
+
+    function set_intro_height () {
+        var height =
+            intro_sel
+                .node()
+                .getBoundingClientRect().height +
+            parseInt(intro_sel.style('margin-top'), 10) +
+            parseInt(intro_sel.style('margin-bottom'), 10);
+
+        if (height < window.innerHeight) {
+            var difference = window.innerHeight - height;
+            intro_sel.style('padding-bottom', difference + 'px');
+        }
     }
 
     return self;
