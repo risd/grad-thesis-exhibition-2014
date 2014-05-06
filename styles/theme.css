@@ -98,26 +98,50 @@ body {
 .in-work .logo-svg path {
     opacity: 0.1;
 }
-.in-work.body-orange {
+.in-work.body-orange,
+.body-orange .lightbox {
     background-color: white;
     color: rgb(255, 61, 56);
 }
-.in-work.body-purple {
+.in-work.body-purple,
+.body-purple .lightbox {
     background-color: white;
     color: rgb(38, 34, 98);
 }
-.in-work.body-lt-purple {
+.in-work.body-lt-purple,
+.body-lt-purple .lightbox {
     background-color: white;
     color: rgb(146, 53, 125);
 }
-.in-work.body-green {
+.in-work.body-green,
+.body-green .lightbox {
     background-color: white;
     color: rgb(144, 218, 73);
 }
-.in-work.body-blue {
+.in-work.body-blue,
+.body-blue .lightbox {
     background-color: white;
     color: rgb(43, 89, 184);
 }
+
+
+.body-orange .lightbox a {
+    color: rgb(255, 61, 56);
+}
+.body-purple .lightbox a {
+    color: rgb(38, 34, 98);
+}
+.body-lt-purple .lightbox a {
+    color: rgb(146, 53, 125);
+}
+.body-green .lightbox a {
+    color: rgb(144, 218, 73);
+}
+.body-blue .lightbox a {
+    color: rgb(43, 89, 184);
+}
+
+
 .in-work.body-orange .logo-svg path {
     stroke: rgb(255, 61, 56);
 }
@@ -165,10 +189,10 @@ body {
 .in-work.about-overlaid .logo-svg path {
     stroke: white;
 }
-
 a,
-.color-background a {
-    color: rgb(255, 255, 255);
+.about-overlaid a,
+.in-work.about-overlaid a {
+    color: white;
 }
 
 a:hover {
@@ -184,6 +208,23 @@ a:hover {
 }
 .departments .selected {
     text-decoration: underline;
+}
+.lightbox {
+    background-color: rgba(255, 255, 255, 1.0);
+    opacity: 0;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+}
+.lightbox.active {
+    opacity: 1;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
 }
 
 

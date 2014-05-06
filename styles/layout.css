@@ -234,6 +234,25 @@ html, body {
 .work .departments {
     display: none;
 }
+.lightbox {
+    top: -900%;
+    overflow-y: scroll;
+}
+.lightbox.active {
+    top: 0;
+}
+.lightbox-meta {
+    position: relative;
+}
+.lightbox .piece {
+    margin-bottom: 20px;
+}
+.lightbox .piece img {
+    width: 100%;
+}
+.lightbox-description {
+    width: 100%;
+}
 
 @media only screen and (min-width: 500px) {
     .grid {
@@ -296,6 +315,12 @@ html, body {
     }
     .work .departments {
         display: block;
+    }
+    .lightbox-description {
+        width: 50%;
+    }
+    .lightbox-meta {
+        position: fixed;
     }
 }
 @media only screen and (min-width: 1024px) {

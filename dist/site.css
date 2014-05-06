@@ -91,10 +91,9 @@ h4 {
 .show-selected-work p, 
 .show-selected-work p a,  
 .disclaimer p, 
-.disclaimer p a{
-		font-size: 30px;
-	}
-
+.disclaimer p a {
+	font-size: 30px;
+}
 
 .departments ul li p {
     font-family: "Times New Roman";
@@ -118,6 +117,28 @@ h4 {
 .piece-meta-wrapper .risd-program {
     font-size: 12px;
 }
+.lightbox-meta-info--student-name {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.lightbox-title,
+.lightbox-meta-info--risd-program {
+    margin-top: 0;
+}
+.lightbox-description {
+    margin-bottom: 1.5em;
+}
+.lightbox-meta-info--personal-link {
+    margin-bottom: 2em;
+}
+.lightbox-title,
+.lightbox-description,
+.lightbox-meta-info--risd-program,
+.lightbox-meta-info--personal-link,
+.lightbox-meta-info--personal-link a {
+    font-family: "Times New Roman";
+}
+
 @media only screen and (min-width: 400px) {
     .within-logo-margin p {
         font-size: 26px;
@@ -519,6 +540,25 @@ html, body {
 .work .departments {
     display: none;
 }
+.lightbox {
+    top: -900%;
+    overflow-y: scroll;
+}
+.lightbox.active {
+    top: 0;
+}
+.lightbox-meta {
+    position: relative;
+}
+.lightbox .piece {
+    margin-bottom: 20px;
+}
+.lightbox .piece img {
+    width: 100%;
+}
+.lightbox-description {
+    width: 100%;
+}
 
 @media only screen and (min-width: 500px) {
     .grid {
@@ -581,6 +621,12 @@ html, body {
     }
     .work .departments {
         display: block;
+    }
+    .lightbox-description {
+        width: 50%;
+    }
+    .lightbox-meta {
+        position: fixed;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -1207,26 +1253,50 @@ body {
 .in-work .logo-svg path {
     opacity: 0.1;
 }
-.in-work.body-orange {
+.in-work.body-orange,
+.body-orange .lightbox {
     background-color: white;
     color: rgb(255, 61, 56);
 }
-.in-work.body-purple {
+.in-work.body-purple,
+.body-purple .lightbox {
     background-color: white;
     color: rgb(38, 34, 98);
 }
-.in-work.body-lt-purple {
+.in-work.body-lt-purple,
+.body-lt-purple .lightbox {
     background-color: white;
     color: rgb(146, 53, 125);
 }
-.in-work.body-green {
+.in-work.body-green,
+.body-green .lightbox {
     background-color: white;
     color: rgb(144, 218, 73);
 }
-.in-work.body-blue {
+.in-work.body-blue,
+.body-blue .lightbox {
     background-color: white;
     color: rgb(43, 89, 184);
 }
+
+
+.body-orange .lightbox a {
+    color: rgb(255, 61, 56);
+}
+.body-purple .lightbox a {
+    color: rgb(38, 34, 98);
+}
+.body-lt-purple .lightbox a {
+    color: rgb(146, 53, 125);
+}
+.body-green .lightbox a {
+    color: rgb(144, 218, 73);
+}
+.body-blue .lightbox a {
+    color: rgb(43, 89, 184);
+}
+
+
 .in-work.body-orange .logo-svg path {
     stroke: rgb(255, 61, 56);
 }
@@ -1274,10 +1344,10 @@ body {
 .in-work.about-overlaid .logo-svg path {
     stroke: white;
 }
-
 a,
-.color-background a {
-    color: rgb(255, 255, 255);
+.about-overlaid a,
+.in-work.about-overlaid a {
+    color: white;
 }
 
 a:hover {
@@ -1293,6 +1363,23 @@ a:hover {
 }
 .departments .selected {
     text-decoration: underline;
+}
+.lightbox {
+    background-color: rgba(255, 255, 255, 1.0);
+    opacity: 0;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+}
+.lightbox.active {
+    opacity: 1;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
 }
 
 

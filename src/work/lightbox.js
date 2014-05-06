@@ -11,6 +11,8 @@ module.exports = function lightbox () {
     };
 
     self.show = function (sel) {
+        console.log('clicked');
+        console.log(sel);
         if (!container_sel) throw "Lightbox. Requires container.";
 
         selected_sel = sel;
@@ -24,12 +26,15 @@ module.exports = function lightbox () {
         var lightbox_meta_sel =
             lightbox_grid_sel
                 .append('div')
-                .attr('class', 'lightbox-meta col-2-10');
+                .attr('class', 'lightbox-meta col-percent-2-10');
 
         var lightbox_work_sel =
             lightbox_grid_sel
                 .append('div')
-                .attr('class', 'lightbox-work offset-2-10 col-8-10');
+                .attr('class',
+                      'lightbox-work '+
+                      'offset-percent-2-10 '+
+                      'col-percent-8-10');
 
         lightbox_work_sel
             .append('h2')
@@ -66,8 +71,9 @@ module.exports = function lightbox () {
             .text(data.risd_program);
 
         lightbox_meta_info_sel
-            .append('a')
+            .append('p')
             .attr('class', 'lightbox-meta-info--personal-link')
+            .append('a')
             .attr('href', data.url)
             .text('Behance');
 
