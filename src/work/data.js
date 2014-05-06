@@ -4,7 +4,7 @@ module.exports = function Data () {
         available;
 
     var url = window.location.origin +
-              window.location.pathname;;
+              window.location.pathname;
 
     self.dispatch = d3.dispatch('data','endOfData');
 

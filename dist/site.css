@@ -476,6 +476,9 @@ html, body {
     height: 26px;
 }
 
+.work-layout-image .piece-wrapper {
+    padding-right: 20px;
+}
 .work-layout-image .piece {
     margin-bottom: 10px;
 }
@@ -572,9 +575,6 @@ html, body {
     }
     .offset-percent-2-10 {
         margin-left: 20%;
-    }
-    .work-layout-image .piece-wrapper {
-        padding-right: 20px;
     }
     .nav-mobile {
         display: none;
