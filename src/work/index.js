@@ -302,7 +302,7 @@ module.exports = function work () {
 
         layout_fixed
             .attributes(work_sel);
-        var masonry = layout_image.masonry();
+        var masonry = layout_fixed.masonry();
 
         work_sel
             .style('width', function (d, i) {
@@ -310,6 +310,23 @@ module.exports = function work () {
             })
             .style('height', function (d, i) {
                 return d.masonry_height + 'px';
+            });
+
+        work_sel
+            .selectAll('.piece-wrapper')
+            .style('height', function (d) {
+                return (d.masonry_height -
+                        d.meta_space) + 'px';
+            });
+
+        work_sel
+            .selectAll('.piece-img-wrapper')
+            .style('width', function (d) {
+                return d.masonry_width;
+            })
+            .style('height', function (d) {
+                return (d.masonry_height -
+                        d.meta_space) + 'px';
             });
 
         if (!iso) {
