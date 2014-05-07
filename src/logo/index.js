@@ -179,9 +179,9 @@ module.exports = function logo () {
         return text_verticies;
     }
 
-    function logo_line_connecting_segments(start_end_points,
-                                           wwidth,
-                                           wheight) {
+    function logo_line_connecting_segments (start_end_points,
+                                            wwidth,
+                                            wheight) {
         var line_size_to_draw =
                 connect_logo_scale.choose_size(wwidth, wheight);
 
