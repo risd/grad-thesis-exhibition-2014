@@ -2,6 +2,7 @@ module.exports = function bottom () {
     var self = {},
         dirty = false,
         container_sel,
+        container_node,
         container_margin_bottom,
         window_height;
 
@@ -16,15 +17,13 @@ module.exports = function bottom () {
     self.attachWindowEvents = function () {
         d3.select(window)
             .on('resize.bottom', function () {
-                // console.log()
                 calculate_variables();
             })
             .on('scroll.bottom', function () {
-                if (!container_sel) throw "Bottom requires container.";
+                if (!container_node) throw "Requires container.";
                 if (dirty) return;
 
-                var cbox = container_sel
-                                .node()
+                var cbox = container_node
                                 .getBoundingClientRect();
 
                 if ((cbox.bottom + container_margin_bottom) <=
@@ -39,6 +38,7 @@ module.exports = function bottom () {
     self.container = function (_) {
         if (!arguments.length) return container_sel;
         container_sel = _;
+        container_node = container_sel.node();
         return self;
     };
 

@@ -30,10 +30,17 @@ module.exports = function logo () {
         window_sel
             .on('resize.logo', function () {
                 recalulate_logo_line();
-            })
-            .on('scroll.logo', function () {
-                recalulate_logo_line();
             });
+
+        if (Modernizr) {
+            if (Modernizr.touch) {
+                window_sel
+                    .on('scroll.logo', function () {
+                        recalulate_logo_line();
+                    });
+            }
+        }
+            
         return self;
     };
 
