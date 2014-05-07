@@ -8,13 +8,16 @@ behance = API(public_key)
 
 class FetchBehance():
     """docstring for FetchBehance"""
-    def __init__(self, to_fetch={ 'students': [], 'tag': [], }):
+    def __init__(self,
+                 logger,
+                 to_fetch={ 'students': [], 'tag': [], }):
         self.to_fetch = to_fetch
         self.data = {
             'projects': [],
             'temp_projects': [],
         }
         self.complete_fetch = False
+        self.logger = logger
 
     def fetch(self):
         projects_fetched = self.fetch_projects()
@@ -29,14 +32,15 @@ class FetchBehance():
         for student in self.to_fetch['students']:
             user_to_fetch = student['username']
 
-            print "User: {0}".format(user_to_fetch)
+            self.logger.info("User: {0}".format(user_to_fetch))
 
             try:
                 user = User(user_to_fetch, public_key)
                 projects = user.get_projects()
 
             except BehanceException as e:
-                print "Problem with Behance API. {0}".format(e)
+                self.logger.error(
+                    "Problem with Behance API. {0}".format(e))
                 # error code 429 is given when you
                 # have made too many API calls.
                 # so you won't be making more
@@ -57,7 +61,8 @@ class FetchBehance():
                 project_details = behance.get_project(
                                         project_to_fetch['id'])
             except BehanceException as e:
-                print "Problem with Behance API. {0}".format(e)
+                self.logger.error(
+                    "Problem with Behance API. {0}".format(e))
                 # error code 429 is given when you
                 # have made too many API calls.
                 # so you won't be making more

@@ -250,7 +250,8 @@ html, body {
 .lightbox .piece img {
     width: 100%;
 }
-.lightbox-description {
+.lightbox-description,
+.lightbox .piece-module-text {
     width: 100%;
 }
 
@@ -316,7 +317,8 @@ html, body {
     .work .departments {
         display: block;
     }
-    .lightbox-description {
+    .lightbox-description,
+    .lightbox .piece-module-text {
         width: 50%;
     }
     .lightbox-meta {

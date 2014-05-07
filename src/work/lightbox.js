@@ -51,10 +51,7 @@ module.exports = function lightbox () {
             .enter()
             .append('div')
             .attr('class', 'piece')
-            .append('img')
-            .attr('src', function (d) {
-                return d.sizes.max_1240 ? d.sizes.max_1240 : d.src;
-            });
+            .each(add_modules);
 
         var lightbox_meta_info_sel = lightbox_meta_sel
             .append('div')
@@ -75,6 +72,7 @@ module.exports = function lightbox () {
             .attr('class', 'lightbox-meta-info--personal-link')
             .append('a')
             .attr('href', data.url)
+            .attr('target', '_blank')
             .text('Behance');
 
         container_sel.classed('active', true);
@@ -93,6 +91,26 @@ module.exports = function lightbox () {
         body_sel.classed('no-scroll', false);
 
         container_sel.on('click', null);
+    }
+
+    function add_modules (d, i) {
+        var sel = d3.select(this);
+
+        if (d.type === 'image') {
+            sel.append('img')
+                .attr('src',
+                    d.sizes.max_1240 ? d.sizes.max_1240 : d.src);
+        }
+        if (d.type === 'text') {
+            sel.append('p')
+                .attr('class', 'piece-module-text')
+                .text(d.text_plain);
+        }
+        if (d.type === 'embed') {
+            sel.append('div')
+                .attr('class', 'piece-module-embed')
+                .html(d.embed);
+        }
     }
 
     return self;

@@ -35,7 +35,7 @@ module.exports = function work () {
             bottom.dirty(false);
 
             if (!requested) throw 'Work. Got no data.';
-            var transformed = transform(requested);
+            var transformed = transform(requested.objects);
 
             data = data.concat(transformed);
             render();
@@ -88,7 +88,6 @@ module.exports = function work () {
 
             bottom.dispatch
                 .on('bottom.work', function () {
-                    console.log('reached bottom');
                     bottom.dirty(true);
                     behance.fetch_data();
                 });

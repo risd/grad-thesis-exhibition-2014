@@ -135,7 +135,8 @@ h4 {
 .lightbox-description,
 .lightbox-meta-info--risd-program,
 .lightbox-meta-info--personal-link,
-.lightbox-meta-info--personal-link a {
+.lightbox-meta-info--personal-link a,
+.lightbox .piece-module-text {
     font-family: "Times New Roman";
 }
 

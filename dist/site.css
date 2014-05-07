@@ -135,7 +135,8 @@ h4 {
 .lightbox-description,
 .lightbox-meta-info--risd-program,
 .lightbox-meta-info--personal-link,
-.lightbox-meta-info--personal-link a {
+.lightbox-meta-info--personal-link a,
+.lightbox .piece-module-text {
     font-family: "Times New Roman";
 }
 
@@ -556,7 +557,8 @@ html, body {
 .lightbox .piece img {
     width: 100%;
 }
-.lightbox-description {
+.lightbox-description,
+.lightbox .piece-module-text {
     width: 100%;
 }
 
@@ -622,7 +624,8 @@ html, body {
     .work .departments {
         display: block;
     }
-    .lightbox-description {
+    .lightbox-description,
+    .lightbox .piece-module-text {
         width: 50%;
     }
     .lightbox-meta {

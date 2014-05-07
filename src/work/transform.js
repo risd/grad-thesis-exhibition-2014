@@ -22,48 +22,54 @@ function format_data_cover_with_modules (data) {
         });
     });
 
-    // set a scale for mapping
-    // width the an image to the
-    // width of the masonic version
-    var width_extent = d3.extent(all_modules, function (d) {
-                        return d.width; }
-                    );
-    console.log('width_extent');
-    console.log(width_extent);
-    var widths = d3.scale.ordinal()
-        .domain(width_extent)
-        .range([100, 200, 400]);
-    // var widths = d3.scale.identity()
-    //     .domain(width_extent);
-
     data.forEach(function (d, i) {
+        var modules_for_cover = [];
         var modules_to_include = [];
         d.details.modules.forEach(function (md, mi) {
             if (md.type === 'image') {
+                modules_for_cover.push(md);
+            }
+            // these are all cases that are
+            // covered in lightbox.js
+            if ((md.type === 'image') |
+                (md.type === 'text') |
+                (md.type === 'embed')) {
+
                 modules_to_include.push(md);
             }
         });
 
-        // random_cover_option
-        var random_module =
-            modules_to_include[Math.floor(Math.random() *
-                               modules_to_include.length)];
+        var random_cover;
+        if (modules_for_cover.length > 0) {
+            // random_cover_option
+            // based on images to include
+            var random_module =
+                modules_for_cover[Math.floor(Math.random() *
+                                   modules_for_cover.length)];
 
-        var random_cover = {
-            original_width: +random_module.width,
-            original_height: +random_module.height,
-            width: widths(random_module.width),
-            src: random_module.src
-        };
-        random_cover.height = (random_cover.width*
-                               random_module.height)/
-                              random_module.width;
-
+            random_cover = {
+                original_width: +random_module.width,
+                original_height: +random_module.height,
+                src: random_module.src
+            };
+            random_cover.height = (random_cover.width*
+                                   random_module.height)/
+                                  random_module.width;
+        } else {
+            // otherwise, just use a the cover that
+            // is included
+            random_cover = {
+                original_width: 404,
+                original_height: 316,
+                src: d.details.covers['404']
+            };
+        }
         formatted_data.push({
             'project_name': d.name,
             'student_name': d.owners[0].display_name,
             'risd_program': d.risd_program,
-            'risd_program_class': escape_department(d.risd_program),
+            'risd_program_class':
+                escape_department(d.risd_program),
             'modules': modules_to_include,
             'cover': random_cover,
             description: d.details.description,
