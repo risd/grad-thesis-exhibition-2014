@@ -11,6 +11,8 @@ module.exports = function lightbox () {
     };
 
     self.show = function (sel) {
+        console.log('clicked');
+        console.log(sel);
         if (!container_sel) throw "Lightbox. Requires container.";
 
         selected_sel = sel;
@@ -24,12 +26,15 @@ module.exports = function lightbox () {
         var lightbox_meta_sel =
             lightbox_grid_sel
                 .append('div')
-                .attr('class', 'lightbox-meta col-2-10');
+                .attr('class', 'lightbox-meta col-percent-2-10');
 
         var lightbox_work_sel =
             lightbox_grid_sel
                 .append('div')
-                .attr('class', 'lightbox-work offset-2-10 col-8-10');
+                .attr('class',
+                      'lightbox-work '+
+                      'offset-percent-2-10 '+
+                      'col-percent-8-10');
 
         lightbox_work_sel
             .append('h2')
@@ -46,10 +51,7 @@ module.exports = function lightbox () {
             .enter()
             .append('div')
             .attr('class', 'piece')
-            .append('img')
-            .attr('src', function (d) {
-                return d.sizes.max_1240 ? d.sizes.max_1240 : d.src;
-            });
+            .each(add_modules);
 
         var lightbox_meta_info_sel = lightbox_meta_sel
             .append('div')
@@ -66,9 +68,11 @@ module.exports = function lightbox () {
             .text(data.risd_program);
 
         lightbox_meta_info_sel
-            .append('a')
+            .append('p')
             .attr('class', 'lightbox-meta-info--personal-link')
+            .append('a')
             .attr('href', data.url)
+            .attr('target', '_blank')
             .text('Behance');
 
         container_sel.classed('active', true);
@@ -87,6 +91,26 @@ module.exports = function lightbox () {
         body_sel.classed('no-scroll', false);
 
         container_sel.on('click', null);
+    }
+
+    function add_modules (d, i) {
+        var sel = d3.select(this);
+
+        if (d.type === 'image') {
+            sel.append('img')
+                .attr('src',
+                    d.sizes.max_1240 ? d.sizes.max_1240 : d.src);
+        }
+        if (d.type === 'text') {
+            sel.append('p')
+                .attr('class', 'piece-module-text')
+                .text(d.text_plain);
+        }
+        if (d.type === 'embed') {
+            sel.append('div')
+                .attr('class', 'piece-module-embed')
+                .html(d.embed);
+        }
     }
 
     return self;

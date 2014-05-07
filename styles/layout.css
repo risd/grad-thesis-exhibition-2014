@@ -68,6 +68,18 @@ html, body {
     margin: 0;
     padding: 0;
 }
+.rotating-background-image,
+.overlay-background-image-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.within-logo-margin {
+    position: relative;
+    top: 0;
+}
 .overlay {
     position: fixed;
 
@@ -93,21 +105,9 @@ html, body {
     width: 100%;
     height: auto;
 }
-.within-logo-margin {
-    position: absolute;
-    top: 0;
-}
 .about-background-images,
 .about-foreground-text {
     position: fixed;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.rotating-background-image,
-.overlay-background-image-screen {
-    position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -154,9 +154,45 @@ html, body {
 .piece-wrapper img {
     width: 100%;
 }
-.piece-wrapper,
-.piece-meta-wrapper {
+.piece-wrapper {
     position: relative;
+}
+.image-piece .piece-meta-wrapper {
+    position: relative;
+}
+.fixed-piece .piece-meta-wrapper {
+    position: absolute;
+    bottom: 20px;
+}
+
+.fixed-piece {
+    padding-right: 20px;
+}
+.fixed-piece .piece-wrapper {
+    position: relative;
+    display: table;
+    width: 100%;
+}
+.fixed-piece .piece-img-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+.orientation-portrait .piece-img-wrapper img {
+    width: auto;
+    height: 98%;
+}
+.orientation-landscape .piece-img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+.fixed-piece .piece-meta-wrapper {
+    height: 26px;
+}
+
+.work-layout-image .piece-wrapper {
+    padding-right: 20px;
 }
 .work-layout-image .piece {
     margin-bottom: 10px;
@@ -197,6 +233,26 @@ html, body {
 }
 .work .departments {
     display: none;
+}
+.lightbox {
+    top: -900%;
+    overflow-y: scroll;
+}
+.lightbox.active {
+    top: 0;
+}
+.lightbox-meta {
+    position: relative;
+}
+.lightbox .piece {
+    margin-bottom: 20px;
+}
+.lightbox .piece img {
+    width: 100%;
+}
+.lightbox-description,
+.lightbox .piece-module-text {
+    width: 100%;
 }
 
 @media only screen and (min-width: 500px) {
@@ -255,14 +311,18 @@ html, body {
     .offset-percent-2-10 {
         margin-left: 20%;
     }
-    .work-layout-image .piece-wrapper {
-        padding-right: 20px;
-    }
     .nav-mobile {
         display: none;
     }
     .work .departments {
         display: block;
+    }
+    .lightbox-description,
+    .lightbox .piece-module-text {
+        width: 50%;
+    }
+    .lightbox-meta {
+        position: fixed;
     }
 }
 @media only screen and (min-width: 1024px) {

@@ -91,10 +91,9 @@ h4 {
 .show-selected-work p, 
 .show-selected-work p a,  
 .disclaimer p, 
-.disclaimer p a{
-		font-size: 30px;
-	}
-
+.disclaimer p a {
+	font-size: 30px;
+}
 
 .departments ul li p {
     font-family: "Times New Roman";
@@ -113,11 +112,34 @@ h4 {
 }
 .piece-meta-wrapper .student-name {
     font-family: "Theinhardt-Bold";
-    font-size: 18px;
+    font-size: 14px;
 }
 .piece-meta-wrapper .risd-program {
-    font-size: 18px;
+    font-size: 12px;
 }
+.lightbox-meta-info--student-name {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.lightbox-title,
+.lightbox-meta-info--risd-program {
+    margin-top: 0;
+}
+.lightbox-description {
+    margin-bottom: 1.5em;
+}
+.lightbox-meta-info--personal-link {
+    margin-bottom: 2em;
+}
+.lightbox-title,
+.lightbox-description,
+.lightbox-meta-info--risd-program,
+.lightbox-meta-info--personal-link,
+.lightbox-meta-info--personal-link a,
+.lightbox .piece-module-text {
+    font-family: "Times New Roman";
+}
+
 @media only screen and (min-width: 400px) {
     .within-logo-margin p {
         font-size: 26px;
@@ -353,6 +375,18 @@ html, body {
     margin: 0;
     padding: 0;
 }
+.rotating-background-image,
+.overlay-background-image-screen {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.within-logo-margin {
+    position: relative;
+    top: 0;
+}
 .overlay {
     position: fixed;
 
@@ -378,21 +412,9 @@ html, body {
     width: 100%;
     height: auto;
 }
-.within-logo-margin {
-    position: absolute;
-    top: 0;
-}
 .about-background-images,
 .about-foreground-text {
     position: fixed;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-.rotating-background-image,
-.overlay-background-image-screen {
-    position: absolute;
-    top: 0;
     left: 0;
     width: 100%;
     height: 100%;
@@ -439,9 +461,45 @@ html, body {
 .piece-wrapper img {
     width: 100%;
 }
-.piece-wrapper,
-.piece-meta-wrapper {
+.piece-wrapper {
     position: relative;
+}
+.image-piece .piece-meta-wrapper {
+    position: relative;
+}
+.fixed-piece .piece-meta-wrapper {
+    position: absolute;
+    bottom: 20px;
+}
+
+.fixed-piece {
+    padding-right: 20px;
+}
+.fixed-piece .piece-wrapper {
+    position: relative;
+    display: table;
+    width: 100%;
+}
+.fixed-piece .piece-img-wrapper {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    position: relative;
+}
+.orientation-portrait .piece-img-wrapper img {
+    width: auto;
+    height: 98%;
+}
+.orientation-landscape .piece-img-wrapper img {
+    width: 100%;
+    height: auto;
+}
+.fixed-piece .piece-meta-wrapper {
+    height: 26px;
+}
+
+.work-layout-image .piece-wrapper {
+    padding-right: 20px;
 }
 .work-layout-image .piece {
     margin-bottom: 10px;
@@ -482,6 +540,26 @@ html, body {
 }
 .work .departments {
     display: none;
+}
+.lightbox {
+    top: -900%;
+    overflow-y: scroll;
+}
+.lightbox.active {
+    top: 0;
+}
+.lightbox-meta {
+    position: relative;
+}
+.lightbox .piece {
+    margin-bottom: 20px;
+}
+.lightbox .piece img {
+    width: 100%;
+}
+.lightbox-description,
+.lightbox .piece-module-text {
+    width: 100%;
 }
 
 @media only screen and (min-width: 500px) {
@@ -540,14 +618,18 @@ html, body {
     .offset-percent-2-10 {
         margin-left: 20%;
     }
-    .work-layout-image .piece-wrapper {
-        padding-right: 20px;
-    }
     .nav-mobile {
         display: none;
     }
     .work .departments {
         display: block;
+    }
+    .lightbox-description,
+    .lightbox .piece-module-text {
+        width: 50%;
+    }
+    .lightbox-meta {
+        position: fixed;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -903,7 +985,11 @@ html, body {
 }
 .about-background-images {
     overflow: hidden;
-    background: url(../static/img/conventioncenter2.gif) no-repeat center center fixed; 
+    background-image: url(../static/img/conventioncenter2.gif);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    /*background-attachment: fixed;*/
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -969,7 +1055,6 @@ html, body {
 .department-activator {
     cursor: pointer;
 }
-
 
 @media only screen and (min-width: 500px) {
     .visit-text {
@@ -1085,6 +1170,11 @@ blue      rgb(43, 89, 184)
 /* default colors overwritten by js */
 body {
     color: white;
+
+    -webkit-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    -moz-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    -ms-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    transition: background-color 0.5s ease-in, color 0.5s ease-in;
 }
 .overlay-background-image-screen {
     background-color: rgb(38, 34, 98);
@@ -1157,11 +1247,110 @@ body {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
+
+    -webkit-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    -moz-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    -ms-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+}
+.in-work .logo-svg path {
+    opacity: 0.1;
+}
+.in-work.body-orange,
+.body-orange .lightbox {
+    background-color: white;
+    color: rgb(255, 61, 56);
+}
+.in-work.body-purple,
+.body-purple .lightbox {
+    background-color: white;
+    color: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple,
+.body-lt-purple .lightbox {
+    background-color: white;
+    color: rgb(146, 53, 125);
+}
+.in-work.body-green,
+.body-green .lightbox {
+    background-color: white;
+    color: rgb(144, 218, 73);
+}
+.in-work.body-blue,
+.body-blue .lightbox {
+    background-color: white;
+    color: rgb(43, 89, 184);
 }
 
+
+.body-orange .lightbox a {
+    color: rgb(255, 61, 56);
+}
+.body-purple .lightbox a {
+    color: rgb(38, 34, 98);
+}
+.body-lt-purple .lightbox a {
+    color: rgb(146, 53, 125);
+}
+.body-green .lightbox a {
+    color: rgb(144, 218, 73);
+}
+.body-blue .lightbox a {
+    color: rgb(43, 89, 184);
+}
+
+
+.in-work.body-orange .logo-svg path {
+    stroke: rgb(255, 61, 56);
+}
+.in-work.body-purple .logo-svg path {
+    stroke: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple .logo-svg path {
+    stroke: rgb(146, 53, 125);
+}
+.in-work.body-green .logo-svg path {
+    stroke: rgb(144, 218, 73);
+}
+.in-work.body-blue .logo-svg path {
+    stroke: rgb(43, 89, 184);
+}
+#flower path {
+    fill: white;
+    -webkit-transition: fill 0.5s ease-in;
+    -moz-transition: fill 0.5s ease-in;
+    -ms-transition: fill 0.5s ease-in;
+    transition: fill 0.5s ease-in;
+}
+.in-work.body-orange #flower path {
+    fill: rgb(255, 61, 56);
+}
+.in-work.body-purple #flower path {
+    fill: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple #flower path {
+    fill: rgb(146, 53, 125);
+}
+.in-work.body-green #flower path {
+    fill: rgb(144, 218, 73);
+}
+.in-work.body-blue #flower path {
+    fill: rgb(43, 89, 184);
+}
+
+.in-work.about-overlaid {
+    color: white;
+}
+.in-work.about-overlaid #flower path {
+    fill: white;
+}
+.in-work.about-overlaid .logo-svg path {
+    stroke: white;
+}
 a,
-.color-background a {
-    color: rgb(255, 255, 255);
+.about-overlaid a,
+.in-work.about-overlaid a {
+    color: white;
 }
 
 a:hover {
@@ -1177,6 +1366,23 @@ a:hover {
 }
 .departments .selected {
     text-decoration: underline;
+}
+.lightbox {
+    background-color: rgba(255, 255, 255, 1.0);
+    opacity: 0;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+}
+.lightbox.active {
+    opacity: 1;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
 }
 
 

@@ -43,16 +43,16 @@ module.exports = function fixed () {
                     translate_y = pageYOffset - no_translate_distance;
                 }
 
-                if (window.innerWidth < 768) {
-                    self.dispatch
-                        .activatorVisible((translate_y === 0) ?
-                                           false : true);
-                    return;
+                self.dispatch
+                    .activatorVisible((translate_y === 0) ?
+                                       false : true);
+
+                if (window.innerWidth >= 768) {
+                    translate_sel
+                        .style(
+                            transform_attr,
+                            'translate(0,' + translate_y + 'px)');
                 }
-                translate_sel
-                    .style(
-                        transform_attr,
-                        'translate(0,' + translate_y + 'px)');
             })
             .on('resize.fixed', function () {
                 if (window.innerWidth < 768) {

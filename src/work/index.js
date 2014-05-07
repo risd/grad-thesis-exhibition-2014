@@ -5,6 +5,8 @@ var transform = require('./transform')();
 var lightbox = require('./lightbox')();
 var scrollto = require('./scrollto')({ duration: 1000 });
 var fixed = require('./fixed')();
+var layout_image = require('./layout_image')();
+var layout_fixed = require('./layout_fixed')();
 
 module.exports = function work () {
     var self = {},
@@ -15,18 +17,25 @@ module.exports = function work () {
         work_sel,
         iso,
         layout = 'image',
-        render_layout = {
-            image: render_image,
-            fixed: render_fixed
+        layouts = {
+            image: {
+                render: render_image,
+                resize: resize_image
+            },
+            fixed: {
+                render: render_fixed,
+                resize: resize_fixed
+            }
         },
-        fix_filters_after_sel;
+        intro_sel,
+        body_sel = d3.select('body');
 
     behance.dispatch
         .on('data', function (requested) {
             bottom.dirty(false);
 
             if (!requested) throw 'Work. Got no data.';
-            var transformed = transform(requested);
+            var transformed = transform(requested.objects);
 
             data = data.concat(transformed);
             render();
@@ -41,6 +50,7 @@ module.exports = function work () {
     fixed.dispatch
         .on('activatorVisible', function (d) {
             departments.activatorVisible(d);
+            body_sel.classed('in-work', d);
         });
 
     self.container = function (_) {
@@ -49,9 +59,9 @@ module.exports = function work () {
         return self;
     };
 
-    self.fixFiltersAfter = function (_) {
-        if (!arguments.length) return fix_filters_after_sel;
-        fix_filters_after_sel = _;
+    self.intro = function (_) {
+        if (!arguments.length) return intro_sel;
+        intro_sel = _;
         return self;
     };
 
@@ -78,7 +88,6 @@ module.exports = function work () {
 
             bottom.dispatch
                 .on('bottom.work', function () {
-                    console.log('reached bottom');
                     bottom.dirty(true);
                     behance.fetch_data();
                 });
@@ -88,8 +97,12 @@ module.exports = function work () {
     };
 
     self.initialize = function (_) {
+        set_intro_height();
+
         if (!container_sel) throw "Work requires a container";
         container_sel.call(add_structure);
+        layout_fixed.container(work_container_sel);
+        layout_image.container(work_container_sel);
 
         if (infinite_scroll_bool) bottom.initialize();
 
@@ -116,37 +129,64 @@ module.exports = function work () {
 
         fixed.initialize();
 
+        d3.select(window)
+            .on('resize.work', function () {
+                resize();
+                set_intro_height();
+            });
+
         return self;
     };
 
     function render () {
-        render_layout[layout]();
+        layouts[layout].render();
+    }
+
+    function resize () {
+        layouts[layout].resize();
     }
 
     function render_fixed () {
-        var masonry = masonry_settings();
-
         work_sel = work_container_sel.selectAll('.piece')
             .data(data);
 
         var work_sel_enter = work_sel
             .enter()
-            .append('div')
-                .attr('class', function (d, i) {
-                    return 'piece ' + d.risd_program_class;
-                })
-                .style('width', function (d, i) {
-                    return masonry.columnWidth + 'px';
-                })
-                .style('height', function (d, i) {
-                    return ((masonry.columnWidth *
-                             d.cover.original_height)/
-                             d.cover.original_width)+ 'px';
-                });
+            .append('div');
+
+        layout_fixed
+            .attributes(work_sel_enter);
+        var masonry = layout_fixed.masonry();
+
+        work_sel_enter
+            .style('width', function (d, i) {
+                return d.masonry_width + 'px';
+            })
+            .style('height', function (d, i) {
+                return d.masonry_height + 'px';
+            })
+            .attr('class', function (d, i) {
+                return 'fixed-piece piece ' +
+                        d.risd_program_class +
+                        ' orientation-' + d.orientation;
+            });
 
         work_sel_enter
             .append('div')
                 .attr('class', 'piece-wrapper')
+                .style('height', function (d) {
+                    return (d.masonry_height -
+                            d.meta_space) + 'px';
+                })
+            .append('div')
+                .attr('class', 'piece-img-wrapper')
+                .style('width', function (d) {
+                    return d.masonry_width;
+                })
+                .style('height', function (d) {
+                    return (d.masonry_height -
+                            d.meta_space) + 'px';
+                })
                 .call(add_image);
         
         work_sel_enter
@@ -179,10 +219,6 @@ module.exports = function work () {
     }
 
     function render_image ()  {
-        var masonry = masonry_settings();
-        var meta_space = 35;
-        var counter = 0;
-
         work_sel = work_container_sel.selectAll('.piece')
             .data(data);
 
@@ -190,48 +226,21 @@ module.exports = function work () {
             .enter()
             .append('div')
                 .attr('class', function (d, i) {
-                    return 'piece ' + d.risd_program_class;
-                })
-                .style('width', function (d, i) {
-                    // figure out height and width
-
-                    // landscape images deserve to be landscapy
-                    if ((d.cover.original_width/
-                         d.cover.original_height) >
-                        1.8) {
-
-                        d.masonry_width = masonry.columnWidth * 2 +
-                                          masonry.gutter;
-                        d.masonry_height =
-                            ((d.masonry_width *
-                              d.cover.original_height)/
-                             d.cover.original_width) + meta_space;
-
-                    } else {
-                        counter += 1;
-
-                        // make every 5th one big.
-                        if (counter % 5 === 0) {
-                            d.masonry_width = masonry.columnWidth * 2 +
-                                              masonry.gutter;
-                        } else {
-                            d.masonry_width = masonry.columnWidth;
-                        }
-                        d.masonry_height =
-                            ((d.masonry_width *
-                              d.cover.original_height)/
-                             d.cover.original_width) +
-                            meta_space;
-                    }
-                    
-
-
-
-                    return d.masonry_width + 'px';
-                })
-                .style('height', function (d, i) {
-                    return d.masonry_height + 'px';
+                    return 'image-piece piece ' +
+                           d.risd_program_class;
                 });
+
+        layout_image
+            .attributes(work_sel_enter);
+        var masonry = layout_image.masonry();
+
+        work_sel_enter
+            .style('width', function (d, i) {
+                return d.masonry_width + 'px';
+            })
+            .style('height', function (d, i) {
+                return d.masonry_height + 'px';
+            });
 
         work_sel_enter
             .append('div')
@@ -259,10 +268,79 @@ module.exports = function work () {
                 itemSelector: '.piece',
                 masonry: masonry
             });
+            iso.unbindResize();
         } else {
             work_sel_enter.each(function () {
                 iso.appended(this);
             });
+            iso.layout();
+        }
+    }
+
+    function resize_image () {
+
+        layout_image
+            .attributes(work_sel);
+        var masonry = layout_image.masonry();
+
+        work_sel
+            .style('width', function (d, i) {
+                return d.masonry_width + 'px';
+            })
+            .style('height', function (d, i) {
+                return d.masonry_height + 'px';
+            });
+
+        if (!iso) {
+            iso = new Isotope(work_container_sel.node(), {
+                itemSelector: '.piece',
+                masonry: masonry
+            });
+        } else {
+            iso.options.masonry = masonry;
+            iso.layout();
+        }
+    }
+
+    function resize_fixed () {
+
+        layout_fixed
+            .attributes(work_sel);
+        var masonry = layout_fixed.masonry();
+
+        work_sel
+            .style('width', function (d, i) {
+                return d.masonry_width + 'px';
+            })
+            .style('height', function (d, i) {
+                return d.masonry_height + 'px';
+            });
+
+        work_sel
+            .selectAll('.piece-wrapper')
+            .style('height', function (d) {
+                return (d.masonry_height -
+                        d.meta_space) + 'px';
+            });
+
+        work_sel
+            .selectAll('.piece-img-wrapper')
+            .style('width', function (d) {
+                return d.masonry_width;
+            })
+            .style('height', function (d) {
+                return (d.masonry_height -
+                        d.meta_space) + 'px';
+            });
+
+        if (!iso) {
+            iso = new Isotope(work_container_sel.node(), {
+                itemSelector: '.piece',
+                masonry: masonry
+            });
+            iso.unbindResize();
+        } else {
+            iso.options.masonry = masonry;
             iso.layout();
         }
     }
@@ -281,7 +359,7 @@ module.exports = function work () {
             .render();
 
         fixed
-            .noTranslate(fix_filters_after_sel)
+            .noTranslate(intro_sel)
             .translate(dept_container_sel);
     }
 
@@ -306,20 +384,18 @@ module.exports = function work () {
             });
     }
 
-    function masonry_settings () {
-        var total_work_width = work_container_sel
-                                    .node()
-                                    .getBoundingClientRect()
-                                    .width;
-        var number_of_columns = 4;
-        var gutter = 0;
-        var column_width = (total_work_width / number_of_columns) -
-                           (gutter * (number_of_columns - 1));
+    function set_intro_height () {
+        var height =
+            intro_sel
+                .node()
+                .getBoundingClientRect().height +
+            parseInt(intro_sel.style('margin-top'), 10) +
+            parseInt(intro_sel.style('margin-bottom'), 10);
 
-        return {
-            gutter: gutter,
-            columnWidth: column_width
-        };
+        if (height < window.innerHeight) {
+            var difference = window.innerHeight - height;
+            intro_sel.style('padding-bottom', difference + 'px');
+        }
     }
 
     return self;

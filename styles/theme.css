@@ -12,6 +12,11 @@ blue      rgb(43, 89, 184)
 /* default colors overwritten by js */
 body {
     color: white;
+
+    -webkit-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    -moz-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    -ms-transition: background-color 0.5s ease-in, color 0.5s ease-in;
+    transition: background-color 0.5s ease-in, color 0.5s ease-in;
 }
 .overlay-background-image-screen {
     background-color: rgb(38, 34, 98);
@@ -84,11 +89,110 @@ body {
     stroke: white;
     stroke-width: 3;
     fill: transparent;
+
+    -webkit-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    -moz-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    -ms-transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+    transition: stroke 0.5s ease-in, opacity 0.5s ease-in;
+}
+.in-work .logo-svg path {
+    opacity: 0.1;
+}
+.in-work.body-orange,
+.body-orange .lightbox {
+    background-color: white;
+    color: rgb(255, 61, 56);
+}
+.in-work.body-purple,
+.body-purple .lightbox {
+    background-color: white;
+    color: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple,
+.body-lt-purple .lightbox {
+    background-color: white;
+    color: rgb(146, 53, 125);
+}
+.in-work.body-green,
+.body-green .lightbox {
+    background-color: white;
+    color: rgb(144, 218, 73);
+}
+.in-work.body-blue,
+.body-blue .lightbox {
+    background-color: white;
+    color: rgb(43, 89, 184);
 }
 
+
+.body-orange .lightbox a {
+    color: rgb(255, 61, 56);
+}
+.body-purple .lightbox a {
+    color: rgb(38, 34, 98);
+}
+.body-lt-purple .lightbox a {
+    color: rgb(146, 53, 125);
+}
+.body-green .lightbox a {
+    color: rgb(144, 218, 73);
+}
+.body-blue .lightbox a {
+    color: rgb(43, 89, 184);
+}
+
+
+.in-work.body-orange .logo-svg path {
+    stroke: rgb(255, 61, 56);
+}
+.in-work.body-purple .logo-svg path {
+    stroke: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple .logo-svg path {
+    stroke: rgb(146, 53, 125);
+}
+.in-work.body-green .logo-svg path {
+    stroke: rgb(144, 218, 73);
+}
+.in-work.body-blue .logo-svg path {
+    stroke: rgb(43, 89, 184);
+}
+#flower path {
+    fill: white;
+    -webkit-transition: fill 0.5s ease-in;
+    -moz-transition: fill 0.5s ease-in;
+    -ms-transition: fill 0.5s ease-in;
+    transition: fill 0.5s ease-in;
+}
+.in-work.body-orange #flower path {
+    fill: rgb(255, 61, 56);
+}
+.in-work.body-purple #flower path {
+    fill: rgb(38, 34, 98);
+}
+.in-work.body-lt-purple #flower path {
+    fill: rgb(146, 53, 125);
+}
+.in-work.body-green #flower path {
+    fill: rgb(144, 218, 73);
+}
+.in-work.body-blue #flower path {
+    fill: rgb(43, 89, 184);
+}
+
+.in-work.about-overlaid {
+    color: white;
+}
+.in-work.about-overlaid #flower path {
+    fill: white;
+}
+.in-work.about-overlaid .logo-svg path {
+    stroke: white;
+}
 a,
-.color-background a {
-    color: rgb(255, 255, 255);
+.about-overlaid a,
+.in-work.about-overlaid a {
+    color: white;
 }
 
 a:hover {
@@ -104,6 +208,23 @@ a:hover {
 }
 .departments .selected {
     text-decoration: underline;
+}
+.lightbox {
+    background-color: rgba(255, 255, 255, 1.0);
+    opacity: 0;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.5s;
+}
+.lightbox.active {
+    opacity: 1;
+
+    -webkit-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -moz-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    -ms-transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
+    transition: opacity 0.5s ease-in, top 0.0s ease-in 0.0s;
 }
 
 

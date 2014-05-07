@@ -91,10 +91,9 @@ h4 {
 .show-selected-work p, 
 .show-selected-work p a,  
 .disclaimer p, 
-.disclaimer p a{
-		font-size: 30px;
-	}
-
+.disclaimer p a {
+	font-size: 30px;
+}
 
 .departments ul li p {
     font-family: "Times New Roman";
@@ -113,11 +112,34 @@ h4 {
 }
 .piece-meta-wrapper .student-name {
     font-family: "Theinhardt-Bold";
-    font-size: 18px;
+    font-size: 14px;
 }
 .piece-meta-wrapper .risd-program {
-    font-size: 18px;
+    font-size: 12px;
 }
+.lightbox-meta-info--student-name {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.lightbox-title,
+.lightbox-meta-info--risd-program {
+    margin-top: 0;
+}
+.lightbox-description {
+    margin-bottom: 1.5em;
+}
+.lightbox-meta-info--personal-link {
+    margin-bottom: 2em;
+}
+.lightbox-title,
+.lightbox-description,
+.lightbox-meta-info--risd-program,
+.lightbox-meta-info--personal-link,
+.lightbox-meta-info--personal-link a,
+.lightbox .piece-module-text {
+    font-family: "Times New Roman";
+}
+
 @media only screen and (min-width: 400px) {
     .within-logo-margin p {
         font-size: 26px;

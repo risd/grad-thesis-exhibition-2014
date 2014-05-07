@@ -1,7 +1,1 @@
-{
-    "available": [
-        "../data/projects20140408_0.json",
-        "../data/projects20140408_1.json",
-        "../data/projects20140408_2.json"
-    ]
-}
+{"pages": ["data/projects_20140506_0.json", "data/projects_20140506_1.json", "data/projects_20140506_2.json", "data/projects_20140506_3.json"]}
