@@ -230,7 +230,7 @@ html, body {
     width: 70%;
     margin: 50px auto 100px auto;
 }
-.work .departments {
+.work-wrapper .departments {
     display: none;
 }
 .lightbox {
@@ -313,11 +313,11 @@ html, body {
     .nav-mobile {
         display: none;
     }
-    .work .departments {
+    .work-wrapper .departments {
         display: block;
     }
-    .work .work-container {
-        float: right;
+    .work-wrapper .departments ul li {
+        display: inline-block;
     }
     .lightbox-description,
     .lightbox .piece-module-text {

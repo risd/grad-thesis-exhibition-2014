@@ -346,11 +346,11 @@ module.exports = function work () {
     }
 
     function add_structure (sel)  {
-        var dept_container_sel = sel.append('div')
-            .attr('class', 'col-percent-2-10 departments');
+        var dept_container_sel = sel.append('article')
+            .attr('class', 'departments grid');
 
-        work_container_sel = sel.append('div')
-            .attr('class', 'col-percent-8-10 work-container omega '+
+        work_container_sel = sel.append('article')
+            .attr('class', 'work grid '+
                            'work-layout-' + layout);
 
         departments

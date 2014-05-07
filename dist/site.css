@@ -73,10 +73,16 @@ h4 {
 .kern-all-caps {
     letter-spacing: 0.05em;
 }
+.departments ul li p {
+    font-family: "Theinhardt-Bold";
+}
+.departments ul li p,
 .overlay-nav-item-text p {
     font-size: 20px;
-    margin: 0 0 0 5px;
     line-height: 20px;
+}
+.overlay-nav-item-text p {
+    margin: 0 0 0 5px;
 }
 /*.disclaimer p {
     font-size: 21px;
@@ -95,10 +101,10 @@ h4 {
 	font-size: 30px;
 }
 
-.departments ul li p {
+/*.departments ul li p {
     font-family: "Times New Roman";
     font-size: 21px;
-}
+}*/
 .attribution:before {
     content: "—";
     display: block;
@@ -191,6 +197,7 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li p,
     .overlay-nav-item-text p {
         font-size: 25px;
     }
@@ -537,7 +544,7 @@ html, body {
     width: 70%;
     margin: 50px auto 100px auto;
 }
-.work .departments {
+.work-wrapper .departments {
     display: none;
 }
 .lightbox {
@@ -620,11 +627,11 @@ html, body {
     .nav-mobile {
         display: none;
     }
-    .work .departments {
+    .work-wrapper .departments {
         display: block;
     }
-    .work .work-container {
-        float: right;
+    .work-wrapper .departments ul li {
+        display: inline-block;
     }
     .lightbox-description,
     .lightbox .piece-module-text {

@@ -73,10 +73,16 @@ h4 {
 .kern-all-caps {
     letter-spacing: 0.05em;
 }
+.departments ul li p {
+    font-family: "Theinhardt-Bold";
+}
+.departments ul li p,
 .overlay-nav-item-text p {
     font-size: 20px;
-    margin: 0 0 0 5px;
     line-height: 20px;
+}
+.overlay-nav-item-text p {
+    margin: 0 0 0 5px;
 }
 /*.disclaimer p {
     font-size: 21px;
@@ -95,10 +101,10 @@ h4 {
 	font-size: 30px;
 }
 
-.departments ul li p {
+/*.departments ul li p {
     font-family: "Times New Roman";
     font-size: 21px;
-}
+}*/
 .attribution:before {
     content: "—";
     display: block;
@@ -191,6 +197,7 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li p,
     .overlay-nav-item-text p {
         font-size: 25px;
     }

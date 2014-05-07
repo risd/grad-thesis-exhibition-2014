@@ -75,7 +75,7 @@ module.exports = function () {
                 escaped: escape_department(d),
                 filterable: false,
                 selected: false
-            }
+            };
 
             if (d === selected) {
                 v.selected = true;
