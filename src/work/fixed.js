@@ -51,7 +51,8 @@ module.exports = function fixed () {
                     translate_sel
                         .style(
                             transform_attr,
-                            'translate(0,' + translate_y + 'px)');
+                            'translate3d(0px,' + translate_y +
+                                         'px, 0px)');
                 }
             })
             .on('resize.fixed', function () {
@@ -59,7 +60,7 @@ module.exports = function fixed () {
                     translate_sel
                         .style(
                             transform_attr,
-                            'translate(0,0)');
+                            'translate3d(0,0,0)');
                 }
                 calc_contraints();
             });

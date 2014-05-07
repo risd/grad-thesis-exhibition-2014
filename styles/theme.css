@@ -180,7 +180,8 @@ body {
     fill: rgb(43, 89, 184);
 }
 
-.in-work.about-overlaid {
+.in-work.about-overlaid,
+.in-work .nav-mobile .departments ul {
     color: white;
 }
 .in-work.about-overlaid #flower path {

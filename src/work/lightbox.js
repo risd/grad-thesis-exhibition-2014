@@ -41,10 +41,12 @@ module.exports = function lightbox () {
             .attr('class', 'lightbox-title')
             .text(data.project_name);
 
-        lightbox_work_sel
-            .append('p')
-            .attr('class', 'lightbox-description')
-            .text(data.description);
+        if (data.project_name != data.description) {
+            lightbox_work_sel
+                .append('p')
+                .attr('class', 'lightbox-description')
+                .text(data.description);
+        }
 
         lightbox_work_sel.selectAll('.piece')
             .data(data.modules)

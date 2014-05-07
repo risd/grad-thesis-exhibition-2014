@@ -316,6 +316,9 @@ html, body {
     .work .departments {
         display: block;
     }
+    .work .work-container {
+        float: right;
+    }
     .lightbox-description,
     .lightbox .piece-module-text {
         width: 50%;
