@@ -76,7 +76,7 @@ if __name__ == '__main__':
             }
         ).fetch()
 
-    fetched_data = fetch.data['projects']
+    fetched_data = fetch.data['formatted']
     shuffle(fetched_data)
 
     # if we do not complete the fetch, don't write data

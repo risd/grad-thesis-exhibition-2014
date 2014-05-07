@@ -15,6 +15,7 @@ class FetchBehance():
         self.data = {
             'projects': [],
             'temp_projects': [],
+            'formatted': [],
         }
         self.complete_fetch = False
         self.logger = logger
@@ -88,4 +89,42 @@ class FetchBehance():
                 project_to_fetch['details'] = project_details
                 self.data['projects'].append(project_to_fetch)
 
+        return True
+
+    def format_data(self):
+        self.data['formatted'] = list(self.data['projects'])
+        for project in self.data['formatted']:
+            project.pop('published_on', None)
+            project.pop('stats', None)
+            project.pop('privacy', None)
+            project.pop('fields', None)
+            project.pop('mature_access', None)
+            project.pop('mature_content', None)
+            project.pop('for_sale', None)
+            project.pop('created_on', None)
+            # project.pop('modified_on', None)
+            project['owners'][0].pop('username', None)
+            project['owners'][0].pop('city', None)
+            project['owners'][0].pop('first_name', None)
+            project['owners'][0].pop('last_name', None)
+            project['owners'][0].pop('country', None)
+            project['owners'][0].pop('state', None)
+            project['owners'][0].pop('company', None)
+            project['owners'][0].pop('created_on', None)
+            project['owners'][0].pop('location', None)
+            project['owners'][0].pop('fields', None)
+            project['owners'][0].pop('images', None)
+            project['owners'][0].pop('id', None)
+            project['owners'][0].pop('occupation', None)
+            project['details'].pop('short_url', None)
+            project['details'].pop('mature_access', None)
+            project['details'].pop('mature_content', None)
+            project['details'].pop('created_on', None)
+            project['details'].pop('published_on', None)
+            project['details'].pop('stats', None)
+            project['details'].pop('copyright', None)
+            project['details'].pop('privacy', None)
+            project['details'].pop('base_url', None)
+            project['details'].pop('project_id', None)
+            project['details'].pop('styles', None)
         return True
