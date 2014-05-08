@@ -172,7 +172,7 @@
     -ms-transition: opacity 0.5s ease-in 0s, width 0s ease-in 0.25s;
     transition: opacity 0.5s ease-in 0s, width 0s ease-in 0.25s;
     opacit: 1;
-    width: 40%;
+    width: 30%;
 }
 .about-overlaid .overlay-nav-item-text {
     -webkit-transition: opacity 0.5s ease-in 0s, width 0s ease-in 0.25s;
@@ -302,8 +302,8 @@
 }
 .departments ul {
     list-style: none;
-    margin-left: 0;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 .departments ul li p {
     margin-left: 0;

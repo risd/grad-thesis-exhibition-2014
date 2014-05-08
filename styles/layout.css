@@ -78,6 +78,7 @@ html, body {
 .within-logo-margin {
     position: relative;
     top: 0;
+    padding-bottom: 0.1px;
 }
 .overlay {
     position: fixed;
@@ -117,6 +118,9 @@ html, body {
 .z-10 {
     z-index: 10;
 }
+.z-15 {
+    z-index: 15;
+}
 .z-20 {
     z-index: 20;
 }
@@ -134,6 +138,9 @@ html, body {
 }
 .z-600 {
     z-index: 600;
+}
+.z-700 {
+    z-index: 700;
 }
 .no-scroll {
     overflow: hidden;
@@ -230,7 +237,7 @@ html, body {
     width: 70%;
     margin: 50px auto 100px auto;
 }
-.work-wrapper .departments {
+.department-container {
     display: none;
 }
 .lightbox {
@@ -313,10 +320,14 @@ html, body {
     .nav-mobile {
         display: none;
     }
-    .work-wrapper .departments {
+    .department-container {
         display: block;
     }
-    .work-wrapper .departments ul li {
+    .department-container.fixed {
+        position: fixed;
+        top: 0;
+    }
+    .departments ul li {
         display: inline-block;
     }
     .lightbox-description,
@@ -325,6 +336,12 @@ html, body {
     }
     .lightbox-meta {
         position: fixed;
+    }
+    .work-container {
+        padding-top: 1px;
+    }
+    .departments {
+        margin-bottom: 0;
     }
 }
 @media only screen and (min-width: 1024px) {

@@ -100,11 +100,6 @@ h4 {
 .disclaimer p a {
 	font-size: 30px;
 }
-
-/*.departments ul li p {
-    font-family: "Times New Roman";
-    font-size: 21px;
-}*/
 .attribution:before {
     content: "—";
     display: block;
@@ -197,9 +192,19 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments {
+        text-align: center;
+    }
+    .departments ul li {
+        margin-right: 10px;
+    }
+    .departments ul li:last-child {
+        margin-right: 0;
+    }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 25px;
+        font-size: 14px;
+        line-height: 1em;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -240,6 +245,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 10px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 16px;
+    }
 	
 }
 @media only screen and (min-width: 1440px) {
@@ -264,6 +276,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 11px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 16px;
+    }
 }
 @media only screen and (min-width: 1600px) {
 	
@@ -279,6 +298,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 14px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 17px;
+    }
 
 }
 @media only screen and (min-width: 1900px) {
@@ -295,6 +321,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 16px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 20px;
+    }
 
 }
 @media only screen and (min-width: 2100px) {
@@ -311,7 +344,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
-
+    .departments ul li {
+        margin-right: 18px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 23px;
+    }
 }/* Layout
 -----------------------------------------------*/
 
@@ -392,6 +431,7 @@ html, body {
 .within-logo-margin {
     position: relative;
     top: 0;
+    padding-bottom: 0.1px;
 }
 .overlay {
     position: fixed;
@@ -431,6 +471,9 @@ html, body {
 .z-10 {
     z-index: 10;
 }
+.z-15 {
+    z-index: 15;
+}
 .z-20 {
     z-index: 20;
 }
@@ -448,6 +491,9 @@ html, body {
 }
 .z-600 {
     z-index: 600;
+}
+.z-700 {
+    z-index: 700;
 }
 .no-scroll {
     overflow: hidden;
@@ -544,7 +590,7 @@ html, body {
     width: 70%;
     margin: 50px auto 100px auto;
 }
-.work-wrapper .departments {
+.department-container {
     display: none;
 }
 .lightbox {
@@ -627,10 +673,14 @@ html, body {
     .nav-mobile {
         display: none;
     }
-    .work-wrapper .departments {
+    .department-container {
         display: block;
     }
-    .work-wrapper .departments ul li {
+    .department-container.fixed {
+        position: fixed;
+        top: 0;
+    }
+    .departments ul li {
         display: inline-block;
     }
     .lightbox-description,
@@ -639,6 +689,12 @@ html, body {
     }
     .lightbox-meta {
         position: fixed;
+    }
+    .work-container {
+        padding-top: 1px;
+    }
+    .departments {
+        margin-bottom: 0;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -923,7 +979,7 @@ html, body {
     -ms-transition: opacity 0.5s ease-in 0s, width 0s ease-in 0.25s;
     transition: opacity 0.5s ease-in 0s, width 0s ease-in 0.25s;
     opacit: 1;
-    width: 40%;
+    width: 30%;
 }
 .about-overlaid .overlay-nav-item-text {
     -webkit-transition: opacity 0.5s ease-in 0s, width 0s ease-in 0.25s;
@@ -1053,8 +1109,8 @@ html, body {
 }
 .departments ul {
     list-style: none;
-    margin-left: 0;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
 }
 .departments ul li p {
     margin-left: 0;

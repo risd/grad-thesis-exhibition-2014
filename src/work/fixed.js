@@ -3,33 +3,36 @@ module.exports = function fixed () {
     // plus the additional padding
 
     var self = {},
-        no_translate_sel,
-        translate_sel,
-        no_translate_distance = 0;
+        not_fixed_sel,
+        fixed_sel,
+        pad_on_fixed_sel,
+        original_pad_on_fixed_padding_top = '1px',
+        padded_pad_on_fixed_padding_top,
+        not_fixed_distance = 0,
+        fixed_class = 'fixed';
 
     self.dispatch = d3.dispatch('activatorVisible');
 
-    var vendor = ["", "-webkit-", "-moz-", "-ms-", "-o-"].reduce(
-        function (p, v) {
-            return v + "transform" in document.body.style ? v : p;
-        });
-
-    var transform_attr = vendor + 'transform';
-
-    self.noTranslate = function (_) {
-        if (!arguments.length) return no_translate_sel;
-        no_translate_sel = _;
+    self.notFixed = function (_) {
+        if (!arguments.length) return not_fixed_sel;
+        not_fixed_sel = _;
         return self;
     };
 
-    self.translate = function (_) {
-        if (!arguments.length) return translate_sel;
-        translate_sel = _;
+    self.fixed = function (_) {
+        if (!arguments.length) return fixed_sel;
+        fixed_sel = _;
+        return self;
+    };
+
+    self.padOnFixed = function (_) {
+        if (!arguments.length) return pad_on_fixed_sel;
+        pad_on_fixed_sel = _;
         return self;
     };
 
     self.top = function () {
-        return no_translate_distance;
+        return not_fixed_distance;
     };
 
     self.initialize = function () {
@@ -37,47 +40,55 @@ module.exports = function fixed () {
 
         d3.select(window)
             .on('scroll.fixed', function () {
-                var translate_y = 0;
-
-                if ((no_translate_distance - pageYOffset) < 0) {
-                    translate_y = pageYOffset - no_translate_distance;
-                }
-
-                self.dispatch
-                    .activatorVisible((translate_y === 0) ?
-                                       false : true);
-
-                if (window.innerWidth >= 768) {
-                    translate_sel
-                        .style(
-                            transform_attr,
-                            'translate3d(0px,' + translate_y +
-                                         'px, 0px)');
-                }
+                configre_fixed();
             })
             .on('resize.fixed', function () {
-                if (window.innerWidth < 768) {
-                    translate_sel
-                        .style(
-                            transform_attr,
-                            'translate3d(0,0,0)');
-                }
                 calc_contraints();
+                configre_fixed();
             });
     };
 
+    function configre_fixed () {
+        var fixed_y = 0;
+
+        if ((not_fixed_distance - pageYOffset) < 0) {
+            fixed_y = pageYOffset - not_fixed_distance;
+        }
+
+        var fixed = (fixed_y === 0) ? false : true;
+
+        self.dispatch
+            .activatorVisible(fixed);
+
+        fixed_sel.classed(fixed_class, fixed);
+
+        pad_on_fixed_sel
+            .style('padding-top',
+                    fixed ?
+                    padded_pad_on_fixed_padding_top :
+                    original_pad_on_fixed_padding_top);
+    }
+
     function calc_contraints () {
-        var no_translate_margin =
-                +no_translate_sel
+        var not_fixed_margin =
+                +not_fixed_sel
                     .style('margin-top')
                     .split('p')[0];
-        var no_translate_height =
-                no_translate_sel
+        var not_fixed_height =
+                not_fixed_sel
                     .node()
                     .getBoundingClientRect()
                     .height;
-        no_translate_distance = no_translate_height +
-                                no_translate_margin;
+
+        not_fixed_distance = not_fixed_margin +
+                             not_fixed_height;
+
+        var fixed_bbox_height = fixed_sel
+                .node()
+                .getBoundingClientRect()
+                .height;
+
+        padded_pad_on_fixed_padding_top = fixed_bbox_height + 'px';
     }
 
     return self;

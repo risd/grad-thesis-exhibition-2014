@@ -27,6 +27,8 @@ class FetchBehance():
         if projects_fetched and details_fected:
             self.complete_fetch = True
 
+        self.format_data()
+
         return self
 
     def fetch_projects(self):

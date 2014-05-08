@@ -73,7 +73,6 @@ function format_data_cover_with_modules (data) {
             'modules': modules_to_include,
             'cover': random_cover,
             description: d.details.description,
-            avatar: d.owners[0].images['138'],
             url: d.owners[0].url
         });
     });

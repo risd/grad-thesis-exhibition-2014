@@ -1,10 +1,12 @@
 module.exports = function bottom () {
     var self = {},
         dirty = false,
-        container_sel,
-        container_node,
-        container_margin_bottom,
-        window_height;
+        // container_sel,
+        // container_node,
+        // container_margin_bottom,
+        // window_height,
+        body_sel = d3.select('body'),
+        body_height;
 
     self.dispatch = d3.dispatch('bottom');
 
@@ -23,14 +25,13 @@ module.exports = function bottom () {
                 if (!container_node) throw "Requires container.";
                 if (dirty) return;
 
-                var cbox = container_node
-                                .getBoundingClientRect();
-
-                if ((cbox.bottom + container_margin_bottom) <=
-                     window_height) {
+                body_height = parseInt(body_sel.style('height'));
+                if (body_height <=
+                    (window.innerHeight + window.scrollY)) {
 
                     dirty = true;
                     self.dispatch.bottom();
+                    console.log('dispatch bottom');
                 }
             });
     };
@@ -41,18 +42,6 @@ module.exports = function bottom () {
         container_node = container_sel.node();
         return self;
     };
-
-    self.initialize = function () {
-        calculate_variables();
-        return self;
-    };
-
-    function calculate_variables () {
-        window_height = window.innerHeight;
-        container_margin_bottom = +container_sel
-            .style('margin-bottom')
-            .split('p')[0];
-    }
 
     return self;
 };

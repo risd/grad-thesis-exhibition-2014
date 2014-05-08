@@ -14,6 +14,7 @@ module.exports = function work () {
         infinite_scroll_bool = false,
         data = [],
         work_container_sel,
+        department_container_sel,
         work_sel,
         iso,
         layout = 'image',
@@ -59,6 +60,12 @@ module.exports = function work () {
         return self;
     };
 
+    self.filters = function (_) {
+        if (!arguments.length) return department_container_sel;
+        department_container_sel = _;
+        return self;
+    };
+
     self.intro = function (_) {
         if (!arguments.length) return intro_sel;
         intro_sel = _;
@@ -83,8 +90,7 @@ module.exports = function work () {
 
         if (infinite_scroll_bool === true) {
             bottom
-                .container(container_sel)
-                .attachWindowEvents();
+                .container(container_sel);
 
             bottom.dispatch
                 .on('bottom.work', function () {
@@ -104,7 +110,7 @@ module.exports = function work () {
         layout_fixed.container(work_container_sel);
         layout_image.container(work_container_sel);
 
-        if (infinite_scroll_bool) bottom.initialize();
+        if (infinite_scroll_bool) bottom.attachWindowEvents();
 
         // will be the thing to call render
         behance.fetch_data();
@@ -346,11 +352,12 @@ module.exports = function work () {
     }
 
     function add_structure (sel)  {
-        var dept_container_sel = sel.append('article')
-            .attr('class', 'departments grid');
+        var dept_container_sel = department_container_sel
+            .append('article')
+            .attr('class', 'departments grid z-15');
 
         work_container_sel = sel.append('article')
-            .attr('class', 'work grid '+
+            .attr('class', 'work grid z-10 '+
                            'work-layout-' + layout);
 
         departments
@@ -359,8 +366,9 @@ module.exports = function work () {
             .render();
 
         fixed
-            .noTranslate(intro_sel)
-            .translate(dept_container_sel);
+            .notFixed(intro_sel)
+            .fixed(department_container_sel)
+            .padOnFixed(sel);
     }
 
     function add_meta (sel) {

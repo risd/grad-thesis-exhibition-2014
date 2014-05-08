@@ -100,11 +100,6 @@ h4 {
 .disclaimer p a {
 	font-size: 30px;
 }
-
-/*.departments ul li p {
-    font-family: "Times New Roman";
-    font-size: 21px;
-}*/
 .attribution:before {
     content: "—";
     display: block;
@@ -197,9 +192,19 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments {
+        text-align: center;
+    }
+    .departments ul li {
+        margin-right: 10px;
+    }
+    .departments ul li:last-child {
+        margin-right: 0;
+    }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 25px;
+        font-size: 14px;
+        line-height: 1em;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -240,6 +245,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 10px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 16px;
+    }
 	
 }
 @media only screen and (min-width: 1440px) {
@@ -264,6 +276,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 11px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 16px;
+    }
 }
 @media only screen and (min-width: 1600px) {
 	
@@ -279,6 +298,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 14px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 17px;
+    }
 
 }
 @media only screen and (min-width: 1900px) {
@@ -295,6 +321,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 16px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 20px;
+    }
 
 }
 @media only screen and (min-width: 2100px) {
@@ -311,5 +344,11 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
-
+    .departments ul li {
+        margin-right: 18px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 23px;
+    }
 }

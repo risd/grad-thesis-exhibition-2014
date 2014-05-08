@@ -111,14 +111,15 @@ function site () {
     self.work = function (args) {
         if (args.live) {
             // set up
-            work.container(d3.select('.work-wrapper'))
+            work.container(d3.select('.work-container'))
+                .filters(d3.select('.department-container'))
                 .infiniteScroll(true)
                 .layout(args.layout)
                 .lightboxContainer(d3.select('.lightbox'))
                 .intro(d3.select('.intro-quote'))
                 .initialize();
         } else {
-            d3.select('.work-wrapper').remove();
+            d3.select('.work-section').remove();
             d3.select('.lightbox').remove();
         }
         return self;
