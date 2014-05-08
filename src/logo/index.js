@@ -30,9 +30,6 @@ module.exports = function logo () {
         window_sel
             .on('resize.logo', function () {
                 recalulate_logo_line();
-            })
-            .on('touchmove.logo', function () {
-                recalulate_logo_line();
             });
             
         return self;
