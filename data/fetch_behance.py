@@ -3,6 +3,16 @@ from behance_python.user import User
 from behance_python.exceptions import BehanceException
 
 
+# User calls _get_user_details on __init__.
+# This makes a call to the API, that we don't
+# need to make, since we aren't using any of
+# that information, we are setting
+# _get_user_details to noop
+def noop(self):
+    pass
+setattr(User, '_get_user_details', noop)
+
+
 public_key = "sGRp891umgwx4IT318rFcueQcjmr9bt3"
 behance = API(public_key)
 
@@ -17,21 +27,34 @@ class FetchBehance():
             'temp_projects': [],
             'formatted': [],
         }
-        self.complete_fetch = False
+        self.status = {
+            'complete': False,
+            'left_off': {
+                # which dataset were we in?
+                # user, projects, details
+                'dataset': None,
+                # what was left to go through?
+                'remaining': None
+            },
+        }
         self.logger = logger
 
     def fetch(self):
+        self.status['complete'] = False
+
         projects_fetched = self.fetch_projects()
         details_fected = self.fetch_project_details()
 
         if projects_fetched and details_fected:
-            self.complete_fetch = True
-
-        self.format_data()
+            self.status['complete'] = True
+            self.format_data()
 
         return self
 
+
     def fetch_projects(self):
+        self.logger.info('Fetching Projects')
+
         for student in self.to_fetch['students']:
             user_to_fetch = student['username']
 
@@ -57,8 +80,9 @@ class FetchBehance():
         return True
 
     def fetch_project_details(self):
+        self.logger.info('Fetching Details')
+
         for project_to_fetch in self.data['temp_projects']:
-            print "Project Details"
 
             try:
                 project_details = behance.get_project(

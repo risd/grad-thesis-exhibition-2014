@@ -72,7 +72,7 @@ if __name__ == '__main__':
             logger=logger,
             to_fetch={
                 'students': grads,
-                'tag': test_tag_to_filter,
+                'tag': tag_to_filter,
             }
         ).fetch()
 
@@ -80,7 +80,7 @@ if __name__ == '__main__':
     shuffle(fetched_data)
 
     # if we do not complete the fetch, don't write data
-    if (fetch.complete_fetch):
+    if (fetch.status['complete']):
         # otherwise, paginate the data for writing to files
         paginated = Paginate(fetched_data,
                              per_page=20.0).paginated
@@ -90,7 +90,7 @@ if __name__ == '__main__':
             'pages': []
         }
 
-        timestamp = datetime.now().strftime('%Y%m%d')
+        timestamp = datetime.now().strftime('%Y%m%d%H%M')
 
         for page in paginated:
             file_name =\

@@ -23,6 +23,8 @@ module.exports = function Data () {
 
     function process_request () {
         var next_to_load = choose_and_remove_from_available();
+        console.log('next_to_load');
+        console.log(next_to_load);
         if (next_to_load) {
             d3.json(url + next_to_load, function (data) {
                 self.dispatch.data(data);
