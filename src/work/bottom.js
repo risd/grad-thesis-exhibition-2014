@@ -21,19 +21,8 @@ module.exports = function bottom () {
             .on('resize.bottom', function () {
                 calculate_variables();
             })
-            .on('scroll.bottom', function () {
-                if (!container_node) throw "Requires container.";
-                if (dirty) return;
-
-                body_height = parseInt(body_sel.style('height'));
-                if (body_height <=
-                    (window.innerHeight + window.scrollY)) {
-
-                    dirty = true;
-                    self.dispatch.bottom();
-                    console.log('dispatch bottom');
-                }
-            });
+            .on('scroll.bottom', check_dispatch)
+            .on('touchmove.bottom', check_dispatch);
     };
 
     self.container = function (_) {
@@ -42,6 +31,19 @@ module.exports = function bottom () {
         container_node = container_sel.node();
         return self;
     };
+
+    function check_dispatch () {
+        if (!container_node) throw "Requires container.";
+        if (dirty) return;
+
+        body_height = parseInt(body_sel.style('height'));
+        if (body_height <=
+            (window.innerHeight + window.scrollY)) {
+
+            dirty = true;
+            self.dispatch.bottom();
+        }
+    }
 
     return self;
 };

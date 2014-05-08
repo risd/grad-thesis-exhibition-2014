@@ -40,15 +40,18 @@ module.exports = function fixed () {
 
         d3.select(window)
             .on('scroll.fixed', function () {
-                configre_fixed();
+                configure_fixed();
+            })
+            .on('touchmove.fixed', function () {
+                configure_fixed();
             })
             .on('resize.fixed', function () {
                 calc_contraints();
-                configre_fixed();
+                configure_fixed();
             });
     };
 
-    function configre_fixed () {
+    function configure_fixed () {
         var fixed_y = 0;
 
         if ((not_fixed_distance - pageYOffset) < 0) {

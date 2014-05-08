@@ -44,6 +44,9 @@ module.exports = function nav () {
             })
             .on('scroll.nav', function () {
                 place_button();
+            })
+            .on('touchmove.nav', function () {
+                place_button();
             });
 
         return self;
