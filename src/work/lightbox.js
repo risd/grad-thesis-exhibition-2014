@@ -26,7 +26,7 @@ module.exports = function lightbox () {
         var lightbox_meta_sel =
             lightbox_grid_sel
                 .append('div')
-                .attr('class', 'lightbox-meta col-percent-2-10');
+                .attr('class', 'lightbox-meta');
 
         var lightbox_work_sel =
             lightbox_grid_sel
@@ -35,6 +35,20 @@ module.exports = function lightbox () {
                       'lightbox-work '+
                       'offset-percent-2-10 '+
                       'col-percent-8-10');
+
+        lightbox_meta_sel
+            .style('width',
+                   (parseInt(lightbox_work_sel
+                                .style('margin-left')) - 20) + 'px');
+
+        d3.select(window)
+            .on('resize.lightbox', function () {
+                lightbox_meta_sel
+                    .style('width',
+                           (parseInt(lightbox_work_sel
+                                        .style('margin-left')) - 20) +
+                           'px');
+            });
 
         lightbox_work_sel
             .append('h2')
@@ -79,6 +93,7 @@ module.exports = function lightbox () {
 
         container_sel.classed('active', true);
         body_sel.classed('no-scroll', true);
+        body_sel.classed('in-lightbox', true);
 
         container_sel.on('click', function () {
             close();
@@ -91,8 +106,12 @@ module.exports = function lightbox () {
             .html('');
 
         body_sel.classed('no-scroll', false);
+        body_sel.classed('in-lightbox', false);
 
         container_sel.on('click', null);
+        
+        d3.select(window)
+            .on('resize.lightbox', null);
     }
 
     function add_modules (d, i) {

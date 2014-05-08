@@ -125,19 +125,24 @@ body {
 }
 
 
-.body-orange .lightbox a {
+.body-orange .lightbox a,
+.body-orange.in-lightbox {
     color: rgb(255, 61, 56);
 }
-.body-purple .lightbox a {
+.body-purple .lightbox a,
+.body-purple.in-lightbox {
     color: rgb(38, 34, 98);
 }
-.body-lt-purple .lightbox a {
+.body-lt-purple .lightbox a,
+.body-lt-purple.in-lightbox {
     color: rgb(146, 53, 125);
 }
-.body-green .lightbox a {
+.body-green .lightbox a,
+.body-green.in-lightbox {
     color: rgb(144, 218, 73);
 }
-.body-blue .lightbox a {
+.body-blue .lightbox a,
+.body-blue.in-lightbox {
     color: rgb(43, 89, 184);
 }
 
