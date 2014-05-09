@@ -129,7 +129,7 @@ h4 {
 .lightbox-description {
     margin-bottom: 1.5em;
 }
-.lightbox-meta-info:last-child {
+.lightbox-meta-info {
     margin-bottom: 2em;
 }
 .lightbox-title,
@@ -807,10 +807,6 @@ html, body {
     }
 }/* Modules
 -----------------------------------------------*/
-
-.to-reveal .logo-text-component {
-    opacity: 0;
-}
 .logo-text-component {
     position: absolute;
     opacity: 1;
@@ -819,31 +815,6 @@ html, body {
     -moz-transition: opacity 1s ease-in;
     -ms-transition: opacity 1s ease-in;
     transition: opacity 1s ease-in;
-}
-.to-reveal .within-logo-margin {
-    opacity: 0;
-
-    -webkit-transform: translateY(20px);
-    -moz-transform: translateY(20px);
-    -ms-transform: translateY(20px);
-    transform: translateY(20px);
-}
-.within-logo-margin {
-    opacity: 1;
-
-    -webkit-transform: translateY(0);
-    -moz-transform: translateY(0);
-    -ms-transform: translateY(0);
-    transform: translateY(0);
-
-    /*-webkit-transition: opacity 2s ease-in, -webkit-transform 2s ease-in;
-    -moz-transition: opacity 2s ease-in, -moz-transition 2s ease-in;
-    -ms-transition: opacity 2s ease-in, -ms-transition 2s ease-in;
-    transition: opacity 2s ease-in, transition 2s ease-in;*/
-    -webkit-transition: opacity 1s ease-in 1.5s, -webkit-transform 1s ease-in 1.5s;
-    -moz-transition: opacity 1s ease-in 1.5s, -moz-transform 1s ease-in 1.5s;
-    -ms-transition: opacity 1s ease-in 1.5s, -ms-transform 1s ease-in 1.5s;
-    transition: opacity 1s ease-in 1.5s, transform 1s ease-in 1.5s;
 }
 .overlay-nav-item-image svg {
     width: 30px;

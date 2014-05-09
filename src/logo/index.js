@@ -50,8 +50,6 @@ module.exports = function logo () {
         logo_text_sel = d3.select('header')
                           .selectAll('.logo-text-component');
 
-        setup_reveal();
-
         // verticies for 
         var text_verticies = logo_line_text_verticies(logo_text_sel);
         var connecting_segments =
@@ -71,46 +69,6 @@ module.exports = function logo () {
 
         logo_line_merged_sel.call(tween_in);
     };
-
-    function setup_reveal () {
-        d3.select('body').classed('to-reveal', false);
-
-        if (delay_past_reveal_sel) {
-            delay_past_reveal_sel
-                .datum(function () { return this.dataset; });
-
-            delay_past_reveal_sel
-                .on('transitionend', function (d) {
-                    d3.select(this).classed(d.delayedclass, true);
-                    delay_past_reveal_sel
-                        .on('transitionend', null);
-                })
-                .on('webkitTransitionEnd', function (d) {
-                    // console.log('webkitTransitionEnd');
-                    d3.select(this).classed(d.delayedclass, true);
-                    delay_past_reveal_sel
-                        .on('webkitTransitionEnd', null);
-                })
-                .on('oTransitionEnd', function (d) {
-                    // console.log('oTransitionEnd');
-                    d3.select(this).classed(d.delayedclass, true);
-                    delay_past_reveal_sel
-                        .on('oTransitionEnd', null);
-                })
-                .on('otransitionend', function (d) {
-                    // console.log('otransitionend');
-                    d3.select(this).classed(d.delayedclass, true);
-                    delay_past_reveal_sel
-                        .on('otransitionend', null);
-                })
-                .on('MSTransitionEnd', function (d) {
-                    // console.log('MSTransitionEnd');
-                    d3.select(this).classed(d.delayedclass, true);
-                    delay_past_reveal_sel
-                        .on('MSTransitionEnd', null);
-                });
-        }
-    }
 
     function recalulate_logo_line () {
         var window_width = window.innerWidth,

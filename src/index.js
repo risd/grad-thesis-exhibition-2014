@@ -8,7 +8,8 @@ site()
     .colors()
     .overlay()
     .logo()
-    .work(work_args);
+    .work(work_args)
+    .reveal();
 
 
 function parse_url_for_work (path) {
@@ -123,6 +124,35 @@ function site () {
             d3.select('.lightbox').remove();
         }
         return self;
+    };
+
+    self.reveal = function () {
+        var vendor =
+            ["", "-webkit-", "-moz-", "-ms-", "-o-"].reduce(
+            function (p, v) {
+                return v +
+                      "transform" in document.body.style ? v : p;
+            });
+        var travel = (-(window.innerHeight/2));
+        var transfrom_start = 'translate(0px,' + travel + 'px)';
+        var transfrom_end = 'translate(0px,0px)';
+        var reveal = d3.selectAll('.reveal-me');
+
+        reveal
+            .style('opacity', 0)
+            .style(vendor+'transform', transfrom_start);
+
+        reveal
+            .transition()
+            .delay(800)
+            .duration(1200)
+            .style('opacity', 1)
+            .styleTween(vendor+'transform', function() {
+                return d3.interpolateString(
+                        transfrom_start,
+                        transfrom_end);
+
+            });
     };
 
     return self;
