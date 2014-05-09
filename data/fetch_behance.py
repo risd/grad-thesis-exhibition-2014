@@ -107,7 +107,7 @@ class FetchBehance():
 
         try:
             # get all projects with our tag of interest
-            projects = behance.project_search(tags=tag)
+            projects = behance.project_search('*', tags=tag)
 
         except BehanceException as e:
             self.logger.error(
@@ -120,6 +120,9 @@ class FetchBehance():
                     'completed': False,
                     'left_off': None,
                 }
+
+        self.logger.debug('Project count: ' +\
+                          '{0}'.format(projects))
 
         # check to see if project is done by a student
         # whose username we are searching for
