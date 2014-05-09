@@ -140,8 +140,8 @@ class FetchBehance():
 
                 # check to see if project is done by a student
                 # whose username we are searching for
-                for key in project['owners']:
-                    username = project['owners'][key]['username']
+                for owner in project['owners']:
+                    username = owner['username']
 
                     for student in self.to_fetch['students']:
                         if username == student['username']:
