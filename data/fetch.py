@@ -24,52 +24,50 @@ if __name__ == '__main__':
 
 
     # students to gather
-    grads = [
-	
-		{
+    grads = [{
             'username': 'david_aipperspach',
             'program': 'Painting',
-			 'personal': 'http://davidaipperspach.com/',
+			'personal': 'http://davidaipperspach.com/',
         },{
-			 'username': 'SwordofChaos',
+			'username': 'SwordofChaos',
             'program': 'Landscape Architecture',
-			 'personal': '',
+			'personal': '',
         },{
-			 'username': 'katebell',
+            'username': 'katebell',
             'program': 'Jewelry + Metalsmithing',
-			 'personal': 'http://kate-bell.com/',
+			'personal': 'http://kate-bell.com/',
         },{
-			 'username': 'MassiveCombination',
+			'username': 'MassiveCombination',
             'program': 'Interior Architecture',
-			 'personal': '',
+			'personal': '',
 		},{
-			 'username': 'MassiveCombination',
+			'username': 'MassiveCombination',
             'program': 'Interior Architecture',
-			 'personal': '',
+			'personal': '',
 		},{	 	 
-			 'username': 'weichen',
+			'username': 'weichen',
             'program': 'Industrial Design',
-			 'personal': 'http://weichendesign.com',
+			'personal': 'http://weichendesign.com',
         }, {
-			'username': 'junhocjh',
-           'program': 'Interior Architecture',
+            'username': 'junhocjh',
+            'program': 'Interior Architecture',
 			'personal':'http://www.junhochoi.com',
         }, {
-			'username': 'ranheechung',
-           'program': 'Industrial Design',
+            'username': 'ranheechung',
+            'program': 'Industrial Design',
 			'personal':'http://www.ranheechung.com',
 		}, {
 			'username': 'jiangliu-dong',
-           'program': 'Jewelry + Metalsmithing',
+            'program': 'Jewelry + Metalsmithing',
 			'personal':'',	
 		}, {
            'username': 'SallyGales',
            'program': 'Interior Architecture',
-			'personal':'http://sally-gales.squarespace.com',	
+	       'personal':'http://sally-gales.squarespace.com',	
         }, {
-			'username': 'doreengarner',
+            'username': 'doreengarner',
             'program': 'Glass',
-			'personal':'http://www.doreengarner.com',
+            'personal':'http://www.doreengarner.com',
         }, {
 			'username': 'juliegautierdownes',
             'program': 'Photography',
@@ -93,31 +91,31 @@ if __name__ == '__main__':
 		}, {
 			'username': 'teeshape',
             'program': 'Industrial Design',
-			'personal':'',	
+			'personal':'',
 		}, {
 			'username': 'wangui',
             'program': 'Printmaking',
-			'personal':'http://wanguimaina.tumblr.com/',	
+			'personal':'http://wanguimaina.tumblr.com/',
 		}, {
 			'username': 'tmishima9b37',
             'program': 'Painting',
-			'personal':'http://tommymishimastudio.com/',	
+			'personal':'http://tommymishimastudio.com/',
 		}, {
 			'username': 'sophia_narrett',
             'program': 'Painting',
-			'personal':'http://www.sophianarrett.com/',	
+			'personal':'http://www.sophianarrett.com/',
 		}, {
 			'username': 'davidngene',
             'program': 'Industrial Design',
-			'personal':'http://www.linkedin.com/in/davidngene',	
+			'personal':'http://www.linkedin.com/in/davidngene',
 		}, {
 			'username': 'nckpnny',
             'program': 'Digital + Media',
-			'personal':'http://www.nckpnny.com/',		
+			'personal':'http://www.nckpnny.com/',
 		}, {
 			'username': 'steven_pestana',
             'program': 'Digital + Media',
-			'personal':'http://www.stevenpestana.com',							
+			'personal':'http://www.stevenpestana.com',
 		}, {
 			'username': 'apexaa1ba',
             'program': 'Glass',
@@ -129,19 +127,19 @@ if __name__ == '__main__':
 		}, {
 			'username': 'Jordan_Taylor',
             'program': 'Ceramics',
-			'personal':'http://cargocollective.com/Jordan_Taylor',	
+			'personal':'http://cargocollective.com/Jordan_Taylor',
 		}, {
 			'username': 'ttreuhaft',
             'program': 'Furniture',
-			'personal':'http://www.teshiatreuhaft.com',	
+			'personal':'http://www.teshiatreuhaft.com',
 		}, {
 			'username': 'diana_wagner',
             'program': 'Industrial Design',
-			'personal':'http://www.dianawagner.com/',		
+			'personal':'http://www.dianawagner.com/',
 		}, {
 			'username': 'gefengwang',
            'program': 'Digital + Media',
-			'personal':'http://www.gefengwang.com/',	
+			'personal':'http://www.gefengwang.com/',
 		}, {
 			'username': 'ReesaWood',
            'program': 'Painting',
@@ -149,7 +147,7 @@ if __name__ == '__main__':
 		}, {
 			'username': 'awoolbri0877',
            'program': 'Painting',
-			'personal':'http://www.andrewwoolbright.com/',	
+			'personal':'http://www.andrewwoolbright.com/',
 		}, {
 			'username': 'chihaoyo',
            'program': 'Digital + Media',
@@ -157,11 +155,11 @@ if __name__ == '__main__':
 		}, {
 			'username': 'lehu',
            'program': 'Graphic Design',
-			'personal':'http://www.lehuzhang.com/',						
+			'personal':'http://www.lehuzhang.com/',
 		}, {
 			'username': 'jingzuo',
            'program': 'Interior Architecture',
-			'personal':'http://cargocollective.com/jzuocc',	
+			'personal':'http://cargocollective.com/jzuocc',
         }]
 
     tag_to_filter = 'Grad Show 2014'
