@@ -24,151 +24,26 @@ if __name__ == '__main__':
 
 
     # students to gather
-    grads = [{
-            'username': 'david_aipperspach',
-            'program': 'Painting',
-			'personal': 'http://davidaipperspach.com/',
-        },{
-			'username': 'SwordofChaos',
-            'program': 'Landscape Architecture',
-			'personal': '',
-        },{
-            'username': 'katebell',
-            'program': 'Jewelry + Metalsmithing',
-			'personal': 'http://kate-bell.com/',
-        },{
-			'username': 'MassiveCombination',
-            'program': 'Interior Architecture',
-			'personal': '',
-		},{
-			'username': 'MassiveCombination',
-            'program': 'Interior Architecture',
-			'personal': '',
-		},{	 	 
-			'username': 'weichen',
-            'program': 'Industrial Design',
-			'personal': 'http://weichendesign.com',
-        }, {
-            'username': 'junhocjh',
-            'program': 'Interior Architecture',
-			'personal':'http://www.junhochoi.com',
-        }, {
-            'username': 'ranheechung',
-            'program': 'Industrial Design',
-			'personal':'http://www.ranheechung.com',
-		}, {
-			'username': 'jiangliu-dong',
-            'program': 'Jewelry + Metalsmithing',
-			'personal':'',	
-		}, {
-           'username': 'SallyGales',
-           'program': 'Interior Architecture',
-	       'personal':'http://sally-gales.squarespace.com',	
-        }, {
-            'username': 'doreengarner',
-            'program': 'Glass',
-            'personal':'http://www.doreengarner.com',
-        }, {
-			'username': 'juliegautierdownes',
-            'program': 'Photography',
-			'personal':'http://www.juliegautierdownes.com',
-        }, {
-			'username': 'vanessagodden',
-            'program': 'Photography',
-			'personal':'http://vanessagodden.com/',
-		}, {
-			'username': 'Nayoung-Jeong',
-            'program': 'Ceramics',
-			'personal':'http://www.nayoungjeong.com',
-        }, {
-			'username': 'forestkelley',
-            'program': 'Photography',
-			'personal':'http://forestkelley.net',
-		}, {
-			'username': 'eunsong',
-            'program': 'Interior Architecture',
-			'personal':'',
-		}, {
-			'username': 'teeshape',
-            'program': 'Industrial Design',
-			'personal':'',
-		}, {
-			'username': 'wangui',
-            'program': 'Printmaking',
-			'personal':'http://wanguimaina.tumblr.com/',
-		}, {
-			'username': 'tmishima9b37',
-            'program': 'Painting',
-			'personal':'http://tommymishimastudio.com/',
-		}, {
-			'username': 'sophia_narrett',
-            'program': 'Painting',
-			'personal':'http://www.sophianarrett.com/',
-		}, {
-			'username': 'davidngene',
-            'program': 'Industrial Design',
-			'personal':'http://www.linkedin.com/in/davidngene',
-		}, {
-			'username': 'nckpnny',
-            'program': 'Digital + Media',
-			'personal':'http://www.nckpnny.com/',
-		}, {
-			'username': 'steven_pestana',
-            'program': 'Digital + Media',
-			'personal':'http://www.stevenpestana.com',
-		}, {
-			'username': 'apexaa1ba',
-            'program': 'Glass',
-			'personal':'http://aaronpexa.com/',
-		}, {
-			'username': 'jshih',
-            'program': 'Digital + Media',
-			'personal':'http://moriandyama.com/',
-		}, {
-			'username': 'Jordan_Taylor',
-            'program': 'Ceramics',
-			'personal':'http://cargocollective.com/Jordan_Taylor',
-		}, {
-			'username': 'ttreuhaft',
-            'program': 'Furniture',
-			'personal':'http://www.teshiatreuhaft.com',
-		}, {
-			'username': 'diana_wagner',
-            'program': 'Industrial Design',
-			'personal':'http://www.dianawagner.com/',
-		}, {
-			'username': 'gefengwang',
-           'program': 'Digital + Media',
-			'personal':'http://www.gefengwang.com/',
-		}, {
-			'username': 'ReesaWood',
-           'program': 'Painting',
-			'personal':'http://www.reesawood.com',
-		}, {
-			'username': 'awoolbri0877',
-           'program': 'Painting',
-			'personal':'http://www.andrewwoolbright.com/',
-		}, {
-			'username': 'chihaoyo',
-           'program': 'Digital + Media',
-			'personal':'http://chihaoyo.me/portfolio/',	
-		}, {
-			'username': 'lehu',
-           'program': 'Graphic Design',
-			'personal':'http://www.lehuzhang.com/',
-		}, {
-			'username': 'jingzuo',
-           'program': 'Interior Architecture',
-			'personal':'http://cargocollective.com/jzuocc',
-        }]
+    grads = []
+    with open('./data/grads.json', 'r') as grads_file:
+        grads = json.loads(grads_file.read())
 
     tag_to_filter = 'Grad Show 2014'
     test_tag_to_filter = '*'
 
     # grab into data
     bootstrap_file_path = './data/bootstrap.json'
-    with open(bootstrap_file_path, 'r') as bootstrap_input_file:
-        bootstrap_input = json.loads(bootstrap_input_file.read())
+    bootstrap_input = {
+        'status': {
+            'completed': True
+        }
+    }
+    logger.info('Reading bootstrap file.')
+    try:
+        with open(bootstrap_file_path, 'r') as bootstrap_input_file:
+            bootstrap_input = json.loads(bootstrap_input_file.read())
+    except:
+        logger.info('No bootstrap file, continuing.')
 
     if bootstrap_input['status']['completed']:
         # get projects based on the students

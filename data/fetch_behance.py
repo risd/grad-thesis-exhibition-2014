@@ -20,7 +20,7 @@ class FetchBehance():
     """docstring for FetchBehance"""
     def __init__(self,
                  logger,
-                 to_fetch={ 'students': [], 'tag': [], },
+                 to_fetch={ 'students': [], 'tag': '', },
                  pick_up={ 'dataset': None, 'value': None },
                  data={ 'projects':[],
                         'temp_projects':[],
@@ -51,7 +51,7 @@ class FetchBehance():
         self.logger = logger
 
     def fetch(self):
-        self.status['complete'] = False
+        self.status['completed'] = False
 
         # boot strap
         if self.pick_up['dataset'] == 'details':
@@ -101,41 +101,41 @@ class FetchBehance():
 
 
     def fetch_projects(self, pick_up_from=None):
-        self.logger.info('Fetching Projects') 
+        self.logger.info('Fetching Projects')
 
-        for student in self.to_fetch['students']:
-            user_to_fetch = student['username']
+        tag = self.tag_mutations(self.to_fetch['tag'])
 
-            # if there is a user to pick up on
-            # start looking for it
-            if pick_up_from:
-                # when you find it, set pick_up_from
-                # to None, to invalidate this statement
-                if user_to_fetch == pick_up_from:
-                    pick_up_from = None
-                else:
-                    # otherwise, continue looking for
-                    # the user
-                    continue
+        try:
+            # get all projects with our tag of interest
+            projects = behance.project_search(tags=tag)
 
-            try:
-                user = User(user_to_fetch, public_key)
-                projects = user.get_projects()
+        except BehanceException as e:
+            self.logger.error(
+                "Problem with Behance API. {0}".format(e))
+            # error code 429 is given when you
+            # have made too many API calls.
+            # so you won't be making more
+            if (e.error_code == 429):
+                return {
+                    'completed': False,
+                    'left_off': None,
+                }
 
-            except BehanceException as e:
-                self.logger.error(
-                    "Problem with Behance API. {0}".format(e))
-                # error code 429 is given when you
-                # have made too many API calls.
-                # so you won't be making more
-                if (e.error_code == 429):
-                    return {
-                        'completed': False,
-                        'left_off': user_to_fetch,
-                    }
+        # check to see if project is done by a student
+        # whose username we are searching for
+        for project in projects['projects']:
+            to_include = False
 
-            for project in projects:
+            for key in project['owners']:
+                username = project['owners'][key]['username']
+
+                for student in self.to_fetch['students']:
+                    if username == student['username']:
+                        to_include = True
+
+            if to_include:
                 project['risd_program'] = student['program']
+                project['personal_link'] = student['personal']
                 self.data['temp_projects'].append(project)
 
         return {
@@ -236,3 +236,10 @@ class FetchBehance():
             project['details'].pop('project_id', None)
             project['details'].pop('styles', None)
         return True
+
+    def tag_mutations(self, tag):
+        mutated = tag
+        mutated += '|{0}'.format(tag.lower())
+        mutated += '|{0}'.format(''.join(tag.split(' ')))
+        mutated += '|{0}'.format(''.join(tag.split(' ')).lower())
+        return mutated
