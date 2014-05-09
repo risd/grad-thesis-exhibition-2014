@@ -103,13 +103,25 @@ class FetchBehance():
     def fetch_projects(self, pick_up_from=None):
         self.logger.info('Fetching Projects')
 
-        tag = self.tag_mutations(self.to_fetch['tag'])
-
         for student in self.to_fetch['students']:
+
+            # if there is a value to pick up from
+            # start looking for it.
+            if pick_up_from:
+                if student['username'] == pick_up_from:
+                    # when the user is found
+                    # remove the flag to find them
+                    pick_up_from = None
+                else:
+                    # otherwise, continue
+                    # looking for the user
+                    continue
+
             try:
                 # get all projects with our tag of interest
-                projects = behance.project_search(student['username'],
-                                                  tags=tag)
+                projects =\
+                    behance.project_search(student['username'],
+                                           tags=self.to_fetch['tag'])
 
             except BehanceException as e:
                 self.logger.error(
@@ -177,24 +189,9 @@ class FetchBehance():
                         'left_off': project_to_fetch['id'],
                     }
 
-            add_project = False
-
-            if self.to_fetch['tag'] == '*':
-                add_project = True
-            else:
-                # this will enforce the tag being in there
-                for tag in project_details['tags']:
-                    if tag.lower() == self.to_fetch['tag']\
-                                          .lower() or\
-                       ''.join(tag.split(' ')).lower() ==\
-                         ''.join(self.to_fetch['tag']
-                                     .split(' ')).lower():
-                        
-                        add_project = True
-
-            if add_project:
-                project_to_fetch['details'] = project_details
-                self.data['projects'].append(project_to_fetch)
+            # add project details into the mix
+            project_to_fetch['details'] = project_details
+            self.data['projects'].append(project_to_fetch)
 
         return {
             'completed': True,
