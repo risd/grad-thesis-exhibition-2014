@@ -105,41 +105,40 @@ class FetchBehance():
 
         tag = self.tag_mutations(self.to_fetch['tag'])
 
-        try:
-            # get all projects with our tag of interest
-            projects = behance.project_search('*', tags=tag)
+        for student in self.to_fetch['students']:
+            try:
+                # get all projects with our tag of interest
+                projects = behance.project_search(student['username'],
+                                                  tags=tag)
 
-        except BehanceException as e:
-            self.logger.error(
-                "Problem with Behance API. {0}".format(e))
-            # error code 429 is given when you
-            # have made too many API calls.
-            # so you won't be making more
-            if (e.error_code == 429):
-                return {
-                    'completed': False,
-                    'left_off': None,
-                }
+            except BehanceException as e:
+                self.logger.error(
+                    "Problem with Behance API. {0}".format(e))
+                # error code 429 is given when you
+                # have made too many API calls.
+                # so you won't be making more
+                if (e.error_code == 429):
+                    return {
+                        'completed': False,
+                        'left_off': student['username'],
+                    }
 
-        self.logger.debug('Project count: ' +\
-                          '{0}'.format(projects))
+            for project in projects:
+                to_include = False
 
-        # check to see if project is done by a student
-        # whose username we are searching for
-        for project in projects['projects']:
-            to_include = False
+                # check to see if project is done by a student
+                # whose username we are searching for
+                for key in project['owners']:
+                    username = project['owners'][key]['username']
 
-            for key in project['owners']:
-                username = project['owners'][key]['username']
+                    for student in self.to_fetch['students']:
+                        if username == student['username']:
+                            to_include = True
 
-                for student in self.to_fetch['students']:
-                    if username == student['username']:
-                        to_include = True
-
-            if to_include:
-                project['risd_program'] = student['program']
-                project['personal_link'] = student['personal']
-                self.data['temp_projects'].append(project)
+                if to_include:
+                    project['risd_program'] = student['program']
+                    project['personal_link'] = student['personal']
+                    self.data['temp_projects'].append(project)
 
         return {
             'completed': True,
