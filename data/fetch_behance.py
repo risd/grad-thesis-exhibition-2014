@@ -143,8 +143,8 @@ class FetchBehance():
                 for owner in project['owners']:
                     username = owner['username']
 
-                    for student in self.to_fetch['students']:
-                        if username == student['username']:
+                    for student_check in self.to_fetch['students']:
+                        if username == student_check['username']:
                             to_include = True
 
                 if to_include:

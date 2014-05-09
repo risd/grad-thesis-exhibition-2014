@@ -73,7 +73,8 @@ function format_data_cover_with_modules (data) {
             'modules': modules_to_include,
             'cover': random_cover,
             description: d.details.description,
-            url: d.owners[0].url
+            url: d.owners[0].url,
+            personal_link: d.personal_link
         });
     });
 

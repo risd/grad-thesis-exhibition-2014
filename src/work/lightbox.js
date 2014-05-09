@@ -83,13 +83,23 @@ module.exports = function lightbox () {
             .attr('class', 'lightbox-meta-info--risd-program')
             .text(data.risd_program);
 
+        if (data.personal_link.length > 0) {
+            lightbox_meta_info_sel
+                .append('p')
+                .attr('class', 'lightbox-meta-info--personal-link')
+                .append('a')
+                .attr('href', data.personal_link)
+                .attr('target', '_blank')
+                .text('Personal Website');
+        }
+
         lightbox_meta_info_sel
             .append('p')
             .attr('class', 'lightbox-meta-info--personal-link')
             .append('a')
             .attr('href', data.url)
             .attr('target', '_blank')
-            .text('Behance');
+            .text('Behance Portfolio');
 
         container_sel.classed('active', true);
         body_sel.classed('no-scroll', true);
