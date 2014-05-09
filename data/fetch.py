@@ -65,22 +65,40 @@ if __name__ == '__main__':
     tag_to_filter = 'Grad Show 2014'
     test_tag_to_filter = '*'
 
-    # get projects based on the students
-    # passed in, and the tag to filter for
-    fetch =\
-        FetchBehance(
-            logger=logger,
-            to_fetch={
-                'students': grads,
-                'tag': tag_to_filter,
-            }
-        ).fetch()
+    # grab into data
+    bootstrap_file_path = './data/bootstrap.json'
+    with open(bootstrap_file_path, 'r') as bootstrap_input_file:
+        bootstrap_input = json.loads(bootstrap_input_file.read())
 
-    fetched_data = fetch.data['formatted']
-    shuffle(fetched_data)
+    if bootstrap_input['status']['completed']:
+        # get projects based on the students
+        # passed in, and the tag to filter for
+        fetch =\
+            FetchBehance(
+                logger=logger,
+                to_fetch={
+                    'students': grads,
+                    'tag': tag_to_filter,
+                }
+            ).fetch()
+    else:
+        fetch =\
+            FetchBehance(
+                logger=logger,
+                to_fetch={
+                    'students': grads,
+                    'tag': tag_to_filter,
+                },
+                pick_up=bootstrap_input['status']['left_off'],
+                data=bootstrap_input['data']
+            ).fetch()
 
-    # if we do not complete the fetch, don't write data
-    if (fetch.status['complete']):
+    # write data if we are done
+    if (fetch.status['completed']):
+        # shuffle the data
+        fetched_data = fetch.data['formatted']
+        shuffle(fetched_data)
+
         # otherwise, paginate the data for writing to files
         paginated = Paginate(fetched_data,
                              per_page=20.0).paginated
@@ -107,10 +125,27 @@ if __name__ == '__main__':
             metadata['pages'].append(file_name)
             count += 1
 
+        # write out metadata for front end to find the
+        # latest batch of files
         metadata_path = './data/metadata.json'
         logger.info('Writing metadata: {0}'.format(metadata_path))
         with open(metadata_path, 'w') as metadata_file:
             metadata_file.write(json.dumps(metadata))
 
+        bootstrap_trail = {}
+        bootstrap_trail['status'] = fetch.status
+        bootstrap_trail['data'] = None
+
     else:
+        # did not complete, write out where to pick up
+        bootstrap_trail = {}
+        bootstrap_trail['status'] = fetch.status
+        bootstrap_trail['data'] = fetch.data
+
         logger.info("Did not complete fetch. Not writing data.")
+
+    # write the bootstrap
+    logger.info('Writing bootstrap trail: ' +\
+                '{0}'.format(bootstrap_file_path))
+    with open(bootstrap_file_path, 'w') as bootstrap_trail_file:
+        bootstrap_trail_file.write(json.dumps(bootstrap_trail))

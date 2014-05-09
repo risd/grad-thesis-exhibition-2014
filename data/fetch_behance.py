@@ -3,6 +3,9 @@ from behance_python.user import User
 from behance_python.exceptions import BehanceException
 
 
+public_key = "sGRp891umgwx4IT318rFcueQcjmr9bt3"
+behance = API(public_key)
+
 # User calls _get_user_details on __init__.
 # This makes a call to the API, that we don't
 # need to make, since we aren't using any of
@@ -13,52 +16,107 @@ def noop(self):
 setattr(User, '_get_user_details', noop)
 
 
-public_key = "sGRp891umgwx4IT318rFcueQcjmr9bt3"
-behance = API(public_key)
-
 class FetchBehance():
     """docstring for FetchBehance"""
     def __init__(self,
                  logger,
-                 to_fetch={ 'students': [], 'tag': [], }):
+                 to_fetch={ 'students': [], 'tag': [], },
+                 pick_up={ 'dataset': None, 'value': None },
+                 data={ 'projects':[],
+                        'temp_projects':[],
+                        'formatted':[] }):
+
+        # list of usernames and departments to gather
         self.to_fetch = to_fetch
-        self.data = {
-            'projects': [],
-            'temp_projects': [],
-            'formatted': [],
-        }
+
+        # structure of the data used internally
+        self.data = data
+
+        # used to manage bootstrap of scripts
+        self.pick_up = pick_up
+
+        # used to manage exit of script
         self.status = {
-            'complete': False,
+            'completed': False,
             'left_off': {
                 # which dataset were we in?
                 # user, projects, details
                 'dataset': None,
-                # what was left to go through?
-                'remaining': None
+                # where do we pick up?
+                'value': None,
             },
         }
+
+        # log all the things
         self.logger = logger
 
     def fetch(self):
         self.status['complete'] = False
 
-        projects_fetched = self.fetch_projects()
-        details_fected = self.fetch_project_details()
+        # boot strap
+        if self.pick_up['dataset'] == 'details':
+            projects_fetched = {
+                'completed': True,
+                'left_off': None,
+            }
+            details_fetched = self.fetch_project_details(
+                pick_up_from=self.pick_up['value'])
 
-        if projects_fetched and details_fected:
-            self.status['complete'] = True
+        elif self.pick_up['dataset'] == 'projects':
+            projects_fetched = self.fetch_projects(
+                pick_up_from=self.pick_up['value'])
+
+        else:
+            projects_fetched = self.fetch_projects()
+            details_fetched = self.fetch_project_details()
+
+
+        # leave trail for boot strapping
+        if projects_fetched['completed'] and\
+           details_fetched['completed']:
+
+            self.status['completed'] = True
+            self.status['left_off'] = {
+                'dataset': None,
+                'value': None,
+            }
             self.format_data()
+
+        elif projects_fetched['completed']:
+
+            self.status['completed'] = False
+            self.status['left_off'] = {
+                'dataset': 'details',
+                'value': details_fetched['left_off'],
+            }
+
+        else:
+            self.status['completed'] = False
+            self.status['left_off'] = {
+                'dataset': 'projects',
+                'value': projects_fetched['left_off'],
+            }
 
         return self
 
 
-    def fetch_projects(self):
-        self.logger.info('Fetching Projects')
+    def fetch_projects(self, pick_up_from=None):
+        self.logger.info('Fetching Projects') 
 
         for student in self.to_fetch['students']:
             user_to_fetch = student['username']
 
-            self.logger.info("User: {0}".format(user_to_fetch))
+            # if there is a user to pick up on
+            # start looking for it
+            if pick_up_from:
+                # when you find it, set pick_up_from
+                # to None, to invalidate this statement
+                if user_to_fetch == pick_up_from:
+                    pick_up_from = None
+                else:
+                    # otherwise, continue looking for
+                    # the user
+                    continue
 
             try:
                 user = User(user_to_fetch, public_key)
@@ -71,18 +129,36 @@ class FetchBehance():
                 # have made too many API calls.
                 # so you won't be making more
                 if (e.error_code == 429):
-                    return False
+                    return {
+                        'completed': False,
+                        'left_off': user_to_fetch,
+                    }
 
             for project in projects:
                 project['risd_program'] = student['program']
                 self.data['temp_projects'].append(project)
 
-        return True
+        return {
+            'completed': True,
+            'left_off': None,
+        }
 
-    def fetch_project_details(self):
+    def fetch_project_details(self, pick_up_from=None):
         self.logger.info('Fetching Details')
 
         for project_to_fetch in self.data['temp_projects']:
+
+            # if there is a user to pick up on
+            # start looking for it
+            if pick_up_from:
+                # when you find it, set pick_up_from
+                # to None, to invalidate this statement
+                if project_to_fetch['id'] == pick_up_from:
+                    pick_up_from = None
+                else:
+                    # otherwise, continue looking for
+                    # the user
+                    continue
 
             try:
                 project_details = behance.get_project(
@@ -94,7 +170,10 @@ class FetchBehance():
                 # have made too many API calls.
                 # so you won't be making more
                 if (e.error_code == 429):
-                    return False
+                    return {
+                        'completed': False,
+                        'left_off': project_to_fetch['id'],
+                    }
 
             add_project = False
 
@@ -115,7 +194,10 @@ class FetchBehance():
                 project_to_fetch['details'] = project_details
                 self.data['projects'].append(project_to_fetch)
 
-        return True
+        return {
+            'completed': True,
+            'left_off': None,
+        }
 
     def format_data(self):
         self.data['formatted'] = list(self.data['projects'])
