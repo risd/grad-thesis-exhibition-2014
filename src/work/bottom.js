@@ -1,10 +1,6 @@
 module.exports = function bottom () {
     var self = {},
         dirty = false,
-        // container_sel,
-        // container_node,
-        // container_margin_bottom,
-        // window_height,
         body_sel = d3.select('body'),
         body_height;
 
@@ -18,9 +14,6 @@ module.exports = function bottom () {
 
     self.attachWindowEvents = function () {
         d3.select(window)
-            .on('resize.bottom', function () {
-                calculate_variables();
-            })
             .on('scroll.bottom', check_dispatch)
             .on('touchmove.bottom', check_dispatch);
     };

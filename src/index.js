@@ -133,7 +133,7 @@ function site () {
                 return v +
                       "transform" in document.body.style ? v : p;
             });
-        var travel = (-(window.innerHeight/2));
+        var travel = (-(window.innerHeight*0.8));
         var transfrom_start = 'translate(0px,' + travel + 'px)';
         var transfrom_end = 'translate(0px,0px)';
         var reveal = d3.selectAll('.reveal-me');
@@ -146,6 +146,7 @@ function site () {
             .transition()
             .delay(800)
             .duration(1200)
+            .ease('cubic-inout')
             .style('opacity', 1)
             .styleTween(vendor+'transform', function() {
                 return d3.interpolateString(

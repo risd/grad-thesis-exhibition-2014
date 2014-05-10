@@ -51,7 +51,8 @@ module.exports = function logo () {
                           .selectAll('.logo-text-component');
 
         // verticies for 
-        var text_verticies = logo_line_text_verticies(logo_text_sel);
+        var text_verticies = logo_line_text_verticies(logo_text_sel,
+                                                      window_width);
         var connecting_segments =
                 logo_line_connecting_segments(text_verticies,
                                               window_width,
@@ -84,7 +85,8 @@ module.exports = function logo () {
     }
 
     function update_logo_line (wwidth, wheight) {
-        var text_verticies = logo_line_text_verticies(logo_text_sel);
+        var text_verticies = logo_line_text_verticies(logo_text_sel,
+                                                      wwidth);
         var connecting_segments =
                 logo_line_connecting_segments(text_verticies,
                                               wwidth,
@@ -98,7 +100,7 @@ module.exports = function logo () {
             .attr('d', function (d) { return d; });
     }
 
-    function logo_line_text_verticies (sel) {
+    function logo_line_text_verticies (sel, wwidth) {
         var text_verticies = [];
 
         sel.each(function (d, i) {
@@ -110,15 +112,23 @@ module.exports = function logo () {
                 second = [bounds.right + 6,
                      (bounds.top + (bounds.height*(0.45)))];
             } else if ((i === 1) | (i === 2)) {
-                first = [bounds.left - 6,
+                first = [bounds.left - 2,
                      (bounds.top + (bounds.height*(0.45)))];
                 second = [bounds.right + 6,
                      (bounds.top + (bounds.height*(0.45)))];
             } else if (i === 3) {
-                first = [bounds.left - 6,
-                     (bounds.top + (bounds.height*(0.55)))];
-                second = [bounds.right + 6,
-                     (bounds.top + (bounds.height*(0.55)))];
+                if (wwidth < 768) {
+                    first = [bounds.left - 6,
+                         (bounds.top + (bounds.height*(0.55)))];
+                    second = [bounds.right + 6,
+                         (bounds.top + (bounds.height*(0.55)))];
+                } else {
+                    first = [bounds.right + 6,
+                         (bounds.top + (bounds.height*(0.55)))];
+                    second = [bounds.left - 6,
+                         (bounds.top + (bounds.height*(0.55)))];
+                }
+                
             }
 
             text_verticies.push([first, second]);
