@@ -620,7 +620,7 @@ html, body {
         width: 70%;
     }
     .grid.work {
-        width: 80%;
+        width: 75%;
     }
 }
 @media only screen and (min-width: 768px) {
@@ -629,7 +629,7 @@ html, body {
         width: 70%;
     }
     .grid.work {
-        width: 84%;
+        width: 75%;
     }
     .col-1-10 {
         width: 76px; /* 768/10 * 1 = 76  */
@@ -703,7 +703,7 @@ html, body {
         margin-top: 70px;
     }
     .grid.work {
-        width: 88%;
+        width: 75%;
     }
     .offset-1-10 {
         margin-left: 102px; /* 1280/10 * 1 = 384 */
@@ -738,7 +738,7 @@ html, body {
         margin-top: 75px;
     }
     .grid.work {
-        width: 90%;
+        width: 75%;
     }
     .offset-1-10 {
         margin-left: 128px; /* 1280/10 * 1 = 384 */
@@ -775,7 +775,7 @@ html, body {
         margin-top: 80px;
     }
     .grid.work {
-        width: 84%;
+        width: 75%;
     }
     .offset-1-10 {
         margin-left: 144px; /* 1440/10 * 1 = 144 */
