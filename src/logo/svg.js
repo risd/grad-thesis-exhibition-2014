@@ -310,6 +310,110 @@ module.exports = function svg () {
         };
     };
 
+    self.scaleProportionalYConstrainX = function (path, drawn_delta) {
+        // scale y, fit x, and constrain the
+        // maximum width of any horizontal lines
+        var delta = {
+                drawn: drawn_delta
+            },
+            original_d = path.getAttribute('d'),
+            fit_x = false;
+
+        function replace(all_segments, segment_to_replace, type) {
+            var args = [].slice.call(arguments, 3),
+                rcmd = 'createSVGPathSeg'+ type +'Rel',
+                rseg = path[rcmd].apply(path, args);
+            all_segments.replaceItem(rseg, segment_to_replace);
+        }
+        if (Math.abs(delta.drawn.x) > 0.1) {
+            fit_x = true;
+        }
+
+        return function (start, end, wwidth, wheight) {
+            delta.current = {
+                x: end[0] - start[0],
+                y: end[1] - start[1]
+            };
+
+            delta.diff = {
+                x: delta.current.x - delta.drawn.x,
+                y: delta.current.y - delta.drawn.y
+            };
+
+            var ratio = {
+                x: delta.current.x/delta.drawn.x,
+                y: delta.current.y/delta.drawn.y
+            };
+
+            var max = {
+                x: wwidth/delta.drawn.width
+            };
+
+
+            path.setAttribute('d', original_d);
+
+            var segments = path.pathSegList;
+            var first_segment = segments.getItem(0);
+            if (first_segment
+                    .pathSegTypeAsLetter
+                    .toLowerCase() === 'm') {
+
+                var replacement_seg =
+                    path.createSVGPathSegMovetoAbs(
+                            start[0], start[1]);
+                segments.replaceItem(replacement_seg, 0);
+            }
+
+            var dx, dy, x1, y1, x2, y2,
+                x = start[0],
+                y = start[1],
+                segment_count = segments.numberOfItems;
+            for (var i = 1; i < segment_count; i++) {
+                var seg = segments.getItem(i),
+                    c = seg.pathSegTypeAsLetter;
+
+                if ('x1' in seg) x1 = seg.x1;
+                if ('x2' in seg) x2 = seg.x2;
+                if ('y1' in seg) y1 = seg.y1 * ratio.y;
+                if ('y2' in seg) y2 = seg.y2 * ratio.y;
+                // if (fit_x) {
+                //     if ('x' in seg) dx = seg.x +
+                //                     (delta.diff.x/(segment_count-1));
+                // } else {
+                //     if ('x' in seg) dx = seg.x;
+                // }
+                if ('x' in seg) dx = seg.x * max.x;
+                if ('y'  in seg) dy = seg.y  * ratio.y;
+
+                switch (c) {
+                    case 'm':
+                        replace(segments, i, 'Moveto', dx, dy);
+                        break;
+                    case 'l':
+                        replace(segments, i, 'Lineto', dx, dy);
+                        break;
+                    case 'h':
+                        replace(segments, i, 'LinetoHorizontal', dx);
+                        break;
+                    case 'v':
+                        replace(segments, i, 'LinetoVertical', dy);
+                        break;
+                    case 'c':
+                        replace(segments, i, 'CurvetoCubic',
+                                dx,dy,x1,y1,x2,y2);
+                        break;
+                    case 's':
+                        replace(segments, i, 'CurvetoCubicSmooth',
+                                dx,dy,x2,y2);
+                        break;
+                }
+
+            }
+
+            return path.getAttribute('d');
+        };
+    };
+
     self.scaleProportionalX = function (path, drawn_delta) {
         var delta = {
                 drawn: drawn_delta

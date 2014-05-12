@@ -155,7 +155,8 @@ module.exports = function logo () {
                     .push(
                         connect_logo_scale
                             [i]
-                            .scale[line_size_to_draw](start, end));
+                            .scale[line_size_to_draw](start,
+                                                      end));
             }
         }
         return connecting_segments;
