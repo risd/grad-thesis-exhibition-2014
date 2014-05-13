@@ -13,15 +13,15 @@ site()
 
 
 function parse_url_for_work (path) {
-    console.log(path);
-    var is_it_live = false;
+    // console.log(path);
+    var is_it_live = true;
     var which_layout = 'image';
-    if (path.indexOf('work') > -1) {
-        is_it_live = true;
-    }
-    if (path.indexOf('fixed') > -1) {
-        which_layout = 'fixed';
-    }
+    // if (path.indexOf('work') > -1) {
+    //     is_it_live = true;
+    // }
+    // if (path.indexOf('fixed') > -1) {
+    //     which_layout = 'fixed';
+    // }
     return {
         live: is_it_live,
         layout: which_layout
