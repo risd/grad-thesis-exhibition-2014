@@ -45,12 +45,14 @@ module.exports = function work () {
             departments.isFilterable(transformed);
 
             // google analytics tracking
-            _gaq.push(['_trackEvent',
-                       'WorkBottom',
-                       'Reached bottom - Loading more data',
-                       'Work',
-                       2,
-                       true]);
+            if (_gaq) {
+                _gaq.push(['_trackEvent',
+                           'WorkBottom',
+                           'Reached bottom - Loading more data',
+                           'Work',
+                           2,
+                           true]);
+            }
         })
         .on('endOfData', function () {
             bottom.dispatch.on('bottom.work', null);
