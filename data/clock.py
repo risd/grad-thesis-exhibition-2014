@@ -10,6 +10,7 @@ sched = Scheduler(daemon=True)
 atexit.register(lambda: sched.shutdown(wait=False))
 
 
+# Fetching the behance data
 @sched.interval_schedule(minutes=65)
 def fetch_behance():
     new_behance = subprocess.check_call(

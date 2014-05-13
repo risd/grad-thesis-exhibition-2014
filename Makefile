@@ -1,16 +1,13 @@
-.PHONY: build install data clean
+.PHONY: build install clean
 
 all: build
 
-build: data
+build:
 	npm run build
 
 install:
 	npm install
 	pip install -r requirements.txt
-
-data:
-	python data/fetch.py
 
 clean:
 	rm -f dist/*
