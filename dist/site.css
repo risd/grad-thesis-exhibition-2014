@@ -1087,7 +1087,7 @@ html, body {
     margin-left: 0;
 }
 .overlay-nav-item,
-.piece,
+.work-section .piece,
 .department-activator {
     cursor: pointer;
 }
