@@ -157,8 +157,8 @@ h4 {
 }
 @media only screen and (min-width: 500px) {
     .logo-text h1 {
-        font-size: 32px;
-        line-height: 32px;
+        font-size: 28px;
+        line-height: 28px;
     }
     .within-logo-margin p, .within-logo-margin p a{
         font-size: 32px;
@@ -373,7 +373,7 @@ h4 {
     clear: both;
 }
 .grid {
-    width: 70%;
+    width: 60%;
     margin-top: 40px;
     margin-bottom: 100px;
 }
@@ -617,7 +617,7 @@ html, body {
 @media only screen and (min-width: 500px) {
     .grid {
         margin-top: 50px;
-        width: 70%;
+        width: 60%;
     }
     .grid.work {
         width: 75%;
@@ -626,7 +626,7 @@ html, body {
 @media only screen and (min-width: 768px) {
     .grid {
         margin-top: 70px;
-        width: 70%;
+        width: 65%;
     }
     .grid.work {
         width: 75%;
@@ -699,7 +699,7 @@ html, body {
 }
 @media only screen and (min-width: 1024px) {
     .grid {
-        width: 75%;
+        width: 65%;
         margin-top: 70px;
     }
     .grid.work {
