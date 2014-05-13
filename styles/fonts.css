@@ -73,8 +73,11 @@ h4 {
 .kern-all-caps {
     letter-spacing: 0.05em;
 }
-.departments ul li p {
-    font-family: "Theinhardt-Bold";
+.lightbox-title,
+.lightbox-meta-info--student-name,
+.departments ul li p,
+.overlay-nav-item-text p {
+    font-family: "Theinhardt-Medium";
 }
 .departments ul li p,
 .overlay-nav-item-text p {
@@ -111,13 +114,27 @@ h4 {
     line-height: 1em;
     margin: 0;
 }
-.piece-meta-wrapper .student-name {
+.piece-meta-wrapper .student-name,
+.piece-meta-wrapper .risd-program,
+.lightbox-description,
+.lightbox-meta-info--risd-program,
+.lightbox-meta-info--personal-link,
+.lightbox-meta-info--personal-link a,
+.lightbox .piece-module-text {
     font-family: "Times New Roman";
+}
+.piece-meta-wrapper .student-name,
+.piece-meta-wrapper .risd-program,
+.lightbox-title,
+.lightbox-description,
+.lightbox-meta-info--student-name,
+.lightbox-meta-info--risd-program,
+.lightbox-meta-info--personal-link,
+.lightbox-meta-info--personal-link a,
+.lightbox .piece-module-text {
     font-size: 14px;
 }
-.piece-meta-wrapper .risd-program {
-    font-size: 12px;
-}
+
 .lightbox-meta-info--student-name {
     margin-top: 0;
     margin-bottom: 0;
@@ -131,14 +148,6 @@ h4 {
 }
 .lightbox-meta-info {
     margin-bottom: 2em;
-}
-.lightbox-title,
-.lightbox-description,
-.lightbox-meta-info--risd-program,
-.lightbox-meta-info--personal-link,
-.lightbox-meta-info--personal-link a,
-.lightbox .piece-module-text {
-    font-family: "Times New Roman";
 }
 
 @media only screen and (min-width: 400px) {
@@ -196,15 +205,21 @@ h4 {
         text-align: center;
     }
     .departments ul li {
-        margin-right: 10px;
+        margin-right: 20px;
     }
     .departments ul li:last-child {
         margin-right: 0;
     }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 14px;
+        font-size: 18px;
         line-height: 1em;
+    }
+    .departments ul li p {
+        margin-bottom: 0.5em;
+    }
+    .overlay-nav-item-text p {
+        margin-bottom: 0;
     }
 }
 @media only screen and (min-width: 1024px) {
@@ -227,6 +242,13 @@ h4 {
 	.disclaimer p a{
 		font-size: 30px;
 	}
+    .departments ul li {
+        margin-right: 22px;
+    }
+    .departments ul li p,
+    .overlay-nav-item-text p {
+        font-size: 20px;
+    }
 }
 @media only screen and (min-width: 1280px) {
     .logo-text h1 {
@@ -246,11 +268,11 @@ h4 {
 		font-size: 30px;
 	}
     .departments ul li {
-        margin-right: 10px;
+        margin-right: 24px;
     }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 16px;
+        font-size: 22px;
     }
 	
 }
@@ -277,11 +299,11 @@ h4 {
 		font-size: 30px;
 	}
     .departments ul li {
-        margin-right: 11px;
+        margin-right: 26px;
     }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 16px;
+        font-size: 24px;
     }
 }
 @media only screen and (min-width: 1600px) {
@@ -299,11 +321,11 @@ h4 {
 		font-size: 30px;
 	}
     .departments ul li {
-        margin-right: 14px;
+        margin-right: 28px;
     }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 17px;
+        font-size: 26px;
     }
 
 }
@@ -322,11 +344,11 @@ h4 {
 		font-size: 30px;
 	}
     .departments ul li {
-        margin-right: 16px;
+        margin-right: 30px;
     }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 20px;
+        font-size: 28px;
     }
 
 }
@@ -345,10 +367,10 @@ h4 {
 		font-size: 30px;
 	}
     .departments ul li {
-        margin-right: 18px;
+        margin-right: 34px;
     }
     .departments ul li p,
     .overlay-nav-item-text p {
-        font-size: 23px;
+        font-size: 30px;
     }
 }
