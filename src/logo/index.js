@@ -117,17 +117,10 @@ module.exports = function logo () {
                 second = [bounds.right + 6,
                      (bounds.top + (bounds.height*(0.45)))];
             } else if (i === 3) {
-                if (wwidth < 768) {
-                    first = [bounds.left - 6,
-                         (bounds.top + (bounds.height*(0.55)))];
-                    second = [bounds.right + 6,
-                         (bounds.top + (bounds.height*(0.55)))];
-                } else {
-                    first = [bounds.right + 6,
-                         (bounds.top + (bounds.height*(0.55)))];
-                    second = [bounds.left - 6,
-                         (bounds.top + (bounds.height*(0.55)))];
-                }
+                first = [bounds.right + 6,
+                     (bounds.top + (bounds.height*(0.55)))];
+                second = [bounds.left - 6,
+                     (bounds.top + (bounds.height*(0.55)))];
                 
             }
 
