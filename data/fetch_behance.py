@@ -3,9 +3,6 @@ from behance_python.user import User
 from behance_python.exceptions import BehanceException
 
 
-public_key = "sGRp891umgwx4IT318rFcueQcjmr9bt3"
-behance = API(public_key)
-
 # User calls _get_user_details on __init__.
 # This makes a call to the API, that we don't
 # need to make, since we aren't using any of
@@ -14,6 +11,10 @@ behance = API(public_key)
 def noop(self):
     pass
 setattr(User, '_get_user_details', noop)
+
+
+public_key = "sGRp891umgwx4IT318rFcueQcjmr9bt3"
+behance = API(public_key)
 
 
 class FetchBehance():

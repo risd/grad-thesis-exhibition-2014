@@ -2,10 +2,25 @@ from datetime import datetime
 import logging
 import json
 from random import shuffle
+import os
 import sys
 
 from fetch_behance import FetchBehance
 from paginate import Paginate
+
+import boto
+from boto.s3.key import Key
+
+
+def env_var(key, default=None):
+    """Retrieves env vars and makes Python boolean replacements"""
+    val = os.environ.get(key, default)
+    if val == 'True':
+        val = True
+    elif val == 'False':
+        val = False
+    return val
+
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -18,6 +33,13 @@ formatter = logging.Formatter('%(asctime)s - ' +\
                               '%(message)s')
 ch.setFormatter(formatter)
 logger.addHandler(ch)
+
+
+AWS_KEY = env_var('AWS_KEY')
+AWS_SECRET_KEY = env_var('AWS_SECRET_KEY')
+
+s3 = boto.connect_s3(AWS_KEY, AWS_SECRET_KEY)
+bucket = s3.get_bucket('risdgradshow2014')
 
 if __name__ == '__main__':
     logger.info("Fetching data from Behance.")
@@ -32,16 +54,17 @@ if __name__ == '__main__':
     test_tag_to_filter = '*'
 
     # grab into data
-    bootstrap_file_path = './data/bootstrap.json'
     bootstrap_input = {
         'status': {
             'completed': True
         }
     }
     logger.info('Reading bootstrap file.')
+    k = Key(bucket)
+    bootstrap_file_path = 'data/bootstrap.json'
+    k.key = bootstrap_file_path
     try:
-        with open(bootstrap_file_path, 'r') as bootstrap_input_file:
-            bootstrap_input = json.loads(bootstrap_input_file.read())
+        bootstrap_input = json.loads(k.get_contents_as_string())
     except:
         logger.info('No bootstrap file, continuing.')
 
@@ -86,26 +109,23 @@ if __name__ == '__main__':
         timestamp = datetime.now().strftime('%Y%m%d%H%M')
 
         for page in paginated:
-            file_name =\
-                'data/projects_{0}'.format(timestamp) +\
-                '_{0}.json'.format(count)
+            k.key = 'data/projects_{0}'.format(timestamp) +\
+                    '_{0}.json'.format(count)
 
-            full_path = './{0}'.format(file_name)
+            logger.info('Writing data: {0}'.format(k.key))
+            k.set_contents_from_string(json.dumps(page))
 
-            logger.info('Writing data: {0}'.format(file_name))
-
-            with open(file_name, 'w') as projects:
-                projects.write(json.dumps(page))
-
-            metadata['pages'].append(file_name)
+            metadata['pages']\
+                .append(
+                    k.generate_url(
+                        expires_in=0, query_auth=False))
             count += 1
 
         # write out metadata for front end to find the
         # latest batch of files
-        metadata_path = './data/metadata.json'
-        logger.info('Writing metadata: {0}'.format(metadata_path))
-        with open(metadata_path, 'w') as metadata_file:
-            metadata_file.write(json.dumps(metadata))
+        logger.info('Writing metadata: {0}'.format(k.key))
+        k.key = 'data/metadata.json'
+        k.set_contents_from_string(json.dumps(metadata))
 
         bootstrap_trail = {}
         bootstrap_trail['status'] = fetch.status
@@ -122,5 +142,7 @@ if __name__ == '__main__':
     # write the bootstrap
     logger.info('Writing bootstrap trail: ' +\
                 '{0}'.format(bootstrap_file_path))
-    with open(bootstrap_file_path, 'w') as bootstrap_trail_file:
-        bootstrap_trail_file.write(json.dumps(bootstrap_trail))
+    k.key = bootstrap_file_path
+    k.set_contents_from_string(json.dumps(bootstrap_trail))
+
+    logger.info('Completed.')

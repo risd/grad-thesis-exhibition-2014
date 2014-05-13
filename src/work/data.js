@@ -3,9 +3,6 @@ module.exports = function Data () {
         requested = [],
         available;
 
-    var url = window.location.origin +
-              window.location.pathname;
-
     self.dispatch = d3.dispatch('data','endOfData');
 
     self.fetch_data = function () {
@@ -24,7 +21,7 @@ module.exports = function Data () {
     function process_request () {
         var next_to_load = choose_and_remove_from_available();
         if (next_to_load) {
-            d3.json(url + next_to_load, function (data) {
+            d3.json(next_to_load, function (data) {
                 self.dispatch.data(data);
             });
         } else {
