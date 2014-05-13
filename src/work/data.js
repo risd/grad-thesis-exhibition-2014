@@ -1,13 +1,14 @@
 module.exports = function Data () {
     var self = {},
         requested = [],
-        available;
+        available,
+        s3 = 'https://risdgradshow2014.s3.amazonaws.com/';
 
     self.dispatch = d3.dispatch('data','endOfData');
 
     self.fetch_data = function () {
         if (!available) {
-            d3.json(url + 'data/metadata.json', process_metadata);
+            d3.json(s3 + 'data/metadata.json', process_metadata);
         } else {
             process_request();
         }
