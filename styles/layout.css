@@ -330,10 +330,6 @@ html, body {
     .departments ul li {
         display: inline-block;
     }
-    .lightbox-description,
-    .lightbox .piece-module-text {
-        width: 50%;
-    }
     .lightbox-meta {
         position: fixed;
     }
@@ -378,6 +374,10 @@ html, body {
     }
     .col-10-10 {
         width: 1024px; /* 1024/10 * 10 = 408 */
+    }
+    .lightbox-description,
+    .lightbox .piece-module-text {
+        width: 50%;
     }
 }
 @media only screen and (min-width: 1280px) {
