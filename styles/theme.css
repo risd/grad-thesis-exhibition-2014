@@ -146,13 +146,6 @@ body {
     color: rgb(43, 89, 184);
 }
 
-.cross-svg line {
-    stroke-width: 1;
-}
-.cross-svg .blanket {
-    fill: none;
-}
-
 .in-work.body-orange .logo-svg path,
 .body-orange .cross-svg line {
     stroke: rgb(255, 61, 56);

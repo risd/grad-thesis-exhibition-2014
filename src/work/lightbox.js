@@ -31,7 +31,8 @@ module.exports = function lightbox () {
 
         var lightbox_controls_grid_sel = container_sel
             .append('div')
-            .attr('class', 'lightbox-controls-container fixed-full-width')
+            .attr('class', 'lightbox-controls-container '+
+                           'fixed-full-width')
             .append('div')
             .attr('class', 'grid');
 
@@ -54,18 +55,28 @@ module.exports = function lightbox () {
                       'offset-percent-2-10 '+
                       'col-percent-8-10');
 
-        lightbox_meta_sel
-            .style('width',
-                   (parseInt(lightbox_work_sel
+        if (window.innerWidth < 768) {
+            lightbox_meta_sel
+                .style('width', '100%');
+        } else {
+            lightbox_meta_sel
+                .style('width',
+                       (parseInt(lightbox_work_sel
                                 .style('margin-left')) - 20) + 'px');
+        }
 
         d3.select(window)
             .on('resize.lightbox', function () {
-                lightbox_meta_sel
-                    .style('width',
-                           (parseInt(lightbox_work_sel
+                if (window.innerWidth < 768) {
+                    lightbox_meta_sel
+                        .style('width', '100%');
+                } else {
+                    lightbox_meta_sel
+                        .style('width',
+                               (parseInt(lightbox_work_sel
                                         .style('margin-left')) - 20) +
-                           'px');
+                                        'px');
+                }
             });
 
         lightbox_work_sel

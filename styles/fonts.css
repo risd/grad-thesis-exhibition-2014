@@ -79,6 +79,21 @@ h4 {
 .overlay-nav-item-text p {
     font-family: "Theinhardt-Medium";
 }
+.cross-svg {
+    -webkit-transform: scale(0.7);
+    -moz-transform: scale(0.7);
+    -ms-transform: scale(0.7);
+    transform: scale(0.7);
+    
+    -webkit-transform-origin-x: 100%;
+    -webkit-transform-origin-y: 0;
+    -moz-transform-origin-x: 100%;
+    -moz-transform-origin-y: 0;
+    -ms-transform-origin-x: 100%;
+    -ms-transform-origin-y: 0;
+    transform-origin-x: 100%;
+    transform-origin-y: 0;
+}
 .departments ul li p,
 .overlay-nav-item-text p {
     font-size: 20px;
@@ -87,15 +102,20 @@ h4 {
 .overlay-nav-item-text p {
     margin: 0 0 0 0px;
 }
-/*.disclaimer p {
-    font-size: 21px;
+.cross-svg line {
+    stroke-width: 4;
+    stroke-linecap: square;
+    stroke-linejoin: miter;
 }
-.show-selected-work p {
-    font-size: 21px;
+.cross-svg {
+    opacity: 0.5;
 }
-.show-selected-work p a {
-    font-size: 21px;
-}*/
+.cross-svg:hover {
+    opacity: 1;
+}
+.cross-svg .blanket {
+    fill: none;
+}
 
 .show-selected-work p, 
 .show-selected-work p a,  
@@ -238,6 +258,15 @@ h4 {
     .overlay-nav-item-text p {
         margin-bottom: 0;
     }
+    .cross-svg {
+        -webkit-transform: scale(0.8);
+        -moz-transform: scale(0.8);
+        -ms-transform: scale(0.8);
+        transform: scale(0.8);
+    }
+    .cross-svg line {
+        stroke-width: 3;
+    }
 }
 @media only screen and (min-width: 1024px) {
     .logo-text h1 {
@@ -268,6 +297,15 @@ h4 {
     .overlay-nav-item-text p {
         font-size: 20px;
     }
+    .cross-svg {
+        -webkit-transform: scale(0.85);
+        -moz-transform: scale(0.85);
+        -ms-transform: scale(0.85);
+        transform: scale(0.85);
+    }
+    .cross-svg line {
+        stroke-width: 2;
+    }
 }
 @media only screen and (min-width: 1280px) {
     .logo-text h1 {
@@ -294,6 +332,12 @@ h4 {
     .departments ul li p,
     .overlay-nav-item-text p {
         font-size: 22px;
+    }
+    .cross-svg {
+        -webkit-transform: scale(0.9);
+        -moz-transform: scale(0.9);
+        -ms-transform: scale(0.9);
+        transform: scale(0.9);
     }
 	
 }
@@ -328,6 +372,12 @@ h4 {
     .overlay-nav-item-text p {
         font-size: 24px;
     }
+    .cross-svg {
+        -webkit-transform: scale(0.95);
+        -moz-transform: scale(0.95);
+        -ms-transform: scale(0.95);
+        transform: scale(0.95);
+    }
 }
 @media only screen and (min-width: 1600px) {
 	
@@ -351,6 +401,12 @@ h4 {
     .departments ul li p,
     .overlay-nav-item-text p {
         font-size: 26px;
+    }
+    .cross-svg {
+        -webkit-transform: scale(1.0);
+        -moz-transform: scale(1.0);
+        -ms-transform: scale(1.0);
+        transform: scale(1.0);
     }
 
 }
@@ -377,6 +433,12 @@ h4 {
     .overlay-nav-item-text p {
         font-size: 28px;
     }
+    .cross-svg {
+        -webkit-transform: scale(1.1);
+        -moz-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+    }
 
 }
 @media only screen and (min-width: 2100px) {
@@ -401,5 +463,11 @@ h4 {
     .departments ul li p,
     .overlay-nav-item-text p {
         font-size: 30px;
+    }
+    .cross-svg {
+        -webkit-transform: scale(1.2);
+        -moz-transform: scale(1.2);
+        -ms-transform: scale(1.2);
+        transform: scale(1.2);
     }
 }

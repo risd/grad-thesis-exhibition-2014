@@ -1,5 +1,5 @@
 module.exports = function svgCross (sel) {
-    var button_size = 45;
+    var button_size = 28;
 
     // add the closing x as svg
     var svg = sel.append('svg')
