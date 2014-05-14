@@ -58,6 +58,8 @@ module.exports = function logo () {
                                               window_width,
                                               window_height);
 
+        text_verticies.push(connect_2014_and_go(text_verticies));
+
         var merged_d = merge_lines(text_verticies,
                                    connecting_segments);
 
@@ -91,6 +93,8 @@ module.exports = function logo () {
                 logo_line_connecting_segments(text_verticies,
                                               wwidth,
                                               wheight);
+
+        text_verticies.push(connect_2014_and_go(text_verticies));
 
         var merged_d = merge_lines(text_verticies,
                                    connecting_segments);
@@ -221,6 +225,19 @@ module.exports = function logo () {
             .attr('offset', '100%')
             .attr('stop-color', 'white')
             .attr('stop-opacity', 1);
+    }
+
+    function connect_2014_and_go (text_verticies) {
+        // final strech is composed of the x,y pair
+        // that defines the end of the last line
+        // and the x,y pair made by combining the x
+        // of the first element, with the y of the last
+        var line_to_go = [text_verticies[3][1],
+                           // first pair, second coordinate, x
+                          [text_verticies[0][1][0],
+                           // last pair, second coordinate, y
+                           text_verticies[3][1][1]]];
+        return line_to_go;
     }
 
     return self;
