@@ -1,3 +1,5 @@
+var svg_cross = require('./svgCross');
+
 module.exports = function lightbox () {
     var self = {},
         container_sel,
@@ -19,9 +21,25 @@ module.exports = function lightbox () {
 
         var data = sel.datum();
 
+        var blanket = container_sel
+            .append('div')
+            .attr('class', 'fixed-fullscreen blanket');
+
         var lightbox_grid_sel = container_sel
             .append('div')
             .attr('class', 'grid');
+
+        var lightbox_controls_grid_sel = container_sel
+            .append('div')
+            .attr('class', 'lightbox-controls-container fixed-full-width')
+            .append('div')
+            .attr('class', 'grid');
+
+        var lightbox_controls =
+            lightbox_controls_grid_sel
+                .append('div')
+                .attr('class', 'lightbox-controls')
+                .call(svg_cross);
 
         var lightbox_meta_sel =
             lightbox_grid_sel
@@ -105,9 +123,16 @@ module.exports = function lightbox () {
         body_sel.classed('no-scroll', true);
         body_sel.classed('in-lightbox', true);
 
-        container_sel.on('click', function () {
-            close();
-        });
+        lightbox_controls.select('.cross-svg')
+            .on('click', function () {
+                close();
+            });
+
+        blanket
+            .on('click', function () {
+                console.log('blanket');
+                close();
+            });
     };
 
     function close () {

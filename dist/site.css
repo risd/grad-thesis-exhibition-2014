@@ -555,8 +555,15 @@ html, body {
 .logo-line,
 .logo-line svg,
 .logo-svg,
-.logo-svg path {
+.logo-svg path,
+.lightbox .fixed-full-width {
     pointer-events: none;
+}
+
+.lightbox .blanket,
+.cross-svg svg,
+.cross-svg .blanket {
+    pointer-events: all;
 }
 .piece-wrapper {
     width: 100%;
@@ -663,6 +670,16 @@ html, body {
 .lightbox-description,
 .lightbox .piece-module-text {
     width: 100%;
+}
+/*.lightbox-controls-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}*/
+.lightbox-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 @media only screen and (min-width: 500px) {
@@ -1139,7 +1156,8 @@ html, body {
 }
 .overlay-nav-item,
 .work-section .piece,
-.department-activator {
+.department-activator,
+.cross-svg {
     cursor: pointer;
 }
 
@@ -1399,20 +1417,31 @@ body {
     color: rgb(43, 89, 184);
 }
 
+.cross-svg line {
+    stroke-width: 1;
+}
+.cross-svg .blanket {
+    fill: none;
+}
 
-.in-work.body-orange .logo-svg path {
+.in-work.body-orange .logo-svg path,
+.body-orange .cross-svg line {
     stroke: rgb(255, 61, 56);
 }
-.in-work.body-purple .logo-svg path {
+.in-work.body-purple .logo-svg path,
+.body-purple .cross-svg line {
     stroke: rgb(38, 34, 98);
 }
-.in-work.body-lt-purple .logo-svg path {
+.in-work.body-lt-purple .logo-svg path,
+.body-lt-purple .cross-svg line {
     stroke: rgb(146, 53, 125);
 }
-.in-work.body-green .logo-svg path {
+.in-work.body-green .logo-svg path,
+.body-green .cross-svg line {
     stroke: rgb(144, 218, 73);
 }
-.in-work.body-blue .logo-svg path {
+.in-work.body-blue .logo-svg path,
+.body-blue .cross-svg line {
     stroke: rgb(43, 89, 184);
 }
 #flower path {

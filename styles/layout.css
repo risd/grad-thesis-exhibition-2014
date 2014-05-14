@@ -151,8 +151,15 @@ html, body {
 .logo-line,
 .logo-line svg,
 .logo-svg,
-.logo-svg path {
+.logo-svg path,
+.lightbox .fixed-full-width {
     pointer-events: none;
+}
+
+.lightbox .blanket,
+.cross-svg svg,
+.cross-svg .blanket {
+    pointer-events: all;
 }
 .piece-wrapper {
     width: 100%;
@@ -259,6 +266,16 @@ html, body {
 .lightbox-description,
 .lightbox .piece-module-text {
     width: 100%;
+}
+/*.lightbox-controls-container {
+    width: 100%;
+    position: fixed;
+    top: 0;
+}*/
+.lightbox-controls {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 @media only screen and (min-width: 500px) {

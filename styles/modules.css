@@ -281,7 +281,8 @@
 }
 .overlay-nav-item,
 .work-section .piece,
-.department-activator {
+.department-activator,
+.cross-svg {
     cursor: pointer;
 }
 
