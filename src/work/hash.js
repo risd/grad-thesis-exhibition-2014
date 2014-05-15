@@ -17,7 +17,11 @@ module.exports = function hashFactory () {
         return hash;
     };
 
-    self.index_hash = index_hash;
+    self.index = function (_) {
+        if (!arguments.length) return index_hash;
+        index_hash = _;
+        return self;
+    };
 
     function parse_hash (hash) {
         if (hash.indexOf('#') === 0) {
