@@ -7,7 +7,7 @@ var scrollto = require('./scrollto')({ duration: 1000 });
 var fixed = require('./fixed')();
 var layout_image = require('./layout_image')();
 var layout_fixed = require('./layout_fixed')();
-var hash = require('./hash')();
+var hash;
 
 module.exports = function work () {
     var self = {},
@@ -68,6 +68,12 @@ module.exports = function work () {
     self.container = function (_) {
         if (!arguments.length) return container_sel;
         container_sel = _;
+        return self;
+    };
+
+    self.hash = function (_) {
+        if (!arguments.length) return hash;
+        hash = _;
         return self;
     };
 

@@ -1,6 +1,7 @@
-var Nav = require('./overlay/nav'),
-    Logo = require('./logo/index'),
-    Work = require('./work/index');
+var Nav  = require('./overlay/nav');
+var Logo = require('./logo/index');
+var Work = require('./work/index');
+var Hash = require('./hash');
 
 var work_args = {
     live: true,
@@ -31,9 +32,10 @@ function site () {
 
     var colors = Object.keys(color_values);
 
-    var nav = Nav();
+    var nav  = Nav();
     var logo = Logo();
     var work = Work();
+    var hash = Hash();
 
     self.colors = function () {
         var random_index = Math.floor(Math.random() * colors.length);
@@ -106,6 +108,7 @@ function site () {
                 .layout(args.layout)
                 .lightboxContainer(d3.select('.lightbox'))
                 .intro(d3.select('.intro-quote'))
+                .hash(hash)
                 .initialize();
         } else {
             d3.select('.work-section').remove();

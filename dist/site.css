@@ -866,7 +866,7 @@ html, body {
     }
     .lightbox-description,
     .lightbox .piece-module-text {
-        width: 50%;
+        width: 75%;
     }
 }
 @media only screen and (min-width: 1280px) {
@@ -904,6 +904,10 @@ html, body {
     .col-10-10 {
         width: 1280px; /* 1280/10 * 10 = 1280 */
     }
+    .lightbox-description,
+    .lightbox .piece-module-text {
+        width: 60%;
+    }
 }
 @media only screen and (min-width: 1440px) {
     .grid {
@@ -940,6 +944,10 @@ html, body {
     }
     .col-10-10 {
         width: 1440px; /* 1440/10 * 10 = 1440 */
+    }
+    .lightbox-description,
+    .lightbox .piece-module-text {
+        width: 50%;
     }
 }/* Modules
 -----------------------------------------------*/
