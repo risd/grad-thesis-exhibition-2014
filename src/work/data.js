@@ -4,9 +4,13 @@ module.exports = function Data () {
         available,
         s3 = 'https://risdgradshow2014.s3.amazonaws.com/';
 
-    self.dispatch = d3.dispatch('data','endOfData');
+    self.dispatch = d3.dispatch('data','endOfData', 'piece');
 
-    self.fetch_data = function () {
+    self.fetch_piece = function (id) {
+        d3.json(s3 + 'projects/' + id + '.json', process_piece);
+    };
+
+    self.fetch_paginated_data = function () {
         if (!available) {
             d3.json(s3 + 'data/metadata.json', process_metadata);
         } else {
@@ -28,6 +32,10 @@ module.exports = function Data () {
         } else {
             self.dispatch.endOfData();
         }
+    }
+
+    function process_piece (piece) {
+        self.dispatch.piece(piece);
     }
 
     function choose_and_remove_from_available () {

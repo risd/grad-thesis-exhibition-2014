@@ -7,6 +7,7 @@ var scrollto = require('./scrollto')({ duration: 1000 });
 var fixed = require('./fixed')();
 var layout_image = require('./layout_image')();
 var layout_fixed = require('./layout_fixed')();
+var hash = require('./hash')();
 
 module.exports = function work () {
     var self = {},
@@ -105,7 +106,7 @@ module.exports = function work () {
             bottom.dispatch
                 .on('bottom.work', function () {
                     bottom.dirty(true);
-                    behance.fetch_data();
+                    behance.fetch_paginated_data();
                 });
         }
 
@@ -113,6 +114,21 @@ module.exports = function work () {
     };
 
     self.initialize = function (_) {
+        var hash_args = hash();
+        if (hash_args) {
+            behance.dispatch
+                .on('piece', function (d) {
+                    lightbox.show(transform([d])[0]);
+                    behance.dispatch.on('piece', null);
+                });
+            behance.fetch_piece(hash_args.id);
+        }
+
+        lightbox.dispatch
+            .on('closed', function () {
+                hash({});
+            });
+
         set_intro_height();
 
         if (!container_sel) throw "Work requires a container";
@@ -123,7 +139,7 @@ module.exports = function work () {
         if (infinite_scroll_bool) bottom.attachWindowEvents();
 
         // will be the thing to call render
-        behance.fetch_data();
+        behance.fetch_paginated_data();
 
         // filtering
         departments.dispatch
@@ -218,7 +234,8 @@ module.exports = function work () {
             .style('opacity', 1);
 
         work_sel.on('click.work', function (d, i) {
-            d3.select(this).call(lightbox.show);
+            hash(d);
+            lightbox.show(d);
         });
 
         if (!iso) {
@@ -276,7 +293,8 @@ module.exports = function work () {
             .style('opacity', 1);
 
         work_sel.on('click.work', function (d, i) {
-            d3.select(this).call(lightbox.show);
+            hash(d);
+            lightbox.show(d);
         });
 
         if (!iso) {

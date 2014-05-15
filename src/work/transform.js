@@ -74,7 +74,8 @@ function format_data_cover_with_modules (data) {
             'cover': random_cover,
             description: d.details.description,
             url: d.owners[0].url,
-            personal_link: d.personal_link
+            personal_link: d.personal_link,
+            id: d.id
         });
     });
 

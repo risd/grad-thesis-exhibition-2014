@@ -3,8 +3,9 @@ var svg_cross = require('./svgCross');
 module.exports = function lightbox () {
     var self = {},
         container_sel,
-        selected_sel,
         body_sel = d3.select('body');
+
+    self.dispatch = d3.dispatch('closed');
 
     self.container = function (_) {
         if (!arguments.length) return container_sel;
@@ -12,15 +13,11 @@ module.exports = function lightbox () {
         return self;
     };
 
-    self.show = function (sel) {
-        console.log('clicked');
-        console.log(sel);
+    self.show = function (data) {
         if (!container_sel) throw "Lightbox. Requires container.";
 
-        selected_sel = sel;
-
-        var data = sel.datum();
-
+        console.log(data);
+        
         var blanket = container_sel
             .append('div')
             .attr('class', 'fixed-fullscreen blanket');
@@ -158,6 +155,8 @@ module.exports = function lightbox () {
         
         d3.select(window)
             .on('resize.lightbox', null);
+
+        self.dispatch.closed();
     }
 
     function add_modules (d, i) {
