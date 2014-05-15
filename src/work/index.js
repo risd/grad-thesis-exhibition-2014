@@ -120,6 +120,8 @@ module.exports = function work (context) {
                     lightbox.show(transform([d])[0]);
                     behance.dispatch.on('piece', null);
                 });
+            console.log('fetching');
+            console.log(hash_args.id);
             behance.fetch_piece(hash_args.id);
         }
 

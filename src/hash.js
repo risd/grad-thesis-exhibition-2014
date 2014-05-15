@@ -12,12 +12,10 @@ module.exports = function hashFactory () {
         // setter
         var hash = index_hash;
         var keys = Object.keys(d);
-        console.log('keys');
-        console.log(keys);
-        if (keys.indexOf('id') > -1) {
+        if ('id' in d) {
             // { id: 1, student_name: '', project_name: ''}
             hash = format_lightbox_hash(d);
-        } else if (keys.indexOf('overlay') > -1) {
+        } else if ('overlay' in d) {
             // { overlay: 'Go!' }
             if (overlays.indexOf(d.overlay) > -1) {
                 hash = format_overlay_hash(d);

@@ -28,6 +28,7 @@ module.exports = function nav (context) {
                 overlaid = overlaid ? false : true;
                 activate_deactivate(d);
                 self.dispatch.asteriskClick(overlaid);
+                update_hash();
             });
 
         var hash_args = context.hash();
@@ -57,23 +58,21 @@ module.exports = function nav (context) {
     };
 
     function activate_deactivate (d) {
-        console.log('activate_deactivate');
-        // set classes
         var overlay = d3.selectAll(d.activate);
         overlay.classed('overlaid', overlaid);
         body_sel.classed('no-scroll', overlaid);
         body_sel.classed(d.body, overlaid);
 
-        // update hash
+        // update button location
+        place_button();
+    }
+
+    function update_hash () {
         var set_hash_to = {};
         if (overlaid) {
             set_hash_to = { 'overlay': 'Go!' };
         }
-
         context.hash(set_hash_to);
-
-        // update button location
-        place_button();
     }
 
     function place_button () {
