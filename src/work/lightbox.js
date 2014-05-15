@@ -172,7 +172,7 @@ module.exports = function lightbox () {
                 .attr('class', 'piece-module-text')
                 .text(d.text_plain);
         }
-        if (d.type === 'embed') {
+        if ((d.type === 'embed') | (d.type === 'video')) {
             sel.append('div')
                 .attr('class', 'piece-module-embed')
                 .html(d.embed);

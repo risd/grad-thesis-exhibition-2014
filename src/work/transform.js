@@ -33,7 +33,8 @@ function format_data_cover_with_modules (data) {
             // covered in lightbox.js
             if ((md.type === 'image') |
                 (md.type === 'text') |
-                (md.type === 'embed')) {
+                (md.type === 'embed') |
+                (md.type === 'video')) {
 
                 modules_to_include.push(md);
             }
