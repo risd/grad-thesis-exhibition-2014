@@ -1,4 +1,4 @@
-module.exports = function nav () {
+module.exports = function nav (context) {
     var self = {},
         target_sel,
         overlaid = false,
@@ -25,14 +25,18 @@ module.exports = function nav () {
         if (!target_sel) throw "requires elements to pair";
         target_sel
             .on('click.nav', function (d, di) {
-                target_sel
-                    .select('#flower');
                 overlaid = overlaid ? false : true;
                 activate_deactivate(d);
                 self.dispatch.asteriskClick(overlaid);
             });
 
-        place_button();
+        var hash_args = context.hash();
+        if ((hash_args) && (hash_args.type === 'overlay')) {
+            if (hash_args.overlay === 'Go!') {
+                overlaid = true;
+            }
+        }
+        activate_deactivate(target_sel.datum());
 
         return self;
     };
@@ -53,10 +57,22 @@ module.exports = function nav () {
     };
 
     function activate_deactivate (d) {
+        console.log('activate_deactivate');
+        // set classes
         var overlay = d3.selectAll(d.activate);
         overlay.classed('overlaid', overlaid);
         body_sel.classed('no-scroll', overlaid);
         body_sel.classed(d.body, overlaid);
+
+        // update hash
+        var set_hash_to = {};
+        if (overlaid) {
+            set_hash_to = { 'overlay': 'Go!' };
+        }
+
+        context.hash(set_hash_to);
+
+        // update button location
         place_button();
     }
 

@@ -1,8 +1,7 @@
 module.exports = function hashFactory () {
-    var index_hash = '#!';
-    var page_hash = {
-        go: 'Go!'
-    };
+    var index_indicator = '!';
+    var index_hash = '#' + index_indicator;
+    var overlays = ['Go!'];
 
     var self = function (d) {
         // getter
@@ -12,13 +11,17 @@ module.exports = function hashFactory () {
 
         // setter
         var hash = index_hash;
-        if ('id' in d) {
+        var keys = Object.keys(d);
+        console.log('keys');
+        console.log(keys);
+        if (keys.indexOf('id') > -1) {
             // { id: 1, student_name: '', project_name: ''}
             hash = format_lightbox_hash(d);
-        }
-        if ('page' in d) {
-            // { page: 'go' }
-            hash = format_overlay_hash(d);
+        } else if (keys.indexOf('overlay') > -1) {
+            // { overlay: 'Go!' }
+            if (overlays.indexOf(d.overlay) > -1) {
+                hash = format_overlay_hash(d);
+            }
         }
         window.location.replace(hash);
 
@@ -37,11 +40,23 @@ module.exports = function hashFactory () {
         }
         var args = hash.split('/');
         if (args.length === 3) {
+            // its a project
             return {
                 id: args[0],
                 student_name: args[0],
-                project_name: args[2]
+                project_name: args[2],
+                type: 'project'
             };
+        } else if (args.length === 1) {
+            if (args[0] === index_indicator) {
+                return false;
+            } else {
+                // its an overlay
+                return {
+                    overlay: args[0],
+                    type: 'overlay'
+                };
+            }
         } else {
             return false;
         }
@@ -54,7 +69,7 @@ module.exports = function hashFactory () {
     }
 
     function format_overlay_hash (d) {
-        return '#' + page_hash[d.page];
+        return '#' + d.overlay;
     }
 
     function escape_for_url (string) {

@@ -7,9 +7,8 @@ var scrollto = require('./scrollto')({ duration: 1000 });
 var fixed = require('./fixed')();
 var layout_image = require('./layout_image')();
 var layout_fixed = require('./layout_fixed')();
-var hash;
 
-module.exports = function work () {
+module.exports = function work (context) {
     var self = {},
         container_sel,
         infinite_scroll_bool = false,
@@ -71,12 +70,6 @@ module.exports = function work () {
         return self;
     };
 
-    self.hash = function (_) {
-        if (!arguments.length) return hash;
-        hash = _;
-        return self;
-    };
-
     self.filters = function (_) {
         if (!arguments.length) return department_container_sel;
         department_container_sel = _;
@@ -120,8 +113,8 @@ module.exports = function work () {
     };
 
     self.initialize = function (_) {
-        var hash_args = hash();
-        if (hash_args) {
+        var hash_args = context.hash();
+        if ((hash_args) && (hash_args.type === 'project')) {
             behance.dispatch
                 .on('piece', function (d) {
                     lightbox.show(transform([d])[0]);
@@ -132,7 +125,7 @@ module.exports = function work () {
 
         lightbox.dispatch
             .on('closed', function () {
-                hash({});
+                context.hash({});
             });
 
         set_intro_height();
@@ -240,7 +233,7 @@ module.exports = function work () {
             .style('opacity', 1);
 
         work_sel.on('click.work', function (d, i) {
-            hash(d);
+            context.hash(d);
             lightbox.show(d);
         });
 
@@ -299,7 +292,7 @@ module.exports = function work () {
             .style('opacity', 1);
 
         work_sel.on('click.work', function (d, i) {
-            hash(d);
+            context.hash(d);
             lightbox.show(d);
         });
 

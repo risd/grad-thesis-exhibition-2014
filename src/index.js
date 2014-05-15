@@ -32,10 +32,12 @@ function site () {
 
     var colors = Object.keys(color_values);
 
-    var nav  = Nav();
+    var context = {
+        hash: Hash()
+    };
+    var nav  = Nav(context);
     var logo = Logo();
-    var work = Work();
-    var hash = Hash();
+    var work = Work(context);
 
     self.colors = function () {
         var random_index = Math.floor(Math.random() * colors.length);
@@ -61,10 +63,6 @@ function site () {
         var pairs = d3.selectAll('.overlay-nav-item')
             .datum(function () { return this.dataset; });
 
-        nav.selection(pairs)
-            .setup()
-            .attachResize();
-
         // setup click tracking with google analytics
         nav.dispatch
             .on('asteriskClick', function (overlaid_boolean) {
@@ -88,6 +86,10 @@ function site () {
                 }
             });
 
+        nav.selection(pairs)
+            .setup()
+            .attachResize();
+
         return self;
     };
 
@@ -108,7 +110,6 @@ function site () {
                 .layout(args.layout)
                 .lightboxContainer(d3.select('.lightbox'))
                 .intro(d3.select('.intro-quote'))
-                .hash(hash)
                 .initialize();
         } else {
             d3.select('.work-section').remove();
