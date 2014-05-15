@@ -225,7 +225,7 @@ module.exports = function () {
     }
 
     function escape_department(d) {
-        return d.toLowerCase().replace(' ', '-');
+        return d.toLowerCase().replace(/ /g, '-');
     }
 
 
