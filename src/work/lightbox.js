@@ -21,7 +21,6 @@ module.exports = function lightbox (context) {
             })
             .on('open.lightbox', function (d) {
                 // message set by router, via hash change
-                console.log('open lightbox');
                 var data;
                 if (window.localStorage) {
                     data = window.localStorage.getItem(d.id);
@@ -36,8 +35,6 @@ module.exports = function lightbox (context) {
 
     self.show = function (data) {
         if (!container_sel) throw "Lightbox. Requires container.";
-
-        console.log(data);
         
         var blanket = container_sel
             .append('div')
@@ -160,7 +157,6 @@ module.exports = function lightbox (context) {
 
         blanket
             .on('click', function () {
-                console.log('blanket');
                 close();
                 self.dispatch.clickClosed();
             });

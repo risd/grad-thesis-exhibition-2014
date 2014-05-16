@@ -9,7 +9,8 @@ module.exports = function fixed () {
         original_pad_on_fixed_padding_top = '1px',
         padded_pad_on_fixed_padding_top,
         not_fixed_distance = 0,
-        fixed_class = 'fixed';
+        fixed_class = 'fixed',
+        did_scroll = false;
 
     self.dispatch = d3.dispatch('activatorVisible');
 
@@ -40,16 +41,27 @@ module.exports = function fixed () {
 
         d3.select(window)
             .on('scroll.fixed', function () {
-                configure_fixed();
+                did_scroll_true();
             })
             .on('touchmove.fixed', function () {
-                configure_fixed();
+                did_scroll_true();
             })
             .on('resize.fixed', function () {
                 calc_contraints();
                 configure_fixed();
             });
+
+        setInterval(function () {
+            if (did_scroll) {
+                did_scroll = false;
+                configure_fixed();
+            }
+        }, 100);
     };
+
+    function did_scroll_true () {
+        did_scroll = true;
+    }
 
     function configure_fixed () {
         var fixed_y = 0;

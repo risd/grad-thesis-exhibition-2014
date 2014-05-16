@@ -2,7 +2,8 @@ module.exports = function bottom () {
     var self = {},
         dirty = false,
         body_sel = d3.select('body'),
-        body_height;
+        body_height,
+        did_scroll = false;
 
     self.dispatch = d3.dispatch('bottom');
 
@@ -14,8 +15,15 @@ module.exports = function bottom () {
 
     self.attachWindowEvents = function () {
         d3.select(window)
-            .on('scroll.bottom', check_dispatch)
-            .on('touchmove.bottom', check_dispatch);
+            .on('scroll.bottom', did_scroll_true)
+            .on('touchmove.bottom', did_scroll_true);
+
+        setInterval(function () {
+            if (did_scroll) {
+                did_scroll = false;
+                check_dispatch();
+            }
+        }, 100);
     };
 
     self.container = function (_) {
@@ -24,6 +32,10 @@ module.exports = function bottom () {
         container_node = container_sel.node();
         return self;
     };
+
+    function did_scroll_true () {
+        did_scroll = true;
+    }
 
     function check_dispatch () {
         if (!container_node) throw "Requires container.";
