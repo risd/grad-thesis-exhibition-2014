@@ -1,7 +1,9 @@
-var Nav  = require('./overlay/nav');
-var Logo = require('./logo/index');
-var Work = require('./work/index');
-var Hash = require('./hash');
+var Nav      = require('./overlay/nav');
+var Logo     = require('./logo/index');
+var Work     = require('./work/index');
+var Lightbox = require('./work/lightbox');
+var Hash     = require('./hash');
+var Router   = require('./router');
 
 var work_args = {
     live: true,
@@ -14,6 +16,7 @@ site()
     .overlay()
     .logo()
     .work(work_args)
+    .router()
     .reveal();
 
 
@@ -32,12 +35,17 @@ function site () {
 
     var colors = Object.keys(color_values);
 
-    var context = {
-        hash: Hash()
-    };
-    var nav  = Nav(context);
-    var logo = Logo();
-    var work = Work(context);
+    var context = {};
+    context.hash     = Hash(context);
+    // references hash
+    context.nav      = Nav(context);
+    context.logo     = Logo(context);
+    // references hash
+    context.lightbox = Lightbox(context);
+    // references hash
+    context.work     = Work(context);
+    // references lightbox & nav
+    context.router   = Router(context);
 
     self.colors = function () {
         var random_index = Math.floor(Math.random() * colors.length);
@@ -64,7 +72,7 @@ function site () {
             .datum(function () { return this.dataset; });
 
         // setup click tracking with google analytics
-        nav.dispatch
+        context.nav.dispatch
             .on('asteriskClick', function (overlaid_boolean) {
                 if (!_gaq) return;
                 if (overlaid_boolean) {
@@ -86,7 +94,7 @@ function site () {
                 }
             });
 
-        nav.selection(pairs)
+        context.nav.selection(pairs)
             .setup()
             .attachResize();
 
@@ -94,7 +102,7 @@ function site () {
     };
 
     self.logo = function () {
-        logo.container(d3.select('.logo-line'))
+        context.logo.container(d3.select('.logo-line'))
             .attachResize()
             .render();
 
@@ -104,17 +112,25 @@ function site () {
     self.work = function (args) {
         if (args.live) {
             // set up
-            work.container(d3.select('.work-container'))
+            context.lightbox
+                   .container(d3.select('.lightbox'))
+                   .initialize();
+
+            context.work.container(d3.select('.work-container'))
                 .filters(d3.select('.department-container'))
                 .infiniteScroll(true)
                 .layout(args.layout)
-                .lightboxContainer(d3.select('.lightbox'))
                 .intro(d3.select('.intro-quote'))
                 .initialize();
         } else {
             d3.select('.work-section').remove();
             d3.select('.lightbox').remove();
         }
+        return self;
+    };
+
+    self.router = function () {
+        context.router.initialize();
         return self;
     };
 

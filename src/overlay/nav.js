@@ -7,7 +7,17 @@ module.exports = function nav (context) {
             text: 'Go!'
         }];
 
-    self.dispatch = d3.dispatch('asteriskClick');
+    self.dispatch = d3.dispatch('asteriskClick', 'close', 'open');
+
+    self.dispatch.on('close.nav', function () {
+        overlaid = false;
+        activate_deactivate(target_sel.datum());
+    });
+
+    self.dispatch.on('open.nav', function () {
+        overlaid = true;
+        activate_deactivate(target_sel.datum());
+    });
 
     self.selection = function (_) {
         if (!arguments.length) return target_sel;
@@ -31,7 +41,7 @@ module.exports = function nav (context) {
                 update_hash();
             });
 
-        var hash_args = context.hash();
+        var hash_args = context.hash.is();
         if ((hash_args) && (hash_args.type === 'overlay')) {
             if (hash_args.overlay === 'Go!') {
                 overlaid = true;
@@ -72,7 +82,7 @@ module.exports = function nav (context) {
         if (overlaid) {
             set_hash_to = { 'overlay': 'Go!' };
         }
-        context.hash(set_hash_to);
+        context.hash.is(set_hash_to);
     }
 
     function place_button () {

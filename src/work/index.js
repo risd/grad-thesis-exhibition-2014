@@ -2,7 +2,6 @@ var bottom = require('./bottom')();
 var behance = require('./data')();
 var departments = require('../departments')();
 var transform = require('./transform')();
-var lightbox = require('./lightbox')();
 var scrollto = require('./scrollto')({ duration: 1000 });
 var fixed = require('./fixed')();
 var layout_image = require('./layout_image')();
@@ -37,6 +36,13 @@ module.exports = function work (context) {
 
             if (!requested) throw 'Work. Got no data.';
             var transformed = transform(requested.objects);
+
+            if (window.localStorage) {
+                transformed.forEach(function (d, i) {
+                    window.localStorage
+                          .setItem(d.id, JSON.stringify(d));
+                });
+            }
 
             data = data.concat(transformed);
             render();
@@ -88,12 +94,6 @@ module.exports = function work (context) {
         return self;
     };
 
-    self.lightboxContainer = function (_) {
-        if (!arguments.length) return lightbox.container();
-        lightbox.container(_);
-        return self;
-    };
-
     self.infiniteScroll = function (_) {
         if (!arguments.length) return infinite_scroll_bool;
         infinite_scroll_bool = _;
@@ -113,22 +113,24 @@ module.exports = function work (context) {
     };
 
     self.initialize = function (_) {
-        var hash_args = context.hash();
+        var hash_args = context.hash.is();
         if ((hash_args) && (hash_args.type === 'project')) {
             behance.dispatch
                 .on('piece', function (d) {
-                    lightbox.show(transform([d])[0]);
+                    var transformed = transform([d])[0];
+                    if (window.localStorage) {
+                        window.localStorage
+                              .setItem(transformed.id,
+                                       JSON.stringify(transformed));
+                    }
+                    context.hash.is(transformed);
+                    // lightbox.show(transformed);
                     behance.dispatch.on('piece', null);
                 });
             console.log('fetching');
             console.log(hash_args.id);
             behance.fetch_piece(hash_args.id);
         }
-
-        lightbox.dispatch
-            .on('closed', function () {
-                context.hash({});
-            });
 
         set_intro_height();
 
@@ -235,8 +237,8 @@ module.exports = function work (context) {
             .style('opacity', 1);
 
         work_sel.on('click.work', function (d, i) {
-            context.hash(d);
-            lightbox.show(d);
+            context.hash.is(d);
+            // lightbox.show(d);
         });
 
         if (!iso) {
@@ -294,8 +296,8 @@ module.exports = function work (context) {
             .style('opacity', 1);
 
         work_sel.on('click.work', function (d, i) {
-            context.hash(d);
-            lightbox.show(d);
+            context.hash.is(d);
+            // lightbox.show(d);
         });
 
         if (!iso) {

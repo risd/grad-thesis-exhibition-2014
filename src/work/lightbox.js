@@ -1,15 +1,36 @@
 var svg_cross = require('./svgCross');
 
-module.exports = function lightbox () {
+module.exports = function lightbox (context) {
     var self = {},
         container_sel,
         body_sel = d3.select('body');
 
-    self.dispatch = d3.dispatch('closed');
+    self.dispatch = d3.dispatch('clickClosed', 'close', 'open');
 
     self.container = function (_) {
         if (!arguments.length) return container_sel;
         container_sel = _;
+        return self;
+    };
+
+    self.initialize = function () {
+        self.dispatch
+            .on('close.lightbox', function () {
+                // message set by router, via hash change
+                close();
+            })
+            .on('open.lightbox', function (d) {
+                // message set by router, via hash change
+                console.log('open lightbox');
+                var data;
+                if (window.localStorage) {
+                    data = window.localStorage.getItem(d.id);
+                    self.show(JSON.parse(data));
+                }
+            })
+            .on('clickClosed.lightbox', function () {
+                context.hash.is({});
+            });
         return self;
     };
 
@@ -134,12 +155,14 @@ module.exports = function lightbox () {
         lightbox_controls.select('.cross-svg')
             .on('click', function () {
                 close();
+                self.dispatch.clickClosed();
             });
 
         blanket
             .on('click', function () {
                 console.log('blanket');
                 close();
+                self.dispatch.clickClosed();
             });
     };
 
@@ -155,8 +178,6 @@ module.exports = function lightbox () {
         
         d3.select(window)
             .on('resize.lightbox', null);
-
-        self.dispatch.closed();
     }
 
     function add_modules (d, i) {

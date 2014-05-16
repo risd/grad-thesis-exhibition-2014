@@ -1,9 +1,18 @@
-module.exports = function hashFactory () {
+module.exports = function hashFactory (context) {
+    var self = {};
     var index_indicator = '!';
     var index_hash = '#' + index_indicator;
     var overlays = ['Go!'];
 
-    var self = function (d) {
+    self.dispatch = d3.dispatch('change');
+
+    d3.select(window)
+        .on('hashchange', function () {
+            var current = self.is();
+            self.dispatch.change(current);
+        });
+
+    self.is = function (d) {
         // getter
         if (!arguments.length) {
             return parse_hash(window.location.hash);
@@ -15,13 +24,15 @@ module.exports = function hashFactory () {
         if ('id' in d) {
             // { id: 1, student_name: '', project_name: ''}
             hash = format_lightbox_hash(d);
+            d.type = 'project';
         } else if ('overlay' in d) {
             // { overlay: 'Go!' }
             if (overlays.indexOf(d.overlay) > -1) {
                 hash = format_overlay_hash(d);
+                d.type = 'overlay';
             }
         }
-        window.location.replace(hash);
+        window.location = hash;
 
         return hash;
     };
@@ -46,8 +57,11 @@ module.exports = function hashFactory () {
                 type: 'project'
             };
         } else if (args.length === 1) {
-            if (args[0] === index_indicator) {
-                return false;
+            if ((args[0] === index_indicator) |
+                (args[0] === '')) {
+                return {
+                    type: 'index'
+                };
             } else {
                 // its an overlay
                 return {
@@ -56,7 +70,9 @@ module.exports = function hashFactory () {
                 };
             }
         } else {
-            return false;
+            return {
+                type: 'index'
+            };
         }
     }
 
