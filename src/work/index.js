@@ -148,8 +148,6 @@ module.exports = function work (context) {
         departments.dispatch
             .on('click.work', function (department) {
 
-            scrollto(fixed.top() + 10);
-
             if (department === 'all') department = '';
 
             if (iso) {
@@ -159,6 +157,8 @@ module.exports = function work (context) {
                             .classed(department);
                     }
                 });
+                set_work_height();
+                scrollto(fixed.top() + 10);
             }
         });
 
@@ -434,6 +434,24 @@ module.exports = function work (context) {
         if (height < window.innerHeight) {
             var difference = window.innerHeight - height;
             intro_sel.style('padding-bottom', difference + 'px');
+        }
+    }
+
+    function set_work_height () {
+        var base_margin = 100;
+        var height =
+            work_container_sel
+                .node()
+                .getBoundingClientRect().height +
+            parseInt(work_container_sel.style('margin-top'), 10) +
+            parseInt(work_container_sel.style('margin-bottom'), 10);
+        if (height < window.innerHeight) {
+            var difference = window.innerHeight - height;
+            work_container_sel
+                .style('margin-bottom', difference + 10 + 'px');
+        } else {
+            work_container_sel.style('margin-bottom',
+                                      base_margin + 'px');
         }
     }
 
