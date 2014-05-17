@@ -2,7 +2,7 @@ var bottom = require('./bottom')();
 var behance = require('./data')();
 var departments = require('../departments')();
 var transform = require('./transform')();
-var scrollto = require('./scrollto')({ duration: 1000 });
+var smooth_scroll = require('./scrollto')({ duration: 1000 });
 var fixed = require('./fixed')();
 var layout_image = require('./layout_image')();
 var layout_fixed = require('./layout_fixed')();
@@ -14,6 +14,7 @@ module.exports = function work (context) {
         data = [],
         work_container_sel,
         department_container_sel,
+        department_wrapper_sel,
         work_sel,
         iso,
         layout = 'image',
@@ -158,7 +159,7 @@ module.exports = function work (context) {
                     }
                 });
                 set_work_height();
-                scrollto(fixed.top() + 10);
+                smooth_scroll.to(fixed.top() + 10);
             }
         });
 
@@ -383,7 +384,7 @@ module.exports = function work (context) {
     }
 
     function add_structure (sel)  {
-        var dept_container_sel = department_container_sel
+        department_wrapper_sel = department_container_sel
             .append('article')
             .attr('class', 'departments grid z-15');
 
@@ -392,7 +393,7 @@ module.exports = function work (context) {
                            'work-layout-' + layout);
 
         departments
-            .container(dept_container_sel)
+            .container(department_wrapper_sel)
             .mobile(d3.select('.nav-mobile'))
             .render();
 
@@ -438,16 +439,19 @@ module.exports = function work (context) {
 
     function set_work_height () {
         var base_margin = 100;
-        var current_margin = {
-            top: parseInt(work_container_sel.style('margin-top'), 10)
-        };
-        var height =
-            work_container_sel
+
+        var work_height = work_container_sel
                 .node()
-                .getBoundingClientRect().height +
-            current_margin.top;
-        if (height < window.innerHeight) {
-            var difference = window.innerHeight - height;
+                .getBoundingClientRect().height;
+
+        var dept_height =
+            parseInt(department_wrapper_sel.style('height'), 10) +
+            parseInt(department_wrapper_sel.style('margin-top'), 10);
+
+        var to_clear_height = work_height + dept_height;
+
+        if (to_clear_height < window.innerHeight) {
+            var difference = window.innerHeight - to_clear_height;
             work_container_sel
                 .style('margin-bottom', difference + 'px');
         } else {

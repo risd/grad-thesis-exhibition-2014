@@ -25,6 +25,8 @@ module.exports = function bottom () {
         return self;
     };
 
+    self.check = check_dispatch;
+
     function check_dispatch () {
         if (!container_node) throw "Requires container.";
         if (dirty) return;
@@ -35,6 +37,7 @@ module.exports = function bottom () {
 
             dirty = true;
             self.dispatch.bottom();
+            console.log('bottom');
         }
     }
 

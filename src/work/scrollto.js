@@ -1,6 +1,9 @@
 module.exports = function scrollto (args) {
     var options = args || {};
     options.duration = args.duration || 2000;
+    var self = {};
+
+    self.dispatch = d3.dispatch('scrollEnd');
 
     function scroll_tween (offset) {
         return function () {
@@ -14,9 +17,14 @@ module.exports = function scrollto (args) {
         };
     }
 
-    return function (offset) {
+    self.to = function (offset) {
         d3.transition()
             .duration(options.duration)
-            .tween('scroll', scroll_tween(offset));
+            .tween('scroll', scroll_tween(offset))
+            .each('end', function () {
+                self.dispatch.scrollEnd();
+            });
     };
+
+    return self;
 };
