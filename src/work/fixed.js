@@ -5,9 +5,6 @@ module.exports = function fixed () {
     var self = {},
         not_fixed_sel,
         fixed_sel,
-        pad_on_fixed_sel,
-        original_pad_on_fixed_padding_top = '1px',
-        padded_pad_on_fixed_padding_top,
         not_fixed_distance = 0,
         fixed_class = 'fixed';
 
@@ -22,12 +19,6 @@ module.exports = function fixed () {
     self.fixed = function (_) {
         if (!arguments.length) return fixed_sel;
         fixed_sel = _;
-        return self;
-    };
-
-    self.padOnFixed = function (_) {
-        if (!arguments.length) return pad_on_fixed_sel;
-        pad_on_fixed_sel = _;
         return self;
     };
 
@@ -64,12 +55,6 @@ module.exports = function fixed () {
             .activatorVisible(fixed);
 
         fixed_sel.classed(fixed_class, fixed);
-
-        pad_on_fixed_sel
-            .style('padding-top',
-                    fixed ?
-                    padded_pad_on_fixed_padding_top :
-                    original_pad_on_fixed_padding_top);
     }
 
     function calc_contraints () {
@@ -86,12 +71,6 @@ module.exports = function fixed () {
         not_fixed_distance = not_fixed_margin +
                              not_fixed_height;
 
-        var fixed_bbox_height = fixed_sel
-                .node()
-                .getBoundingClientRect()
-                .height;
-
-        padded_pad_on_fixed_padding_top = fixed_bbox_height + 'px';
     }
 
     return self;

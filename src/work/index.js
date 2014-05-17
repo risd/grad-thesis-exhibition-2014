@@ -398,8 +398,7 @@ module.exports = function work (context) {
 
         fixed
             .notFixed(intro_sel)
-            .fixed(department_container_sel)
-            .padOnFixed(sel);
+            .fixed(department_container_sel);
     }
 
     function add_meta (sel) {
@@ -439,16 +438,18 @@ module.exports = function work (context) {
 
     function set_work_height () {
         var base_margin = 100;
+        var current_margin = {
+            top: parseInt(work_container_sel.style('margin-top'), 10)
+        };
         var height =
             work_container_sel
                 .node()
                 .getBoundingClientRect().height +
-            parseInt(work_container_sel.style('margin-top'), 10) +
-            parseInt(work_container_sel.style('margin-bottom'), 10);
+            current_margin.top;
         if (height < window.innerHeight) {
             var difference = window.innerHeight - height;
             work_container_sel
-                .style('margin-bottom', difference + 10 + 'px');
+                .style('margin-bottom', difference + 'px');
         } else {
             work_container_sel.style('margin-bottom',
                                       base_margin + 'px');
