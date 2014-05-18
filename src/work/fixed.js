@@ -6,7 +6,10 @@ module.exports = function fixed () {
         not_fixed_sel,
         fixed_sel,
         not_fixed_distance = 0,
-        fixed_class = 'fixed';
+        fixed_class = 'fixed',
+        margin_to_prevent_overlap = 0,
+        to_prevent_overlap_sel,
+        extra_distance_beyond_prevented_overlap = 40;
 
     self.dispatch = d3.dispatch('activatorVisible');
 
@@ -19,6 +22,12 @@ module.exports = function fixed () {
     self.fixed = function (_) {
         if (!arguments.length) return fixed_sel;
         fixed_sel = _;
+        return self;
+    };
+
+    self.preventOverlap = function (_) {
+        if (!arguments.length) return to_prevent_overlap_sel;
+        to_prevent_overlap_sel = _;
         return self;
     };
 
@@ -55,6 +64,15 @@ module.exports = function fixed () {
             .activatorVisible(fixed);
 
         fixed_sel.classed(fixed_class, fixed);
+
+        if ((window.innerWidth > 768) && (fixed)) {
+            to_prevent_overlap_sel
+                .style('margin-top', margin_to_prevent_overlap + 'px');
+        } else {
+            to_prevent_overlap_sel
+                .style('margin-top',
+                       extra_distance_beyond_prevented_overlap + 'px');
+        }
     }
 
     function calc_contraints () {
@@ -73,6 +91,11 @@ module.exports = function fixed () {
 
         not_fixed_distance = not_fixed_margin +
                              not_fixed_height;
+
+        margin_to_prevent_overlap =
+            parseInt(fixed_sel.style('height'), 10) +
+            parseInt(fixed_sel.style('margin-top'), 10) +
+            extra_distance_beyond_prevented_overlap;
 
     }
 

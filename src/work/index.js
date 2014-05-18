@@ -399,7 +399,8 @@ module.exports = function work (context) {
 
         fixed
             .notFixed(intro_sel)
-            .fixed(department_container_sel);
+            .fixed(department_container_sel)
+            .preventOverlap(work_container_sel);
     }
 
     function add_meta (sel) {

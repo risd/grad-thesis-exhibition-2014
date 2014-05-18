@@ -37,7 +37,6 @@ module.exports = function bottom () {
 
             dirty = true;
             self.dispatch.bottom();
-            console.log('bottom');
         }
     }
 
