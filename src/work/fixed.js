@@ -59,9 +59,12 @@ module.exports = function fixed () {
 
     function calc_contraints () {
         var not_fixed_margin =
-                +not_fixed_sel
-                    .style('margin-top')
-                    .split('p')[0];
+                parseInt(
+                    not_fixed_sel
+                        .style('margin-top'), 10) +
+                parseInt(
+                    not_fixed_sel
+                        .style('margin-bottom'), 10);
         var not_fixed_height =
                 not_fixed_sel
                     .node()

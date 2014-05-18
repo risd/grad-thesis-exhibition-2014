@@ -295,6 +295,9 @@ html, body {
     .grid.work {
         width: 75%;
     }
+    .grid.departments {
+        margin-top: 24px;
+    }
     .col-1-10 {
         width: 76px; /* 768/10 * 1 = 76  */
     }
@@ -360,7 +363,6 @@ html, body {
 @media only screen and (min-width: 1024px) {
     .grid {
         width: 65%;
-        margin-top: 70px;
     }
     .grid.work {
         width: 75%;
@@ -404,6 +406,9 @@ html, body {
     .grid.work {
         width: 75%;
     }
+    .grid.departments {
+        margin-top: 24px;
+    }
     .offset-1-10 {
         margin-left: 128px; /* 1280/10 * 1 = 384 */
     }
@@ -444,6 +449,9 @@ html, body {
     }
     .grid.work {
         width: 75%;
+    }
+    .grid.departments {
+        margin-top: 24px;
     }
     .offset-1-10 {
         margin-left: 144px; /* 1440/10 * 1 = 144 */
