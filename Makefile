@@ -7,7 +7,6 @@ build:
 
 install:
 	npm install
-	pip install -r requirements.txt
 
 clean:
 	rm -f dist/*
