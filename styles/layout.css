@@ -63,9 +63,11 @@ html, body {
     position: relative;
 
     width: 100%;
-
     margin: 0;
     padding: 0;
+}
+body {
+    height: 100%;
 }
 .rotating-background-image,
 .overlay-background-image-screen {
@@ -214,7 +216,7 @@ html, body {
     display: block;
 
     position: fixed;
-    top: 100%;
+    top: 200%;
     left: 0;
     bottom: auto;
     width: 100%;
@@ -260,8 +262,10 @@ html, body {
 .lightbox .piece {
     margin-bottom: 20px;
 }
-.lightbox .piece img {
+.lightbox .piece img,
+.lightbox .piece iframe {
     width: 100%;
+    height: auto;
 }
 .lightbox-description,
 .lightbox .piece-module-text {

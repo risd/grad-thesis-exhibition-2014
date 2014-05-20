@@ -31,7 +31,8 @@ function site () {
         use_images_as_overlay_background = true,
         background_image_rotation_method = 'block',
         background_image_rotation_methods = ['fade', 'block'],
-        body = d3.select('body');
+        body = d3.select('body'),
+        root_html = d3.select('html');
 
     var colors = Object.keys(color_values);
 
@@ -61,8 +62,8 @@ function site () {
                                 Math.random() *
                                 alt_colors.length)];
 
-        body.classed('body-' + color, true);
-        body.classed('body-alt-' + alt_color, true);
+        root_html.classed('body-' + color, true);
+        root_html.classed('body-alt-' + alt_color, true);
 
         return self;
     };

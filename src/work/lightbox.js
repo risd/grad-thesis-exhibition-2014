@@ -3,7 +3,8 @@ var svg_cross = require('./svgCross');
 module.exports = function lightbox (context) {
     var self = {},
         container_sel,
-        body_sel = d3.select('body');
+        body_sel = d3.select('body'),
+        html_sel = d3.select('html');
 
     self.dispatch = d3.dispatch('clickClosed', 'close', 'open');
 
@@ -147,7 +148,7 @@ module.exports = function lightbox (context) {
 
         container_sel.classed('active', true);
         body_sel.classed('no-scroll', true);
-        body_sel.classed('in-lightbox', true);
+        html_sel.classed('in-lightbox', true);
 
         lightbox_controls.select('.cross-svg')
             .on('click', function () {
@@ -168,7 +169,7 @@ module.exports = function lightbox (context) {
             .html('');
 
         body_sel.classed('no-scroll', false);
-        body_sel.classed('in-lightbox', false);
+        html_sel.classed('in-lightbox', false);
 
         container_sel.on('click', null);
         

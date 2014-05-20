@@ -28,7 +28,7 @@ module.exports = function work (context) {
             }
         },
         intro_sel,
-        body_sel = d3.select('body');
+        html_sel = d3.select('html');
 
     behance.dispatch
         .on('data', function (requested) {
@@ -59,7 +59,7 @@ module.exports = function work (context) {
     fixed.dispatch
         .on('activatorVisible', function (d) {
             departments.activatorVisible(d);
-            body_sel.classed('in-work', d);
+            html_sel.classed('in-work', d);
         });
 
     self.container = function (_) {

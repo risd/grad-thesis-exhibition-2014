@@ -10,7 +10,9 @@ module.exports = function logo () {
         logo_line_merged_sel,
         straight_line = d3.svg.line(),
         connect_logo_scale = connectLogoScale(),
-        delay_past_reveal_sel;
+        delay_past_reveal_sel,
+        prev_window_height = 0
+        cur_window_height = 0;
 
     var utility = Utility();
 
@@ -30,6 +32,9 @@ module.exports = function logo () {
         window_sel
             .on('resize.logo', function () {
                 recalulate_logo_line();
+            })
+            .on('touchmove.logo', function () {
+                check_window_height();
             });
             
         return self;
@@ -72,6 +77,14 @@ module.exports = function logo () {
 
         logo_line_merged_sel.call(tween_in);
     };
+
+    function check_window_height () {
+        var cur_window_height = window.innerHeight;
+        if (cur_window_height !== prev_window_height) {
+            recalulate_logo_line();
+            prev_window_height = cur_window_height;
+        }
+    }
 
     function recalulate_logo_line () {
         var window_width = window.innerWidth,

@@ -10,7 +10,7 @@ blue      rgb(43, 89, 184)
 */
 
 /* default colors overwritten by js */
-body {
+html, body {
     color: white;
 
     -webkit-transition: background-color 0.5s ease-in, color 0.5s ease-in;
@@ -99,26 +99,31 @@ body {
     opacity: 0.1;
 }
 .in-work.body-orange,
+.in-work.body-orange body,
 .body-orange .lightbox {
     background-color: white;
     color: rgb(255, 61, 56);
 }
 .in-work.body-purple,
+.in-work.body-purple body,
 .body-purple .lightbox {
     background-color: white;
     color: rgb(38, 34, 98);
 }
 .in-work.body-lt-purple,
+.in-work.body-lt-purple body,
 .body-lt-purple .lightbox {
     background-color: white;
     color: rgb(146, 53, 125);
 }
 .in-work.body-green,
+.in-work.body-green body,
 .body-green .lightbox {
     background-color: white;
     color: rgb(144, 218, 73);
 }
 .in-work.body-blue,
+.in-work.body-blue body,
 .body-blue .lightbox {
     background-color: white;
     color: rgb(43, 89, 184);
@@ -126,23 +131,28 @@ body {
 
 
 .body-orange .lightbox a,
-.body-orange.in-lightbox {
+.body-orange.in-lightbox,
+.body-orange.in-lightbox body, {
     color: rgb(255, 61, 56);
 }
 .body-purple .lightbox a,
-.body-purple.in-lightbox {
+.body-purple.in-lightbox,
+.body-purple.in-lightbox body {
     color: rgb(38, 34, 98);
 }
 .body-lt-purple .lightbox a,
-.body-lt-purple.in-lightbox {
+.body-lt-purple.in-lightbox,
+.body-lt-purple.in-lightbox body {
     color: rgb(146, 53, 125);
 }
 .body-green .lightbox a,
-.body-green.in-lightbox {
+.body-green.in-lightbox,
+.body-green.in-lightbox body {
     color: rgb(144, 218, 73);
 }
 .body-blue .lightbox a,
-.body-blue.in-lightbox {
+.body-blue.in-lightbox,
+.body-blue.in-lightbox body {
     color: rgb(43, 89, 184);
 }
 
