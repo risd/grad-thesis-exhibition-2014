@@ -49,7 +49,7 @@ module.exports = function work (context) {
             behance.fetch_paginated_data();
         })
         .on('endOfData', function () {
-            
+            work_container_sel.classed('work-loaded', true);
         })
         .on('metadata', function (meta) {
             // update the filterable list

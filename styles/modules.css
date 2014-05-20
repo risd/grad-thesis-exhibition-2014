@@ -1,5 +1,16 @@
 /* Modules
 -----------------------------------------------*/
+.work.grid:after {
+    position: absolute;
+    bottom: -40px;
+    content: "Loading...";
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.work-loaded.work.grid:after {
+    display: none;
+}
 .logo-text-component {
     position: absolute;
     opacity: 1;

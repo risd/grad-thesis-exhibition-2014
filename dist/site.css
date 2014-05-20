@@ -134,6 +134,7 @@ h4 {
     line-height: 1em;
     margin: 0;
 }
+.grid.work:after,
 .piece-meta-wrapper .student-name,
 .piece-meta-wrapper .risd-program,
 .lightbox-description,
@@ -143,6 +144,7 @@ h4 {
 .lightbox .piece-module-text {
     font-family: "Times New Roman";
 }
+.grid.work:after,
 .piece-meta-wrapper .student-name,
 .piece-meta-wrapper .risd-program,
 .lightbox-title,
@@ -959,6 +961,17 @@ html, body {
     }
 }/* Modules
 -----------------------------------------------*/
+.work.grid:after {
+    position: absolute;
+    bottom: -40px;
+    content: "Loading...";
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+.work-loaded.work.grid:after {
+    display: none;
+}
 .logo-text-component {
     position: absolute;
     opacity: 1;
