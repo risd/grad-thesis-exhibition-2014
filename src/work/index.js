@@ -1,4 +1,3 @@
-var bottom = require('./bottom')();
 var behance = require('./data')();
 var departments = require('../departments')();
 var transform = require('./transform')();
@@ -33,7 +32,6 @@ module.exports = function work (context) {
 
     behance.dispatch
         .on('data', function (requested) {
-            bottom.dirty(false);
 
             if (!requested) throw 'Work. Got no data.';
             var transformed = transform(requested.objects);
@@ -48,21 +46,14 @@ module.exports = function work (context) {
             data = data.concat(transformed);
             render();
 
-            // update the filterable list
-            departments.isFilterable(transformed);
-
-            // google analytics tracking
-            if (_gaq) {
-                _gaq.push(['_trackEvent',
-                           'WorkBottom',
-                           'Reached bottom - Loading more data',
-                           'Work',
-                           2,
-                           true]);
-            }
+            behance.fetch_paginated_data();
         })
         .on('endOfData', function () {
-            bottom.dispatch.on('bottom.work', null);
+            
+        })
+        .on('metadata', function (meta) {
+            // update the filterable list
+            departments.isFilterable(meta.included_departments);
         });
 
     fixed.dispatch
@@ -100,14 +91,7 @@ module.exports = function work (context) {
         infinite_scroll_bool = _;
 
         if (infinite_scroll_bool === true) {
-            bottom
-                .container(container_sel);
-
-            bottom.dispatch
-                .on('bottom.work', function () {
-                    bottom.dirty(true);
-                    behance.fetch_paginated_data();
-                });
+            // setup infinite scroll
         }
 
         return self;
@@ -128,8 +112,6 @@ module.exports = function work (context) {
                     // lightbox.show(transformed);
                     behance.dispatch.on('piece', null);
                 });
-            console.log('fetching');
-            console.log(hash_args.id);
             behance.fetch_piece(hash_args.id);
         }
 
@@ -139,8 +121,6 @@ module.exports = function work (context) {
         container_sel.call(add_structure);
         layout_fixed.container(work_container_sel);
         layout_image.container(work_container_sel);
-
-        if (infinite_scroll_bool) bottom.attachWindowEvents();
 
         // will be the thing to call render
         behance.fetch_paginated_data();
@@ -445,11 +425,19 @@ module.exports = function work (context) {
                 .node()
                 .getBoundingClientRect().height;
 
-        var dept_height =
-            parseInt(department_wrapper_sel.style('height'), 10) +
-            parseInt(department_wrapper_sel.style('margin-top'), 10);
+        var to_clear_height;
 
-        var to_clear_height = work_height + dept_height;
+        if (window.innerWidth > 768) {
+            var dept_height =
+                parseInt(department_wrapper_sel.style('height'), 10) +
+                parseInt(department_wrapper_sel.style('margin-top'), 10);
+
+            to_clear_height = work_height + dept_height;
+
+        } else {
+            to_clear_height = work_height;
+        }
+
 
         if (to_clear_height < window.innerHeight) {
             var difference = window.innerHeight - to_clear_height;

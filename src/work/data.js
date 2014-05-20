@@ -4,7 +4,7 @@ module.exports = function Data () {
         available,
         s3 = 'https://risdgradshow2014.s3.amazonaws.com/';
 
-    self.dispatch = d3.dispatch('data','endOfData', 'piece');
+    self.dispatch = d3.dispatch('data','endOfData', 'piece', 'metadata');
 
     self.fetch_piece = function (id) {
         d3.json(s3 + 'projects/' + id + '.json', process_piece);
@@ -20,6 +20,7 @@ module.exports = function Data () {
 
     function process_metadata (raw_meta) {
         available = raw_meta.pages;
+        self.dispatch.metadata(raw_meta);
         process_request();
     }
 

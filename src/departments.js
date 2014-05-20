@@ -211,13 +211,13 @@ module.exports = function () {
         data.forEach(function (d, i) {
             department_sel
                 .each(function (dd, di) {
-                    if (d.risd_program === dd.name) {
+                    if (d === dd.name) {
                         dd.filterable = true;
                     }
                 });
             mobile_department_sel
                 .each(function (dd, di) {
-                    if (d.risd_program === dd.name) {
+                    if (d === dd.name) {
                         dd.filterable = true;
                     }
                 });
