@@ -118,7 +118,6 @@ function site () {
 
             context.work.container(d3.select('.work-container'))
                 .filters(d3.select('.department-container'))
-                .infiniteScroll(true)
                 .layout(args.layout)
                 .intro(d3.select('.intro-quote'))
                 .initialize();
