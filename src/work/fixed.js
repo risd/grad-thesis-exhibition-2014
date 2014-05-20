@@ -32,7 +32,17 @@ module.exports = function fixed () {
     };
 
     self.top = function () {
-        return not_fixed_distance;
+        // used to determine the position to scroll to
+        // and the point at which to dispatch activatorVisible
+        var top = not_fixed_distance;
+        if (window.innerWidth < 768) {
+            // iOS does not respect the margin of the element
+            // the way desktops do. so we can build it into
+            // our check to dispatch the change of section,
+            // and our scrolling position.
+            top -= extra_distance_beyond_prevented_overlap;
+        }
+        return top;
     };
 
     self.initialize = function () {
@@ -53,9 +63,10 @@ module.exports = function fixed () {
 
     function configure_fixed () {
         var fixed_y = 0;
+        var top = self.top();
 
-        if ((not_fixed_distance - pageYOffset) < 0) {
-            fixed_y = pageYOffset - not_fixed_distance;
+        if ((top - pageYOffset) < 0) {
+            fixed_y = pageYOffset - top;
         }
 
         var fixed = (fixed_y === 0) ? false : true;
